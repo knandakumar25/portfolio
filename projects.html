@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Karthik Nandakumar - Projects</title>
+
+    <!-- Bootstrap 5.3.6 CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+
+    <style>
+        /* Ensure the whole page is silver except for the header and contact section */
+        body {
+            background-color: #C0C0C0;
+            /* Silver background */
+            color: #000000;
+            /* Ensures text remains readable */
+            padding-top: 70px;
+            /* Adjust to match fixed navbar height */
+        }
+
+        /* Contact section remains black */
+        .contact-section {
+            background-color: #000000;
+            color: #ffffff;
+            padding: 20px;
+            border-radius: 1rem;
+        }
+
+        /* Fix the navbar to the top and allow dynamic color change */
+        .navbar {
+            position: fixed;
+            /* Sticks to top */
+            top: 0;
+            width: 100%;
+            z-index: 1030;
+            /* Ensures it stays above content */
+            background-color: #C0C0C0;
+            /* Default silver */
+            transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        /* Add subtle shadow when navbar turns white */
+        .navbar.scrolled {
+            background-color: #ffffff !important;
+            /* Changes to white when scrolling */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            /* Adds a slight shadow */
+        }
+
+        /* Styling for tab content */
+        .tab-content {
+            padding: 2rem;
+            background: #ffffff;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header will be inserted here -->
+    <div id="site-header"></div>
+
+    <!-- Projects Section with Tabs -->
+    <div class="container mt-5">
+        <ul class="nav nav-tabs justify-content-center" id="projectsTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <a class="nav-link active" id="software-tab" data-bs-toggle="tab" href="#software" role="tab"
+                    aria-controls="software" aria-selected="true" tabindex="0">Software
+                    Projects</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="game-tab" data-bs-toggle="tab" href="#game" role="tab" aria-controls="game"
+                    aria-selected="false" tabindex="-1">Game Projects</a>
+            </li>
+        </ul>
+
+        <div class="tab-content mt-3">
+            <div class="tab-pane fade show active" id="software" role="tabpanel">
+                <h3 class="text-center">Software Projects</h3>
+                <p class="text-center">Project details will be added later.</p>
+            </div>
+            <div class="tab-pane fade" id="game" role="tabpanel">
+                <h3 class="text-center">Game Projects</h3>
+                <p class="text-center">Project details will be added later.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section will be inserted here -->
+    <div id="contact-section" class="mt-5"></div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+    <!-- Load header.html -->
+    <script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('site-header').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading header:', error));
+    </script>
+
+    <!-- Load contact.html -->
+    <script>
+        fetch('contact.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('contact-section').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading contact section:', error));
+    </script>
+
+    <!-- Header scroll color change -->
+    <script>
+        window.addEventListener("scroll", function () {
+            let navbar = document.querySelector(".navbar");
+            if (window.scrollY > 50) {
+                navbar.classList.add("bg-white");
+                navbar.classList.remove("bg-secondary");
+            } else {
+                navbar.classList.add("bg-secondary");
+                navbar.classList.remove("bg-white");
+            }
+        });
+    </script>
+</body>
+
+</html>
