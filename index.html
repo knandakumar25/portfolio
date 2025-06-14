@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Karthik Nandakumar - Portfolio</title>
+    <!-- Bootstrap 5.3.6 CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- Header will be inserted here -->
+    <div id="site-header"></div>
+
+    <div class="container mt-5 pt-5">
+        <h1 class="text-center">KARTHIK NANDAKUMAR</h1>
+        <h4 class="text-center">Senior at North Carolina State University - College of Engineering</h4>
+        <h4 class="text-center">Project Intern at SunTec Business Solutions</h4>
+        <p>Computer Science senior at North Carolina State University with hands-on experience in full-stack web development, machine learning, and game design. Proficient in Java, Python, and C, with strong problem-solving, teamwork, and software lifecycle knowledge. Active participant in developer communities and passionate about creating engaging and efficient user-focused applications.</p>
+    </div>
+
+    <!-- Bootstrap 5.3.6 JS Bundle (with Popper) -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript to load header.html -->
+    <script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('site-header').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading header:', error));
+    </script>
+</body>
+
+</html>
