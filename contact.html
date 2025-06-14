@@ -1,15 +1,19 @@
 <!-- Include this CSS in your <head> or an external stylesheet -->
 <style>
-
     .contact-section {
         background-color: #000000;
         /* Black background */
         color: #ffffff;
-        /* White text for contrast */
         padding: 20px;
-        /* Adds spacing around the section */
-        border-radius: 1rem;
-        /* Softens edges */
+        border-radius: 0;
+        /* Removes rounded edges */
+        width: 100vw;
+        /* Makes it stretch full width */
+    }
+
+    .container {
+        max-width: 100%;
+        /* Ensures the content takes the full width */
     }
 
     .contact-card {
@@ -69,7 +73,7 @@
 </style>
 
 <!-- Contact Section HTML -->
-<div class="container mt-5 contact-section">
+<div class="contact-section">
     <!-- Row 1 -->
     <div class="row justify-content-center mt-5 g-4">
         <div class="col-md-3">
