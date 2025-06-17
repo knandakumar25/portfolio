@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiences</title>
+
+    <!-- Bootstrap 5.3.6 CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        body {
+            background-color: #C0C0C0;
+            color: #000000;
+            padding-top: 70px;
+        }
+
+        .contact-section {
+            background-color: #000000;
+            color: #ffffff;
+            padding: 20px;
+            border-radius: 1rem;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1030;
+            background-color: #C0C0C0;
+            transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .navbar.scrolled {
+            background-color: #ffffff !important;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .tab-content {
+            padding: 2rem;
+            background: #ffffff;
+            border-radius: 10px;
+        }
+
+        .nav-tabs .nav-link {
+            font-weight: 600;
+            color: #000000;
+            background-color: #e0e0e0;
+            border-color: #ccc;
+            border-radius: 0.5rem 0.5rem 0 0;
+        }
+
+        .nav-tabs .nav-link.active {
+            background-color: #ffffff;
+            border-bottom-color: transparent;
+        }
+
+        .experience-card {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 1rem;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .company-logo {
+            max-width: 200px;
+            /* Adjust size */
+            height: auto;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header will be inserted here -->
+    <div id="site-header"></div>
+
+    <!-- Experiences Section with Tabs -->
+    <div class="container mt-5">
+        <ul class="nav nav-tabs nav-justified" id="experiencesTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="work-tab" data-bs-toggle="tab" data-bs-target="#work" type="button"
+                    role="tab" aria-controls="work" aria-selected="true">Work</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="education-tab" data-bs-toggle="tab" data-bs-target="#education"
+                    type="button" role="tab" aria-controls="education" aria-selected="false">Education</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="volunteering-tab" data-bs-toggle="tab" data-bs-target="#volunteering"
+                    type="button" role="tab" aria-controls="volunteering" aria-selected="false">Volunteering</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="organizations-tab" data-bs-toggle="tab" data-bs-target="#organizations"
+                    type="button" role="tab" aria-controls="organizations" aria-selected="false">Organizations</button>
+            </li>
+        </ul>
+
+        <div class="tab-content mt-3">
+            <!-- Work Experience -->
+            <div class="tab-pane fade show active" id="work" role="tabpanel">
+                <h3 class="text-center">Work Experience</h3>
+
+                <div class="card mt-4 shadow-sm">
+                    <div class="card-body d-flex justify-content-between align-items-start">
+                        <div>
+                            <h4 class="card-title">SunTec Business Solutions</h4>
+                            <h5 class="text-muted">Project Intern</h5>
+                            <h6 class="text-muted mb-2">Type: Internship | May 2025 - Present</h6>
+
+                            <ul>
+                                <li>Created code to generate PDFs of corporate banking invoices using lowagie.</li>
+                            </ul>
+
+                            <p><strong>Skills: </strong>Visual Design · Unix · Oracle Database · Data Structures ·
+                                Graphical
+                                User Interface (GUI) · Linux · Interpersonal Skills · Javadoc · CSMS · REST APIs ·
+                                Eclipse ·
+                                Putty · Git · DBeaver · PostgreSQL · Java · MySQL · FileZilla · Spring Boot · Software
+                                Development · JDOM · GitHub · Documentation · Workbench · iText · JUnit · SQL ·
+                                Microsoft
+                                Visual Studio Code · Maven</p>
+                        </div>
+
+                        <!-- Company Logo -->
+                        <img src="https://financialit.net/sites/default/files/sun_tec.png" alt="SunTec Logo"
+                            class="company-logo">
+                    </div>
+                </div>
+
+                <div class="card mt-4 shadow-sm">
+                    <div class="card-body d-flex justify-content-between align-items-start">
+                        <div>
+                            <h4 class="card-title">Bucks County Board of Elections</h4>
+                            <h5 class="text-muted">Assistant Clerk</h5>
+                            <h6 class="text-muted mb-2">Type: Part-Time | October 2021 - June 2022</h6>
+
+                            <ul>
+                                <li>Checked-in people as they came in to vote.</li>
+                            </ul>
+
+                            <p><strong>Skills: </strong>Interpersonal Skills · Voting Systems</p>
+                        </div>
+
+                        <!-- Company Logo -->
+                        <img src="https://www.buckscounty.gov/ImageRepository/Document?documentID=4138"
+                            alt="Bucks County Board of Elections Logo" class="company-logo">
+                    </div>
+                </div>
+
+                <div class="card mt-4 shadow-sm">
+                    <div class="card-body d-flex justify-content-between align-items-start">
+                        <div>
+                            <h4 class="card-title">Kumon Education Center</h4>
+                            <h5 class="text-muted">Learning Center Assistant</h5>
+                            <h6 class="text-muted mb-2">Type: Part-time | June 2021 - April 2022</h6>
+
+                            <ul>
+                                <li>Checked children in as they came in and handed new work.</li>
+                                <li>Taught Math and Reading for kids in elementary and middle schools for 6 hours per
+                                    week.</li>
+                                <li>Led the younger children out to their parents when they were finished and discussed
+                                    with parents if needed.</li>
+                            </ul>
+
+                            <p><strong>Skills: </strong>Academic Support Services · Interpersonal Skills · One-on-one
+                                Instruction</p>
+                        </div>
+
+                        <!-- Company Logo -->
+                        <img src="https://www.kumon.com/assets/images/kumon_logo.png" alt="Kumon Logo"
+                            class="company-logo">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Placeholder for Education, Volunteering, and Organizations -->
+            <div class="tab-pane fade" id="education" role="tabpanel">
+                <h3 class="text-center">Education</h3>
+            </div>
+            <div class="tab-pane fade" id="volunteering" role="tabpanel">
+                <h3 class="text-center">Volunteering</h3>
+            </div>
+            <div class="tab-pane fade" id="organizations" role="tabpanel">
+                <h3 class="text-center">Organizations</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div id="contact-section" class="mt-5"></div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+    <!-- Load header.html -->
+    <script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('site-header').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading header:', error));
+    </script>
+
+    <!-- Load contact.html -->
+    <script>
+        fetch('contact.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('contact-section').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading contact section:', error));
+    </script>
+
+    <script>
+        window.addEventListener("scroll", function () {
+            let navbar = document.querySelector(".navbar");
+
+            if (window.scrollY > 50) {
+                navbar.classList.add("bg-white");
+                navbar.classList.remove("bg-secondary");
+            } else {
+                navbar.classList.add("bg-secondary");
+                navbar.classList.remove("bg-white");
+            }
+        });
+    </script>
+</body>
+
+</html>
