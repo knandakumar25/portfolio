@@ -64,6 +64,11 @@
             border-radius: 1rem;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         }
+
+        .nav-tabs {
+            overflow-x: auto;
+            flex-wrap: nowrap;
+        }
     </style>
 </head>
 
@@ -77,19 +82,27 @@
         <ul class="nav nav-tabs nav-justified" id="experiencesTab" role="tablist">
             <li class="nav-item" role="presentation">
                 <button class="nav-link active" id="work-tab" data-bs-toggle="tab" data-bs-target="#work" type="button"
-                    role="tab" aria-controls="work" aria-selected="true">Work</button>
+                    role="tab" aria-controls="work" aria-selected="true">
+                    <i class="bi bi-briefcase-fill me-1"></i> Work
+                </button>
             </li>
             <li class="nav-item" role="presentation">
                 <button class="nav-link" id="education-tab" data-bs-toggle="tab" data-bs-target="#education"
-                    type="button" role="tab" aria-controls="education" aria-selected="false">Education</button>
+                    type="button" role="tab" aria-controls="education" aria-selected="false">
+                    <i class="bi bi-mortarboard-fill me-1"></i> Education
+                </button>
             </li>
             <li class="nav-item" role="presentation">
                 <button class="nav-link" id="volunteering-tab" data-bs-toggle="tab" data-bs-target="#volunteering"
-                    type="button" role="tab" aria-controls="volunteering" aria-selected="false">Volunteering</button>
+                    type="button" role="tab" aria-controls="volunteering" aria-selected="false">
+                    <i class="bi bi-people-fill me-1"></i> Volunteering
+                </button>
             </li>
             <li class="nav-item" role="presentation">
                 <button class="nav-link" id="organizations-tab" data-bs-toggle="tab" data-bs-target="#organizations"
-                    type="button" role="tab" aria-controls="organizations" aria-selected="false">Organizations</button>
+                    type="button" role="tab" aria-controls="organizations" aria-selected="false">
+                    <i class="bi bi-diagram-3-fill me-1"></i> Organizations
+                </button>
             </li>
         </ul>
 
