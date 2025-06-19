@@ -1,6 +1,6 @@
 title: "Karthik Nandakumar"
 baseurl: "" # keep empty if deployed at root
-permalink: pretty
+permalink: /:title/
 
 # Clean URL mapping for each page
 defaults:
