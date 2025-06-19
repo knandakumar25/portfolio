@@ -45,7 +45,7 @@
             border-radius: 10px;
         }
 
-        .nav-tabs .nav-link {
+        .nav-tabs .nav-link:not(.work-tab):not(.education-tab):not(.volunteering-tab):not(.organizations-tab) {
             font-weight: 600;
             color: #000000;
             background-color: #e0e0e0;
@@ -69,6 +69,62 @@
             overflow-x: auto;
             flex-wrap: nowrap;
         }
+
+        .work-tab {
+            background-color: #d1ecf1;
+            /* Light Blue */
+            color: #0c5460;
+        }
+
+        .work-tab.active {
+            background-color: #0c5460;
+            color: #ffffff;
+        }
+
+        .education-tab {
+            background-color: #e2e3e5;
+            /* Soft Gray */
+            color: #383d41;
+        }
+
+        .education-tab.active {
+            background-color: #343a40;
+            color: #ffffff;
+        }
+
+        .volunteering-tab {
+            background-color: #f8d7da;
+            /* Light Red */
+            color: #721c24;
+        }
+
+        .volunteering-tab.active {
+            background-color: #721c24;
+            color: #ffffff;
+        }
+
+        .organizations-tab {
+            background-color: #d4edda;
+            /* Light Green */
+            color: #155724;
+        }
+
+        .organizations-tab.active {
+            background-color: #155724;
+            color: #ffffff;
+        }
+
+        .nav-tabs .nav-link {
+            border: none;
+            border-radius: 0.5rem 0.5rem 0 0;
+            margin: 0 0.2rem;
+        }
+
+        .transparent {
+            background-color: #C0C0C0 !important;
+            border-bottom: none !important;
+            box-shadow: none !important;
+        }
     </style>
 </head>
 
@@ -81,26 +137,29 @@
     <div class="container mt-5">
         <ul class="nav nav-tabs nav-justified" id="experiencesTab" role="tablist">
             <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="work-tab" data-bs-toggle="tab" data-bs-target="#work" type="button"
-                    role="tab" aria-controls="work" aria-selected="true">
+                <button class="nav-link work-tab active" id="work-tab" data-bs-toggle="tab" data-bs-target="#work"
+                    type="button" role="tab" aria-controls="work" aria-selected="true">
                     <i class="bi bi-briefcase-fill me-1"></i> Work
                 </button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="education-tab" data-bs-toggle="tab" data-bs-target="#education"
-                    type="button" role="tab" aria-controls="education" aria-selected="false">
+                <button class="nav-link education-tab" id="education-tab" data-bs-toggle="tab"
+                    data-bs-target="#education" type="button" role="tab" aria-controls="education"
+                    aria-selected="false">
                     <i class="bi bi-mortarboard-fill me-1"></i> Education
                 </button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="volunteering-tab" data-bs-toggle="tab" data-bs-target="#volunteering"
-                    type="button" role="tab" aria-controls="volunteering" aria-selected="false">
+                <button class="nav-link volunteering-tab" id="volunteering-tab" data-bs-toggle="tab"
+                    data-bs-target="#volunteering" type="button" role="tab" aria-controls="volunteering"
+                    aria-selected="false">
                     <i class="bi bi-people-fill me-1"></i> Volunteering
                 </button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="organizations-tab" data-bs-toggle="tab" data-bs-target="#organizations"
-                    type="button" role="tab" aria-controls="organizations" aria-selected="false">
+                <button class="nav-link organizations-tab" id="organizations-tab" data-bs-toggle="tab"
+                    data-bs-target="#organizations" type="button" role="tab" aria-controls="organizations"
+                    aria-selected="false">
                     <i class="bi bi-diagram-3-fill me-1"></i> Organizations
                 </button>
             </li>
@@ -307,14 +366,12 @@
 
     <script>
         window.addEventListener("scroll", function () {
-            let navbar = document.querySelector(".navbar");
+            const navbar = document.querySelector(".navbar");
 
             if (window.scrollY > 50) {
-                navbar.classList.add("bg-white");
-                navbar.classList.remove("bg-secondary");
+                navbar.classList.add("transparent");
             } else {
-                navbar.classList.add("bg-secondary");
-                navbar.classList.remove("bg-white");
+                navbar.classList.remove("transparent");
             }
         });
     </script>

@@ -32,6 +32,12 @@
             box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
             margin-bottom: 2rem;
         }
+
+        .transparent {
+            background-color: #C0C0C0 !important;
+            border-bottom: none !important;
+            box-shadow: none !important;
+        }
     </style>
 </head>
 
@@ -160,13 +166,12 @@
 
     <script>
         window.addEventListener("scroll", function () {
-            let navbar = document.querySelector(".navbar");
+            const navbar = document.querySelector(".navbar");
+
             if (window.scrollY > 50) {
-                navbar.classList.add("bg-white");
-                navbar.classList.remove("bg-secondary");
+                navbar.classList.add("transparent");
             } else {
-                navbar.classList.add("bg-secondary");
-                navbar.classList.remove("bg-white");
+                navbar.classList.remove("transparent");
             }
         });
     </script>

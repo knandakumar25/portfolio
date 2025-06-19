@@ -36,8 +36,9 @@
 
         .navbar {
             background-color: #C0C0C0;
-            /* Silver header (default) */
             transition: background-color 0.3s ease-in-out;
+            border-bottom: none !important;
+            box-shadow: none !important;
         }
 
         .about-me-card {
@@ -55,6 +56,12 @@
             text-align: center;
             /* Center the text */
         }
+
+        .transparent {
+            background-color: #C0C0C0 !important;
+            border-bottom: none !important;
+            box-shadow: none !important;
+        }
     </style>
 </head>
 
@@ -67,9 +74,9 @@
         <h4 class="text-center">Senior at North Carolina State University - College of Engineering</h4>
         <h4 class="text-center">Project Intern at SunTec Business Solutions</h4>
 
-        <div class="text-center" style="margin-top: 10rem;">
-            <img src="photos/2023-08-08.jpg" alt="Karthik Nandakumar" id="profile-image"
-                class="img-fluid rounded shadow mx-auto d-block" style="max-height: 300px;" />
+        <div class="text-center" style="margin-top: 3rem;">
+            <img src="photos/ImageID_56098236_14.jpg" alt="Karthik Nandakumar" id="profile-image"
+                class="img-fluid rounded shadow mx-auto d-block" style="max-height: 500px;" />
         </div>
 
         <!-- About Me Section as a Card -->
@@ -132,14 +139,12 @@
 
     <script>
         window.addEventListener("scroll", function () {
-            let navbar = document.querySelector(".navbar");
+            const navbar = document.querySelector(".navbar");
 
             if (window.scrollY > 50) {
-                navbar.classList.add("bg-white");
-                navbar.classList.remove("bg-secondary");
+                navbar.classList.add("transparent");
             } else {
-                navbar.classList.add("bg-secondary");
-                navbar.classList.remove("bg-white");
+                navbar.classList.remove("transparent");
             }
         });
     </script>
