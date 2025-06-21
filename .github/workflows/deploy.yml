@@ -20,6 +20,9 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Make Eleventy executable
+        run: chmod +x ./node_modules/.bin/eleventy
+
       - name: Build Eleventy site
         run: ./node_modules/.bin/eleventy
 
