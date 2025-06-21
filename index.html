@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <base href="/portfolio/">
     <title>Karthik Nandakumar - Portfolio</title>
 
     <!-- Bootstrap 5.3.6 CSS -->
@@ -94,16 +93,16 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/index.html">Home</a>
+                        <a class="nav-link active" aria-current="page" href="{{ '/index.html' | url }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/experiences/index.html">Experiences</a>
+                        <a class="nav-link" href="{{ '/experiences/index.html' | url }}">Experiences</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/projects/index.html">Projects</a>
+                        <a class="nav-link" href="{{ '/projects/index.html' | url }}">Projects</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/certifications/index.html">Certifications</a>
+                        <a class="nav-link" href="{{ '/certifications/index.html' | url }}">Certifications</a>
                     </li>
                 </ul>
             </div>
@@ -117,7 +116,7 @@
         <h4 class="text-center">Project Intern at SunTec Business Solutions</h4>
 
         <div class="text-center" style="margin-top: 3rem;">
-            <img src="photos/ImageID_56098236_14.jpg" alt="Karthik Nandakumar" id="profile-image"
+            <img src="{{ '/photos/ImageID_56098236_14.jpg' | url }}" alt="Karthik Nandakumar" id="profile-image"
                 class="img-fluid rounded shadow mx-auto d-block" style="max-height: 500px;" />
         </div>
 
