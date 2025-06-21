@@ -1,5 +1,7 @@
 module.exports = function (eleventyConfig) {
     return {
-        pathPrefix: "/portfolio/"
+        pathPrefix: "/portfolio/",
+        templateFormats: ["html", "njk"],
+        htmlTemplateEngine: "njk"
     };
 };
