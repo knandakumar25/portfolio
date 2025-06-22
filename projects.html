@@ -12,6 +12,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@100..800&display=swap');
+    </style>
+    <style>
+        .anek-devanagari-font {
+            font-family: "Anek Devanagari", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 100 800;
+            font-style: normal;
+            font-variation-settings:
+                "wdth" 100;
+        }
+
         /* Ensure the whole page is bluish except for the header and contact section */
         body {
             background-color: #e6f2ff;
@@ -103,10 +115,40 @@
             border-bottom: none !important;
             box-shadow: none !important;
         }
+
+        /* Fade transition for featured game */
+        .fade-featured {
+            opacity: 1;
+            transition: opacity 0.6s;
+        }
+
+        .fade-featured.fade-out {
+            opacity: 0;
+        }
+
+        /* Fixed size for featured game box */
+        .featured-game-card {
+            max-width: 600px;
+            min-height: 420px;
+            height: 420px;
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .featured-game-card img {
+            max-width: 350px;
+            max-height: 180px;
+            width: auto;
+            height: auto;
+            margin-bottom: 1rem;
+        }
     </style>
 </head>
 
-<body>
+<body class="anek-devanagari-font">
     <!-- Header will be inserted here -->
     <div id="site-header"></div>
 
@@ -249,6 +291,14 @@
             </div>
             <div class="tab-pane fade" id="game" role="tabpanel">
                 <h3 class="text-center">Game Projects</h3>
+                <!-- Featured Game Carousel -->
+                <div id="featured-game" class="card mt-4 shadow-sm mb-4 featured-game-card">
+                    <div class="card-body text-center">
+                        <div id="featured-game-content" class="fade-featured">
+                            <!-- JS will inject featured game here -->
+                        </div>
+                    </div>
+                </div>
                 <div class="alert alert-info text-center mt-4" role="alert">
                     <i class="bi bi-apple me-2"></i>
                     <strong>Heads up!</strong> macOS and iOS versions are <u>coming soon</u>. Stay tuned!
@@ -571,6 +621,87 @@
                 navbar.classList.add("transparent");
             } else {
                 navbar.classList.remove("transparent");
+            }
+        });
+    </script>
+
+    <!-- Featured Game Carousel Logic -->
+    <script>
+        const games = [
+            {
+                img: "games/Recourse/ship.jpg",
+                title: "Recourse",
+                desc: "An interactive narrative game about a ship crew, dreams, and survival.",
+                link: "games/Recourse/index.html",
+                linkText: "Play on Web"
+            },
+            {
+                img: "photos/Serendipity.png",
+                title: "Serendipity",
+                desc: "A 2D hidden object game and the sequel to Recourse. Survive on a mysterious island.",
+                link: "https://kn21.itch.io/serendipity",
+                linkText: "Play on Web"
+            },
+            {
+                img: "photos/The Maze Game.png",
+                title: "The Maze Game",
+                desc: "A maze game with four levels, obstacles, and puzzles.",
+                link: "games/The Maze Game/The Maze Game.html",
+                linkText: "Play on Web"
+            },
+            {
+                img: "photos/Restoration.png",
+                title: "Restoration",
+                desc: "A Pachinko game and the sequel to Serendipity. Free your mind from Varuna's influence.",
+                link: "https://kn21.itch.io/restoration",
+                linkText: "Play on Web"
+            },
+            {
+                img: "photos/Incredulous.png",
+                title: "Incredulous",
+                desc: "A murder mystery game. Solve the case as a detective.",
+                link: "games/Incredulous/index.html",
+                linkText: "Play on Web"
+            },
+            {
+                img: "photos/The Broken Kingdom.png",
+                title: "The Broken Kingdom",
+                desc: "A post-apocalyptic kingdom. Judge, build, destroy, and decide the fate of Soulnaris.",
+                link: "https://kn21.itch.io/the-broken-kingdom",
+                linkText: "Play on Web"
+            },
+            {
+                img: "photos/Endgame.png",
+                title: "Endgame",
+                desc: "A point-and-click RPG and the conclusion to the Recourse adventure.",
+                link: "https://kn21.itch.io/endgame",
+                linkText: "Play on Web"
+            }
+        ];
+        let featuredIdx = 0;
+        function showFeaturedGame(idx) {
+            const g = games[idx];
+            const content = document.getElementById('featured-game-content');
+            content.innerHTML = `
+                <img src="${g.img}" alt="${g.title} Title Card" class="featured-img img-fluid rounded mb-3">
+                <h4 class="card-title">${g.title}</h4>
+                <p class="card-text">${g.desc}</p>
+                <a href="${g.link}" class="btn btn-outline-success" target="_blank">${g.linkText}</a>
+            `;
+        }
+        function nextFeaturedGame() {
+            const content = document.getElementById('featured-game-content');
+            content.classList.add('fade-out');
+            setTimeout(() => {
+                featuredIdx = (featuredIdx + 1) % games.length;
+                showFeaturedGame(featuredIdx);
+                content.classList.remove('fade-out');
+            }, 600); // match transition duration
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            if (document.getElementById('featured-game-content')) {
+                showFeaturedGame(featuredIdx);
+                setInterval(nextFeaturedGame, 4000);
             }
         });
     </script>
