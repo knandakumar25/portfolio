@@ -12,14 +12,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
+        /* Blueish theme for the whole page */
         body {
-            background-color: #C0C0C0;
-            color: #000000;
+            background-color: #e3f0ff;
+            color: #0a2540;
             padding-top: 70px;
         }
 
         .contact-section {
-            background-color: #000000;
+            background-color: #0a2540;
             color: #ffffff;
             padding: 20px;
             border-radius: 1rem;
@@ -30,88 +31,102 @@
             top: 0;
             width: 100%;
             z-index: 1030;
-            background-color: #C0C0C0;
+            background-color: #1976d2;
             transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }
 
         .navbar.scrolled {
-            background-color: #ffffff !important;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            background-color: #1565c0 !important;
+            box-shadow: 0 4px 10px rgba(10, 37, 64, 0.2);
+        }
+
+        /* Remove conflicting header.html nav styles and keep only blue palette */
+        .navbar-nav .nav-link {
+            color: #e3f0ff;
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #1976d2;
+            background-color: #e3f0ff;
+            border-radius: 0.5rem;
+            padding: 6px 12px;
+        }
+
+        .navbar-nav .nav-link.active {
+            color: #ffffff;
+            background-color: #1565c0;
+            border-radius: 0.5rem;
         }
 
         .tab-content {
             padding: 2rem;
-            background: #ffffff;
+            background: #f5faff;
             border-radius: 10px;
+        }
+
+        /* Distinct tab header colors */
+        .work-tab {
+            background-color: #bbdefb;
+            color: #0d47a1;
+        }
+
+        .work-tab.active {
+            background-color: #1976d2;
+            color: #fff;
+        }
+
+        .education-tab {
+            background-color: #ffe082;
+            color: #795548;
+        }
+
+        .education-tab.active {
+            background-color: #ffb300;
+            color: #fff;
+        }
+
+        .volunteering-tab {
+            background-color: #c8e6c9;
+            color: #1b5e20;
+        }
+
+        .volunteering-tab.active {
+            background-color: #388e3c;
+            color: #fff;
+        }
+
+        .organizations-tab {
+            background-color: #f8bbd0;
+            color: #880e4f;
+        }
+
+        .organizations-tab.active {
+            background-color: #ad1457;
+            color: #fff;
         }
 
         .nav-tabs .nav-link:not(.work-tab):not(.education-tab):not(.volunteering-tab):not(.organizations-tab) {
             font-weight: 600;
-            color: #000000;
-            background-color: #e0e0e0;
-            border-color: #ccc;
+            color: #0a2540;
+            background-color: #bbdefb;
+            border-color: #90caf9;
             border-radius: 0.5rem 0.5rem 0 0;
         }
 
         .nav-tabs .nav-link.active {
-            background-color: #ffffff;
             border-bottom-color: transparent;
         }
 
-        .experience-card {
-            background-color: #ffffff;
-            padding: 20px;
-            border-radius: 1rem;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        .experience-card,
+        .card {
+            background-color: #f5faff;
+            border: 1px solid #90caf9;
         }
 
         .nav-tabs {
             overflow-x: auto;
             flex-wrap: nowrap;
-        }
-
-        .work-tab {
-            background-color: #d1ecf1;
-            /* Light Blue */
-            color: #0c5460;
-        }
-
-        .work-tab.active {
-            background-color: #0c5460;
-            color: #ffffff;
-        }
-
-        .education-tab {
-            background-color: #e2e3e5;
-            /* Soft Gray */
-            color: #383d41;
-        }
-
-        .education-tab.active {
-            background-color: #343a40;
-            color: #ffffff;
-        }
-
-        .volunteering-tab {
-            background-color: #f8d7da;
-            /* Light Red */
-            color: #721c24;
-        }
-
-        .volunteering-tab.active {
-            background-color: #721c24;
-            color: #ffffff;
-        }
-
-        .organizations-tab {
-            background-color: #d4edda;
-            /* Light Green */
-            color: #155724;
-        }
-
-        .organizations-tab.active {
-            background-color: #155724;
-            color: #ffffff;
         }
 
         .nav-tabs .nav-link {
@@ -121,9 +136,47 @@
         }
 
         .transparent {
-            background-color: #C0C0C0 !important;
+            background-color: #1976d2 !important;
             border-bottom: none !important;
             box-shadow: none !important;
+        }
+
+        .card-title,
+        .card-text,
+        .text-muted,
+        .nav-tabs .nav-link {
+            color: #0a2540 !important;
+        }
+
+        .btn-outline-success,
+        .btn-outline-primary,
+        .btn-outline-warning,
+        .btn-outline-secondary {
+            border-color: #1976d2 !important;
+            color: #1976d2 !important;
+        }
+
+        .btn-outline-success:hover,
+        .btn-outline-primary:hover,
+        .btn-outline-warning:hover,
+        .btn-outline-secondary:hover {
+            background-color: #1976d2 !important;
+            color: #fff !important;
+            border-color: #1976d2 !important;
+        }
+
+        .alert-info {
+            background-color: #bbdefb;
+            color: #0a2540;
+            border-color: #1976d2;
+        }
+
+        a {
+            color: #1976d2;
+        }
+
+        a:hover {
+            color: #0d47a1;
         }
     </style>
 </head>

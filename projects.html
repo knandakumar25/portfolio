@@ -12,49 +12,63 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
-        /* Ensure the whole page is silver except for the header and contact section */
+        /* Blueish theme for the whole page */
         body {
-            background-color: #C0C0C0;
-            /* Silver background */
-            color: #000000;
-            /* Ensures text remains readable */
+            background-color: #e3f0ff;
+            /* Light blue background */
+            color: #0a2540;
+            /* Deep blue text */
             padding-top: 70px;
-            /* Adjust to match fixed navbar height */
         }
 
-        /* Contact section remains black */
+        /* Contact section blue */
         .contact-section {
-            background-color: #000000;
+            background-color: #0a2540;
             color: #ffffff;
             padding: 20px;
             border-radius: 1rem;
         }
 
-        /* Fix the navbar to the top and allow dynamic color change */
+        /* Navbar blue theme */
         .navbar {
             position: fixed;
-            /* Sticks to top */
             top: 0;
             width: 100%;
             z-index: 1030;
-            /* Ensures it stays above content */
-            background-color: #C0C0C0;
-            /* Default silver */
+            background-color: #1976d2;
+            /* Blue */
             transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }
 
-        /* Add subtle shadow when navbar turns white */
         .navbar.scrolled {
-            background-color: #ffffff !important;
-            /* Changes to white when scrolling */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            /* Adds a slight shadow */
+            background-color: #1565c0 !important;
+            /* Darker blue on scroll */
+            box-shadow: 0 4px 10px rgba(10, 37, 64, 0.2);
         }
 
-        /* Styling for tab content */
+        /* Remove conflicting header.html nav styles and keep only blue palette */
+        .navbar-nav .nav-link {
+            color: #e3f0ff;
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #1976d2;
+            background-color: #e3f0ff;
+            border-radius: 0.5rem;
+            padding: 6px 12px;
+        }
+
+        .navbar-nav .nav-link.active {
+            color: #ffffff;
+            background-color: #1565c0;
+            border-radius: 0.5rem;
+        }
+
+        /* Tab styles */
         .tab-content {
             padding: 2rem;
-            background: #ffffff;
+            background: #f5faff;
             border-radius: 10px;
         }
 
@@ -65,29 +79,28 @@
         }
 
         .nav-tabs .nav-link.active {
-            background-color: #ffffff;
+            background-color: #1976d2;
+            color: #ffffff;
             border-bottom-color: transparent;
         }
 
         .software-tab {
-            background-color: #cfe2ff;
-            /* Light Blue */
-            color: #084298;
+            background-color: #bbdefb;
+            color: #0d47a1;
         }
 
         .software-tab.active {
-            background-color: #084298;
+            background-color: #1976d2;
             color: #ffffff;
         }
 
         .game-tab {
-            background-color: #f3dfff;
-            /* Light Purple */
-            color: #6f42c1;
+            background-color: #e3f2fd;
+            color: #1976d2;
         }
 
         .game-tab.active {
-            background-color: #6f42c1;
+            background-color: #1976d2;
             color: #ffffff;
         }
 
@@ -97,11 +110,55 @@
             margin: 0 0.2rem;
         }
 
-
         .transparent {
-            background-color: #C0C0C0 !important;
+            background-color: #1976d2 !important;
             border-bottom: none !important;
             box-shadow: none !important;
+        }
+
+        /* Card and button blue accents */
+        .card {
+            border: 1px solid #90caf9;
+            background-color: #f5faff;
+        }
+
+        .card-title,
+        .card-text,
+        .text-muted,
+        .nav-tabs .nav-link {
+            color: #0a2540 !important;
+        }
+
+        .btn-outline-success,
+        .btn-outline-primary,
+        .btn-outline-warning,
+        .btn-outline-secondary {
+            border-color: #1976d2 !important;
+            color: #1976d2 !important;
+        }
+
+        .btn-outline-success:hover,
+        .btn-outline-primary:hover,
+        .btn-outline-warning:hover,
+        .btn-outline-secondary:hover {
+            background-color: #1976d2 !important;
+            color: #fff !important;
+            border-color: #1976d2 !important;
+        }
+
+        .alert-info {
+            background-color: #bbdefb;
+            color: #0a2540;
+            border-color: #1976d2;
+        }
+
+        /* Blue links */
+        a {
+            color: #1976d2;
+        }
+
+        a:hover {
+            color: #0d47a1;
         }
     </style>
 </head>

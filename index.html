@@ -10,57 +10,86 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" />
 
     <style>
-        #site-header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1030;
-        }
-
+        /* Blueish theme for the whole page */
         body {
-            background-color: #C0C0C0;
-            /* Silver background for the page */
-            color: #000000;
-            /* Text remains readable */
-            padding-top: 90px;
-            /* Prevents the header from overlapping */
+            background-color: #e3f0ff;
+            color: #0a2540;
+            padding-top: 56px;
         }
 
         .contact-section {
-            background-color: #000000;
-            /* Keeps the contact section black */
+            background-color: #0a2540;
             color: #ffffff;
             padding: 20px;
             border-radius: 1rem;
         }
 
         .navbar {
-            background-color: #C0C0C0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #1976d2;
             transition: background-color 0.3s ease-in-out;
             border-bottom: none !important;
             box-shadow: none !important;
+            z-index: 1030;
+        }
+
+        .navbar.scrolled {
+            background-color: #1565c0 !important;
+            box-shadow: 0 4px 10px rgba(10, 37, 64, 0.2);
+        }
+
+        /* Remove conflicting header.html nav styles and keep only blue palette */
+        .navbar-nav .nav-link {
+            color: #e3f0ff;
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #1976d2;
+            background-color: #e3f0ff;
+            border-radius: 0.5rem;
+            padding: 6px 12px;
+        }
+
+        .navbar-nav .nav-link.active {
+            color: #ffffff;
+            background-color: #1565c0;
+            border-radius: 0.5rem;
         }
 
         .about-me-card {
             max-width: 800px;
             margin: 5rem auto;
-            /* Center the card and add margin */
+            background-color: #f5faff;
+            border: 1px solid #90caf9;
         }
 
         .about-me-card .card-title {
             margin-bottom: 1.5rem;
-            /* Space between title and text */
+            color: #0a2540;
         }
 
         .about-me-card .card-text {
             text-align: center;
-            /* Center the text */
+            color: #0a2540;
         }
 
         .transparent {
-            background-color: #C0C0C0 !important;
+            background-color: #1976d2 !important;
             border-bottom: none !important;
             box-shadow: none !important;
+        }
+
+        /* Blue links */
+        a {
+            color: #1976d2;
+        }
+
+        a:hover {
+            color: #0d47a1;
         }
     </style>
 </head>

@@ -1,23 +1,28 @@
 <!-- Bootstrap 5.3.6 Header Example -->
 
 <style>
+    /* Blue palette for navbar */
+    .navbar {
+        background-color: #1976d2 !important;
+        box-shadow: 0 2px 8px rgba(25, 118, 210, 0.07);
+    }
+
     .navbar-nav .nav-link {
-        color: #000000;
-        /* Default text color */
+        color: #e3f0ff;
         transition: color 0.3s ease, background-color 0.3s ease;
     }
 
     .navbar-nav .nav-link:hover {
-        color: #ffffff;
-        /* Text color on hover */
-        background-color: #008080;
-        /* Teal background on hover */
+        color: #1976d2;
+        background-color: #e3f0ff;
         border-radius: 0.5rem;
         padding: 6px 12px;
     }
 
-    .navbar {
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+    .navbar-nav .nav-link.active {
+        color: #ffffff;
+        background-color: #1565c0;
+        border-radius: 0.5rem;
     }
 </style>
 
