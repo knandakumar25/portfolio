@@ -12,15 +12,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
-        /* Blueish theme for the whole page */
         body {
-            background-color: #e3f0ff;
-            color: #0a2540;
+            background-color: #e6f2ff;
+            /* Light blue tint */
+            color: #000000;
             padding-top: 70px;
         }
 
         .contact-section {
-            background-color: #0a2540;
+            background-color: #002b55;
+            /* Deep blue for contrast */
             color: #ffffff;
             padding: 20px;
             border-radius: 1rem;
@@ -31,102 +32,91 @@
             top: 0;
             width: 100%;
             z-index: 1030;
-            background-color: #1976d2;
+            background-color: #4682b4;
+            /* Steel blue */
             transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }
 
         .navbar.scrolled {
-            background-color: #1565c0 !important;
-            box-shadow: 0 4px 10px rgba(10, 37, 64, 0.2);
-        }
-
-        /* Remove conflicting header.html nav styles and keep only blue palette */
-        .navbar-nav .nav-link {
-            color: #e3f0ff;
-            transition: color 0.3s ease, background-color 0.3s ease;
-        }
-
-        .navbar-nav .nav-link:hover {
-            color: #1976d2;
-            background-color: #e3f0ff;
-            border-radius: 0.5rem;
-            padding: 6px 12px;
-        }
-
-        .navbar-nav .nav-link.active {
-            color: #ffffff;
-            background-color: #1565c0;
-            border-radius: 0.5rem;
+            background-color: #cce6ff !important;
+            /* Pale sky blue */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
 
         .tab-content {
             padding: 2rem;
-            background: #f5faff;
+            background: #f0f8ff;
+            /* Alice blue */
             border-radius: 10px;
-        }
-
-        /* Distinct tab header colors */
-        .work-tab {
-            background-color: #bbdefb;
-            color: #0d47a1;
-        }
-
-        .work-tab.active {
-            background-color: #1976d2;
-            color: #fff;
-        }
-
-        .education-tab {
-            background-color: #ffe082;
-            color: #795548;
-        }
-
-        .education-tab.active {
-            background-color: #ffb300;
-            color: #fff;
-        }
-
-        .volunteering-tab {
-            background-color: #c8e6c9;
-            color: #1b5e20;
-        }
-
-        .volunteering-tab.active {
-            background-color: #388e3c;
-            color: #fff;
-        }
-
-        .organizations-tab {
-            background-color: #f8bbd0;
-            color: #880e4f;
-        }
-
-        .organizations-tab.active {
-            background-color: #ad1457;
-            color: #fff;
         }
 
         .nav-tabs .nav-link:not(.work-tab):not(.education-tab):not(.volunteering-tab):not(.organizations-tab) {
             font-weight: 600;
-            color: #0a2540;
-            background-color: #bbdefb;
-            border-color: #90caf9;
+            color: #003366;
+            background-color: #cce0f5;
+            /* Muted blue-gray */
+            border-color: #aacbe1;
             border-radius: 0.5rem 0.5rem 0 0;
         }
 
         .nav-tabs .nav-link.active {
+            background-color: #ffffff;
             border-bottom-color: transparent;
         }
 
-        .experience-card,
-        .card {
-            background-color: #f5faff;
-            border: 1px solid #90caf9;
+        .experience-card {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 1rem;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .nav-tabs {
             overflow-x: auto;
             flex-wrap: nowrap;
+        }
+
+        .work-tab {
+            background-color: #d1ecf1;
+            color: #0c5460;
+        }
+
+        .work-tab.active {
+            background-color: #0c5460;
+            color: #ffffff;
+        }
+
+        .education-tab {
+            background-color: #d6eaff;
+            /* Soft blue */
+            color: #004085;
+        }
+
+        .education-tab.active {
+            background-color: #004085;
+            color: #ffffff;
+        }
+
+        .volunteering-tab {
+            background-color: #e2f0ff;
+            /* Blue-leaning neutral */
+            color: #004466;
+        }
+
+        .volunteering-tab.active {
+            background-color: #004466;
+            color: #ffffff;
+        }
+
+        .organizations-tab {
+            background-color: #c6e6f5;
+            /* Very light teal-blue */
+            color: #155263;
+        }
+
+        .organizations-tab.active {
+            background-color: #155263;
+            color: #ffffff;
         }
 
         .nav-tabs .nav-link {
@@ -136,47 +126,9 @@
         }
 
         .transparent {
-            background-color: #1976d2 !important;
+            background-color: white !important;
             border-bottom: none !important;
             box-shadow: none !important;
-        }
-
-        .card-title,
-        .card-text,
-        .text-muted,
-        .nav-tabs .nav-link {
-            color: #0a2540 !important;
-        }
-
-        .btn-outline-success,
-        .btn-outline-primary,
-        .btn-outline-warning,
-        .btn-outline-secondary {
-            border-color: #1976d2 !important;
-            color: #1976d2 !important;
-        }
-
-        .btn-outline-success:hover,
-        .btn-outline-primary:hover,
-        .btn-outline-warning:hover,
-        .btn-outline-secondary:hover {
-            background-color: #1976d2 !important;
-            color: #fff !important;
-            border-color: #1976d2 !important;
-        }
-
-        .alert-info {
-            background-color: #bbdefb;
-            color: #0a2540;
-            border-color: #1976d2;
-        }
-
-        a {
-            color: #1976d2;
-        }
-
-        a:hover {
-            color: #0d47a1;
         }
     </style>
 </head>
@@ -280,7 +232,7 @@
                             <h4 class="card-title">North Carolina State University</h4>
                             <h5 class="text-muted">Bachelor of Science in Computer Science (Pursuing)</h5>
                             <h6 class="text-muted mb-2">June 2022 - December 2025</h6>
-                            <p><strong>GPA: </strong>3.726</p>
+                            <p><strong>GPA: </strong>3.736</p>
                             <p><strong>Societies: </strong>App Development Club</p>
                         </div>
                     </div>

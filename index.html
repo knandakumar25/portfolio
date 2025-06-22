@@ -10,86 +10,56 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" />
 
     <style>
-        /* Blueish theme for the whole page */
+        #site-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1030;
+        }
+
         body {
-            background-color: #e3f0ff;
-            color: #0a2540;
-            padding-top: 56px;
+            background-color: #e0f0ff;
+            /* Soft bluish background */
+            color: #000000;
+            padding-top: 90px;
         }
 
         .contact-section {
-            background-color: #0a2540;
+            background-color: #003366;
+            /* Deep navy blue */
             color: #ffffff;
             padding: 20px;
             border-radius: 1rem;
         }
 
         .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: #1976d2;
+            background-color: #4682B4;
+            /* Steel blue */
             transition: background-color 0.3s ease-in-out;
             border-bottom: none !important;
             box-shadow: none !important;
-            z-index: 1030;
-        }
-
-        .navbar.scrolled {
-            background-color: #1565c0 !important;
-            box-shadow: 0 4px 10px rgba(10, 37, 64, 0.2);
-        }
-
-        /* Remove conflicting header.html nav styles and keep only blue palette */
-        .navbar-nav .nav-link {
-            color: #e3f0ff;
-            transition: color 0.3s ease, background-color 0.3s ease;
-        }
-
-        .navbar-nav .nav-link:hover {
-            color: #1976d2;
-            background-color: #e3f0ff;
-            border-radius: 0.5rem;
-            padding: 6px 12px;
-        }
-
-        .navbar-nav .nav-link.active {
-            color: #ffffff;
-            background-color: #1565c0;
-            border-radius: 0.5rem;
         }
 
         .about-me-card {
             max-width: 800px;
             margin: 5rem auto;
-            background-color: #f5faff;
-            border: 1px solid #90caf9;
+            background-color: #f0f8ff;
+            /* Alice Blue for a light touch */
         }
 
         .about-me-card .card-title {
             margin-bottom: 1.5rem;
-            color: #0a2540;
         }
 
         .about-me-card .card-text {
             text-align: center;
-            color: #0a2540;
         }
 
         .transparent {
-            background-color: #1976d2 !important;
+            background-color: white !important;
+            /* Match the navbar steel blue */
             border-bottom: none !important;
             box-shadow: none !important;
-        }
-
-        /* Blue links */
-        a {
-            color: #1976d2;
-        }
-
-        a:hover {
-            color: #0d47a1;
         }
     </style>
 </head>
@@ -113,28 +83,10 @@
             <div class="card-body">
                 <h3 class="card-title text-center mb-3">About Me</h3>
                 <p class="card-text text-center">
-                    I am a Computer Science senior at North Carolina State University with a concentration in artificial
-                    intelligence.
-                    Over the years, I've gained hands-on experience in full-stack web development, machine learning, and
-                    game
-                    design,
-                    building projects such as Connect 4 game strategies, a tech support ticketing system, a trip
-                    planning
-                    assistant,
-                    and an automated cleaning manager. These experiences have deepened my understanding of Java, C,
-                    Python, and
-                    Prolog, as well as data structures and the full Software Development Life Cycle (SDLC).<br><br>
-                    I hold certifications and have working proficiency in C++, MySQL, HTML5, JavaScript, CSS, Bootstrap,
-                    and
-                    Microsoft
-                    Office tools. Active in communities like the App Development Club, I've sharpened my teamwork,
-                    critical
-                    thinking,
-                    and technical communication skills through peer collaboration. I'm passionate about crafting
-                    user-focused,
-                    efficient applications, and I'm now seeking a career opportunity or internship in software
-                    development,
-                    configuration, or technical support where I can contribute and continue to grow.
+                    Computer Science senior at North Carolina State University with hands-on experience in full-stack
+                    web development, machine learning, and game design. Proficient in Java, Python, and C, with strong
+                    problem-solving, teamwork, and software lifecycle knowledge. Active participant in developer
+                    communities and passionate about creating engaging and efficient user-focused applications.
                 </p>
             </div>
         </div>

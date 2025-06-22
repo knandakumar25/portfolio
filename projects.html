@@ -12,153 +12,96 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
-        /* Blueish theme for the whole page */
+        /* Ensure the whole page is bluish except for the header and contact section */
         body {
-            background-color: #e3f0ff;
-            /* Light blue background */
-            color: #0a2540;
-            /* Deep blue text */
+            background-color: #e6f2ff;
+            /* Soft blue background */
+            color: #000000;
             padding-top: 70px;
         }
 
-        /* Contact section blue */
+        /* Contact section remains black */
         .contact-section {
-            background-color: #0a2540;
+            background-color: #000000;
             color: #ffffff;
             padding: 20px;
             border-radius: 1rem;
         }
 
-        /* Navbar blue theme */
+        /* Navbar with bluish tones and scrolling behavior */
         .navbar {
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1030;
-            background-color: #1976d2;
-            /* Blue */
+            background-color: #4682b4;
+            /* Steel blue */
             transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }
 
         .navbar.scrolled {
-            background-color: #1565c0 !important;
-            /* Darker blue on scroll */
-            box-shadow: 0 4px 10px rgba(10, 37, 64, 0.2);
+            background-color: #cce6ff !important;
+            /* Lighter sky blue on scroll */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
 
-        /* Remove conflicting header.html nav styles and keep only blue palette */
-        .navbar-nav .nav-link {
-            color: #e3f0ff;
-            transition: color 0.3s ease, background-color 0.3s ease;
-        }
-
-        .navbar-nav .nav-link:hover {
-            color: #1976d2;
-            background-color: #e3f0ff;
-            border-radius: 0.5rem;
-            padding: 6px 12px;
-        }
-
-        .navbar-nav .nav-link.active {
-            color: #ffffff;
-            background-color: #1565c0;
-            border-radius: 0.5rem;
-        }
-
-        /* Tab styles */
+        /* Tab content styling */
         .tab-content {
             padding: 2rem;
-            background: #f5faff;
+            background: #ffffff;
             border-radius: 10px;
         }
 
+        /* Default nav tabs (not software or game) */
         .nav-tabs .nav-link:not(.software-tab):not(.game-tab) {
             border: none;
             border-radius: 0.5rem 0.5rem 0 0;
             margin: 0 0.2rem;
+            background-color: #d9eaf7;
+            color: #003366;
         }
 
+        /* Active tab */
         .nav-tabs .nav-link.active {
-            background-color: #1976d2;
-            color: #ffffff;
+            background-color: #ffffff;
             border-bottom-color: transparent;
         }
 
+        /* Software tab (cool blue shades) */
         .software-tab {
-            background-color: #bbdefb;
-            color: #0d47a1;
+            background-color: #cfe2ff;
+            color: #084298;
         }
 
         .software-tab.active {
-            background-color: #1976d2;
+            background-color: #084298;
             color: #ffffff;
         }
 
+        /* Game tab (harmonized purple-bluish tone) */
         .game-tab {
-            background-color: #e3f2fd;
-            color: #1976d2;
+            background-color: #e0d4f7;
+            /* Lavender tone with blue undertones */
+            color: #5a35a0;
         }
 
         .game-tab.active {
-            background-color: #1976d2;
+            background-color: #5a35a0;
             color: #ffffff;
         }
 
+        /* Common nav tab formatting */
         .nav-tabs .nav-link {
             border: none;
             border-radius: 0.5rem 0.5rem 0 0;
             margin: 0 0.2rem;
         }
 
+        /* Transparent variant for overlays or special sections */
         .transparent {
-            background-color: #1976d2 !important;
+            background-color: white !important;
             border-bottom: none !important;
             box-shadow: none !important;
-        }
-
-        /* Card and button blue accents */
-        .card {
-            border: 1px solid #90caf9;
-            background-color: #f5faff;
-        }
-
-        .card-title,
-        .card-text,
-        .text-muted,
-        .nav-tabs .nav-link {
-            color: #0a2540 !important;
-        }
-
-        .btn-outline-success,
-        .btn-outline-primary,
-        .btn-outline-warning,
-        .btn-outline-secondary {
-            border-color: #1976d2 !important;
-            color: #1976d2 !important;
-        }
-
-        .btn-outline-success:hover,
-        .btn-outline-primary:hover,
-        .btn-outline-warning:hover,
-        .btn-outline-secondary:hover {
-            background-color: #1976d2 !important;
-            color: #fff !important;
-            border-color: #1976d2 !important;
-        }
-
-        .alert-info {
-            background-color: #bbdefb;
-            color: #0a2540;
-            border-color: #1976d2;
-        }
-
-        /* Blue links */
-        a {
-            color: #1976d2;
-        }
-
-        a:hover {
-            color: #0d47a1;
         }
     </style>
 </head>
