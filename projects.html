@@ -145,6 +145,10 @@
             height: auto;
             margin-bottom: 1rem;
         }
+
+        .carousel-dot.active {
+            box-shadow: 0 0 0 2px #084298;
+        }
     </style>
 </head>
 
@@ -293,10 +297,19 @@
                 <h3 class="text-center">Game Projects</h3>
                 <!-- Featured Game Carousel -->
                 <div id="featured-game" class="card mt-4 shadow-sm mb-4 featured-game-card">
-                    <div class="card-body text-center">
-                        <div id="featured-game-content" class="fade-featured">
+                    <div class="card-body text-center position-relative">
+                        <button id="carousel-prev" class="btn btn-outline-primary position-absolute top-50 start-0 translate-middle-y"
+                            style="z-index:2;" aria-label="Previous Game">
+                            <i class="bi bi-chevron-left"></i>
+                        </button>
+                        <div id="featured-game-content" class="fade-featured d-inline-block">
                             <!-- JS will inject featured game here -->
                         </div>
+                        <button id="carousel-next" class="btn btn-outline-primary position-absolute top-50 end-0 translate-middle-y"
+                            style="z-index:2;" aria-label="Next Game">
+                            <i class="bi bi-chevron-right"></i>
+                        </button>
+                        <div id="carousel-dots" class="mt-3"></div>
                     </div>
                 </div>
                 <div class="alert alert-info text-center mt-4" role="alert">
@@ -688,6 +701,11 @@
                 <p class="card-text">${g.desc}</p>
                 <a href="${g.link}" class="btn btn-outline-success" target="_blank">${g.linkText}</a>
             `;
+            // Dots
+            const dots = games.map((_, i) =>
+                `<span class="carousel-dot${i === idx ? ' active' : ''}" data-idx="${i}" style="display:inline-block;width:12px;height:12px;margin:0 4px;border-radius:50%;background:${i===idx?'#4682b4':'#cce6ff'};cursor:pointer;border:1px solid #4682b4;"></span>`
+            ).join('');
+            document.getElementById('carousel-dots').innerHTML = dots;
         }
         function nextFeaturedGame() {
             const content = document.getElementById('featured-game-content');
@@ -696,12 +714,39 @@
                 featuredIdx = (featuredIdx + 1) % games.length;
                 showFeaturedGame(featuredIdx);
                 content.classList.remove('fade-out');
-            }, 600); // match transition duration
+            }, 600);
+        }
+        function prevFeaturedGame() {
+            const content = document.getElementById('featured-game-content');
+            content.classList.add('fade-out');
+            setTimeout(() => {
+                featuredIdx = (featuredIdx - 1 + games.length) % games.length;
+                showFeaturedGame(featuredIdx);
+                content.classList.remove('fade-out');
+            }, 600);
         }
         document.addEventListener('DOMContentLoaded', function() {
             if (document.getElementById('featured-game-content')) {
                 showFeaturedGame(featuredIdx);
-                setInterval(nextFeaturedGame, 4000);
+                let carouselInterval = setInterval(nextFeaturedGame, 4000);
+                document.getElementById('carousel-next').onclick = function() {
+                    clearInterval(carouselInterval);
+                    nextFeaturedGame();
+                    carouselInterval = setInterval(nextFeaturedGame, 4000);
+                };
+                document.getElementById('carousel-prev').onclick = function() {
+                    clearInterval(carouselInterval);
+                    prevFeaturedGame();
+                    carouselInterval = setInterval(nextFeaturedGame, 4000);
+                };
+                document.getElementById('carousel-dots').onclick = function(e) {
+                    if (e.target.classList.contains('carousel-dot')) {
+                        clearInterval(carouselInterval);
+                        featuredIdx = parseInt(e.target.getAttribute('data-idx'));
+                        showFeaturedGame(featuredIdx);
+                        carouselInterval = setInterval(nextFeaturedGame, 4000);
+                    }
+                };
             }
         });
     </script>
