@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Karthik Nandakumar - Portfolio</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@100..800&display=swap');
+    </style>
+    <!-- Bootstrap 5.3.6 CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+
+    <style>
+        html,
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #site-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1030;
+        }
+
+        .anek-devanagari-font {
+            font-family: "Anek Devanagari", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 100 800;
+            font-style: normal;
+            font-variation-settings:
+                "wdth" 100;
+        }
+
+        body {
+            background-color: #e0f0ff;
+            /* Soft bluish background */
+            color: #000000;
+            padding-top: 90px;
+        }
+
+        .contact-section {
+            background-color: #003366;
+            /* Deep navy blue */
+            color: #ffffff;
+            padding: 20px;
+            border-radius: 1rem;
+        }
+
+        .navbar {
+            background-color: #4682b4;
+            /* Steel blue */
+            transition: background-color 0.3s ease-in-out;
+            border-bottom: none !important;
+            box-shadow: none !important;
+        }
+
+        .about-me-card {
+            max-width: 800px;
+            margin: 5rem auto;
+            background-color: #f0f8ff;
+            /* Alice Blue for a light touch */
+        }
+
+        .about-me-card .card-title {
+            margin-bottom: 1.5rem;
+        }
+
+        .about-me-card .card-text {
+            text-align: center;
+        }
+
+        .transparent {
+            background-color: white !important;
+            /* Match the navbar steel blue */
+            border-bottom: none !important;
+            box-shadow: none !important;
+        }
+
+        .profile-image-container {
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        #profile-image {
+            max-height: 300px;
+            width: auto;
+            border-radius: 50%;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+
+<body class="anek-devanagari-font">
+    <!-- Header will be inserted here -->
+    <div id="site-header"></div>
+
+    <div class="container mt-5 pt-5">
+        <h1 class="text-center anek-devanagari-font">KARTHIK NANDAKUMAR</h1>
+        <h4 class="text-center anek-devanagari-font">Senior at North Carolina State University - College of Engineering</h4>
+        <h4 class="text-center anek-devanagari-font">Project Intern at SunTec Business Solutions</h4>
+
+        <div class="profile-image-container">
+            <img src="photos/ImageID_56098236_14.jpg" alt="Karthik Nandakumar" id="profile-image">
+        </div>
+
+        <!-- About Me Section as a Card -->
+        <div class="card about-me-card mx-auto mt-5 shadow anek-devanagari-font">
+            <div class="card-body">
+                <h3 class="card-title text-center mb-3 anek-devanagari-font">About Me</h3>
+                <p class="card-text text-center anek-devanagari-font">
+                    Computer Science senior at North Carolina State University with hands-on experience in full-stack
+                    web development, machine learning, and game design. Proficient in Java, Python, and C, with strong
+                    problem-solving, teamwork, and software lifecycle knowledge. Active participant in developer
+                    communities and passionate about creating engaging and efficient user-focused applications.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section will be inserted here -->
+    <div id="contact-section" class="mt-5"></div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+    <!-- Load header.html -->
+    <script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('site-header').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading header:', error));
+    </script>
+
+    <!-- Load contact.html -->
+    <script>
+        fetch('contact.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('contact-section').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading contact section:', error));
+    </script>
+
+    <script>
+        window.addEventListener("scroll", function () {
+            const navbar = document.querySelector(".navbar");
+
+            if (window.scrollY > 50) {
+                navbar.classList.add("transparent");
+            } else {
+                navbar.classList.remove("transparent");
+            }
+        });
+    </script>
+</body>
+
+</html>
