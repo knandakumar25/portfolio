@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Karthik Nandakumar - Projects</title>
+
+    <!-- Bootstrap 5.3.6 CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@100..800&display=swap');
+    </style>
+    <style>
+        .anek-devanagari-font {
+            font-family: "Anek Devanagari", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 100 800;
+            font-style: normal;
+            font-variation-settings:
+                "wdth" 100;
+        }
+
+        /* Ensure the whole page is bluish except for the header and contact section */
+        body {
+            background-color: #e6f2ff;
+            /* Soft blue background */
+            color: #000000;
+            padding-top: 70px;
+        }
+
+        /* Contact section remains black */
+        .contact-section {
+            background-color: #000000;
+            color: #ffffff;
+            padding: 20px;
+            border-radius: 1rem;
+        }
+
+        /* Navbar with bluish tones and scrolling behavior */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1030;
+            background-color: #4682b4;
+            /* Steel blue */
+            transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .navbar.scrolled {
+            background-color: #cce6ff !important;
+            /* Lighter sky blue on scroll */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Tab content styling */
+        .tab-content {
+            padding: 2rem;
+            background: #ffffff;
+            border-radius: 10px;
+        }
+
+        /* Default nav tabs (not software or game) */
+        .nav-tabs .nav-link:not(.software-tab):not(.game-tab) {
+            border: none;
+            border-radius: 0.5rem 0.5rem 0 0;
+            margin: 0 0.2rem;
+            background-color: #d9eaf7;
+            color: #003366;
+        }
+
+        /* Active tab */
+        .nav-tabs .nav-link.active {
+            background-color: #ffffff;
+            border-bottom-color: transparent;
+        }
+
+        /* Software tab (cool blue shades) */
+        .software-tab {
+            background-color: #cfe2ff;
+            color: #084298;
+        }
+
+        .software-tab.active {
+            background-color: #084298;
+            color: #ffffff;
+        }
+
+        /* Game tab (harmonized purple-bluish tone) */
+        .game-tab {
+            background-color: #e0d4f7;
+            /* Lavender tone with blue undertones */
+            color: #5a35a0;
+        }
+
+        .game-tab.active {
+            background-color: #5a35a0;
+            color: #ffffff;
+        }
+
+        /* Common nav tab formatting */
+        .nav-tabs .nav-link {
+            border: none;
+            border-radius: 0.5rem 0.5rem 0 0;
+            margin: 0 0.2rem;
+        }
+
+        /* Transparent variant for overlays or special sections */
+        .transparent {
+            background-color: white !important;
+            border-bottom: none !important;
+            box-shadow: none !important;
+        }
+
+        /* Fade transition for featured game */
+        .fade-featured {
+            opacity: 1;
+            transition: opacity 0.6s;
+        }
+
+        .fade-featured.fade-out {
+            opacity: 0;
+        }
+
+        /* Fixed size for featured game box */
+        .featured-game-card {
+            max-width: 600px;
+            min-height: 420px;
+            height: 420px;
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .featured-game-card img {
+            max-width: 350px;
+            max-height: 180px;
+            width: auto;
+            height: auto;
+            margin-bottom: 1rem;
+        }
+
+        .carousel-dot.active {
+            box-shadow: 0 0 0 2px #084298;
+        }
+    </style>
+</head>
+
+<body class="anek-devanagari-font">
+    <!-- Header will be inserted here -->
+    <div id="site-header"></div>
+
+    <!-- Projects Section with Tabs -->
+    <div class="container mt-5">
+        <ul class="nav nav-tabs nav-justified" id="projectsTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <a class="nav-link software-tab active" id="software-tab" data-bs-toggle="tab" href="#software"
+                    role="tab" aria-controls="software" aria-selected="true" tabindex="0">
+                    <i class="bi bi-laptop me-1"></i> Software Projects
+                </a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link game-tab" id="game-tab" data-bs-toggle="tab" href="#game" role="tab"
+                    aria-controls="game" aria-selected="false" tabindex="-1">
+                    <i class="bi bi-controller me-1"></i> Game Projects
+                </a>
+            </li>
+        </ul>
+
+        <div class="tab-content mt-3">
+            <div class="tab-pane fade show active" id="software" role="tabpanel">
+                <h3 class="text-center">Software Projects</h3>
+                <div class="card mt-4 shadow-sm">
+                    <div class="card-body">
+                        <h4 class="card-title">WolfTickets</h4>
+                        <h6 class="text-muted mb-2">Worked on: March 2023 - April 2023</h6>
+                        <p class="card-text">WolfTickets is a Java-based platform that allows faculty at North Carolina
+                            State University to report device issues and submit repair requests, with an intuitive
+                            interface and streamlined issue logging.</p>
+                        <p><strong>Skills: </strong>Javadoc · Data Structures · Eclipse · Jenkins · Java · Git · JUnit ·
+                            Software Development</p>
+                    </div>
+                </div>
+                <div class="card mt-4 shadow-sm">
+                    <div class="card-body">
+                        <h4 class="card-title">Trip Planner Application</h4>
+                        <h6 class="text-muted mb-2">Worked on: October 2023 - November 2023</h6>
+                        <p class="card-text">Trip Planner Application is a C-based application to help users explore and
+                            curate travel routes across parks through North Carolina. It includes add/remove
+                            functionality and list review features.</p>
+                        <p><strong>Skills: </strong>C (Programming Language) · Data Structures · Unix · Linux · Jenkins
+                            · Git · Software Development · Microsoft Visual Studio Code</p>
+                    </div>
+                </div>
+                <div class="card mt-4 shadow-sm">
+                    <div class="card-body">
+                        <h4 class="card-title">Robot Vacuum Companion App</h4>
+                        <h6 class="text-muted mb-2">Worked on: August 2023 - December 2023</h6>
+                        <p class="card-text">Robot Vacuum Companion App is a Java-based application allowing users to
+                            track vacuum battery, cleaning coverage per room, and task history. Followed full Software
+                            Development Life Cycle (SDLC) practices including documentation and testing.</p>
+                        <p><strong>Skills: </strong>Javadoc · Data Structures · Eclipse · Java · Git · JUnit · Software
+                            Development</p>
+                    </div>
+                </div>
+                <div class="card mt-4 shadow-sm">
+                    <div class="card-body">
+                        <h4 class="card-title">Connect 4 AI Opponent</h4>
+                        <h6 class="text-muted mb-2">Worked on: April 2024</h6>
+                        <p class="card-text">Connect 4 AI Opponent is a strategic game bot using the Minimax algorithm
+                            with alpha-beta pruning by monitoring player moves to determine the next move. The bot
+                            consistently defeated default computer agents across test cases.</p>
+                        <p><strong>Skills: </strong>Javadoc · Data Structures · Eclipse · Artificial Intelligence (AI) ·
+                            Java · JUnit · Software Development</p>
+                    </div>
+                </div>
+                <div class="card mt-4 shadow-sm">
+                    <div class="card-body">
+                        <h4 class="card-title">WolfCafe</h4>
+                        <h6 class="text-muted mb-2">Worked on: August 2024 - December 2024</h6>
+                        <p class="card-text">WolfCafe is a online café ordering platform used by café admin, barista and
+                            customers. I implemented REST APIs, handled database operations, and coordinated team
+                            development, testing in an Agile setting.</p>
+                        <p><strong>Skills: </strong>Maven · Javadoc · Postman API · JavaScript · JavaScript eXtension
+                            (JSX) · SQL · Data Structures · Workbench · Eclipse · Vite · React.js · Interpersonal Skills
+                            · Teamwork · Wireframing · HTML5 · Node.js · Hibernate · Java · Git · JUnit · REST APIs ·
+                            Graphical User Interface (GUI) · Bootstrap (Framework) · User Experience (UX) · Spring Boot
+                            · Software Development · Cascading Style Sheets (CSS) · MySQL · Back-End Web Development ·
+                            Front-End Development</p>
+
+                        <p><strong>Contributors:</strong></p>
+                        <ul>
+                            <li><a href="https://www.linkedin.com/in/yavinhamm/" target="_blank" rel="noopener">Yavin
+                                    Hamm</a></li>
+                            <li><a href="https://www.linkedin.com/in/narim-lee-a2477b178/" target="_blank"
+                                    rel="noopener">Narim Lee</a></li>
+                            <li><a href="https://www.linkedin.com/in/brandontroy/" target="_blank"
+                                    rel="noopener">Brandon Troy</a></li>
+                            <li><a href="https://www.linkedin.com/in/ryan-hinshaw-a0a216233/" target="_blank"
+                                    rel="noopener">Ryan Hinshaw</a></li>
+                            <li><a href="https://www.linkedin.com/in/jerryzemble/" target="_blank" rel="noopener">Jerry
+                                    Zemble</a></li>
+                        </ul>
+
+                        <div class="mt-3 d-flex justify-content-center gap-3">
+                            <a href="files/Team Project Presentation.pdf" class="btn btn-outline-success"
+                                target="_blank">
+                                More Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mt-4 shadow-sm">
+                    <div class="card-body">
+                        <h4 class="card-title">SUSTAINABILITY EDULAB v2.0</h4>
+                        <h6 class="text-muted mb-2">Worked on: January 2025 - April 2025</h6>
+                        <p class="card-text">Educational framework to guide faculty in the design of in-class activities
+                            on Sustainability - Spearheaded UI/UX improvements and mobile optimization for a web
+                            platform supporting AI image generation and open-source college data integration via APIs.
+                            Developed admin tools, approval workflows to support faculty interactions and activity
+                            creation/search functions.</p>
+                        <p><strong>Skills: </strong>JavaScript · JavaScript eXtension (JSX) · SQL · Data Structures ·
+                            Vite · React.js · SQLite · Interpersonal Skills · Teamwork · Wireframing · HTML5 · Django ·
+                            Git · REST APIs · Docker · Graphical User Interface (GUI) · Bootstrap (Framework) · User
+                            Experience (UX) · Python (Programming Language) · Software Development · Microsoft Visual
+                            Studio Code · Cascading Style Sheets (CSS) · Back-End Web Development · Front-End
+                            Development</p>
+
+                        <p><strong>Contributors:</strong></p>
+                        <ul>
+                            <li><a href="https://www.linkedin.com/in/diya-bhavsar22/" target="_blank"
+                                    rel="noopener">Diya Bhavsar</a></li>
+                            <li><a href="https://www.linkedin.com/in/aryan-sk/" target="_blank" rel="noopener">Aryan
+                                    Santhosh Kumar</a></li>
+                            <li><a href="https://www.linkedin.com/in/arjunsaddy/" target="_blank" rel="noopener">Arjun
+                                    Saddy</a></li>
+                            <li><a href="https://www.linkedin.com/in/sahititalluri/" target="_blank"
+                                    rel="noopener">Sahiti Talluri</a></li>
+                        </ul>
+
+                        <div class="mt-3 d-flex justify-content-center gap-3">
+                            <a href="files/Team Project Presentation.pdf" class="btn btn-outline-success"
+                                target="_blank">
+                                More Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="game" role="tabpanel">
+                <h3 class="text-center">Game Projects</h3>
+                <!-- Featured Game Carousel -->
+                <div id="featured-game" class="card mt-4 shadow-sm mb-4 featured-game-card">
+                    <div class="card-body text-center position-relative">
+                        <button id="carousel-prev" class="btn btn-outline-primary position-absolute top-50 start-0 translate-middle-y"
+                            style="z-index:2;" aria-label="Previous Game">
+                            <i class="bi bi-chevron-left"></i>
+                        </button>
+                        <div id="featured-game-content" class="fade-featured d-inline-block">
+                            <!-- JS will inject featured game here -->
+                        </div>
+                        <button id="carousel-next" class="btn btn-outline-primary position-absolute top-50 end-0 translate-middle-y"
+                            style="z-index:2;" aria-label="Next Game">
+                            <i class="bi bi-chevron-right"></i>
+                        </button>
+                        <div id="carousel-dots" class="mt-3"></div>
+                    </div>
+                </div>
+                <div class="alert alert-info text-center mt-4" role="alert">
+                    <i class="bi bi-apple me-2"></i>
+                    <strong>Heads up!</strong> macOS and iOS versions are <u>coming soon</u>. Stay tuned!
+                </div>
+                <!-- Game Project Card -->
+                <div class="card mt-4 shadow-sm">
+                    <div class="card-body">
+                        <img src="games/Recourse/ship.jpg" alt="Recourse Title Card"
+                            class="img-fluid rounded mx-auto d-block mb-3" style="max-width: 350px;">
+                        <h4 class="card-title">Recourse</h4>
+                        <h6 class="text-muted mb-2">Worked on: January 2025</h6>
+                        <p class="card-text">Recourse is an interactive narrative game. The main character is a part of
+                            a ship crew that is heading back to England after serving in the British East India Company.
+                            During that journey, the main character gets a dream from the Hindu god of the ocean,
+                            Varuna. Apparently, there is a storm coming and the captain wants to avoid it but Varuna
+                            wants them to sell ahead. Will they make it out alive?</p>
+                        <p><strong>Skills: </strong>Game Design · Data Structures · Game Programming ·
+                            Interpersonal Skills · Teamwork · Game Development · Game Testing · Graphical User
+                            Interface (GUI) · User Experience (UX) · Inkle · Software Development</p>
+
+                        <p><strong>Contributors:</strong></p>
+                        <ul>
+                            <li><a href="https://www.linkedin.com/in/gianfrancopintimalli/" target="_blank"
+                                    rel="noopener">Gianfranco Pintimalli</a></li>
+                            <li><a href="https://www.linkedin.com/in/david-salinas-ncsu/" target="_blank"
+                                    rel="noopener">David Salinas</a></li>
+                        </ul>
+
+                        <div class="mt-3 d-flex flex-column flex-md-row justify-content-center gap-3">
+                            <a href="games/Recourse/index.html" class="btn btn-outline-success w-100 w-md-auto"
+                                target="_blank">
+                                <i class="bi bi-globe"></i> Play on Web
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mt-4 shadow-sm">
+                    <div class="card-body">
+                        <img src="photos/Serendipity.png" alt="Serendipity Title Card"
+                            class="img-fluid rounded mx-auto d-block mb-3" style="max-width: 350px;">
+                        <h4 class="card-title">Serendipity</h4>
+                        <h6 class="text-muted mb-2">Worked on: January 2025 - February 2025</h6>
+                        <p class="card-text">Serendipity is a 2D hidden object game and the sequel to Recourse. After
+                            getting shipwrecked on an island in the Indian Ocean, the main player and his crew must go
+                            around the island finding food and other materials in order to survive. But, as they look, a
+                            dark secret arise.</p>
+                        <p><strong>Skills: </strong>Game Design · Data Structures · Game Programming ·
+                            Interpersonal Skills · Teamwork · GDScript · Godot · Game Development · Game Testing · Git ·
+                            Graphical User Interface (GUI) · User Experience (UX) · Software Development</p>
+
+                        <p><strong>Contributors:</strong></p>
+                        <ul>
+                            <li><a href="https://www.linkedin.com/in/gianfrancopintimalli/" target="_blank"
+                                    rel="noopener">Gianfranco Pintimalli</a></li>
+                            <li><a href="https://www.linkedin.com/in/david-salinas-ncsu/" target="_blank"
+                                    rel="noopener">David Salinas</a></li>
+                        </ul>
+
+                        <div class="mt-3 row justify-content-center gy-3">
+                            <div class="col-12 col-md-auto">
+                                <a href="games/Serendipity/Serendipity (Windows).zip"
+                                    class="btn btn-outline-primary w-100 w-md-auto" download>
+                                    <i class="bi bi-windows"></i> Download for Windows
+                                </a>
+                            </div>
+                            <div class="col-12 col-md-auto">
+                                <a href="games/Serendipity/Serendipity (Android).zip"
+                                    class="btn btn-outline-warning w-100 w-md-auto" download>
+                                    <i class="bi bi-android"></i> Download for Android
+                                </a>
+                            </div>
+                            <div class="col-12 col-md-auto">
+                                <a href="games/Serendipity/Serendipity (Linux).tar"
+                                    class="btn btn-outline-secondary w-100 w-md-auto" download>
+                                    <i class="fa-brands fa-linux"></i> Download for Linux
+                                </a>
+                            </div>
+                            <div class="col-12 col-md-auto">
+                                <a href="https://kn21.itch.io/serendipity"
+                                    class="btn btn-outline-success w-100 w-md-auto" target="_blank" rel="noopener">
+                                    <i class="bi bi-globe"></i> Play on Web
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mt-4 shadow-sm">
+                    <div class="card-body">
+                        <img src="photos/The Maze Game.png" alt="The Maze Game Title Card"
+                            class="img-fluid rounded mx-auto d-block mb-3" style="max-width: 350px;">
+                        <h4 class="card-title">The Maze Game</h4>
+                        <h6 class="text-muted mb-2">Worked on: January 2025 - February 2025</h6>
+                        <p class="card-text">The Maze Game is a maze game consisting of four levels. Players have to get
+                            through multiple obstacles including pushing blocks, a key-and-door system, and
+                            teleportation.</p>
+                        <p><strong>Skills: </strong>Game Design · Game Programming · PuzzleScript · Game Development ·
+                            Game Testing</p>
+
+                        <div class="mt-3 row justify-content-center gy-3">
+                            <div class="col-12 col-md-auto">
+                                <a href="games/The Maze Game/The Maze Game.html"
+                                    class="btn btn-outline-success w-100 w-md-auto" target="_blank">
+                                    <i class="bi bi-globe"></i> Play on Web
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mt-4 shadow-sm">
+                    <div class="card-body">
+                        <img src="photos/Restoration.png" alt="Restoration Title Card"
+                            class="img-fluid rounded mx-auto d-block mb-3" style="max-width: 350px;">
+                        <h4 class="card-title">Restoration</h4>
+                        <h6 class="text-muted mb-2">Worked on: February 2025 - March 2025</h6>
+                        <p class="card-text">Restoration is a Pachinko game and the sequel to Serendipity. After picking
+                            up that piece of paper in Serendipity, the main character is put through a series of
+                            Pachinko games in order to free his mind from Varuna's influence. He is forced to face a
+                            dilemma as he witnesses his past sins. Will he be free?</p>
+                        <p><strong>Skills: </strong>Game Design · Data Structures · Game Programming · Interpersonal
+                            Skills · Teamwork · GDScript · Godot · Game Development · Game Testing · Git · Graphical
+                            User Interface (GUI) · User Experience (UX) · Software Development</p>
+
+                        <p><strong>Contributors:</strong></p>
+                        <ul>
+                            <li><a href="https://www.linkedin.com/in/gianfrancopintimalli/" target="_blank"
+                                    rel="noopener">Gianfranco Pintimalli</a></li>
+                            <li><a href="https://www.linkedin.com/in/david-salinas-ncsu/" target="_blank"
+                                    rel="noopener">David Salinas</a></li>
+                        </ul>
+
+                        <div class="mt-3 row justify-content-center gy-3">
+                            <div class="col-12 col-md-auto">
+                                <a href="games/Restoration/Restoration (Windows).zip"
+                                    class="btn btn-outline-primary w-100 w-md-auto" download>
+                                    <i class="bi bi-windows"></i> Download for Windows
+                                </a>
+                            </div>
+                            <div class="col-12 col-md-auto">
+                                <a href="games/Restoration/Restoration (Android).zip"
+                                    class="btn btn-outline-warning w-100 w-md-auto" download>
+                                    <i class="bi bi-android"></i> Download for Android
+                                </a>
+                            </div>
+                            <div class="col-12 col-md-auto">
+                                <a href="games/Restoration/Restoration (Linux).tar"
+                                    class="btn btn-outline-secondary w-100 w-md-auto" download>
+                                    <i class="fa-brands fa-linux"></i> Download for Linux
+                                </a>
+                            </div>
+                            <div class="col-12 col-md-auto">
+                                <a href="https://kn21.itch.io/restoration"
+                                    class="btn btn-outline-success w-100 w-md-auto" target="_blank" rel="noopener">
+                                    <i class="bi bi-globe"></i> Play on Web
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mt-4 shadow-sm">
+                    <div class="card-body">
+                        <img src="photos/Incredulous.png" alt="Incredulous Title Card"
+                            class="img-fluid rounded mx-auto d-block mb-3" style="max-width: 350px;">
+                        <h4 class="card-title">Incredulous</h4>
+                        <h6 class="text-muted mb-2">Worked on: February 2025 - March 2025</h6>
+                        <p class="card-text">Incredulous is a murder mystery game. A Lord was just murdered and it is up
+                            to the main character, who is a detective, to solve the mystery while navigating the complex
+                            dynamics of the late Lord's family and friends.</p>
+                        <p><strong>Skills: </strong>Game Design · Game Programming · Game Development · Game Testing ·
+                            Twine</p>
+
+                        <div class="mt-3 row justify-content-center gy-3">
+                            <div class="col-12 col-md-auto">
+                                <a href="games/Incredulous/index.html" class="btn btn-outline-success w-100 w-md-auto"
+                                    target="_blank">
+                                    <i class="bi bi-globe"></i> Play on Web
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mt-4 shadow-sm">
+                    <div class="card-body">
+                        <img src="photos/The Broken Kingdom.png" alt="The Broken Kingdom Title Card"
+                            class="img-fluid rounded mx-auto d-block mb-3" style="max-width: 350px;">
+                        <h4 class="card-title">The Broken Kingdom</h4>
+                        <h6 class="text-muted mb-2">Worked on: January 2025 - April 2025</h6>
+                        <p class="card-text">The Broken Kingdom takes place in a post-apocalyptic kingdom called
+                            Soulnaris. The king was murdered which caused the kingdom to fall into this state. Players
+                            will play as the Judge, who as the name suggests, will go around making judgments. This can
+                            take the form of building or destroying structures or purifying or destroying spirits. The
+                            goal is to either fully restore the kingdom allowing the kingdom to flourish again or finish
+                            destroying it leaving the kingdom in hell forever.</p>
+                        <p><strong>Skills: </strong>Game Design · Data Structures · Game Programming · Interpersonal
+                            Skills · Teamwork · GDScript · Godot · Game Development · Game Testing · Git · Software
+                            Development</p>
+
+                        <p><strong>Contributors:</strong></p>
+                        <ul>
+                            <li><a href="https://www.linkedin.com/in/johnwcheek/" target="_blank" rel="noopener">John
+                                    Cheek</a></li>
+                            <li><a href="https://www.linkedin.com/in/aysatu-diallo-547714205/" target="_blank"
+                                    rel="noopener">Aysatu Diallo</a></li>
+                            <li>Judy Lin</li>
+                        </ul>
+
+                        <div class="mt-3 row justify-content-center gy-3">
+                            <div class="col-12 col-md-auto">
+                                <a href="https://drive.google.com/file/d/1BKJfh--NXIt_SRdKVrj31c2rjmKDdxK6/view?usp=sharing"
+                                    class="btn btn-outline-primary w-100 w-md-auto" target="_blank" rel="noopener">
+                                    <i class="bi bi-windows"></i> Download for Windows
+                                </a>
+                            </div>
+                            <div class="col-12 col-md-auto">
+                                <a href="games/The Broken Kingdom/The Broken Kingdom (Android).zip"
+                                    class="btn btn-outline-warning w-100 w-md-auto" download>
+                                    <i class="bi bi-android"></i> Download for Android
+                                </a>
+                            </div>
+                            <div class="col-12 col-md-auto">
+                                <a href="games/The Broken Kingdom/The Broken Kingdom (Linux).tar"
+                                    class="btn btn-outline-secondary w-100 w-md-auto" download>
+                                    <i class="fa-brands fa-linux"></i> Download for Linux
+                                </a>
+                            </div>
+                            <div class="col-12 col-md-auto">
+                                <a href="https://kn21.itch.io/the-broken-kingdom"
+                                    class="btn btn-outline-success w-100 w-md-auto" target="_blank" rel="noopener">
+                                    <i class="bi bi-globe"></i> Play on Web
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mt-4 shadow-sm">
+                    <div class="card-body">
+                        <img src="photos/Endgame.png" alt="Endgame Title Card"
+                            class="img-fluid rounded mx-auto d-block mb-3" style="max-width: 350px;">
+                        <h4 class="card-title">Endgame</h4>
+                        <h6 class="text-muted mb-2">Worked on: March 2025 - April 2025</h6>
+                        <p class="card-text">Endgame is a point-and-click RPG game, the sequel to Restoration, and the
+                            conclusion to the adventure that began with Recourse. This game is the final battle against
+                            Varuna and takes place through a series of three mini games: a shooter game, an escape room,
+                            and an attorney-like situation.</p>
+                        <p><strong>Skills: </strong>Game Design · Data Structures · Game Programming · Interpersonal
+                            Skills · Teamwork · GDScript · Godot · Game Development · Game Testing · Git · Graphical
+                            User Interface (GUI) · User Experience (UX) · Software Development · Inkle</p>
+
+                        <p><strong>Contributors:</strong></p>
+                        <ul>
+                            <li><a href="https://www.linkedin.com/in/gianfrancopintimalli/" target="_blank"
+                                    rel="noopener">Gianfranco Pintimalli</a></li>
+                            <li><a href="https://www.linkedin.com/in/david-salinas-ncsu/" target="_blank"
+                                    rel="noopener">David Salinas</a></li>
+                        </ul>
+
+                        <div class="mt-3 row justify-content-center gy-3">
+                            <div class="col-12 col-md-auto">
+                                <a href="games/Endgame/Endgame (Windows).zip"
+                                    class="btn btn-outline-primary w-100 w-md-auto" download>
+                                    <i class="bi bi-windows"></i> Download for Windows
+                                </a>
+                            </div>
+                            <div class="col-12 col-md-auto">
+                                <a href="games/Endgame/Endgame (Android).zip"
+                                    class="btn btn-outline-warning w-100 w-md-auto" download>
+                                    <i class="bi bi-android"></i> Download for Android
+                                </a>
+                            </div>
+                            <div class="col-12 col-md-auto">
+                                <a href="https://drive.google.com/file/d/1dv4BFr_HylFCClhY8A--iRc2JXhcLFQC/view?usp=sharing"
+                                    class="btn btn-outline-secondary w-100 w-md-auto" target="_blank" rel="noopener">
+                                    <i class="fa-brands fa-linux"></i> Download for Linux
+                                </a>
+                            </div>
+                            <div class="col-12 col-md-auto">
+                                <a href="https://kn21.itch.io/endgame" class="btn btn-outline-success w-100 w-md-auto"
+                                    target="_blank" rel="noopener">
+                                    <i class="bi bi-globe"></i> Play on Web
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section will be inserted here -->
+    <div id="contact-section" class="mt-5"></div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+    <!-- Load header.html -->
+    <script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('site-header').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading header:', error));
+    </script>
+
+    <!-- Load contact.html -->
+    <script>
+        fetch('contact.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('contact-section').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading contact section:', error));
+    </script>
+
+    <!-- Header scroll color change -->
+    <script>
+        window.addEventListener("scroll", function () {
+            const navbar = document.querySelector(".navbar");
+
+            if (window.scrollY > 50) {
+                navbar.classList.add("transparent");
+            } else {
+                navbar.classList.remove("transparent");
+            }
+        });
+    </script>
+
+    <!-- Featured Game Carousel Logic -->
+    <script>
+        const games = [
+            {
+                img: "games/Recourse/ship.jpg",
+                title: "Recourse",
+                desc: "An interactive narrative game about a ship crew, dreams, and survival.",
+                link: "games/Recourse/index.html",
+                linkText: "Play on Web"
+            },
+            {
+                img: "photos/Serendipity.png",
+                title: "Serendipity",
+                desc: "A 2D hidden object game and the sequel to Recourse. Survive on a mysterious island.",
+                link: "https://kn21.itch.io/serendipity",
+                linkText: "Play on Web"
+            },
+            {
+                img: "photos/The Maze Game.png",
+                title: "The Maze Game",
+                desc: "A maze game with four levels, obstacles, and puzzles.",
+                link: "games/The Maze Game/The Maze Game.html",
+                linkText: "Play on Web"
+            },
+            {
+                img: "photos/Restoration.png",
+                title: "Restoration",
+                desc: "A Pachinko game and the sequel to Serendipity. Free your mind from Varuna's influence.",
+                link: "https://kn21.itch.io/restoration",
+                linkText: "Play on Web"
+            },
+            {
+                img: "photos/Incredulous.png",
+                title: "Incredulous",
+                desc: "A murder mystery game. Solve the case as a detective.",
+                link: "games/Incredulous/index.html",
+                linkText: "Play on Web"
+            },
+            {
+                img: "photos/The Broken Kingdom.png",
+                title: "The Broken Kingdom",
+                desc: "A post-apocalyptic kingdom. Judge, build, destroy, and decide the fate of Soulnaris.",
+                link: "https://kn21.itch.io/the-broken-kingdom",
+                linkText: "Play on Web"
+            },
+            {
+                img: "photos/Endgame.png",
+                title: "Endgame",
+                desc: "A point-and-click RPG and the conclusion to the Recourse adventure.",
+                link: "https://kn21.itch.io/endgame",
+                linkText: "Play on Web"
+            }
+        ];
+        let featuredIdx = 0;
+        function showFeaturedGame(idx) {
+            const g = games[idx];
+            const content = document.getElementById('featured-game-content');
+            content.innerHTML = `
+                <img src="${g.img}" alt="${g.title} Title Card" class="featured-img img-fluid rounded mb-3">
+                <h4 class="card-title">${g.title}</h4>
+                <p class="card-text">${g.desc}</p>
+                <a href="${g.link}" class="btn btn-outline-success" target="_blank">${g.linkText}</a>
+            `;
+            // Dots
+            const dots = games.map((_, i) =>
+                `<span class="carousel-dot${i === idx ? ' active' : ''}" data-idx="${i}" style="display:inline-block;width:12px;height:12px;margin:0 4px;border-radius:50%;background:${i===idx?'#4682b4':'#cce6ff'};cursor:pointer;border:1px solid #4682b4;"></span>`
+            ).join('');
+            document.getElementById('carousel-dots').innerHTML = dots;
+        }
+        function nextFeaturedGame() {
+            const content = document.getElementById('featured-game-content');
+            content.classList.add('fade-out');
+            setTimeout(() => {
+                featuredIdx = (featuredIdx + 1) % games.length;
+                showFeaturedGame(featuredIdx);
+                content.classList.remove('fade-out');
+            }, 600);
+        }
+        function prevFeaturedGame() {
+            const content = document.getElementById('featured-game-content');
+            content.classList.add('fade-out');
+            setTimeout(() => {
+                featuredIdx = (featuredIdx - 1 + games.length) % games.length;
+                showFeaturedGame(featuredIdx);
+                content.classList.remove('fade-out');
+            }, 600);
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            if (document.getElementById('featured-game-content')) {
+                showFeaturedGame(featuredIdx);
+                let carouselInterval = setInterval(nextFeaturedGame, 4000);
+                document.getElementById('carousel-next').onclick = function() {
+                    clearInterval(carouselInterval);
+                    nextFeaturedGame();
+                    carouselInterval = setInterval(nextFeaturedGame, 4000);
+                };
+                document.getElementById('carousel-prev').onclick = function() {
+                    clearInterval(carouselInterval);
+                    prevFeaturedGame();
+                    carouselInterval = setInterval(nextFeaturedGame, 4000);
+                };
+                document.getElementById('carousel-dots').onclick = function(e) {
+                    if (e.target.classList.contains('carousel-dot')) {
+                        clearInterval(carouselInterval);
+                        featuredIdx = parseInt(e.target.getAttribute('data-idx'));
+                        showFeaturedGame(featuredIdx);
+                        carouselInterval = setInterval(nextFeaturedGame, 4000);
+                    }
+                };
+            }
+        });
+    </script>
+</body>
+
+</html>
