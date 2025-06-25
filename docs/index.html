@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+	<meta name="generator" content="Hugo 0.147.9">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Karthik Nandakumar - Portfolio</title>
@@ -9,8 +10,14 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@100..800&display=swap');
     </style>
-    <!-- Bootstrap 5.3.6 CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
 
     <style>
         html,
@@ -19,10 +26,7 @@
         }
 
         #site-header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1030;
+            position: static;
         }
 
         .anek-devanagari-font {
@@ -36,14 +40,13 @@
 
         body {
             background-color: #e0f0ff;
-            /* Soft bluish background */
+             
             color: #000000;
-            padding-top: 90px;
         }
 
         .contact-section {
             background-color: #003366;
-            /* Deep navy blue */
+             
             color: #ffffff;
             padding: 20px;
             border-radius: 1rem;
@@ -51,7 +54,7 @@
 
         .navbar {
             background-color: #4682b4;
-            /* Steel blue */
+             
             transition: background-color 0.3s ease-in-out;
             border-bottom: none !important;
             box-shadow: none !important;
@@ -61,7 +64,7 @@
             max-width: 800px;
             margin: 5rem auto;
             background-color: #f0f8ff;
-            /* Alice Blue for a light touch */
+             
         }
 
         .about-me-card .card-title {
@@ -70,13 +73,6 @@
 
         .about-me-card .card-text {
             text-align: center;
-        }
-
-        .transparent {
-            background-color: white !important;
-            /* Match the navbar steel blue */
-            border-bottom: none !important;
-            box-shadow: none !important;
         }
 
         .profile-image-container {
@@ -94,19 +90,83 @@
 </head>
 
 <body class="anek-devanagari-font">
-    <!-- Header will be inserted here -->
-    <div id="site-header"></div>
+    
+    
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@100..800&display=swap');
+
+    .anek-devanagari-font {
+        font-family: "Anek Devanagari", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 100 800;
+        font-style: normal;
+        font-variation-settings:
+            "wdth" 100;
+    }
+
+    .navbar-nav .nav-link {
+        color: #003366;
+         
+        transition: color 0.3s ease, background-color 0.3s ease;
+    }
+
+    .navbar-nav .nav-link:hover {
+        color: #ffffff;
+        background-color: #005f99;
+         
+        border-radius: 0.5rem;
+        padding: 6px 12px;
+    }
+
+    .navbar {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+    }
+
+    .custom-navbar {
+        background-color: #4682b4;
+         
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+    }
+</style>
+
+<nav class="navbar navbar-expand-lg custom-navbar anek-devanagari-font">
+    <div class="container-fluid">
+        <a class="navbar-brand fw-bold anek-devanagari-font" href="index.html">Karthik Nandakumar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active anek-devanagari-font" aria-current="page" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link anek-devanagari-font" href="/portfolio/experiences/">Experience</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link anek-devanagari-font" href="/portfolio/projects/">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link anek-devanagari-font" href="/portfolio/certifications/">Certifications</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
     <div class="container mt-5 pt-5">
         <h1 class="text-center anek-devanagari-font">KARTHIK NANDAKUMAR</h1>
-        <h4 class="text-center anek-devanagari-font">Senior at North Carolina State University - College of Engineering</h4>
+        <h4 class="text-center anek-devanagari-font">Senior at North Carolina State University - College of Engineering
+        </h4>
         <h4 class="text-center anek-devanagari-font">Project Intern at SunTec Business Solutions</h4>
 
         <div class="profile-image-container">
             <img src="photos/ImageID_56098236_14.jpg" alt="Karthik Nandakumar" id="profile-image">
         </div>
 
-        <!-- About Me Section as a Card -->
+        
         <div class="card about-me-card mx-auto mt-5 shadow anek-devanagari-font">
             <div class="card-body">
                 <h3 class="card-title text-center mb-3 anek-devanagari-font">About Me</h3>
@@ -120,43 +180,155 @@
         </div>
     </div>
 
-    <!-- Contact Section will be inserted here -->
-    <div id="contact-section" class="mt-5"></div>
+    
+    
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@100..800&display=swap');
 
-    <!-- Bootstrap JS Bundle -->
-    <script src="js/bootstrap.bundle.min.js"></script>
+    html,
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
 
-    <!-- Load header.html -->
-    <script>
-        fetch('header.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('site-header').innerHTML = data;
-            })
-            .catch(error => console.error('Error loading header:', error));
-    </script>
+    .anek-devanagari-font {
+        font-family: "Anek Devanagari", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 100 800;
+        font-style: normal;
+        font-variation-settings:
+            "wdth" 100;
+    }
 
-    <!-- Load contact.html -->
-    <script>
-        fetch('contact.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('contact-section').innerHTML = data;
-            })
-            .catch(error => console.error('Error loading contact section:', error));
-    </script>
+    .contact-section {
+        background-color: #0d1a26 !important;
+        color: #ffffff;
+        padding: 20px;
+        border-radius: 0;
+        width: 100vw;
+    }
 
-    <script>
-        window.addEventListener("scroll", function () {
-            const navbar = document.querySelector(".navbar");
+    .contact-card {
+        min-height: 240px;
+        min-width: 220px;
+        border: none;
+        border-radius: 1rem;
+        background-color: #ffffff;
+        box-shadow: 0 8px 16px rgba(0, 91, 187, 0.2);
+         
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-            if (window.scrollY > 50) {
-                navbar.classList.add("transparent");
-            } else {
-                navbar.classList.remove("transparent");
-            }
-        });
-    </script>
+    .contact-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 24px rgba(0, 91, 187, 0.3);
+    }
+
+    .contact-card .card-body img {
+        margin-bottom: 12px;
+        opacity: 0.9;
+        filter: invert(31%) sepia(86%) saturate(1449%) hue-rotate(181deg) brightness(95%) contrast(91%);
+         
+    }
+
+    .contact-label {
+        font-weight: 600;
+        font-size: 1.05rem;
+        margin-bottom: 6px;
+        color: #005f99;
+         
+    }
+
+    .divider {
+        width: 70%;
+        height: 3px;
+        background-color: #005f99;
+        margin: 8px auto;
+    }
+
+    .contact-card a {
+        font-size: 0.85rem;
+        word-break: break-word;
+        color: #005f99;
+        text-decoration: none;
+    }
+
+    .contact-card a:hover {
+        text-decoration: underline;
+        color: #004070;
+    }
+</style>
+
+
+<div class="contact-section anek-devanagari-font">
+    <div class="container">
+        <h3 class="text-center mb-4 anek-devanagari-font">Contact</h3>
+        <div class="row justify-content-center g-4">
+            <div class="col-md-3 mb-4">
+                <div class="card text-center contact-card h-100 anek-devanagari-font">
+                    <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg"
+                            alt="LinkedIn" width="32" height="32">
+                        <div class="contact-label anek-devanagari-font">LinkedIn</div>
+                        <hr class="my-2 w-75" />
+                        <a href="https://www.linkedin.com/in/karthiknandakumar1/" target="_blank" rel="noopener"
+                            aria-label="LinkedIn profile">
+                            https://www.linkedin.com/in/karthiknandakumar1/
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="card text-center contact-card h-100 anek-devanagari-font">
+                    <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub"
+                            width="32" height="32">
+                        <div class="contact-label anek-devanagari-font">GitHub</div>
+                        <hr class="my-2 w-75" />
+                        <a href="https://github.com/knandakumar25" target="_blank" rel="noopener"
+                            aria-label="GitHub profile">
+                            https://github.com/knandakumar25
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="card text-center contact-card h-100 anek-devanagari-font">
+                    <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/maildotru.svg" alt="Email"
+                            width="32" height="32">
+                        <div class="contact-label anek-devanagari-font">Email</div>
+                        <hr class="my-2 w-75" />
+                        <a href="mailto:karthiknk21@gmail.com" aria-label="Email Karthik Nandakumar">
+                            karthiknk21@gmail.com
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="row justify-content-center mt-4 g-4">
+            <div class="col-md-3 mb-4">
+                <div class="card text-center contact-card h-100 anek-devanagari-font">
+                    <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                        
+                        <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons/icons/telephone-fill.svg" alt="Phone"
+                            width="32" height="32">
+                        <div class="contact-label anek-devanagari-font">Phone</div>
+                        <hr class="my-2 w-75" />
+                        <a href="tel:+12156663741" aria-label="Call Karthik Nandakumar">
+                            +1 (215) 666-3741
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-4 anek-devanagari-font">
+            <p>All images used under the Creative Commons license.<br>
+                Copyright © 2025 Karthik Nandakumar.</p>
+        </div>
+    </div>
+</div>
 </body>
 
 </html>
