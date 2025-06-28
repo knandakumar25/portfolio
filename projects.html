@@ -298,14 +298,16 @@
                 <!-- Featured Game Carousel -->
                 <div id="featured-game" class="card mt-4 shadow-sm mb-4 featured-game-card">
                     <div class="card-body text-center position-relative">
-                        <button id="carousel-prev" class="btn btn-outline-primary position-absolute top-50 start-0 translate-middle-y"
+                        <button id="carousel-prev"
+                            class="btn btn-outline-primary position-absolute top-50 start-0 translate-middle-y"
                             style="z-index:2;" aria-label="Previous Game">
                             <i class="bi bi-chevron-left"></i>
                         </button>
                         <div id="featured-game-content" class="fade-featured d-inline-block">
                             <!-- JS will inject featured game here -->
                         </div>
-                        <button id="carousel-next" class="btn btn-outline-primary position-absolute top-50 end-0 translate-middle-y"
+                        <button id="carousel-next"
+                            class="btn btn-outline-primary position-absolute top-50 end-0 translate-middle-y"
                             style="z-index:2;" aria-label="Next Game">
                             <i class="bi bi-chevron-right"></i>
                         </button>
@@ -703,7 +705,7 @@
             `;
             // Dots
             const dots = games.map((_, i) =>
-                `<span class="carousel-dot${i === idx ? ' active' : ''}" data-idx="${i}" style="display:inline-block;width:12px;height:12px;margin:0 4px;border-radius:50%;background:${i===idx?'#4682b4':'#cce6ff'};cursor:pointer;border:1px solid #4682b4;"></span>`
+                `<span class="carousel-dot${i === idx ? ' active' : ''}" data-idx="${i}" style="display:inline-block;width:12px;height:12px;margin:0 4px;border-radius:50%;background:${i === idx ? '#4682b4' : '#cce6ff'};cursor:pointer;border:1px solid #4682b4;"></span>`
             ).join('');
             document.getElementById('carousel-dots').innerHTML = dots;
         }
@@ -725,21 +727,21 @@
                 content.classList.remove('fade-out');
             }, 600);
         }
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             if (document.getElementById('featured-game-content')) {
                 showFeaturedGame(featuredIdx);
                 let carouselInterval = setInterval(nextFeaturedGame, 4000);
-                document.getElementById('carousel-next').onclick = function() {
+                document.getElementById('carousel-next').onclick = function () {
                     clearInterval(carouselInterval);
                     nextFeaturedGame();
                     carouselInterval = setInterval(nextFeaturedGame, 4000);
                 };
-                document.getElementById('carousel-prev').onclick = function() {
+                document.getElementById('carousel-prev').onclick = function () {
                     clearInterval(carouselInterval);
                     prevFeaturedGame();
                     carouselInterval = setInterval(nextFeaturedGame, 4000);
                 };
-                document.getElementById('carousel-dots').onclick = function(e) {
+                document.getElementById('carousel-dots').onclick = function (e) {
                     if (e.target.classList.contains('carousel-dot')) {
                         clearInterval(carouselInterval);
                         featuredIdx = parseInt(e.target.getAttribute('data-idx'));
@@ -750,6 +752,16 @@
             }
         });
     </script>
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 
 </html>
