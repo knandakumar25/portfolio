@@ -26,11 +26,11 @@ const Header = () => {
       'ga': '🇮🇪', 'cy': '🏴', 'mt': '🇲🇹', 'eu': '🇪🇸', 'ca': '🇪🇸', 'gl': '🇪🇸',
       'af': '🇿🇦', 'zu': '🇿🇦', 'xh': '🇿🇦', 'sw': '🇰🇪', 'am': '🇪🇹', 'or': '🇮🇳',
       'ps': '🇦🇫', 'sd': '🇵🇰', 'ug': '🇨🇳', 'uz': '🇺🇿', 'kk': '🇰🇿', 'ky': '🇰🇬',
-      'tg': '🇹🇯', 'mn': '🇲🇳', 'ko': '🇰🇷', 'id': '🇮🇩', 'ms': '🇲🇾', 'tl': '🇵🇭',
+      'tg': '🇹🇯', 'mn': '🇲🇳', 'id': '🇮🇩', 'ms': '🇲🇾', 'tl': '🇵🇭',
       'ceb': '🇵🇭', 'haw': '🇺🇸', 'mg': '🇲🇬', 'ny': '🇲🇼', 'sn': '🇿🇼', 'st': '🇱🇸',
-      'so': '🇸🇴', 'rw': '🇷🇼', 'xh': '🇿🇦', 'yo': '🇳🇬', 'ig': '🇳🇬', 'ha': '🇳🇬',
+      'so': '🇸🇴', 'rw': '🇷🇼', 'yo': '🇳🇬', 'ig': '🇳🇬', 'ha': '🇳🇬',
       'su': '🇮🇩', 'jv': '🇮🇩', 'jw': '🇮🇩', 'mi': '🇳🇿', 'sm': '🇼🇸', 'to': '🇹🇴',
-      'fj': '🇫🇯', 'haw': '🇺🇸', 'eo': '🌍', 'la': '🏛️', 'yi': '🇮🇱', 'lb': '🇱🇺'
+      'fj': '🇫🇯', 'eo': '🌍', 'la': '🏛️', 'yi': '🇮🇱', 'lb': '🇱🇺'
     };
     return flagMap[langCode] || '🌐';
   };
@@ -475,27 +475,6 @@ const Header = () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [translateOpen]);
-
-  // Debug function to check Google Translate status
-  const checkGoogleTranslateStatus = () => {
-    console.log('Checking Google Translate status...');
-    console.log('window.google exists:', !!window.google);
-    console.log('window.google.translate exists:', !!(window.google && window.google.translate));
-    
-    const selectElement = document.querySelector('.goog-te-combo');
-    console.log('Google Translate select element found:', !!selectElement);
-    
-    if (selectElement) {
-      console.log('Available language options:', Array.from(selectElement.options).map(opt => opt.value));
-    }
-    
-    const googleWidget = document.getElementById('google_translate_element');
-    console.log('Google Translate widget element:', !!googleWidget);
-    
-    if (googleWidget) {
-      console.log('Widget innerHTML:', googleWidget.innerHTML);
-    }
-  };
 
   return (
     <nav className={`modern-navbar ${scrolled ? 'scrolled' : ''}`}>

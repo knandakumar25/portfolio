@@ -60,7 +60,7 @@
         "title": "Download for Linux",
         "url": "/games/Serendipity/Serendipity (Linux).tar",
         "type": "download",
-        "icon": "bi-ubuntu"
+        "icon": "fa-brands fa-linux"
       },
       {
         "title": "Play on Web",
@@ -123,7 +123,7 @@
         "title": "Download for Linux",
         "url": "/games/Restoration/Restoration (Linux).tar",
         "type": "download",
-        "icon": "bi-ubuntu"
+        "icon": "fa-brands fa-linux"
       },
       {
         "title": "Play on Web",
@@ -190,7 +190,7 @@
         "title": "Download for Linux",
         "url": "/games/The Broken Kingdom/The Broken Kingdom (Linux).tar",
         "type": "download",
-        "icon": "bi-ubuntu"
+        "icon": "fa-brands fa-linux"
       },
       {
         "title": "Play on Web",
@@ -235,7 +235,7 @@
         "title": "Download for Linux",
         "url": "https://drive.google.com/file/d/1dv4BFr_HylFCClhY8A--iRc2JXhcLFQC/view?usp=sharing",
         "type": "download",
-        "icon": "bi-ubuntu"
+        "icon": "fa-brands fa-linux"
       },
       {
         "title": "Play on Web",
