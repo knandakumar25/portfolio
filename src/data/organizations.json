@@ -1,0 +1,43 @@
+[
+  {
+    "id": 1,
+    "name": "App Development Club",
+    "school": "NC State University",
+    "duration": "January 2023 - April 2023",
+    "role": "Member",
+    "activities": [
+      "Developed apps for both iOS and Android"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Environmental Action Club",
+    "school": "Neshaminy High School",
+    "duration": "August 2018 - June 2022",
+    "role": "Member",
+    "activities": [
+      "Collected perishables for the needy, planted trees"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "National Honor Society",
+    "school": "Neshaminy High School",
+    "duration": "March 2020 - June 2022",
+    "role": "Member",
+    "activities": [
+      "Donated to the Leukemia & Lymphoma Society",
+      "Collected perishables to feed families"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Future Business Leaders of America",
+    "school": "Neshaminy High School",
+    "duration": "August 2018 - June 2019",
+    "role": "Member",
+    "activities": [
+      "Raised money for the Leukemia Society"
+    ]
+  }
+]

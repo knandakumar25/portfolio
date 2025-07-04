@@ -1,0 +1,617 @@
+@import url('https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@100..800&display=swap');
+
+.brand-underline {
+  height: 3px;
+  width: 0;
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  transition: width 0.3s ease;
+  margin-top: 2px;
+}
+
+/* Modern Navbar */
+.modern-navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1030;
+  background: rgba(255, 255, 255, 0.95);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0;
+  font-family: 'Anek Devanagari', sans-serif;
+}
+
+.modern-navbar.scrolled {
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  position: relative;
+}
+
+/* Brand */
+.navbar-brand {
+  text-decoration: none;
+  position: relative;
+  z-index: 2;
+}
+
+.brand-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: all 0.3s ease;
+}
+
+.navbar-brand:hover .brand-text {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.brand-underline {
+  height: 2px;
+  width: 0;
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  transition: width 0.3s ease;
+  margin-top: 2px;
+}
+
+.navbar-brand:hover .brand-underline {
+  width: 100%;
+}
+
+/* Mobile Toggle Button */
+.mobile-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+  z-index: 2;
+}
+
+.mobile-toggle:hover {
+  background: rgba(102, 126, 234, 0.1);
+}
+
+.toggle-bar {
+  width: 20px;
+  height: 2px;
+  background: #4a5568;
+  border-radius: 1px;
+  transition: all 0.3s ease;
+}
+
+.mobile-toggle:hover .toggle-bar {
+  background: #3b82f6;
+}
+
+/* Desktop Navigation - Always visible on desktop */
+@media (min-width: 993px) {
+  .mobile-toggle {
+    display: none !important;
+  }
+  
+  .navbar-collapse {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    flex-grow: 1;
+    margin-left: 2rem;
+    position: static;
+    background: none;
+    box-shadow: none;
+    padding: 0;
+    flex-direction: row;
+  }
+  
+  .navbar-nav {
+    display: flex !important;
+    align-items: center;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-direction: row;
+  }
+  
+  .nav-item {
+    position: relative;
+  }
+
+  .nav-link {
+    text-decoration: none;
+    padding: 0.75rem 1.25rem;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-weight: 500;
+    font-size: 1rem;
+    color: #4a5568;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .nav-text {
+    position: relative;
+    z-index: 2;
+    transition: color 0.3s ease;
+  }
+
+  .nav-indicator {
+    width: 0;
+    height: 2px;
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 1px;
+  }
+
+  .nav-link:hover {
+    color: #2d3748;
+    background: rgba(102, 126, 234, 0.08);
+    transform: translateY(-1px);
+  }
+
+  .nav-link:hover .nav-indicator {
+    width: 100%;
+  }
+
+  .nav-link.active {
+    color: #3b82f6;
+    background: rgba(102, 126, 234, 0.12);
+  }
+
+  .nav-link.active .nav-indicator {
+    width: 100%;
+  }
+
+  .navbar-utilities {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+/* Mobile Navigation */
+@media (max-width: 992px) {
+  .mobile-toggle {
+    display: flex !important;
+  }
+  
+  .navbar-collapse {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.98);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    border-radius: 0 0 16px 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    padding: 1.5rem 2rem;
+    margin: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.5rem;
+    display: none;
+  }
+  
+  .navbar-collapse.show {
+    display: flex;
+  }
+  
+  .navbar-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-item {
+    position: relative;
+  }
+  
+  .nav-link {
+    text-decoration: none;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 12px;
+    background: rgba(102, 126, 234, 0.05);
+    border: 1px solid rgba(102, 126, 234, 0.1);
+    font-weight: 500;
+    font-size: 1rem;
+    color: #4a5568;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .nav-text {
+    position: relative;
+    z-index: 2;
+    transition: color 0.3s ease;
+  }
+
+  .nav-indicator {
+    width: 0;
+    height: 2px;
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 1px;
+  }
+
+  .nav-link:hover {
+    color: #2d3748;
+    background: rgba(102, 126, 234, 0.08);
+    transform: translateY(-1px);
+  }
+
+  .nav-link:hover .nav-indicator {
+    width: 100%;
+  }
+
+  .nav-link.active {
+    color: #3b82f6;
+    background: rgba(102, 126, 234, 0.12);
+  }
+
+  .nav-link.active .nav-indicator {
+    width: 100%;
+  }
+  
+  .navbar-utilities {
+    justify-content: center;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-container {
+    padding: 0 1rem;
+    height: 70px;
+  }
+  
+  .brand-text {
+    font-size: 1.3rem;
+  }
+  
+  .navbar-collapse {
+    padding: 1rem;
+  }
+}
+
+/* Utilities */
+.translate-widget {
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.translate-widget:hover {
+  opacity: 1;
+}
+
+/* Google Translate Custom Styling */
+#google_translate_element {
+  font-size: 0.85rem;
+}
+
+#google_translate_element .goog-te-gadget {
+  font-family: inherit !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+#google_translate_element .goog-te-gadget-simple {
+  background: rgba(102, 126, 234, 0.1) !important;
+  border: 1px solid rgba(102, 126, 234, 0.2) !important;
+  border-radius: 8px !important;
+  padding: 4px 8px !important;
+  font-size: 0.85rem !important;
+  transition: all 0.3s ease !important;
+}
+
+#google_translate_element .goog-te-gadget-simple:hover {
+  background: rgba(102, 126, 234, 0.15) !important;
+  border-color: rgba(102, 126, 234, 0.3) !important;
+}
+
+/* Custom Google Translate Dropdown */
+.custom-translate-dropdown {
+  position: relative;
+  z-index: 1000;
+}
+
+.translate-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: rgba(102, 126, 234, 0.1);
+  border: 1px solid rgba(102, 126, 234, 0.2);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.85rem;
+  color: #4a5568;
+  font-family: inherit;
+}
+
+.translate-button:hover {
+  background: rgba(102, 126, 234, 0.15);
+  border-color: rgba(102, 126, 234, 0.3);
+}
+
+.current-lang-flag {
+  font-size: 1rem;
+}
+
+.current-lang-text {
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.dropdown-arrow {
+  font-size: 0.7rem;
+  transition: transform 0.3s ease;
+}
+
+.dropdown-arrow.open {
+  transform: rotate(180deg);
+}
+
+.translate-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: rgba(255, 255, 255, 0.98);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  min-width: 200px;
+  max-width: 250px;
+  max-height: 400px;
+  overflow-y: auto;
+  z-index: 1001;
+  animation: fadeInDown 0.3s ease;
+}
+
+/* Custom scrollbar for the dropdown */
+.translate-dropdown::-webkit-scrollbar {
+  width: 6px;
+}
+
+.translate-dropdown::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 3px;
+}
+
+.translate-dropdown::-webkit-scrollbar-thumb {
+  background: rgba(102, 126, 234, 0.3);
+  border-radius: 3px;
+}
+
+.translate-dropdown::-webkit-scrollbar-thumb:hover {
+  background: rgba(102, 126, 234, 0.5);
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.translate-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 12px;
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-size: 0.85rem;
+  color: #4a5568;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.translate-option:last-child {
+  border-bottom: none;
+}
+
+.translate-option:hover {
+  background: rgba(102, 126, 234, 0.08);
+}
+
+.translate-option.active {
+  background: rgba(102, 126, 234, 0.12);
+  color: #3b82f6;
+  font-weight: 500;
+}
+
+.lang-flag {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.lang-name {
+  white-space: nowrap;
+}
+
+/* Mobile responsive adjustments for translate dropdown */
+@media (max-width: 992px) {
+  .translate-dropdown {
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 160px;
+  }
+}
+
+@media (max-width: 768px) {
+  .current-lang-text {
+    display: none;
+  }
+  
+  .translate-button {
+    padding: 6px 8px;
+  }
+  
+  .translate-dropdown {
+    min-width: 140px;
+  }
+}
+
+/* Search functionality in translate dropdown */
+.translate-search {
+  padding: 8px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  background: rgba(102, 126, 234, 0.02);
+}
+
+.language-search-input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid rgba(102, 126, 234, 0.2);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.9);
+  font-size: 0.85rem;
+  color: #4a5568;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.language-search-input:focus {
+  border-color: rgba(102, 126, 234, 0.4);
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.1);
+}
+
+.language-search-input::placeholder {
+  color: #a0aec0;
+}
+
+.translate-options-container {
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.no-languages-found {
+  padding: 16px 12px;
+  text-align: center;
+  color: #a0aec0;
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+/* Override Google Translate default styles that interfere with layout */
+body {
+  top: 0 !important;
+  position: static !important;
+}
+
+/* Hide all Google Translate banners and notifications - SUPER AGGRESSIVE */
+.goog-te-banner-frame,
+.goog-te-banner-frame.skiptranslate,
+#goog-gt-tt,
+.goog-te-balloon-frame,
+.goog-te-ftab,
+.goog-te-spinner-pos,
+#goog-gt-banner,
+.VIpgJd-ZVi9od-xl07Ob,
+.goog-te-tooltip,
+[class*="goog-te-banner"],
+[id*="goog-gt"],
+iframe[src*="translate.google"],
+iframe[src*="translate.googleapis.com"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  width: 0 !important;
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
+  z-index: -1 !important;
+  pointer-events: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  overflow: hidden !important;
+}
+
+/* Additional specific selectors for stubborn elements */
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
+
+.goog-te-menu-frame {
+  z-index: 9999 !important;
+}
+
+/* Force remove top margin that Google Translate adds - MORE AGGRESSIVE */
+body,
+html {
+  margin-top: 0 !important;
+  top: 0 !important;
+  position: static !important;
+}
+
+body.translated-ltr,
+body.translated-rtl {
+  margin-top: 0 !important;
+  top: 0 !important;
+  position: static !important;
+}
+
+/* Hide the translate element itself */
+#google_translate_element {
+  opacity: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+  pointer-events: none !important;
+}
+
+#google_translate_element .goog-te-gadget,
+#google_translate_element .goog-te-gadget-simple {
+  display: none !important;
+}

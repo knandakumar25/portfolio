@@ -1,0 +1,36 @@
+[
+  {
+    "id": 1,
+    "company": "SunTec Business Solutions",
+    "position": "Project Intern",
+    "type": "Internship",
+    "duration": "May 2025 - Present",
+    "responsibilities": [
+      "Created code to fix the formatting of PDFs of corporate banking invoices according to new requirements given to us by one of our customers using lowagie.",
+      "Upgraded the JDOM version that was being used in some of the Java files in the company software used by one of our customers.",
+      "Fixed an issue where the unit price in the CAMT and EDI files were coming out differently."
+    ]
+  },
+  {
+    "id": 2,
+    "company": "Bucks County Board of Elections",
+    "position": "Assistant Clerk",
+    "type": "Part-Time",
+    "duration": "October 2021 - June 2022",
+    "responsibilities": [
+      "Checked-in people as they came in to vote."
+    ]
+  },
+  {
+    "id": 3,
+    "company": "Kumon Education Center",
+    "position": "Learning Center Assistant",
+    "type": "Part-time",
+    "duration": "June 2021 - April 2022",
+    "responsibilities": [
+      "Checked children in as they came in and handed new work.",
+      "Taught Math and Reading for kids in elementary and middle schools for 6 hours per week.",
+      "Led the younger children out to their parents when they were finished and discussed with parents if needed."
+    ]
+  }
+]

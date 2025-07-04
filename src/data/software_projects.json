@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "title": "WolfTickets",
+    "duration": "March 2023 - April 2023",
+    "description": "WolfTickets is a Java-based platform that allows faculty at North Carolina State University to report device issues and submit repair requests, with an intuitive interface and streamlined issue logging.",
+    "skills": ["Javadoc", "Data Structures", "Eclipse", "Jenkins", "Java", "Git", "JUnit", "Software Development"]
+  },
+  {
+    "id": 2,
+    "title": "Trip Planner Application",
+    "duration": "October 2023 - November 2023",
+    "description": "Trip Planner Application is a C-based application to help users explore and curate travel routes across parks through North Carolina. It includes add/remove functionality and list review features.",
+    "skills": ["C (Programming Language)", "Data Structures", "Unix", "Linux", "Jenkins", "Git", "Software Development", "Microsoft Visual Studio Code"]
+  },
+  {
+    "id": 3,
+    "title": "Robot Vacuum Companion App",
+    "duration": "August 2023 - December 2023",
+    "description": "Robot Vacuum Companion App is a Java-based application allowing users to track vacuum battery, cleaning coverage per room, and task history. Followed full Software Development Life Cycle (SDLC) practices including documentation and testing.",
+    "skills": ["Javadoc", "Data Structures", "Eclipse", "Java", "Git", "JUnit", "Software Development"]
+  },
+  {
+    "id": 4,
+    "title": "Connect 4 AI Opponent",
+    "duration": "April 2024",
+    "description": "Connect 4 AI Opponent is a strategic game bot using the Minimax algorithm with alpha-beta pruning by monitoring player moves to determine the next move. The bot consistently defeated default computer agents across test cases.",
+    "skills": ["Javadoc", "Data Structures", "Eclipse", "Artificial Intelligence (AI)", "Java", "JUnit", "Software Development"]
+  },
+  {
+    "id": 5,
+    "title": "WolfCafe",
+    "duration": "August 2024 - December 2024",
+    "description": "WolfCafe is a online café ordering platform used by café admin, barista and customers. I implemented REST APIs, handled database operations, and coordinated team development, testing in an Agile setting.",
+    "skills": ["Maven", "Javadoc", "Postman API", "JavaScript", "JavaScript eXtension (JSX)", "SQL", "Data Structures", "Workbench", "Eclipse", "Vite", "React.js", "Interpersonal Skills", "Teamwork", "Wireframing", "HTML5", "Node.js", "Hibernate", "Java", "Git", "JUnit", "REST APIs", "Graphical User Interface (GUI)", "Bootstrap (Framework)", "User Experience (UX)", "Spring Boot", "Software Development", "Cascading Style Sheets (CSS)", "MySQL", "Back-End Web Development", "Front-End Development"],
+    "contributors": [
+      {
+        "name": "Yavin Hamm",
+        "linkedin": "https://www.linkedin.com/in/yavinhamm/"
+      },
+      {
+        "name": "Narim Lee",
+        "linkedin": "https://www.linkedin.com/in/narim-lee-a2477b178/"
+      },
+      {
+        "name": "Brandon Troy",
+        "linkedin": "https://www.linkedin.com/in/brandontroy/"
+      },
+      {
+        "name": "Ryan Hinshaw",
+        "linkedin": "https://www.linkedin.com/in/ryan-hinshaw-a0a216233/"
+      },
+      {
+        "name": "Jerry Zemble",
+        "linkedin": "https://www.linkedin.com/in/jerryzemble/"
+      }
+    ],
+    "links": [
+      {
+        "title": "More Details",
+        "url": "/files/Team Project Presentation.pdf",
+        "type": "document"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "title": "SUSTAINABILITY EDULAB v2.0",
+    "duration": "January 2025 - April 2025",
+    "description": "Educational framework to guide faculty in the design of in-class activities on Sustainability - Spearheaded UI/UX improvements and mobile optimization for a web platform supporting AI image generation and open-source college data integration via APIs. Developed admin tools, approval workflows to support faculty interactions and activity creation/search functions.",
+    "skills": ["JavaScript", "JavaScript eXtension (JSX)", "SQL", "Data Structures", "Vite", "React.js", "SQLite", "Interpersonal Skills", "Teamwork", "Wireframing", "HTML5", "Django", "Git", "REST APIs", "Docker", "Graphical User Interface (GUI)", "Bootstrap (Framework)", "User Experience (UX)", "Python (Programming Language)", "Software Development", "Microsoft Visual Studio Code", "Cascading Style Sheets (CSS)", "Back-End Web Development", "Front-End Development"],
+    "contributors": [
+      {
+        "name": "Diya Bhavsar",
+        "linkedin": "https://www.linkedin.com/in/diya-bhavsar22/"
+      },
+      {
+        "name": "Aryan Santhosh Kumar",
+        "linkedin": "https://www.linkedin.com/in/aryan-sk/"
+      },
+      {
+        "name": "Arjun Saddy",
+        "linkedin": "https://www.linkedin.com/in/arjunsaddy/"
+      },
+      {
+        "name": "Sahiti Talluri",
+        "linkedin": "https://www.linkedin.com/in/sahititalluri/"
+      }
+    ],
+    "links": [
+      {
+        "title": "More Details",
+        "url": "/files/2025Spring-team30-Lavoine-2-poster.pdf",
+        "type": "document"
+      }
+    ]
+  }
+]

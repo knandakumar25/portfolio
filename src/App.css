@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@100..800&display=swap');
+
+.anek-devanagari-font {
+  font-family: "Anek Devanagari", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100 800;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+html,
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: #e0f0ff;
+  color: #000000;
+  padding-top: 80px;
+}
+
+/* Responsive padding for mobile */
+@media (max-width: 768px) {
+  body {
+    padding-top: 70px;
+  }
+}
+
+.App {
+  min-height: 100vh;
+}
+
+.main-content {
+  min-height: calc(100vh - 300px);
+}
+
+/* Utility classes */
+.transparent {
+  background-color: white !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+/* RTL Support */
+html[dir="rtl"] body {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Google Translate Element */
+.goog-te-banner-frame,
+.goog-te-banner-frame.skiptranslate,
+#goog-gt-tt,
+.goog-te-balloon-frame,
+.goog-te-ftab,
+.goog-te-spinner-pos,
+#goog-gt-banner,
+.VIpgJd-ZVi9od-xl07Ob,
+.goog-te-tooltip,
+[class*="goog-te-banner"],
+[id*="goog-gt"],
+iframe[src*="translate.google"],
+iframe[src*="translate.googleapis.com"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  width: 0 !important;
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
+  z-index: -1 !important;
+  pointer-events: none !important;
+}
+
+/* Force body positioning */
+body {
+  top: 0 !important;
+  position: static !important;
+  margin-top: 0 !important;
+}
+
+body.translated-ltr,
+body.translated-rtl {
+  top: 0 !important;
+  position: static !important;
+  margin-top: 0 !important;
+}
+#google_translate_element select {
+  background-color: #f8f9fa;
+  border-radius: 0.25rem;
+  padding: 2px 6px;
+  font-family: "Anek Devanagari", sans-serif;
+  font-size: 0.9rem;
+}

@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "institution": "North Carolina State University",
+    "degree": "Bachelor of Science in Computer Science (Pursuing)",
+    "duration": "June 2022 - December 2025",
+    "gpa": "3.736",
+    "societies": ["App Development Club"]
+  },
+  {
+    "id": 2,
+    "institution": "Neshaminy High School",
+    "degree": "High School Diploma",
+    "duration": "August 2018 - June 2022",
+    "gpa": "4.4615",
+    "societies": ["Environmental Action Club", "National Honor Society"]
+  }
+]

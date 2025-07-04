@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "organization": "Emergency Relief Association of Lower Bucks County",
+    "position": "Pantry Worker",
+    "duration": "June 2019 - March 2020",
+    "cause": "Poverty Alleviation",
+    "responsibilities": [
+      "I helped organize the food and other necessities into their respective places.",
+      "I also helped keep track of the inventory that was coming in."
+    ]
+  },
+  {
+    "id": 2,
+    "organization": "United Way of Bucks County",
+    "position": "Data Entry Clerk",
+    "duration": "July 2019",
+    "cause": "Children",
+    "responsibilities": [
+      "I stored information in Excel about a recent event involving children."
+    ]
+  }
+]
