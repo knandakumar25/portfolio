@@ -2,33 +2,34 @@ import React from 'react';
 import '../assets/contact.css';
 
 const Contact = () => {
-  const contactItems = [
+  // Social media links with icons
+  const socialMediaItems = [
     {
       icon: 'bi-linkedin',
       label: 'LinkedIn',
-      value: 'Connect with me',
       link: 'https://www.linkedin.com/in/karthiknandakumar1/',
       color: '#0077b5'
     },
     {
       icon: 'bi-github',
       label: 'GitHub',
-      value: 'View my code',
       link: 'https://github.com/knandakumar25',
       color: '#333'
-    },
+    }
+  ];
+
+  // Contact information as plain text
+  const contactInfo = [
     {
       icon: 'bi-envelope-fill',
       label: 'Email',
       value: 'karthiknk21@gmail.com',
-      link: 'mailto:karthiknk21@gmail.com',
       color: '#ea4335'
     },
     {
       icon: 'bi-telephone-fill',
       label: 'Phone',
       value: '+1 (215) 666-3741',
-      link: 'tel:+12156663741',
       color: '#34a853'
     }
   ];
@@ -46,26 +47,44 @@ const Contact = () => {
           </p>
         </div>
         
-        <div className="contact-grid">
-          {contactItems.map((item, index) => (
-            <div key={index} className="contact-card">
-              <div className="contact-icon" style={{ backgroundColor: item.color }}>
-                <i className={`bi ${item.icon}`}></i>
-              </div>
-              <h3 className="contact-label">{item.label}</h3>
-              <p className="contact-value">{item.value}</p>
-              <a 
-                href={item.link}
-                target={item.link.startsWith('http') ? '_blank' : undefined}
-                rel={item.link.startsWith('http') ? 'noopener noreferrer' : undefined}
-                className="contact-link"
-                aria-label={`${item.label} - ${item.value}`}
-              >
-                <span>Connect</span>
-                <i className="bi bi-arrow-right"></i>
-              </a>
+        <div className="contact-content">
+          {/* Contact Information as Text */}
+          <div className="contact-info-section">
+            <h3 className="subsection-title">Contact Information</h3>
+            <div className="contact-info-list">
+              {contactInfo.map((item, index) => (
+                <div key={index} className="contact-info-item">
+                  <div className="contact-icon-small" style={{ backgroundColor: item.color }}>
+                    <i className={`bi ${item.icon}`}></i>
+                  </div>
+                  <div className="contact-text">
+                    <span className="contact-label-small">{item.label}</span>
+                    <span className="contact-value-text">{item.value}</span>
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
+
+          {/* Social Media Icons */}
+          <div className="social-media-section">
+            <h3 className="subsection-title">Connect With Me</h3>
+            <div className="social-media-icons">
+              {socialMediaItems.map((item, index) => (
+                <a
+                  key={index}
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="social-icon-link"
+                  aria-label={item.label}
+                  style={{ backgroundColor: item.color }}
+                >
+                  <i className={`bi ${item.icon}`}></i>
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
         
         <div className="contact-footer">
