@@ -10,6 +10,52 @@ const Header = () => {
   const [availableLanguages, setAvailableLanguages] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
 
+  // Define RTL languages
+  const rtlLanguages = [
+    'ar',    // Arabic
+    'he',    // Hebrew
+    'iw',    // Hebrew (old code)
+    'fa',    // Persian/Farsi
+    'ur',    // Urdu
+    'yi',    // Yiddish
+    'ps',    // Pashto
+    'sd',    // Sindhi
+    'ug',    // Uyghur
+    'ku',    // Kurdish
+    'dv'     // Dhivehi/Maldivian
+  ];
+
+  // Function to check if a language is RTL
+  const isRTLLanguage = (langCode) => {
+    return rtlLanguages.includes(langCode);
+  };
+
+  // Function to apply RTL styling
+  const applyRTLStyling = (isRTL) => {
+    const htmlElement = document.documentElement;
+    const bodyElement = document.body;
+
+    if (isRTL) {
+      htmlElement.setAttribute('dir', 'rtl');
+      htmlElement.style.direction = 'rtl';
+      bodyElement.style.direction = 'rtl';
+      bodyElement.style.textAlign = 'right';
+      
+      // Add RTL class for additional styling if needed
+      htmlElement.classList.add('rtl-layout');
+      bodyElement.classList.add('rtl-layout');
+    } else {
+      htmlElement.setAttribute('dir', 'ltr');
+      htmlElement.style.direction = 'ltr';
+      bodyElement.style.direction = 'ltr';
+      bodyElement.style.textAlign = 'left';
+      
+      // Remove RTL class
+      htmlElement.classList.remove('rtl-layout');
+      bodyElement.classList.remove('rtl-layout');
+    }
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -367,18 +413,56 @@ const Header = () => {
         if (match && match[1] && match[1] !== 'en') {
           console.log('Detected translated language from cookie:', match[1]);
           setCurrentLanguage(match[1]);
+          
+          // Apply RTL styling if the detected language is RTL
+          applyRTLStyling(isRTLLanguage(match[1]));
+        } else {
+          // If no translation detected or English, apply LTR styling
+          applyRTLStyling(false);
         }
+      } else {
+        // No translation cookie found, apply LTR styling
+        applyRTLStyling(false);
       }
     };
 
     detectCurrentLanguage();
   }, []);
 
+  // Monitor for Google Translate changes and reapply RTL styling
+  useEffect(() => {
+    const monitorTranslation = () => {
+      const cookies = document.cookie.split(';');
+      const googTransCookie = cookies.find(cookie => cookie.trim().startsWith('googtrans='));
+      
+      if (googTransCookie) {
+        const cookieValue = googTransCookie.split('=')[1];
+        const match = cookieValue.match(/\/en\/([a-z-]+)/);
+        if (match && match[1]) {
+          const detectedLang = match[1];
+          if (detectedLang !== currentLanguage) {
+            console.log('Language change detected, updating RTL styling for:', detectedLang);
+            setCurrentLanguage(detectedLang);
+            applyRTLStyling(isRTLLanguage(detectedLang));
+          }
+        }
+      }
+    };
+
+    // Check every 500ms for translation changes
+    const interval = setInterval(monitorTranslation, 500);
+    return () => clearInterval(interval);
+  }, [currentLanguage]);
+
   const translatePage = (langCode) => {
     console.log('Attempting to translate to:', langCode);
     
+    // Apply RTL styling before translation
+    applyRTLStyling(isRTLLanguage(langCode));
+    
     if (langCode === 'en') {
-      // Reset to English - clear translation
+      // Reset to English - clear translation and apply LTR styling
+      applyRTLStyling(false);
       translatePageWithCookie('en');
       return;
     }
@@ -400,6 +484,9 @@ const Header = () => {
   // Alternative translation method using cookies (Google Translate's method)
   const translatePageWithCookie = (langCode) => {
     console.log('Using cookie-based translation method for:', langCode);
+    
+    // Apply RTL styling before setting cookie
+    applyRTLStyling(isRTLLanguage(langCode));
     
     // Set Google Translate cookie
     const cookieName = 'googtrans';

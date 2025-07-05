@@ -42,8 +42,124 @@ body {
 }
 
 /* RTL Support */
-html[dir="rtl"] body {
+html[dir="rtl"] body,
+.rtl-layout {
   direction: rtl;
+  text-align: right;
+}
+
+html[dir="rtl"] .main-content,
+.rtl-layout .main-content {
+  direction: rtl;
+}
+
+/* RTL adjustments for navigation */
+html[dir="rtl"] .navbar-nav,
+.rtl-layout .navbar-nav {
+  direction: rtl;
+}
+
+html[dir="rtl"] .nav-link,
+.rtl-layout .nav-link {
+  text-align: right;
+}
+
+/* RTL adjustments for cards and content */
+html[dir="rtl"] .card,
+.rtl-layout .card {
+  direction: rtl;
+  text-align: right;
+}
+
+html[dir="rtl"] .card-body,
+.rtl-layout .card-body {
+  text-align: right;
+}
+
+html[dir="rtl"] .card-title,
+.rtl-layout .card-title {
+  text-align: right;
+}
+
+html[dir="rtl"] .card-text,
+.rtl-layout .card-text {
+  text-align: right;
+}
+
+/* RTL adjustments for buttons */
+html[dir="rtl"] .btn,
+.rtl-layout .btn {
+  text-align: right;
+}
+
+/* RTL adjustments for lists */
+html[dir="rtl"] ul,
+html[dir="rtl"] ol,
+.rtl-layout ul,
+.rtl-layout ol {
+  direction: rtl;
+  text-align: right;
+}
+
+html[dir="rtl"] li,
+.rtl-layout li {
+  text-align: right;
+}
+
+/* RTL adjustments for containers */
+html[dir="rtl"] .container,
+html[dir="rtl"] .container-fluid,
+.rtl-layout .container,
+.rtl-layout .container-fluid {
+  direction: rtl;
+}
+
+/* RTL adjustments for rows and columns */
+html[dir="rtl"] .row,
+.rtl-layout .row {
+  direction: rtl;
+}
+
+html[dir="rtl"] [class*="col-"],
+.rtl-layout [class*="col-"] {
+  text-align: right;
+}
+
+/* RTL adjustments for paragraphs and headings */
+html[dir="rtl"] p,
+html[dir="rtl"] h1,
+html[dir="rtl"] h2,
+html[dir="rtl"] h3,
+html[dir="rtl"] h4,
+html[dir="rtl"] h5,
+html[dir="rtl"] h6,
+.rtl-layout p,
+.rtl-layout h1,
+.rtl-layout h2,
+.rtl-layout h3,
+.rtl-layout h4,
+.rtl-layout h5,
+.rtl-layout h6 {
+  text-align: right;
+}
+
+/* RTL adjustments for forms */
+html[dir="rtl"] .form-control,
+html[dir="rtl"] .form-select,
+.rtl-layout .form-control,
+.rtl-layout .form-select {
+  text-align: right;
+}
+
+/* RTL adjustments for translate dropdown */
+html[dir="rtl"] .translate-dropdown,
+.rtl-layout .translate-dropdown {
+  direction: rtl;
+  text-align: right;
+}
+
+html[dir="rtl"] .translate-option,
+.rtl-layout .translate-option {
   text-align: right;
 }
 
