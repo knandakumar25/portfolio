@@ -16,12 +16,19 @@ const GameCard = ({ game }) => {
     return icon || 'bi-link-45deg';
   };
 
+  // Function to get the correct public URL for images and downloads
+  const getPublicUrl = (path) => {
+    // In development, PUBLIC_URL is empty, in production it's the base path
+    const publicUrl = process.env.PUBLIC_URL || '';
+    return `${publicUrl}${path}`;
+  };
+
   return (
     <div className="card">
       <div className="card-body">
         {game.image && (
           <img
-            src={game.image}
+            src={getPublicUrl(game.image)}
             alt={`${game.title} Title Card`}
             className="game-image"
             onError={(e) => {
@@ -82,7 +89,7 @@ const GameCard = ({ game }) => {
             {game.links.map((link, index) => (
               <a
                 key={index}
-                href={link.url}
+                href={link.type === 'download' ? getPublicUrl(link.url) : link.url}
                 className={`btn ${getButtonClass(link.type)}`}
                 target="_blank"
                 rel="noopener noreferrer"
