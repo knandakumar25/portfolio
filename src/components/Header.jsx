@@ -35,25 +35,37 @@ const Header = () => {
     const htmlElement = document.documentElement;
     const bodyElement = document.body;
 
+    console.log('=== APPLYING RTL STYLING ===');
+    console.log('isRTL parameter:', isRTL);
+    console.log('HTML element found:', !!htmlElement);
+    console.log('Body element found:', !!bodyElement);
+
     if (isRTL) {
       htmlElement.setAttribute('dir', 'rtl');
       htmlElement.style.direction = 'rtl';
       bodyElement.style.direction = 'rtl';
-      bodyElement.style.textAlign = 'right';
       
       // Add RTL class for additional styling if needed
       htmlElement.classList.add('rtl-layout');
       bodyElement.classList.add('rtl-layout');
+      
+      console.log('RTL styling applied successfully');
+      console.log('HTML dir attribute is now:', htmlElement.getAttribute('dir'));
+      console.log('HTML has rtl-layout class:', htmlElement.classList.contains('rtl-layout'));
     } else {
       htmlElement.setAttribute('dir', 'ltr');
       htmlElement.style.direction = 'ltr';
       bodyElement.style.direction = 'ltr';
-      bodyElement.style.textAlign = 'left';
       
       // Remove RTL class
       htmlElement.classList.remove('rtl-layout');
       bodyElement.classList.remove('rtl-layout');
+      
+      console.log('LTR styling applied successfully');
+      console.log('HTML dir attribute is now:', htmlElement.getAttribute('dir'));
+      console.log('HTML has rtl-layout class:', htmlElement.classList.contains('rtl-layout'));
     }
+    console.log('=== END RTL STYLING ===');
   }, []);
 
   useEffect(() => {
@@ -223,8 +235,8 @@ const Header = () => {
             element.src.includes('translate.google') || 
             element.src.includes('translate.googleapis.com')
           )) ||
-          element.className.includes('goog-te-banner') ||
-          element.id.includes('goog-gt');
+          (element.className && typeof element.className === 'string' && element.className.includes('goog-te-banner')) ||
+          (element.id && element.id.includes('goog-gt'));
         
         if (isGoogleTranslateElement) {
           console.log('Detected and suppressing Google Translate banner element:', element);
@@ -447,6 +459,16 @@ const Header = () => {
           }
         }
       }
+      
+      // Also check if Google Translate has removed our attributes and reapply them
+      const htmlElement = document.documentElement;
+      const isCurrentlyRTL = isRTLLanguage(currentLanguage);
+      const hasCorrectDir = htmlElement.getAttribute('dir') === (isCurrentlyRTL ? 'rtl' : 'ltr');
+      
+      if (!hasCorrectDir && currentLanguage !== 'en') {
+        console.log('Reapplying RTL styling due to attribute removal');
+        applyRTLStyling(isCurrentlyRTL);
+      }
     };
 
     // Check every 500ms for translation changes
@@ -455,7 +477,12 @@ const Header = () => {
   }, [currentLanguage, applyRTLStyling, isRTLLanguage]);
 
   const translatePage = (langCode) => {
+    console.log('=== TRANSLATE PAGE DEBUG ===');
     console.log('Attempting to translate to:', langCode);
+    console.log('Is RTL language?', isRTLLanguage(langCode));
+    console.log('RTL_LANGUAGES array:', RTL_LANGUAGES);
+    console.log('langCode type:', typeof langCode);
+    console.log('=== END DEBUG ===');
     
     // Apply RTL styling before translation
     applyRTLStyling(isRTLLanguage(langCode));
