@@ -47,28 +47,23 @@ html[dir="rtl"],
   direction: rtl;
 }
 
-/* Test rule - should make background slightly different when RTL is active */
 html[dir="rtl"] body,
 .rtl-layout body {
   direction: rtl !important;
   text-align: right !important;
-  background-color: #ddeeff !important; /* Slightly different blue to test */
 }
 
-/* Force RTL on main content */
 html[dir="rtl"] .main-content,
 .rtl-layout .main-content {
   direction: rtl !important;
   text-align: right !important;
 }
 
-/* Force RTL on all paragraphs */
 html[dir="rtl"] p,
 .rtl-layout p {
   text-align: right !important;
 }
 
-/* Force RTL on all headings */
 html[dir="rtl"] h1,
 html[dir="rtl"] h2,
 html[dir="rtl"] h3,
@@ -84,7 +79,6 @@ html[dir="rtl"] h6,
   text-align: right !important;
 }
 
-/* Force RTL on cards */
 html[dir="rtl"] .card,
 .rtl-layout .card {
   direction: rtl !important;
@@ -101,7 +95,6 @@ html[dir="rtl"] .card-text,
   text-align: right !important;
 }
 
-/* Force RTL on navigation */
 html[dir="rtl"] .navbar-nav,
 .rtl-layout .navbar-nav {
   direction: rtl !important;
@@ -112,7 +105,6 @@ html[dir="rtl"] .nav-link,
   text-align: right !important;
 }
 
-/* Force RTL on lists */
 html[dir="rtl"] ul,
 html[dir="rtl"] ol,
 .rtl-layout ul,

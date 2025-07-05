@@ -35,23 +35,14 @@ const Header = () => {
     const htmlElement = document.documentElement;
     const bodyElement = document.body;
 
-    console.log('=== APPLYING RTL STYLING ===');
-    console.log('isRTL parameter:', isRTL);
-    console.log('HTML element found:', !!htmlElement);
-    console.log('Body element found:', !!bodyElement);
-
     if (isRTL) {
       htmlElement.setAttribute('dir', 'rtl');
       htmlElement.style.direction = 'rtl';
       bodyElement.style.direction = 'rtl';
       
-      // Add RTL class for additional styling if needed
+      // Add RTL class for additional styling
       htmlElement.classList.add('rtl-layout');
       bodyElement.classList.add('rtl-layout');
-      
-      console.log('RTL styling applied successfully');
-      console.log('HTML dir attribute is now:', htmlElement.getAttribute('dir'));
-      console.log('HTML has rtl-layout class:', htmlElement.classList.contains('rtl-layout'));
     } else {
       htmlElement.setAttribute('dir', 'ltr');
       htmlElement.style.direction = 'ltr';
@@ -60,12 +51,7 @@ const Header = () => {
       // Remove RTL class
       htmlElement.classList.remove('rtl-layout');
       bodyElement.classList.remove('rtl-layout');
-      
-      console.log('LTR styling applied successfully');
-      console.log('HTML dir attribute is now:', htmlElement.getAttribute('dir'));
-      console.log('HTML has rtl-layout class:', htmlElement.classList.contains('rtl-layout'));
     }
-    console.log('=== END RTL STYLING ===');
   }, []);
 
   useEffect(() => {
