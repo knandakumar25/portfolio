@@ -227,8 +227,8 @@ const Header = () => {
             element.src.includes('translate.google') || 
             element.src.includes('translate.googleapis.com')
           )) ||
-          element.className.includes('goog-te-banner') ||
-          element.id.includes('goog-gt');
+          (element.className && typeof element.className === 'string' && element.className.includes('goog-te-banner')) ||
+          (element.id && element.id.includes('goog-gt'));
         
         if (isGoogleTranslateElement) {
           console.log('Detected and suppressing Google Translate banner element:', element);
