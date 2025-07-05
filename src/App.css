@@ -50,87 +50,25 @@ html[dir="rtl"],
 /* Test rule - should make background slightly different when RTL is active */
 html[dir="rtl"] body,
 .rtl-layout body {
-  direction: rtl;
-  text-align: right;
+  direction: rtl !important;
+  text-align: right !important;
   background-color: #ddeeff !important; /* Slightly different blue to test */
 }
 
+/* Force RTL on main content */
 html[dir="rtl"] .main-content,
 .rtl-layout .main-content {
-  direction: rtl;
-  text-align: right;
+  direction: rtl !important;
+  text-align: right !important;
 }
 
-/* RTL adjustments for navigation */
-html[dir="rtl"] .navbar-nav,
-.rtl-layout .navbar-nav {
-  direction: rtl;
-}
-
-html[dir="rtl"] .nav-link,
-.rtl-layout .nav-link {
-  text-align: right;
-}
-
-/* RTL adjustments for cards */
-html[dir="rtl"] .card,
-.rtl-layout .card {
-  direction: rtl;
-  text-align: right;
-}
-
-html[dir="rtl"] .card-body,
-.rtl-layout .card-body {
-  text-align: right;
-}
-
-html[dir="rtl"] .card-text,
-.rtl-layout .card-text {
-  text-align: right;
-}
-
-/* RTL adjustments for forms */
-html[dir="rtl"] .form-control,
-html[dir="rtl"] .form-select,
-.rtl-layout .form-control,
-.rtl-layout .form-select {
-  text-align: right;
-}
-
-/* RTL adjustments for lists */
-html[dir="rtl"] ul,
-html[dir="rtl"] ol,
-.rtl-layout ul,
-.rtl-layout ol {
-  direction: rtl;
-  text-align: right;
-}
-
-html[dir="rtl"] li,
-.rtl-layout li {
-  text-align: right;
-}
-
-/* RTL adjustments for containers */
-html[dir="rtl"] .container,
-html[dir="rtl"] .container-fluid,
-.rtl-layout .container,
-.rtl-layout .container-fluid {
-  direction: rtl;
-}
-
-/* RTL adjustments for rows */
-html[dir="rtl"] .row,
-.rtl-layout .row {
-  direction: rtl;
-}
-
-/* RTL adjustments for paragraphs and headings */
+/* Force RTL on all paragraphs */
 html[dir="rtl"] p,
 .rtl-layout p {
-  text-align: right;
+  text-align: right !important;
 }
 
+/* Force RTL on all headings */
 html[dir="rtl"] h1,
 html[dir="rtl"] h2,
 html[dir="rtl"] h3,
@@ -143,7 +81,55 @@ html[dir="rtl"] h6,
 .rtl-layout h4,
 .rtl-layout h5,
 .rtl-layout h6 {
-  text-align: right;
+  text-align: right !important;
+}
+
+/* Force RTL on cards */
+html[dir="rtl"] .card,
+.rtl-layout .card {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+html[dir="rtl"] .card-body,
+.rtl-layout .card-body {
+  text-align: right !important;
+}
+
+html[dir="rtl"] .card-text,
+.rtl-layout .card-text {
+  text-align: right !important;
+}
+
+/* Force RTL on navigation */
+html[dir="rtl"] .navbar-nav,
+.rtl-layout .navbar-nav {
+  direction: rtl !important;
+}
+
+html[dir="rtl"] .nav-link,
+.rtl-layout .nav-link {
+  text-align: right !important;
+}
+
+/* Force RTL on lists */
+html[dir="rtl"] ul,
+html[dir="rtl"] ol,
+.rtl-layout ul,
+.rtl-layout ol {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+html[dir="rtl"] li,
+.rtl-layout li {
+  text-align: right !important;
+}
+
+/* Force RTL on all divs */
+html[dir="rtl"] div,
+.rtl-layout div {
+  text-align: right !important;
 }
 
 /* Override: Preserve center alignment where explicitly set */
@@ -152,13 +138,11 @@ html[dir="rtl"] .text-center,
   text-align: center !important;
 }
 
-/* Override: Preserve center alignment for specific Bootstrap classes */
 html[dir="rtl"] .d-flex.justify-content-center,
 .rtl-layout .d-flex.justify-content-center {
   text-align: center !important;
 }
 
-/* Override: Preserve center alignment for elements with inline center styles */
 html[dir="rtl"] [style*="text-align:center"],
 html[dir="rtl"] [style*="text-align: center"],
 .rtl-layout [style*="text-align:center"],
@@ -166,16 +150,38 @@ html[dir="rtl"] [style*="text-align: center"],
   text-align: center !important;
 }
 
+/* RTL adjustments for forms */
+html[dir="rtl"] .form-control,
+html[dir="rtl"] .form-select,
+.rtl-layout .form-control,
+.rtl-layout .form-select {
+  text-align: right !important;
+}
+
+/* RTL adjustments for containers */
+html[dir="rtl"] .container,
+html[dir="rtl"] .container-fluid,
+.rtl-layout .container,
+.rtl-layout .container-fluid {
+  direction: rtl !important;
+}
+
+/* RTL adjustments for rows */
+html[dir="rtl"] .row,
+.rtl-layout .row {
+  direction: rtl !important;
+}
+
 /* RTL adjustments for translate dropdown */
 html[dir="rtl"] .translate-dropdown,
 .rtl-layout .translate-dropdown {
-  direction: rtl;
-  text-align: right;
+  direction: rtl !important;
+  text-align: right !important;
 }
 
 html[dir="rtl"] .translate-option,
 .rtl-layout .translate-option {
-  text-align: right;
+  text-align: right !important;
 }
 
 /* Google Translate Element */
