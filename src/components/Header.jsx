@@ -39,7 +39,7 @@ const Header = () => {
       htmlElement.setAttribute('dir', 'rtl');
       htmlElement.style.direction = 'rtl';
       bodyElement.style.direction = 'rtl';
-      bodyElement.style.textAlign = 'right';
+      // Don't force text-align on body - let individual elements handle it
       
       // Add RTL class for additional styling if needed
       htmlElement.classList.add('rtl-layout');
@@ -48,7 +48,7 @@ const Header = () => {
       htmlElement.setAttribute('dir', 'ltr');
       htmlElement.style.direction = 'ltr';
       bodyElement.style.direction = 'ltr';
-      bodyElement.style.textAlign = 'left';
+      // Don't force text-align on body - let individual elements handle it
       
       // Remove RTL class
       htmlElement.classList.remove('rtl-layout');
