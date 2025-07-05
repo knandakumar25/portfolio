@@ -10,31 +10,6 @@ const Header = () => {
   const [availableLanguages, setAvailableLanguages] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
 
-  // Helper function to get flag emoji for language codes
-  const getLanguageFlag = (langCode) => {
-    const flagMap = {
-      'en': '🇺🇸', 'es': '🇪🇸', 'fr': '🇫🇷', 'de': '🇩🇪', 'it': '🇮🇹', 'pt': '🇵🇹',
-      'ru': '🇷🇺', 'ja': '🇯🇵', 'ko': '🇰🇷', 'zh': '🇨🇳', 'zh-tw': '🇹🇼', 'ar': '🇸🇦',
-      'hi': '🇮🇳', 'nl': '🇳🇱', 'sv': '🇸🇪', 'da': '🇩🇰', 'no': '🇳🇴', 'fi': '🇫🇮',
-      'pl': '🇵🇱', 'tr': '🇹🇷', 'el': '🇬🇷', 'he': '🇮🇱', 'iw': '🇮🇱', 'th': '🇹🇭',
-      'vi': '🇻🇳', 'uk': '🇺🇦', 'cs': '🇨🇿', 'hu': '🇭🇺', 'ro': '🇷🇴', 'bg': '🇧🇬',
-      'hr': '🇭🇷', 'sk': '🇸🇰', 'sl': '🇸🇮', 'et': '🇪🇪', 'lv': '🇱🇻', 'lt': '🇱🇹',
-      'fa': '🇮🇷', 'ur': '🇵🇰', 'bn': '🇧🇩', 'ta': '🇮🇳', 'te': '🇮🇳', 'ml': '🇮🇳',
-      'kn': '🇮🇳', 'gu': '🇮🇳', 'pa': '🇮🇳', 'mr': '🇮🇳', 'ne': '🇳🇵', 'si': '🇱🇰',
-      'my': '🇲🇲', 'km': '🇰🇭', 'lo': '🇱🇦', 'ka': '🇬🇪', 'hy': '🇦🇲', 'az': '🇦🇿',
-      'be': '🇧🇾', 'mk': '🇲🇰', 'sr': '🇷🇸', 'bs': '🇧🇦', 'sq': '🇦🇱', 'is': '🇮🇸',
-      'ga': '🇮🇪', 'cy': '🏴', 'mt': '🇲🇹', 'eu': '🇪🇸', 'ca': '🇪🇸', 'gl': '🇪🇸',
-      'af': '🇿🇦', 'zu': '🇿🇦', 'xh': '🇿🇦', 'sw': '🇰🇪', 'am': '🇪🇹', 'or': '🇮🇳',
-      'ps': '🇦🇫', 'sd': '🇵🇰', 'ug': '🇨🇳', 'uz': '🇺🇿', 'kk': '🇰🇿', 'ky': '🇰🇬',
-      'tg': '🇹🇯', 'mn': '🇲🇳', 'id': '🇮🇩', 'ms': '🇲🇾', 'tl': '🇵🇭',
-      'ceb': '🇵🇭', 'haw': '🇺🇸', 'mg': '🇲🇬', 'ny': '🇲🇼', 'sn': '🇿🇼', 'st': '🇱🇸',
-      'so': '🇸🇴', 'rw': '🇷🇼', 'yo': '🇳🇬', 'ig': '🇳🇬', 'ha': '🇳🇬',
-      'su': '🇮🇩', 'jv': '🇮🇩', 'jw': '🇮🇩', 'mi': '🇳🇿', 'sm': '🇼🇸', 'to': '🇹🇴',
-      'fj': '🇫🇯', 'eo': '🌍', 'la': '🏛️', 'yi': '🇮🇱', 'lb': '🇱🇺'
-    };
-    return flagMap[langCode] || '🌐';
-  };
-
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -106,12 +81,11 @@ const Header = () => {
                 .filter(option => option.value && option.value !== '')
                 .map(option => ({
                   code: option.value,
-                  name: option.text,
-                  flag: getLanguageFlag(option.value)
+                  name: option.text
                 }));
               
               // Always ensure English is available (since Google Translate doesn't include source language)
-              const englishOption = { code: 'en', name: 'English', flag: '🇺🇸' };
+              const englishOption = { code: 'en', name: 'English' };
               const hasEnglish = googleLanguages.some(lang => lang.code === 'en');
               
               const finalLanguages = hasEnglish 
@@ -454,7 +428,7 @@ const Header = () => {
 
   const getCurrentLanguage = () => {
     return availableLanguages.find(lang => lang.code === currentLanguage) || 
-           { code: 'en', name: 'English', flag: '🇺🇸' };
+           { code: 'en', name: 'English' };
   };
 
   const filteredLanguages = availableLanguages.filter(lang =>
@@ -546,7 +520,6 @@ const Header = () => {
                 onClick={() => setTranslateOpen(!translateOpen)}
                 aria-label="Select Language"
               >
-                <span className="current-lang-flag">{getCurrentLanguage().flag}</span>
                 <span className="current-lang-text">{getCurrentLanguage().name}</span>
                 <span className={`dropdown-arrow ${translateOpen ? 'open' : ''}`}>▼</span>
               </button>
@@ -570,7 +543,6 @@ const Header = () => {
                         className={`translate-option ${currentLanguage === language.code ? 'active' : ''}`}
                         onClick={() => translatePage(language.code)}
                       >
-                        <span className="lang-flag">{language.flag}</span>
                         <span className="lang-name">{language.name}</span>
                       </button>
                     ))}
