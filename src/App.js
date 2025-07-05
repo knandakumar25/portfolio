@@ -6,6 +6,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 
 import Header from './components/Header';
 import Contact from './components/Contact';
+import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
 import Experiences from './pages/Experiences';
 import Projects from './pages/Projects';
@@ -17,6 +18,7 @@ function App() {
   return (
     <div className="App">
       <Router basename="/portfolio">
+        <ScrollToTop />
         <Header />
         <main className="main-content">
           <Routes>
