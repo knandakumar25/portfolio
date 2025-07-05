@@ -1,6 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { NavLink } from 'react-router-dom';
 import '../assets/header.css';
+
+// Define RTL languages outside component to avoid recreation
+const RTL_LANGUAGES = [
+  'ar',    // Arabic
+  'he',    // Hebrew
+  'iw',    // Hebrew (old code)
+  'fa',    // Persian/Farsi
+  'ur',    // Urdu
+  'yi',    // Yiddish
+  'ps',    // Pashto
+  'sd',    // Sindhi
+  'ug',    // Uyghur
+  'ku',    // Kurdish
+  'dv'     // Dhivehi/Maldivian
+];
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -10,28 +25,13 @@ const Header = () => {
   const [availableLanguages, setAvailableLanguages] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
 
-  // Define RTL languages
-  const rtlLanguages = [
-    'ar',    // Arabic
-    'he',    // Hebrew
-    'iw',    // Hebrew (old code)
-    'fa',    // Persian/Farsi
-    'ur',    // Urdu
-    'yi',    // Yiddish
-    'ps',    // Pashto
-    'sd',    // Sindhi
-    'ug',    // Uyghur
-    'ku',    // Kurdish
-    'dv'     // Dhivehi/Maldivian
-  ];
-
   // Function to check if a language is RTL
-  const isRTLLanguage = (langCode) => {
-    return rtlLanguages.includes(langCode);
-  };
+  const isRTLLanguage = useCallback((langCode) => {
+    return RTL_LANGUAGES.includes(langCode);
+  }, []);
 
   // Function to apply RTL styling
-  const applyRTLStyling = (isRTL) => {
+  const applyRTLStyling = useCallback((isRTL) => {
     const htmlElement = document.documentElement;
     const bodyElement = document.body;
 
@@ -54,7 +54,7 @@ const Header = () => {
       htmlElement.classList.remove('rtl-layout');
       bodyElement.classList.remove('rtl-layout');
     }
-  };
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -427,7 +427,7 @@ const Header = () => {
     };
 
     detectCurrentLanguage();
-  }, []);
+  }, [applyRTLStyling, isRTLLanguage]);
 
   // Monitor for Google Translate changes and reapply RTL styling
   useEffect(() => {
@@ -452,7 +452,7 @@ const Header = () => {
     // Check every 500ms for translation changes
     const interval = setInterval(monitorTranslation, 500);
     return () => clearInterval(interval);
-  }, [currentLanguage]);
+  }, [currentLanguage, applyRTLStyling, isRTLLanguage]);
 
   const translatePage = (langCode) => {
     console.log('Attempting to translate to:', langCode);
