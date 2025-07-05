@@ -35,7 +35,10 @@ const Header = () => {
     const htmlElement = document.documentElement;
     const bodyElement = document.body;
 
-    console.log('Applying RTL styling:', isRTL);
+    console.log('=== APPLYING RTL STYLING ===');
+    console.log('isRTL parameter:', isRTL);
+    console.log('HTML element found:', !!htmlElement);
+    console.log('Body element found:', !!bodyElement);
 
     if (isRTL) {
       htmlElement.setAttribute('dir', 'rtl');
@@ -46,7 +49,9 @@ const Header = () => {
       htmlElement.classList.add('rtl-layout');
       bodyElement.classList.add('rtl-layout');
       
-      console.log('RTL classes added, dir attribute set to rtl');
+      console.log('RTL styling applied successfully');
+      console.log('HTML dir attribute is now:', htmlElement.getAttribute('dir'));
+      console.log('HTML has rtl-layout class:', htmlElement.classList.contains('rtl-layout'));
     } else {
       htmlElement.setAttribute('dir', 'ltr');
       htmlElement.style.direction = 'ltr';
@@ -56,8 +61,11 @@ const Header = () => {
       htmlElement.classList.remove('rtl-layout');
       bodyElement.classList.remove('rtl-layout');
       
-      console.log('RTL classes removed, dir attribute set to ltr');
+      console.log('LTR styling applied successfully');
+      console.log('HTML dir attribute is now:', htmlElement.getAttribute('dir'));
+      console.log('HTML has rtl-layout class:', htmlElement.classList.contains('rtl-layout'));
     }
+    console.log('=== END RTL STYLING ===');
   }, []);
 
   useEffect(() => {
@@ -469,8 +477,12 @@ const Header = () => {
   }, [currentLanguage, applyRTLStyling, isRTLLanguage]);
 
   const translatePage = (langCode) => {
+    console.log('=== TRANSLATE PAGE DEBUG ===');
     console.log('Attempting to translate to:', langCode);
     console.log('Is RTL language?', isRTLLanguage(langCode));
+    console.log('RTL_LANGUAGES array:', RTL_LANGUAGES);
+    console.log('langCode type:', typeof langCode);
+    console.log('=== END DEBUG ===');
     
     // Apply RTL styling before translation
     applyRTLStyling(isRTLLanguage(langCode));
