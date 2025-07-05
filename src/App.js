@@ -16,7 +16,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <Router>
+      <Router basename="/portfolio">
         <Header />
         <main className="main-content">
           <Routes>
