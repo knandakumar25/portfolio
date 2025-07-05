@@ -47,11 +47,12 @@ html[dir="rtl"],
   direction: rtl;
 }
 
-/* Default RTL text alignment - most content should be right-aligned in RTL */
+/* Test rule - should make background slightly different when RTL is active */
 html[dir="rtl"] body,
 .rtl-layout body {
   direction: rtl;
   text-align: right;
+  background-color: #ddeeff !important; /* Slightly different blue to test */
 }
 
 html[dir="rtl"] .main-content,

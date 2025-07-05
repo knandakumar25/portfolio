@@ -35,24 +35,28 @@ const Header = () => {
     const htmlElement = document.documentElement;
     const bodyElement = document.body;
 
+    console.log('Applying RTL styling:', isRTL);
+
     if (isRTL) {
       htmlElement.setAttribute('dir', 'rtl');
       htmlElement.style.direction = 'rtl';
       bodyElement.style.direction = 'rtl';
-      // Don't force text-align on body - let individual elements handle it
       
       // Add RTL class for additional styling if needed
       htmlElement.classList.add('rtl-layout');
       bodyElement.classList.add('rtl-layout');
+      
+      console.log('RTL classes added, dir attribute set to rtl');
     } else {
       htmlElement.setAttribute('dir', 'ltr');
       htmlElement.style.direction = 'ltr';
       bodyElement.style.direction = 'ltr';
-      // Don't force text-align on body - let individual elements handle it
       
       // Remove RTL class
       htmlElement.classList.remove('rtl-layout');
       bodyElement.classList.remove('rtl-layout');
+      
+      console.log('RTL classes removed, dir attribute set to ltr');
     }
   }, []);
 
@@ -447,6 +451,16 @@ const Header = () => {
           }
         }
       }
+      
+      // Also check if Google Translate has removed our attributes and reapply them
+      const htmlElement = document.documentElement;
+      const isCurrentlyRTL = isRTLLanguage(currentLanguage);
+      const hasCorrectDir = htmlElement.getAttribute('dir') === (isCurrentlyRTL ? 'rtl' : 'ltr');
+      
+      if (!hasCorrectDir && currentLanguage !== 'en') {
+        console.log('Reapplying RTL styling due to attribute removal');
+        applyRTLStyling(isCurrentlyRTL);
+      }
     };
 
     // Check every 500ms for translation changes
@@ -456,6 +470,7 @@ const Header = () => {
 
   const translatePage = (langCode) => {
     console.log('Attempting to translate to:', langCode);
+    console.log('Is RTL language?', isRTLLanguage(langCode));
     
     // Apply RTL styling before translation
     applyRTLStyling(isRTLLanguage(langCode));
