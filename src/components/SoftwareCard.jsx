@@ -4,7 +4,7 @@ const SoftwareCard = ({ project }) => {
   return (
     <div className="card">
       <div className="card-body">
-        <h4 className="card-title">{project.title}</h4>
+        <h4 className="card-title" style={{textAlign: 'center'}}>{project.title}</h4>
         <h6 className="text-muted mb-3">Duration: {project.duration}</h6>
         <p className="card-text">{project.description}</p>
         

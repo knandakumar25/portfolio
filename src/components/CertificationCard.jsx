@@ -8,9 +8,9 @@ const CertificationCard = ({ certification }) => {
       </div>
       
       <div className="certification-header">
-        <h3 className="certification-title">{certification.title}</h3>
-        <h4 className="certification-issuer">{certification.issuer}</h4>
-        <div className="certification-date">{certification.dateIssued}</div>
+        <h3 className="certification-title" style={{textAlign: 'center'}}>{certification.title}</h3>
+        <h4 className="certification-issuer" style={{textAlign: 'center'}}>{certification.issuer}</h4>
+        <div className="certification-date" style={{textAlign: 'center'}}>{certification.dateIssued}</div>
       </div>
       
       <div className="certification-content">

@@ -8,9 +8,9 @@ const OrganizationCard = ({ organizations }) => {
           <i className="bi bi-diagram-3-fill"></i>
         </div>
         <div className="organization-meta">
-          <h3 className="organization-name">{organizations.name}</h3>
-          <h4 className="organization-school">{organizations.school}</h4>
-          <h4 className="organization-role">{organizations.role}</h4>
+          <h3 className="organization-name" style={{textAlign: 'center'}}>{organizations.name}</h3>
+          <h4 className="organization-school" style={{textAlign: 'center'}}>{organizations.school}</h4>
+          <h4 className="organization-role" style={{textAlign: 'center'}}>{organizations.role}</h4>
           <div className="organization-duration">{organizations.duration}</div>
         </div>
       </div>

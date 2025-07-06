@@ -13,8 +13,8 @@ const Projects = () => {
       {/* Hero Section */}
       <div className="projects-hero">
         <div className="container text-center">
-          <h1 className="hero-title anek-devanagari-font">My Projects</h1>
-          <p className="hero-subtitle">Explore my journey through code, creativity, and innovation</p>
+          <h1 className="hero-title anek-devanagari-font" style={{textAlign: 'center'}}>My Projects</h1>
+          <p className="hero-subtitle" style={{textAlign: 'center'}}>Explore my journey through code, creativity, and innovation</p>
           <div className="hero-divider"></div>
         </div>
       </div>
@@ -26,8 +26,8 @@ const Projects = () => {
             <div className="section-icon software-icon">
               <i className="bi bi-code-slash"></i>
             </div>
-            <h2 className="section-title anek-devanagari-font">Software Development</h2>
-            <p className="section-description">
+            <h2 className="section-title anek-devanagari-font" style={{textAlign: 'center'}}>Software Development</h2>
+            <p className="section-description" style={{textAlign: 'center'}}>
               Full-stack applications, AI implementations, and enterprise solutions
             </p>
           </div>
@@ -46,14 +46,14 @@ const Projects = () => {
             <div className="section-icon game-icon">
               <i className="bi bi-joystick"></i>
             </div>
-            <h2 className="section-title anek-devanagari-font">Game Development</h2>
-            <p className="section-description">
+            <h2 className="section-title anek-devanagari-font" style={{textAlign: 'center'}}>Game Development</h2>
+            <p className="section-description" style={{textAlign: 'center'}}>
               Interactive narratives, puzzle games, and immersive experiences
             </p>
           </div>
           <div className="game-notice">
             <i className="bi bi-info-circle me-2"></i>
-            <span>macOS and iOS versions coming soon!</span>
+            <span style={{textAlign: 'center'}}>macOS and iOS versions coming soon!</span>
           </div>
           <div className="projects-grid">
             {gameProjectsData.map((game) => (

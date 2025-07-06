@@ -8,8 +8,8 @@ const VolunteeringCard = ({ volunteering }) => {
           <i className="bi bi-heart-fill"></i>
         </div>
         <div className="volunteering-meta">
-          <h3 className="volunteering-organization">{volunteering.organization}</h3>
-          <h4 className="volunteering-position">{volunteering.position}</h4>
+          <h3 className="volunteering-organization" style={{textAlign: 'center'}}>{volunteering.organization}</h3>
+          <h4 className="volunteering-position" style={{textAlign: 'center'}}>{volunteering.position}</h4>
           <div className="volunteering-duration">{volunteering.duration}</div>
         </div>
       </div>

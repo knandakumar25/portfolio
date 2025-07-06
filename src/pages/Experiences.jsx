@@ -28,8 +28,8 @@ const Experiences = () => {
       {/* Hero Section */}
       <div className="experiences-hero">
         <div className="container text-center">
-          <h1 className="hero-title anek-devanagari-font">My Journey</h1>
-          <p className="hero-subtitle">Professional experiences, education, and community involvement</p>
+          <h1 className="hero-title anek-devanagari-font" style={{textAlign: 'center'}}>My Journey</h1>
+          <p className="hero-subtitle" style={{textAlign: 'center'}}>Professional experiences, education, and community involvement</p>
           <div className="hero-divider"></div>
         </div>
       </div>
@@ -47,7 +47,7 @@ const Experiences = () => {
                 <div className="tab-icon">
                   <i className={`bi ${tab.icon}`}></i>
                 </div>
-                <span className="tab-label">{tab.label}</span>
+                <span className="tab-label" style={{textAlign: 'center'}}>{tab.label}</span>
                 <div className="tab-indicator"></div>
               </button>
             ))}
@@ -62,7 +62,7 @@ const Experiences = () => {
             <div className="section-icon">
               <i className={`bi ${activeTabData.icon}`}></i>
             </div>
-            <h2 className="section-title anek-devanagari-font">{activeTabData.label}</h2>
+            <h2 className="section-title anek-devanagari-font" style={{textAlign: 'center'}}>{activeTabData.label}</h2>
           </div>
           
           <div className="experiences-grid">

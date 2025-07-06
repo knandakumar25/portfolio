@@ -8,8 +8,8 @@ const EducationCard = ({ education }) => {
           <i className="bi bi-mortarboard-fill"></i>
         </div>
         <div className="education-meta">
-          <h3 className="education-institution">{education.institution}</h3>
-          <h4 className="education-degree">{education.degree}</h4>
+          <h3 className="education-institution" style={{textAlign: 'center'}}>{education.institution}</h3>
+          <h4 className="education-degree" style={{textAlign: 'center'}}>{education.degree}</h4>
           <div className="education-duration">{education.duration}</div>
         </div>
       </div>

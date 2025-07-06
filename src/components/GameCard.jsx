@@ -37,7 +37,7 @@ const GameCard = ({ game }) => {
           />
         )}
         
-        <h4 className="card-title">{game.title}</h4>
+        <h4 className="card-title" style={{textAlign: 'center'}}>{game.title}</h4>
         <h6 className="text-muted mb-3">Duration: {game.duration}</h6>
         <p className="card-text">{game.description}</p>
 

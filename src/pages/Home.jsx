@@ -21,11 +21,11 @@ const Home = () => {
                 />
               </div>
             </div>
-            <h1 className="hero-title anek-devanagari-font">KARTHIK NANDAKUMAR</h1>
+            <h1 className="hero-title anek-devanagari-font" style={{textAlign: 'center'}}>KARTHIK NANDAKUMAR</h1>
             <div className="hero-roles">
-              <p className="hero-subtitle">Senior at North Carolina State University</p>
-              <p className="hero-detail">College of Engineering</p>
-              <p className="hero-position">Project Intern at SunTec Business Solutions</p>
+              <p className="hero-subtitle" style={{textAlign: 'center'}}>Senior at North Carolina State University</p>
+              <p className="hero-detail" style={{textAlign: 'center'}}>College of Engineering</p>
+              <p className="hero-position" style={{textAlign: 'center'}}>Project Intern at SunTec Business Solutions</p>
             </div>
             <div className="hero-divider"></div>
           </div>
@@ -39,8 +39,8 @@ const Home = () => {
             <div className="section-icon about-icon">
               <i className="bi bi-person-circle"></i>
             </div>
-            <h2 className="section-title anek-devanagari-font">About Me</h2>
-            <p className="section-description">
+            <h2 className="section-title anek-devanagari-font" style={{textAlign: 'center'}}>About Me</h2>
+            <p className="section-description" style={{textAlign: 'center'}}>
               Passionate developer creating innovative solutions through code
             </p>
           </div>
@@ -60,28 +60,28 @@ const Home = () => {
             
             {/* Skills Showcase */}
             <div className="skills-showcase">
-              <h3 className="skills-title anek-devanagari-font">Core Expertise</h3>
+              <h3 className="skills-title anek-devanagari-font" style={{textAlign: 'center'}}>Core Expertise</h3>
               <div className="skills-grid">
                 <div className="skill-card">
                   <div className="skill-icon">
                     <i className="bi bi-code-slash"></i>
                   </div>
-                  <h4>Full-Stack Development</h4>
-                  <p>React, Node.js, Spring Boot</p>
+                  <h4 style={{textAlign: 'center'}}>Full-Stack Development</h4>
+                  <p style={{textAlign: 'center'}}>React, Node.js, Spring Boot</p>
                 </div>
                 <div className="skill-card">
                   <div className="skill-icon">
                     <i className="bi bi-robot"></i>
                   </div>
-                  <h4>Machine Learning</h4>
-                  <p>Python, AI Algorithms</p>
+                  <h4 style={{textAlign: 'center'}}>Machine Learning</h4>
+                  <p style={{textAlign: 'center'}}>Python, AI Algorithms</p>
                 </div>
                 <div className="skill-card">
                   <div className="skill-icon">
                     <i className="bi bi-joystick"></i>
                   </div>
-                  <h4>Game Development</h4>
-                  <p>Godot, Interactive Design</p>
+                  <h4 style={{textAlign: 'center'}}>Game Development</h4>
+                  <p style={{textAlign: 'center'}}>Godot, Interactive Design</p>
                 </div>
               </div>
             </div>
@@ -96,36 +96,36 @@ const Home = () => {
             <div className="section-icon stats-icon">
               <i className="bi bi-bar-chart"></i>
             </div>
-            <h2 className="section-title anek-devanagari-font">At a Glance</h2>
-            <p className="section-description">
+            <h2 className="section-title anek-devanagari-font" style={{textAlign: 'center'}}>At a Glance</h2>
+            <p className="section-description" style={{textAlign: 'center'}}>
               Key achievements and milestones in my journey
             </p>
           </div>
           <div className="stats-grid">
             <div className="stat-card">
-              <div className="stat-number">7+</div>
-              <div className="stat-label">Games Developed</div>
+              <div className="stat-number" style={{textAlign: 'center'}}>7+</div>
+              <div className="stat-label" style={{textAlign: 'center'}}>Games Developed</div>
               <div className="stat-icon-small">
                 <i className="bi bi-joystick"></i>
               </div>
             </div>
             <div className="stat-card">
-              <div className="stat-number">6+</div>
-              <div className="stat-label">Software Projects</div>
+              <div className="stat-number" style={{textAlign: 'center'}}>6+</div>
+              <div className="stat-label" style={{textAlign: 'center'}}>Software Projects</div>
               <div className="stat-icon-small">
                 <i className="bi bi-code-slash"></i>
               </div>
             </div>
             <div className="stat-card">
-              <div className="stat-number">8+</div>
-              <div className="stat-label">Certifications</div>
+              <div className="stat-number" style={{textAlign: 'center'}}>8+</div>
+              <div className="stat-label" style={{textAlign: 'center'}}>Certifications</div>
               <div className="stat-icon-small">
                 <i className="bi bi-award"></i>
               </div>
             </div>
             <div className="stat-card">
-              <div className="stat-number">3.7</div>
-              <div className="stat-label">GPA</div>
+              <div className="stat-number" style={{textAlign: 'center'}}>3.7</div>
+              <div className="stat-label" style={{textAlign: 'center'}}>GPA</div>
               <div className="stat-icon-small">
                 <i className="bi bi-mortarboard"></i>
               </div>
