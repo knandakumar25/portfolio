@@ -30,30 +30,20 @@ const Header = () => {
     return RTL_LANGUAGES.includes(langCode);
   }, []);
 
-  // Function to apply RTL styling globally to entire page
+  // Function to apply RTL styling
   const applyRTLStyling = useCallback((isRTL) => {
     const htmlElement = document.documentElement;
     const bodyElement = document.body;
 
-    console.log('Applying global styling - RTL:', isRTL);
-
     if (isRTL) {
-      // Apply RTL styling to entire page
       htmlElement.setAttribute('dir', 'rtl');
       htmlElement.style.direction = 'rtl';
       bodyElement.style.direction = 'rtl';
       
-      // Add RTL class for additional CSS styling
+      // Add RTL class for additional styling
       htmlElement.classList.add('rtl-layout');
       bodyElement.classList.add('rtl-layout');
-      
-      // Apply RTL to all major containers
-      const containers = document.querySelectorAll('.container, .row, .col, main, section, article, .content');
-      containers.forEach(container => {
-        container.style.direction = 'rtl';
-      });
     } else {
-      // Apply LTR styling to entire page (default)
       htmlElement.setAttribute('dir', 'ltr');
       htmlElement.style.direction = 'ltr';
       bodyElement.style.direction = 'ltr';
@@ -61,12 +51,6 @@ const Header = () => {
       // Remove RTL class
       htmlElement.classList.remove('rtl-layout');
       bodyElement.classList.remove('rtl-layout');
-      
-      // Ensure all containers are LTR
-      const containers = document.querySelectorAll('.container, .row, .col, main, section, article, .content');
-      containers.forEach(container => {
-        container.style.direction = 'ltr';
-      });
     }
   }, []);
 
@@ -82,13 +66,6 @@ const Header = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  // Initialize page with proper default LTR alignment
-  useEffect(() => {
-    console.log('Initializing page with default LTR alignment');
-    // Force LTR by default on page load
-    applyRTLStyling(false);
-  }, [applyRTLStyling]);
 
   useEffect(() => {
     // Google Translate Element Initialization
@@ -431,34 +408,26 @@ const Header = () => {
         const cookieValue = googTransCookie.split('=')[1];
         // Cookie format is usually /en/[target_language]
         const match = cookieValue.match(/\/en\/([a-z-]+)/);
-        if (match && match[1]) {
-          const detectedLang = match[1];
-          console.log('Detected translated language from cookie:', detectedLang);
-          setCurrentLanguage(detectedLang);
+        if (match && match[1] && match[1] !== 'en') {
+          console.log('Detected translated language from cookie:', match[1]);
+          setCurrentLanguage(match[1]);
           
-          // Only apply RTL styling if the language is actually RTL
-          const isRTL = isRTLLanguage(detectedLang);
-          console.log('Language:', detectedLang, 'is RTL:', isRTL, 'RTL Languages:', RTL_LANGUAGES);
-          applyRTLStyling(isRTL);
+          // Apply RTL styling if the detected language is RTL
+          applyRTLStyling(isRTLLanguage(match[1]));
         } else {
-          // Default to English and LTR
-          console.log('No valid language detected, defaulting to English LTR');
-          setCurrentLanguage('en');
+          // If no translation detected or English, apply LTR styling
           applyRTLStyling(false);
         }
       } else {
-        // No translation cookie found, default to English and LTR
-        console.log('No translation cookie found, defaulting to English LTR');
-        setCurrentLanguage('en');
+        // No translation cookie found, apply LTR styling
         applyRTLStyling(false);
       }
     };
 
-    // Wait a bit for Google Translate to initialize
-    setTimeout(detectCurrentLanguage, 1500);
+    detectCurrentLanguage();
   }, [applyRTLStyling, isRTLLanguage]);
 
-  // Monitor for Google Translate changes and reapply proper alignment
+  // Monitor for Google Translate changes and reapply RTL styling
   useEffect(() => {
     const monitorTranslation = () => {
       const cookies = document.cookie.split(';');
@@ -470,32 +439,20 @@ const Header = () => {
         if (match && match[1]) {
           const detectedLang = match[1];
           if (detectedLang !== currentLanguage) {
-            console.log('Language change detected, updating styling for:', detectedLang);
+            console.log('Language change detected, updating RTL styling for:', detectedLang);
             setCurrentLanguage(detectedLang);
-            
-            // Only apply RTL styling if the language is actually RTL
-            const isRTL = isRTLLanguage(detectedLang);
-            console.log('Applying alignment - Language:', detectedLang, 'is RTL:', isRTL);
-            applyRTLStyling(isRTL);
+            applyRTLStyling(isRTLLanguage(detectedLang));
           }
-        }
-      } else {
-        // No translation cookie, default to English and LTR
-        if (currentLanguage !== 'en') {
-          console.log('No translation cookie found, reverting to English LTR');
-          setCurrentLanguage('en');
-          applyRTLStyling(false);
         }
       }
       
-      // Ensure correct direction is maintained for current language
+      // Also check if Google Translate has removed our attributes and reapply them
       const htmlElement = document.documentElement;
       const isCurrentlyRTL = isRTLLanguage(currentLanguage);
-      const expectedDir = isCurrentlyRTL ? 'rtl' : 'ltr';
-      const hasCorrectDir = htmlElement.getAttribute('dir') === expectedDir;
+      const hasCorrectDir = htmlElement.getAttribute('dir') === (isCurrentlyRTL ? 'rtl' : 'ltr');
       
-      if (!hasCorrectDir) {
-        console.log('Direction mismatch detected. Current lang:', currentLanguage, 'Expected dir:', expectedDir, 'Reapplying...');
+      if (!hasCorrectDir && currentLanguage !== 'en') {
+        console.log('Reapplying RTL styling due to attribute removal');
         applyRTLStyling(isCurrentlyRTL);
       }
     };
@@ -508,14 +465,13 @@ const Header = () => {
   const translatePage = (langCode) => {
     console.log('=== TRANSLATE PAGE DEBUG ===');
     console.log('Attempting to translate to:', langCode);
-    const isRTL = isRTLLanguage(langCode);
-    console.log('Is RTL language?', isRTL);
+    console.log('Is RTL language?', isRTLLanguage(langCode));
     console.log('RTL_LANGUAGES array:', RTL_LANGUAGES);
     console.log('langCode type:', typeof langCode);
     console.log('=== END DEBUG ===');
     
-    // Only apply RTL styling if the language is actually RTL
-    applyRTLStyling(isRTL);
+    // Apply RTL styling before translation
+    applyRTLStyling(isRTLLanguage(langCode));
     
     if (langCode === 'en') {
       // Reset to English - clear translation and apply LTR styling
@@ -542,10 +498,8 @@ const Header = () => {
   const translatePageWithCookie = (langCode) => {
     console.log('Using cookie-based translation method for:', langCode);
     
-    // Only apply RTL styling if the language is actually RTL
-    const isRTL = isRTLLanguage(langCode);
-    console.log('Language:', langCode, 'is RTL:', isRTL);
-    applyRTLStyling(isRTL);
+    // Apply RTL styling before setting cookie
+    applyRTLStyling(isRTLLanguage(langCode));
     
     // Set Google Translate cookie
     const cookieName = 'googtrans';
