@@ -13,6 +13,88 @@
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <title>Karthik Nandakumar - Portfolio</title>
     
+    <!-- RTL Protection for Google Translate -->
+    <style>
+      /* Emergency RTL Protection - Highest Priority */
+      .rtl-center-protect,
+      .rtl-center-protect *,
+      .rtl-center-protect > * {
+        text-align: center !important;
+        direction: ltr !important;
+        unicode-bidi: bidi-override !important;
+      }
+      
+      /* Override any RTL direction changes */
+      html[dir="rtl"] .rtl-center-protect,
+      html[dir="rtl"] .rtl-center-protect *,
+      [dir="rtl"] .rtl-center-protect,
+      [dir="rtl"] .rtl-center-protect *,
+      body[dir="rtl"] .rtl-center-protect,
+      body[dir="rtl"] .rtl-center-protect * {
+        text-align: center !important;
+        direction: ltr !important;
+        unicode-bidi: bidi-override !important;
+      }
+    </style>
+    
+    <script type="text/javascript">
+      // RTL Protection Script - Monitor and correct direction changes
+      (function() {
+        function protectCenterAlignment() {
+          // Find all elements with rtl-center-protect class
+          const protectedElements = document.querySelectorAll('.rtl-center-protect, .rtl-center-protect *');
+          protectedElements.forEach(function(element) {
+            if (element.style.textAlign !== 'center') {
+              element.style.textAlign = 'center';
+            }
+            if (element.style.direction !== 'ltr') {
+              element.style.direction = 'ltr';
+            }
+            if (element.dir && element.dir !== 'ltr') {
+              element.dir = 'ltr';
+            }
+          });
+        }
+        
+        // Run protection on page load
+        document.addEventListener('DOMContentLoaded', protectCenterAlignment);
+        
+        // Set up a mutation observer to watch for DOM changes (Google Translate)
+        if (typeof MutationObserver !== 'undefined') {
+          const observer = new MutationObserver(function(mutations) {
+            let shouldProtect = false;
+            mutations.forEach(function(mutation) {
+              if (mutation.type === 'attributes' && 
+                  (mutation.attributeName === 'dir' || 
+                   mutation.attributeName === 'style' ||
+                   mutation.attributeName === 'class')) {
+                shouldProtect = true;
+              }
+              if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+                shouldProtect = true;
+              }
+            });
+            if (shouldProtect) {
+              setTimeout(protectCenterAlignment, 10);
+            }
+          });
+          
+          // Start observing when the document is ready
+          document.addEventListener('DOMContentLoaded', function() {
+            observer.observe(document.body, {
+              attributes: true,
+              childList: true,
+              subtree: true,
+              attributeFilter: ['dir', 'style', 'class']
+            });
+          });
+        }
+        
+        // Periodic protection (as backup)
+        setInterval(protectCenterAlignment, 1000);
+      })();
+    </script>
+
     <!-- Single Page Apps for GitHub Pages -->
     <script type="text/javascript">
       // Single Page Apps for GitHub Pages

@@ -1,3 +1,86 @@
+/* RTL Protection - High Specificity Rules for Center Alignment */
+/* Only target main page elements that should be centered */
+.rtl-center-protect .hero-title,
+.rtl-center-protect .hero-subtitle,
+.rtl-center-protect .section-title,
+.rtl-center-protect .section-description {
+  text-align: center !important;
+  direction: ltr !important;
+}
+
+.rtl-center-protect.container,
+.rtl-center-protect .container,
+.rtl-center-protect.section-header,
+.rtl-center-protect .section-header,
+.rtl-center-protect.hero-title,
+.rtl-center-protect .hero-title,
+.rtl-center-protect.hero-subtitle,
+.rtl-center-protect .hero-subtitle,
+.rtl-center-protect.hero-divider,
+.rtl-center-protect .hero-divider,
+.rtl-center-protect.section-title,
+.rtl-center-protect .section-title,
+.rtl-center-protect.section-description,
+.rtl-center-protect .section-description,
+.rtl-center-protect.section-icon,
+.rtl-center-protect .section-icon,
+.rtl-center-protect.tab-selector,
+.rtl-center-protect .tab-selector,
+.rtl-center-protect.tab-button,
+.rtl-center-protect .tab-button,
+.rtl-center-protect.tab-icon,
+.rtl-center-protect .tab-icon,
+.rtl-center-protect.tab-label,
+.rtl-center-protect .tab-label,
+.rtl-center-protect.tab-indicator,
+.rtl-center-protect .tab-indicator {
+  text-align: center !important;
+  direction: ltr !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Tab selector specific styling */
+.rtl-center-protect.tab-selector,
+.rtl-center-protect .tab-selector {
+  flex-direction: row !important;
+}
+
+/* Preserve grid layout for experiences-grid */
+.rtl-center-protect.experiences-grid,
+.rtl-center-protect .experiences-grid {
+  display: grid !important;
+  text-align: center !important;
+  direction: ltr !important;
+  justify-items: center !important;
+}
+
+/* Additional specificity for translated content */
+html[dir="rtl"] .rtl-center-protect,
+html[dir="rtl"] .rtl-center-protect *,
+[dir="rtl"] .rtl-center-protect,
+[dir="rtl"] .rtl-center-protect *,
+body[dir="rtl"] .rtl-center-protect,
+body[dir="rtl"] .rtl-center-protect * {
+  text-align: center !important;
+  direction: ltr !important;
+}
+
+/* Preserve grid for RTL translated content */
+html[dir="rtl"] .rtl-center-protect.experiences-grid,
+html[dir="rtl"] .rtl-center-protect .experiences-grid,
+[dir="rtl"] .rtl-center-protect.experiences-grid,
+[dir="rtl"] .rtl-center-protect .experiences-grid,
+body[dir="rtl"] .rtl-center-protect.experiences-grid,
+body[dir="rtl"] .rtl-center-protect .experiences-grid {
+  display: grid !important;
+  text-align: center !important;
+  direction: ltr !important;
+  justify-items: center !important;
+}
+
 /* Experiences Container */
 .experiences-container {
   min-height: 100vh;

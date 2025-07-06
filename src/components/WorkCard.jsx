@@ -8,8 +8,8 @@ const WorkCard = ({ work }) => {
           <i className="bi bi-building"></i>
         </div>
         <div className="work-meta">
-          <h3 className="work-company" style={{textAlign: 'center'}}>{work.company}</h3>
-          <h4 className="work-position" style={{textAlign: 'center'}}>{work.position}</h4>
+          <h3 className="work-company">{work.company}</h3>
+          <h4 className="work-position">{work.position}</h4>
           <div className="work-details">
             <span className="work-type">{work.type}</span>
             <span className="work-duration">{work.duration}</span>

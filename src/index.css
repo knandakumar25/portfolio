@@ -11,3 +11,87 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Global RTL Protection - Ultra High Specificity Rules for Center Alignment */
+/* Only target main page elements that should be centered, not card content */
+.rtl-center-protect .hero-title,
+.rtl-center-protect .hero-subtitle,
+.rtl-center-protect .section-title,
+.rtl-center-protect .section-description,
+.rtl-center-protect .stat-number,
+.rtl-center-protect .stat-label,
+.rtl-center-protect .about-text,
+.rtl-center-protect .skills-title {
+  text-align: center !important;
+  direction: ltr !important;
+}
+
+/* Ultra high specificity for Google Translate RTL override */
+html[dir="rtl"] .rtl-center-protect .hero-title,
+html[dir="rtl"] .rtl-center-protect .hero-subtitle,
+html[dir="rtl"] .rtl-center-protect .section-title,
+html[dir="rtl"] .rtl-center-protect .section-description,
+html[dir="rtl"] .rtl-center-protect .stat-number,
+html[dir="rtl"] .rtl-center-protect .stat-label,
+html[dir="rtl"] .rtl-center-protect .about-text,
+html[dir="rtl"] .rtl-center-protect .skills-title,
+[dir="rtl"] .rtl-center-protect .hero-title,
+[dir="rtl"] .rtl-center-protect .hero-subtitle,
+[dir="rtl"] .rtl-center-protect .section-title,
+[dir="rtl"] .rtl-center-protect .section-description,
+[dir="rtl"] .rtl-center-protect .stat-number,
+[dir="rtl"] .rtl-center-protect .stat-label,
+[dir="rtl"] .rtl-center-protect .about-text,
+[dir="rtl"] .rtl-center-protect .skills-title,
+body[dir="rtl"] .rtl-center-protect .hero-title,
+body[dir="rtl"] .rtl-center-protect .hero-subtitle,
+body[dir="rtl"] .rtl-center-protect .section-title,
+body[dir="rtl"] .rtl-center-protect .section-description,
+body[dir="rtl"] .rtl-center-protect .stat-number,
+body[dir="rtl"] .rtl-center-protect .stat-label,
+body[dir="rtl"] .rtl-center-protect .about-text,
+body[dir="rtl"] .rtl-center-protect .skills-title {
+  text-align: center !important;
+  direction: ltr !important;
+  unicode-bidi: bidi-override !important;
+}
+
+/* Force center alignment with inline-block for maximum compatibility */
+.rtl-center-protect.container,
+.rtl-center-protect .container,
+.rtl-center-protect.section-header,
+.rtl-center-protect .section-header,
+.rtl-center-protect.hero-title,
+.rtl-center-protect .hero-title,
+.rtl-center-protect.hero-subtitle,
+.rtl-center-protect .hero-subtitle,
+.rtl-center-protect.section-title,
+.rtl-center-protect .section-title,
+.rtl-center-protect.section-description,
+.rtl-center-protect .section-description {
+  text-align: center !important;
+  direction: ltr !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Preserve grid layouts */
+.rtl-center-protect.certifications-grid,
+.rtl-center-protect .certifications-grid,
+.rtl-center-protect.projects-grid,
+.rtl-center-protect .projects-grid,
+.rtl-center-protect.experiences-grid,
+.rtl-center-protect .experiences-grid,
+.rtl-center-protect.stats-grid,
+.rtl-center-protect .stats-grid,
+.rtl-center-protect.skills-grid,
+.rtl-center-protect .skills-grid {
+  display: grid !important;
+  text-align: center !important;
+  direction: ltr !important;
+  justify-items: center !important;
+}

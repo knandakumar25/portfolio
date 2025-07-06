@@ -1,3 +1,98 @@
+/* RTL Protection - High Specificity Rules for Center Alignment */
+/* Only target specific elements that should be centered */
+.rtl-center-protect .hero-title,
+.rtl-center-protect .hero-subtitle,
+.rtl-center-protect .section-title,
+.rtl-center-protect .section-description,
+.rtl-center-protect .stat-number,
+.rtl-center-protect .stat-label,
+.rtl-center-protect .about-text,
+.rtl-center-protect .skills-title {
+  text-align: center !important;
+  direction: ltr !important;
+}
+
+.rtl-center-protect.container,
+.rtl-center-protect .container,
+.rtl-center-protect.section-header,
+.rtl-center-protect .section-header,
+.rtl-center-protect.hero-title,
+.rtl-center-protect .hero-title,
+.rtl-center-protect.hero-subtitle,
+.rtl-center-protect .hero-subtitle,
+.rtl-center-protect.hero-divider,
+.rtl-center-protect .hero-divider,
+.rtl-center-protect.section-title,
+.rtl-center-protect .section-title,
+.rtl-center-protect.section-description,
+.rtl-center-protect .section-description,
+.rtl-center-protect.section-icon,
+.rtl-center-protect .section-icon,
+.rtl-center-protect.stat-number,
+.rtl-center-protect .stat-number,
+.rtl-center-protect.stat-label,
+.rtl-center-protect .stat-label,
+.rtl-center-protect.stat-icon-small,
+.rtl-center-protect .stat-icon-small,
+.rtl-center-protect.skill-icon,
+.rtl-center-protect .skill-icon,
+.rtl-center-protect.hero-content,
+.rtl-center-protect .hero-content,
+.rtl-center-protect.hero-roles,
+.rtl-center-protect .hero-roles,
+.rtl-center-protect.profile-image-container,
+.rtl-center-protect .profile-image-container,
+.rtl-center-protect.image-frame,
+.rtl-center-protect .image-frame {
+  text-align: center !important;
+  direction: ltr !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Preserve grid layouts for home page grids */
+.rtl-center-protect.skills-grid,
+.rtl-center-protect .skills-grid,
+.rtl-center-protect.stats-grid,
+.rtl-center-protect .stats-grid {
+  display: grid !important;
+  text-align: center !important;
+  direction: ltr !important;
+  justify-items: center !important;
+}
+
+/* Additional specificity for translated content */
+html[dir="rtl"] .rtl-center-protect,
+html[dir="rtl"] .rtl-center-protect *,
+[dir="rtl"] .rtl-center-protect,
+[dir="rtl"] .rtl-center-protect *,
+body[dir="rtl"] .rtl-center-protect,
+body[dir="rtl"] .rtl-center-protect * {
+  text-align: center !important;
+  direction: ltr !important;
+}
+
+/* Preserve grid for RTL translated content */
+html[dir="rtl"] .rtl-center-protect.skills-grid,
+html[dir="rtl"] .rtl-center-protect .skills-grid,
+html[dir="rtl"] .rtl-center-protect.stats-grid,
+html[dir="rtl"] .rtl-center-protect .stats-grid,
+[dir="rtl"] .rtl-center-protect.skills-grid,
+[dir="rtl"] .rtl-center-protect .skills-grid,
+[dir="rtl"] .rtl-center-protect.stats-grid,
+[dir="rtl"] .rtl-center-protect .stats-grid,
+body[dir="rtl"] .rtl-center-protect.skills-grid,
+body[dir="rtl"] .rtl-center-protect .skills-grid,
+body[dir="rtl"] .rtl-center-protect.stats-grid,
+body[dir="rtl"] .rtl-center-protect .stats-grid {
+  display: grid !important;
+  text-align: center !important;
+  direction: ltr !important;
+  justify-items: center !important;
+}
+
 /* Home Container */
 .home-container {
   min-height: 100vh;
