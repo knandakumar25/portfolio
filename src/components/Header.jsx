@@ -43,6 +43,40 @@ const Header = () => {
       // Add RTL class for additional styling
       htmlElement.classList.add('rtl-layout');
       bodyElement.classList.add('rtl-layout');
+      
+      // Add style tag to preserve center alignment for specific elements in RTL
+      let rtlCenterStyle = document.getElementById('rtl-center-preserve-style');
+      if (!rtlCenterStyle) {
+        rtlCenterStyle = document.createElement('style');
+        rtlCenterStyle.id = 'rtl-center-preserve-style';
+        document.head.appendChild(rtlCenterStyle);
+      }
+      
+      rtlCenterStyle.textContent = `
+        /* Preserve center alignment for specific elements in RTL languages */
+        .text-center, .center, .text-centered,
+        .navbar-brand, .brand-text, .logo,
+        h1.text-center, h2.text-center, h3.text-center,
+        .hero-title, .section-title, .page-title,
+        .card-title.text-center, .badge.text-center,
+        [style*="text-align: center"], [style*="text-align:center"],
+        .justify-content-center, .align-items-center {
+          text-align: center !important;
+          justify-content: center !important;
+          align-items: center !important;
+        }
+        
+        /* Keep centered elements centered in flexbox */
+        .d-flex.justify-content-center {
+          justify-content: center !important;
+        }
+        
+        /* Preserve center alignment for common centered elements */
+        .mx-auto {
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+      `;
     } else {
       htmlElement.setAttribute('dir', 'ltr');
       htmlElement.style.direction = 'ltr';
@@ -51,6 +85,12 @@ const Header = () => {
       // Remove RTL class
       htmlElement.classList.remove('rtl-layout');
       bodyElement.classList.remove('rtl-layout');
+      
+      // Remove the RTL center preservation style
+      const rtlCenterStyle = document.getElementById('rtl-center-preserve-style');
+      if (rtlCenterStyle) {
+        rtlCenterStyle.remove();
+      }
     }
   }, []);
 
