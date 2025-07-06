@@ -47,7 +47,7 @@ const Home = () => {
           
           <div className="about-content">
             <div className="about-text-card">
-              <p className="about-text">
+              <p className="about-text" style={{textAlign: 'center'}}>
                 Computer Science senior at North Carolina State University with hands-on experience in 
                 <span className="highlight"> full-stack web development</span>, 
                 <span className="highlight"> machine learning</span>, and 

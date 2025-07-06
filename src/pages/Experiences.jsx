@@ -47,7 +47,7 @@ const Experiences = () => {
                 <div className="tab-icon">
                   <i className={`bi ${tab.icon}`}></i>
                 </div>
-                <span className="tab-label" style={{textAlign: 'center'}}>{tab.label}</span>
+                <span className="tab-label">{tab.label}</span>
                 <div className="tab-indicator"></div>
               </button>
             ))}
@@ -62,7 +62,7 @@ const Experiences = () => {
             <div className="section-icon">
               <i className={`bi ${activeTabData.icon}`}></i>
             </div>
-            <h2 className="section-title anek-devanagari-font" style={{textAlign: 'center'}}>{activeTabData.label}</h2>
+            <h2 className="section-title anek-devanagari-font">{activeTabData.label}</h2>
           </div>
           
           <div className="experiences-grid">

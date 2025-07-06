@@ -22,8 +22,8 @@ const Certifications = () => {
             <div className="section-icon">
               <i className="bi bi-award-fill"></i>
             </div>
-            <h2 className="section-title anek-devanagari-font" style={{textAlign: 'center'}}>Professional Certifications</h2>
-            <p className="section-description" style={{textAlign: 'center'}}>
+            <h2 className="section-title anek-devanagari-font">Professional Certifications</h2>
+            <p className="section-description">
               Validated skills and expertise across technology domains
             </p>
           </div>
