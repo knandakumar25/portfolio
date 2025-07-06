@@ -415,11 +415,15 @@ const Header = () => {
           // Apply RTL styling if the detected language is RTL
           applyRTLStyling(isRTLLanguage(match[1]));
         } else {
-          // If no translation detected or English, apply LTR styling
+          // If translation is to English or invalid, set to English
+          console.log('Translation detected as English or invalid, setting to English');
+          setCurrentLanguage('en');
           applyRTLStyling(false);
         }
       } else {
-        // No translation cookie found, apply LTR styling
+        // No translation cookie found, set to English
+        console.log('No translation cookie found, setting to English');
+        setCurrentLanguage('en');
         applyRTLStyling(false);
       }
     };
@@ -430,6 +434,9 @@ const Header = () => {
   // Monitor for Google Translate changes and reapply RTL styling
   useEffect(() => {
     const monitorTranslation = () => {
+      let detectedLang = 'en'; // Default to English
+      
+      // Method 1: Check Google Translate cookie
       const cookies = document.cookie.split(';');
       const googTransCookie = cookies.find(cookie => cookie.trim().startsWith('googtrans='));
       
@@ -437,13 +444,26 @@ const Header = () => {
         const cookieValue = googTransCookie.split('=')[1];
         const match = cookieValue.match(/\/en\/([a-z-]+)/);
         if (match && match[1]) {
-          const detectedLang = match[1];
-          if (detectedLang !== currentLanguage) {
-            console.log('Language change detected, updating RTL styling for:', detectedLang);
-            setCurrentLanguage(detectedLang);
-            applyRTLStyling(isRTLLanguage(detectedLang));
-          }
+          detectedLang = match[1];
+          console.log('Language detected from cookie:', detectedLang);
         }
+      }
+      
+      // Method 2: Check Google Translate select element value
+      const selectElement = document.querySelector('#google_translate_element select');
+      if (selectElement && selectElement.value) {
+        const selectLang = selectElement.value;
+        if (selectLang !== '' && selectLang !== 'en|en') {
+          detectedLang = selectLang;
+          console.log('Language detected from select element:', detectedLang);
+        }
+      }
+      
+      // Update current language if it changed
+      if (detectedLang !== currentLanguage) {
+        console.log('Language change detected:', currentLanguage, '→', detectedLang);
+        setCurrentLanguage(detectedLang);
+        applyRTLStyling(isRTLLanguage(detectedLang));
       }
       
       // Also check if Google Translate has removed our attributes and reapply them
