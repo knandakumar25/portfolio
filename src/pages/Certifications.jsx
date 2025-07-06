@@ -19,7 +19,7 @@ const Certifications = () => {
       <section className="certifications-section">
         <div className="container">
           <div className="section-header">
-            <div className="section-icon">
+            <div className="section-icon" style={{textAlign: 'center'}}>
               <i className="bi bi-award-fill"></i>
             </div>
             <h2 className="section-title anek-devanagari-font">Professional Certifications</h2>

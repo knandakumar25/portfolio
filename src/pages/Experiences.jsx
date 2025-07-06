@@ -43,8 +43,9 @@ const Experiences = () => {
                 key={tab.id}
                 className={`tab-button ${activeTab === tab.id ? 'active' : ''}`}
                 onClick={() => setActiveTab(tab.id)}
+                style={{textAlign: 'center'}}
               >
-                <div className="tab-icon">
+                <div className="tab-icon" style={{textAlign: 'center'}}>
                   <i className={`bi ${tab.icon}`}></i>
                 </div>
                 <span className="tab-label">{tab.label}</span>
@@ -59,7 +60,7 @@ const Experiences = () => {
       <section className="experiences-content">
         <div className="container">
           <div className="section-header">
-            <div className="section-icon">
+            <div className="section-icon" style={{textAlign: 'center'}}>
               <i className={`bi ${activeTabData.icon}`}></i>
             </div>
             <h2 className="section-title anek-devanagari-font">{activeTabData.label}</h2>
