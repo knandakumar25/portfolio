@@ -18,12 +18,12 @@ const Certifications = () => {
       {/* Certifications Section */}
       <section className="certifications-section">
         <div className="container">
-          <div className="section-header">
+          <div className="section-header" style={{textAlign: 'center'}}>
             <div className="section-icon" style={{textAlign: 'center'}}>
               <i className="bi bi-award-fill"></i>
             </div>
-            <h2 className="section-title anek-devanagari-font">Professional Certifications</h2>
-            <p className="section-description">
+            <h2 className="section-title anek-devanagari-font" style={{textAlign: 'center'}}>Professional Certifications</h2>
+            <p className="section-description" style={{textAlign: 'center'}}>
               Validated skills and expertise across technology domains
             </p>
           </div>

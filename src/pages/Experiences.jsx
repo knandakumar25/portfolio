@@ -37,7 +37,7 @@ const Experiences = () => {
       {/* Tab Navigation */}
       <section className="experiences-navigation">
         <div className="container">
-          <div className="tab-selector">
+          <div className="tab-selector" style={{textAlign: 'center'}}>
             {tabs.map(tab => (
               <button
                 key={tab.id}
@@ -59,11 +59,11 @@ const Experiences = () => {
       {/* Content Section */}
       <section className="experiences-content">
         <div className="container">
-          <div className="section-header">
+          <div className="section-header" style={{textAlign: 'center'}}>
             <div className="section-icon" style={{textAlign: 'center'}}>
               <i className={`bi ${activeTabData.icon}`}></i>
             </div>
-            <h2 className="section-title anek-devanagari-font">{activeTabData.label}</h2>
+            <h2 className="section-title anek-devanagari-font" style={{textAlign: 'center'}}>{activeTabData.label}</h2>
           </div>
           
           <div className="experiences-grid">
