@@ -21,7 +21,7 @@
       {
         "title": "Play on Web",
         "url": "/portfolio/games/Recourse/Recourse-A-Tall-Tale/index.html",
-        "type": "web",
+        "type": "external",
         "icon": "bi-globe"
       }
     ],

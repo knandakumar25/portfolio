@@ -40,6 +40,8 @@ const GameDetails = () => {
         return 'btn-outline-primary';
       case 'web':
         return 'btn-outline-success';
+      case 'external':
+        return 'btn-outline-success';
       default:
         return 'btn-outline-secondary';
     }
@@ -138,6 +140,20 @@ const GameDetails = () => {
                     href={getPublicUrl(link.url)}
                     className={`btn ${getButtonClass(link.type)} me-2 mb-2`}
                     download
+                  >
+                    <i className={`${getButtonIcon(link.icon)} me-1`}></i>
+                    {link.title}
+                  </a>
+                ))}
+                
+                {/* External Links (open in new tab) */}
+                {game.links && game.links.filter(link => link.type === 'external').map((link, index) => (
+                  <a
+                    key={index}
+                    href={getPublicUrl(link.url)}
+                    className={`btn ${getButtonClass(link.type)} me-2 mb-2`}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     <i className={`${getButtonIcon(link.icon)} me-1`}></i>
                     {link.title}
