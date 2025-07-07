@@ -71,12 +71,11 @@ const GameDetails = () => {
       }
       return url;
     }
-    // For local files in development, use the full URL
-    if (url && url.startsWith('/portfolio/')) {
-      // Keep the full portfolio path for localhost:3000
-      return `http://localhost:3000${url}`;
+    // For local files, create absolute URL using current origin
+    if (url && url.startsWith('/')) {
+      return `${window.location.origin}${url}`;
     }
-    // For local files, return the URL as-is
+    // For relative or absolute URLs, return as-is
     return url;
   };
 
