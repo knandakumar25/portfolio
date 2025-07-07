@@ -47,24 +47,6 @@
     ],
     "links": [
       {
-        "title": "Download for Windows",
-        "url": "/portfolio/games/Serendipity/Serendipity (Windows).zip",
-        "type": "download",
-        "icon": "bi-windows"
-      },
-      {
-        "title": "Download for Android",
-        "url": "/portfolio/games/Serendipity/Serendipity (Android).zip",
-        "type": "download",
-        "icon": "bi-android"
-      },
-      {
-        "title": "Download for Linux",
-        "url": "/portfolio/games/Serendipity/Serendipity (Linux).tar",
-        "type": "download",
-        "icon": "fa-brands fa-linux"
-      },
-      {
         "title": "Play on Web",
         "url": "/portfolio/games/Serendipity/Serendipity (Web)/index.html",
         "type": "web",
