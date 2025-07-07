@@ -3,7 +3,8 @@
     "id": 1,
     "title": "Recourse",
     "duration": "January 2025",
-    "image": "/portfolio/photos/ship.jpg",
+    "image": "/portfolio/photos/Incredulous.png",
+    "shortDescription": "Interactive narrative game about a ship crew facing divine intervention.",
     "description": "Recourse is an interactive narrative game. The main character is a part of a ship crew that is heading back to England after serving in the British East India Company. During that journey, the main character gets a dream from the Hindu god of the ocean, Varuna. Apparently, there is a storm coming and the captain wants to avoid it but Varuna wants them to sell ahead. Will they make it out alive?",
     "skills": ["Game Design", "Data Structures", "Game Programming", "Interpersonal Skills", "Teamwork", "Game Development", "Game Testing", "Graphical User Interface (GUI)", "User Experience (UX)", "Inkle", "Software Development"],
     "contributors": [
@@ -19,7 +20,7 @@
     "links": [
       {
         "title": "Play on Web",
-        "url": "https://kn21.itch.io/recourse",
+        "url": "/portfolio/games/Recourse/Recourse - A Tall Tale/index.html",
         "type": "web",
         "icon": "bi-globe"
       }
@@ -31,6 +32,7 @@
     "title": "Serendipity",
     "duration": "January 2025 - February 2025",
     "image": "/portfolio/photos/Serendipity.png",
+    "shortDescription": "2D hidden object game where survivors search for resources on a mysterious island.",
     "description": "Serendipity is a 2D hidden object game and the sequel to Recourse. After getting shipwrecked on an island in the Indian Ocean, the main player and his crew must go around the island finding food and other materials in order to survive. But, as they look, a dark secret arise.",
     "skills": ["Game Design", "Data Structures", "Game Programming", "Interpersonal Skills", "Teamwork", "GDScript", "Godot", "Game Development", "Game Testing", "Git", "Graphical User Interface (GUI)", "User Experience (UX)", "Software Development"],
     "contributors": [
@@ -64,7 +66,7 @@
       },
       {
         "title": "Play on Web",
-        "url": "https://kn21.itch.io/serendipity",
+        "url": "/portfolio/games/Serendipity/Serendipity (Web)/index.html",
         "type": "web",
         "icon": "bi-globe"
       }
@@ -76,13 +78,14 @@
     "title": "The Maze Game",
     "duration": "January 2025 - February 2025",
     "image": "/portfolio/photos/The Maze Game.png",
+    "shortDescription": "Challenging maze game with four levels featuring blocks, keys, and teleportation.",
     "description": "The Maze Game is a maze game consisting of four levels. Players have to get through multiple obstacles including pushing blocks, a key-and-door system, and teleportation.",
     "skills": ["Game Design", "Game Programming", "PuzzleScript", "Game Development", "Game Testing"],
     "contributors": [],
     "links": [
       {
         "title": "Play on Web",
-        "url": "https://kn21.itch.io/the-maze-game",
+        "url": "/portfolio/games/The Maze Game/The Maze Game.html",
         "type": "web",
         "icon": "bi-globe"
       }
@@ -94,6 +97,7 @@
     "title": "Restoration",
     "duration": "February 2025 - March 2025",
     "image": "/portfolio/photos/Restoration.png",
+    "shortDescription": "Pachinko game where players break free from divine influence.",
     "description": "Restoration is a Pachinko game and the sequel to Serendipity. After picking up that piece of paper in Serendipity, the main character is put through a series of Pachinko games in order to free his mind from Varuna's influence. He is forced to face a dilemma as he witnesses his past sins. Will he be free?",
     "skills": ["Game Design", "Data Structures", "Game Programming", "Interpersonal Skills", "Teamwork", "GDScript", "Godot", "Game Development", "Game Testing", "Git", "Graphical User Interface (GUI)", "User Experience (UX)", "Software Development"],
     "contributors": [
@@ -127,7 +131,7 @@
       },
       {
         "title": "Play on Web",
-        "url": "https://kn21.itch.io/restoration",
+        "url": "/portfolio/games/Restoration/Restoration (Web)/index.html",
         "type": "web",
         "icon": "bi-globe"
       }
@@ -139,13 +143,14 @@
     "title": "Incredulous",
     "duration": "February 2025 - March 2025",
     "image": "/portfolio/photos/Incredulous.png",
+    "shortDescription": "Murder mystery game where a detective solves a Lord's death.",
     "description": "Incredulous is a murder mystery game. A Lord was just murdered and it is up to the main character, who is a detective, to solve the mystery while navigating the complex dynamics of the late Lord's family and friends.",
     "skills": ["Game Design", "Game Programming", "Game Development", "Game Testing", "Twine"],
     "contributors": [],
     "links": [
       {
         "title": "Play on Web",
-        "url": "https://kn21.itch.io/incredulous",
+        "url": "/portfolio/games/Incredulous/index.html",
         "type": "web",
         "icon": "bi-globe"
       }
@@ -157,6 +162,7 @@
     "title": "The Broken Kingdom",
     "duration": "January 2025 - April 2025",
     "image": "/portfolio/photos/The Broken Kingdom.png",
+    "shortDescription": "Post-apocalyptic kingdom game where players make judgments to restore or destroy.",
     "description": "The Broken Kingdom takes place in a post-apocalyptic kingdom called Soulnaris. The king was murdered which caused the kingdom to fall into this state. Players will play as the Judge, who as the name suggests, will go around making judgments. This can take the form of building or destroying structures or purifying or destroying spirits. The goal is to either fully restore the kingdom allowing the kingdom to flourish again or finish destroying it leaving the kingdom in hell forever.",
     "skills": ["Game Design", "Data Structures", "Game Programming", "Interpersonal Skills", "Teamwork", "GDScript", "Godot", "Game Development", "Game Testing", "Git", "Software Development"],
     "contributors": [
@@ -194,7 +200,7 @@
       },
       {
         "title": "Play on Web",
-        "url": "https://kn21.itch.io/the-broken-kingdom",
+        "url": "/portfolio/games/The Broken Kingdom/The Broken Kingdom (Web)/index.html",
         "type": "web",
         "icon": "bi-globe"
       }
@@ -206,6 +212,7 @@
     "title": "Endgame",
     "duration": "March 2025 - April 2025",
     "image": "/portfolio/photos/Endgame.png",
+    "shortDescription": "Point-and-click RPG conclusion featuring three mini-games and a final battle.",
     "description": "Endgame is a point-and-click RPG game, the sequel to Restoration, and the conclusion to the adventure that began with Recourse. This game is the final battle against Varuna and takes place through a series of three mini games: a shooter game, an escape room, and an attorney-like situation.",
     "skills": ["Game Design", "Data Structures", "Game Programming", "Interpersonal Skills", "Teamwork", "GDScript", "Godot", "Game Development", "Game Testing", "Git", "Graphical User Interface (GUI)", "User Experience (UX)", "Software Development", "Inkle"],
     "contributors": [
@@ -239,7 +246,7 @@
       },
       {
         "title": "Play on Web",
-        "url": "https://kn21.itch.io/endgame",
+        "url": "/portfolio/games/Endgame/Endgame (Web)/index.html",
         "type": "web",
         "icon": "bi-globe"
       }

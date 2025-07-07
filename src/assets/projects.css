@@ -432,6 +432,50 @@ body[dir="rtl"] .rtl-center-protect .projects-grid {
   text-decoration: underline;
 }
 
+/* Clickable Game Card Styles */
+.game-card-clickable {
+  transition: all 0.3s ease !important;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.game-card-clickable:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+  border-color: #007bff !important;
+}
+
+.game-card-clickable:active {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Game card title styling */
+.game-card-clickable .card-title {
+  color: #2c3e50;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.game-card-clickable:hover .card-title {
+  color: #007bff;
+}
+
+/* View details button styling */
+.game-card-clickable .btn-outline-primary {
+  border: 1px solid #007bff;
+  color: #007bff;
+  background: transparent;
+  transition: all 0.2s ease;
+}
+
+.game-card-clickable:hover .btn-outline-primary {
+  background: #007bff;
+  color: white;
+  transform: scale(1.05);
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .hero-title {
