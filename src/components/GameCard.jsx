@@ -18,7 +18,11 @@ const GameCard = ({ game }) => {
 
   // Function to get the correct public URL for images and downloads
   const getPublicUrl = (path) => {
-    // In development, PUBLIC_URL is empty, in production it's the base path
+    // If path already includes the base path, use it as is
+    // Otherwise, add the PUBLIC_URL
+    if (path.startsWith('/portfolio/')) {
+      return path;
+    }
     const publicUrl = process.env.PUBLIC_URL || '';
     return `${publicUrl}${path}`;
   };

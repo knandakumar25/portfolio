@@ -462,7 +462,6 @@ const Header = () => {
         }
       } else {
         // No translation cookie found, set to English
-        console.log('No translation cookie found, setting to English');
         setCurrentLanguage('en');
         applyRTLStyling(false);
       }

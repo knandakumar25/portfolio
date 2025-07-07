@@ -25,12 +25,11 @@ const Home = () => {
             <div className="profile-image-container rtl-center-protect" style={centerAlignStyle}>
               <div className="image-frame rtl-center-protect" style={centerAlignStyle}>
                 <img 
-                  src="/photos/ImageID_56098236_14.jpg" 
+                  src="/portfolio/photos/ImageID_56098236_14.jpg" 
                   alt="Karthik Nandakumar" 
                   className="profile-image rtl-center-protect"
                   onError={(e) => {
                     e.target.style.display = 'none';
-                    console.warn('Profile image failed to load');
                   }}
                 />
               </div>
