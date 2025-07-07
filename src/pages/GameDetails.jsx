@@ -73,9 +73,8 @@ const GameDetails = () => {
     }
     // For local files in development, use the full URL
     if (url && url.startsWith('/portfolio/')) {
-      // Remove /portfolio prefix and use localhost:3000
-      const cleanUrl = url.replace('/portfolio/', '');
-      return `http://localhost:3000/${cleanUrl}`;
+      // Keep the full portfolio path for localhost:3000
+      return `http://localhost:3000${url}`;
     }
     // For local files, return the URL as-is
     return url;
