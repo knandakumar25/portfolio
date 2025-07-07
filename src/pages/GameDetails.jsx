@@ -73,7 +73,9 @@ const GameDetails = () => {
     }
     // For local files, create absolute URL using current origin
     if (url && url.startsWith('/')) {
-      return `${window.location.origin}${url}`;
+      // Properly encode the URL to handle spaces and special characters
+      const encodedUrl = encodeURI(url);
+      return `${window.location.origin}${encodedUrl}`;
     }
     // For relative or absolute URLs, return as-is
     return url;
