@@ -52,6 +52,10 @@ const GameDetails = () => {
   };
 
   const getPublicUrl = (path) => {
+    // If it's already an absolute URL, return as-is
+    if (path.startsWith('http://') || path.startsWith('https://')) {
+      return path;
+    }
     if (path.startsWith('/portfolio/')) {
       return path;
     }
@@ -147,18 +151,27 @@ const GameDetails = () => {
                 ))}
                 
                 {/* External Links (open in new tab) */}
-                {game.links && game.links.filter(link => link.type === 'external').map((link, index) => (
-                  <a
-                    key={index}
-                    href={getPublicUrl(link.url)}
-                    className={`btn ${getButtonClass(link.type)} me-2 mb-2`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <i className={`${getButtonIcon(link.icon)} me-1`}></i>
-                    {link.title}
-                  </a>
-                ))}
+                {game.links && game.links.filter(link => link.type === 'external').map((link, index) => {
+                  const url = getPublicUrl(link.url);
+                  console.log('Raw link URL:', link.url);
+                  console.log('Processed URL:', url);
+                  return (
+                    <button
+                      key={index}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        console.log('Navigating to:', url);
+                        // Force full page navigation to the external URL
+                        window.location.href = url;
+                      }}
+                      className={`btn ${getButtonClass(link.type)} me-2 mb-2`}
+                    >
+                      <i className={`${getButtonIcon(link.icon)} me-1`}></i>
+                      {link.title}
+                    </button>
+                  );
+                })}
               </div>
             </div>
           </div>

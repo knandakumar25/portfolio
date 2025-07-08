@@ -3,7 +3,7 @@
     "id": 1,
     "title": "Recourse",
     "duration": "January 2025",
-    "image": "/portfolio/photos/Incredulous.png",
+    "image": "/portfolio/photos/ship.jpg",
     "shortDescription": "Interactive narrative game about a ship crew facing divine intervention.",
     "description": "Recourse is an interactive narrative game. The main character is a part of a ship crew that is heading back to England after serving in the British East India Company. During that journey, the main character gets a dream from the Hindu god of the ocean, Varuna. Apparently, there is a storm coming and the captain wants to avoid it but Varuna wants them to sell ahead. Will they make it out alive?",
     "skills": ["Game Design", "Data Structures", "Game Programming", "Interpersonal Skills", "Teamwork", "Game Development", "Game Testing", "Graphical User Interface (GUI)", "User Experience (UX)", "Inkle", "Software Development"],
@@ -20,7 +20,7 @@
     "links": [
       {
         "title": "Play on Web",
-        "url": "/portfolio/games/Recourse/Recourse-A-Tall-Tale/index.html",
+        "url": "https://knandakumar25.github.io/portfolio/games/Recourse/index.html",
         "type": "external",
         "icon": "bi-globe"
       }

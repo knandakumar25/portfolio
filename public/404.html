@@ -19,6 +19,13 @@
         var pathSegmentsToKeep = 1;
 
         var l = window.location;
+        
+        // Don't redirect if this is a request for a game file - let it 404 naturally
+        if (l.pathname.includes('/games/')) {
+            // For game files, don't redirect to React Router
+            return;
+        }
+        
         l.replace(
             l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
             l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
