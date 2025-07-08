@@ -20,7 +20,7 @@
     "links": [
       {
         "title": "Play on Web",
-        "url": "https://knandakumar25.github.io/portfolio/games/Recourse/index.html",
+        "url": "/portfolio/games/Recourse/index.html",
         "type": "external",
         "icon": "bi-globe"
       }
