@@ -12,10 +12,8 @@
     <link rel="apple-touch-icon" href="/logo192.png" />
     <link rel="manifest" href="/manifest.json" />
     <title>Karthik Nandakumar - Portfolio</title>
-    
     <!-- RTL Protection for Google Translate -->
     <style>
-      /* Emergency RTL Protection - Highest Priority */
       .rtl-center-protect,
       .rtl-center-protect *,
       .rtl-center-protect > * {
@@ -23,8 +21,6 @@
         direction: ltr !important;
         unicode-bidi: bidi-override !important;
       }
-      
-      /* Override any RTL direction changes */
       html[dir="rtl"] .rtl-center-protect,
       html[dir="rtl"] .rtl-center-protect *,
       [dir="rtl"] .rtl-center-protect,
@@ -36,18 +32,7 @@
         unicode-bidi: bidi-override !important;
       }
     </style>
-    
     <script type="text/javascript">
-      // Single Page Apps for GitHub Pages
-      // MIT License
-      // https://github.com/rafgraph/spa-github-pages
-      // This script checks to see if a redirect is present in the query string,
-      // converts it back into the correct url and adds it to the
-      // browser's history using window.history.replaceState(...),
-      // which won't cause the browser to attempt to load the new url.
-      // When the single page app is loaded further down in this file,
-      // the correct url will be waiting in the browser's history for
-      // the single page app to route accordingly.
       (function(l) {
         if (l.search[1] === '/' ) {
           var decoded = l.search.slice(1).split('&').map(function(s) { 
@@ -59,12 +44,9 @@
         }
       }(window.location))
     </script>
-
     <script type="text/javascript">
-      // RTL Protection Script - Monitor and correct direction changes
       (function() {
         function protectCenterAlignment() {
-          // Find all elements with rtl-center-protect class
           const protectedElements = document.querySelectorAll('.rtl-center-protect, .rtl-center-protect *');
           protectedElements.forEach(function(element) {
             if (element.style.textAlign !== 'center') {
@@ -78,11 +60,7 @@
             }
           });
         }
-        
-        // Run protection on page load
         document.addEventListener('DOMContentLoaded', protectCenterAlignment);
-        
-        // Set up a mutation observer to watch for DOM changes (Google Translate)
         if (typeof MutationObserver !== 'undefined') {
           const observer = new MutationObserver(function(mutations) {
             let shouldProtect = false;
@@ -101,8 +79,6 @@
               setTimeout(protectCenterAlignment, 10);
             }
           });
-          
-          // Start observing when the document is ready
           document.addEventListener('DOMContentLoaded', function() {
             observer.observe(document.body, {
               attributes: true,
@@ -112,38 +88,10 @@
             });
           });
         }
-        
-        // Periodic protection (as backup)
         setInterval(protectCenterAlignment, 1000);
       })();
     </script>
-
-    <!-- Single Page Apps for GitHub Pages -->
-    <script type="text/javascript">
-      // Single Page Apps for GitHub Pages
-      // MIT License
-      // https://github.com/rafgraph/spa-github-pages
-      
-      // This script checks to see if a redirect is present in the query string,
-      // converts it back into the correct url and adds it to the
-      // browser's history using window.history.replaceState(...),
-      // which won't cause the browser to attempt to load the new url.
-      // When the single page app is loaded further down in this file,
-      // the correct url will be waiting in the browser's history for
-      // the single page app to route accordingly.
-      
-      (function(l) {
-        if (l.search[1] === '/' ) {
-          var decoded = l.search.slice(1).split('&').map(function(s) { 
-            return s.replace(/~and~/g, '&')
-          }).join('?');
-          window.history.replaceState(null, null,
-              l.pathname.slice(0, -1) + decoded + l.hash
-          );
-        }
-      }(window.location))
-    </script>
-    <script type="module" src="/src/main.jsx"></script>
+    <script type="module" src="/src/index.jsx"></script>
   </head>
   <body class="anek-devanagari-font">
     <noscript>You need to enable JavaScript to run this app.</noscript>
