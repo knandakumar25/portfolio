@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/portfolio/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Karthik Nandakumar - Computer Science Senior at NC State University. Portfolio showcasing full-stack development, game development, and machine learning projects."
+    />
+    <link rel="apple-touch-icon" href="/portfolio/logo192.png" />
+    <link rel="manifest" href="/portfolio/manifest.json" />
+    <title>Karthik Nandakumar - Portfolio</title>
+    <!-- RTL Protection for Google Translate -->
+    <style>
+      .rtl-center-protect,
+      .rtl-center-protect *,
+      .rtl-center-protect > * {
+        text-align: center !important;
+        direction: ltr !important;
+        unicode-bidi: bidi-override !important;
+      }
+      html[dir="rtl"] .rtl-center-protect,
+      html[dir="rtl"] .rtl-center-protect *,
+      [dir="rtl"] .rtl-center-protect,
+      [dir="rtl"] .rtl-center-protect *,
+      body[dir="rtl"] .rtl-center-protect,
+      body[dir="rtl"] .rtl-center-protect * {
+        text-align: center !important;
+        direction: ltr !important;
+        unicode-bidi: bidi-override !important;
+      }
+    </style>
+    <script type="text/javascript">
+      (function(l) {
+        if (l.search[1] === '/' ) {
+          var decoded = l.search.slice(1).split('&').map(function(s) { 
+            return s.replace(/~and~/g, '&')
+          }).join('?');
+          window.history.replaceState(null, null,
+              l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      }(window.location))
+    </script>
+    <script type="text/javascript">
+      (function() {
+        function protectCenterAlignment() {
+          const protectedElements = document.querySelectorAll('.rtl-center-protect, .rtl-center-protect *');
+          protectedElements.forEach(function(element) {
+            if (element.style.textAlign !== 'center') {
+              element.style.textAlign = 'center';
+            }
+            if (element.style.direction !== 'ltr') {
+              element.style.direction = 'ltr';
+            }
+            if (element.dir && element.dir !== 'ltr') {
+              element.dir = 'ltr';
+            }
+          });
+        }
+        document.addEventListener('DOMContentLoaded', protectCenterAlignment);
+        if (typeof MutationObserver !== 'undefined') {
+          const observer = new MutationObserver(function(mutations) {
+            let shouldProtect = false;
+            mutations.forEach(function(mutation) {
+              if (mutation.type === 'attributes' && 
+                  (mutation.attributeName === 'dir' || 
+                   mutation.attributeName === 'style' ||
+                   mutation.attributeName === 'class')) {
+                shouldProtect = true;
+              }
+              if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+                shouldProtect = true;
+              }
+            });
+            if (shouldProtect) {
+              setTimeout(protectCenterAlignment, 10);
+            }
+          });
+          document.addEventListener('DOMContentLoaded', function() {
+            observer.observe(document.body, {
+              attributes: true,
+              childList: true,
+              subtree: true,
+              attributeFilter: ['dir', 'style', 'class']
+            });
+          });
+        }
+        setInterval(protectCenterAlignment, 1000);
+      })();
+    </script>
+    <script type="module" crossorigin src="/portfolio/assets/index-CHL8nMau.js"></script>
+    <link rel="stylesheet" crossorigin href="/portfolio/assets/index-DKkLIiL3.css">
+  </head>
+  <body class="anek-devanagari-font">
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+  </body>
+</html>
