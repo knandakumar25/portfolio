@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import gameProjects from '../data/game_projects.json';
-import LocalComments from '../components/LocalComments';
+
 
 const GameDetails = () => {
   const { gameId } = useParams();
@@ -317,10 +317,7 @@ const GameDetails = () => {
         </div>
       )}
 
-      {/* Local comments section for this game */}
-      <div className="container mt-4">
-        <LocalComments />
-      </div>
+
     </div>
   );
 };
