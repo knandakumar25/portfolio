@@ -4,11 +4,16 @@
     "company": "SunTec Business Solutions",
     "position": "Project Intern",
     "type": "Internship",
-    "duration": "May 2025 - Present",
+    "duration": "May 2025 - August 2025",
     "responsibilities": [
-      "Created code to fix the formatting of PDFs of corporate banking invoices according to new requirements given to us by one of our customers using lowagie.",
-      "Upgraded the JDOM version that was being used in some of the Java files in the company software used by one of our customers.",
-      "Fixed an issue where the unit price in the CAMT and EDI files were coming out differently."
+      "Developed code to generate and fix the formatting of PDF invoices for corporate banking customers using lowagie.",
+      "Upgraded the JDOM version being used in some of the Java files to take advantage of new features, improve performance and fix bugs.",
+      "Upgraded httpclient, httpcore, and axis2 jars that were used in the UI code for one of the customers to address vulnerability issues.",
+      "Worked on the following issue fixes and test case development:",
+      "  • Fixed a unit price mismatch issue in the CAMT.086 and EDI statement files.",
+      "  • Fixed an issue on auto population of an installment field when adding a charge to a service.",
+      "  • Fixed an issue when filling out the Consider for Accrual field for an offer bundle creation in edit mode was coming out as ‘select an option’ instead of ‘yes’ and wrote test cases to test it.",
+      "  • Fixed an issue where the button to apply an offer to a customer disappears when the to date field is not null and wrote test cases to test it."
     ]
   },
   {

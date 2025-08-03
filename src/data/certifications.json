@@ -4,7 +4,7 @@
     "title": "Full-Stack Engineer Career Path",
     "issuer": "Codecademy",
     "dateIssued": "June 2025",
-    "credentialId": "Not applicable",
+    "credentialId": "AE2859C2-8",
     "link": "https://www.codecademy.com/profiles/text8790029691/certificates/ffd0f42cce1a44e9a0108b365047a0a6"
   },
   {
@@ -12,19 +12,35 @@
     "title": "Machine Learning/AI Engineer Career Path",
     "issuer": "Codecademy",
     "dateIssued": "June 2025",
-    "credentialId": "Not applicable",
+    "credentialId": "71BEFEF4-2",
     "link": "https://www.codecademy.com/profiles/text8790029691/certificates/6f8e0510ca91437a847b53aa9e9aa3f1"
   },
   {
     "id": 3,
-    "title": "Learn Intermediate Go Course",
+    "title": "C++ for Programmers Course",
     "issuer": "Codecademy",
     "dateIssued": "December 2024",
-    "credentialId": "Not applicable",
-    "link": "https://www.codecademy.com/profiles/text8790029691/certificates/42ee48b10e8644f0b3131a933c02cd00"
+    "credentialId": "ABCB1AF0-9",
+    "link": ""
   },
   {
     "id": 4,
+    "title": "Machine Learning/AI Engineer Career Path",
+    "issuer": "Codecademy",
+    "dateIssued": "June 2025",
+    "credentialId": "71BEFEF4-2",
+    "link": "https://www.codecademy.com/profiles/text8790029691/certificates/6f8e0510ca91437a847b53aa9e9aa3f1"
+  },
+  {
+    "id": 5,
+    "title": "Learn Intermediate Go Course",
+    "issuer": "Codecademy",
+    "dateIssued": "December 2024",
+    "credentialId": "5CECCEAA-D",
+    "link": "https://www.codecademy.com/profiles/text8790029691/certificates/42ee48b10e8644f0b3131a933c02cd00"
+  },
+  {
+    "id": 6,
     "title": "[PCAP-31-03] PCAP™ - Certified Associate Python Programmer",
     "issuer": "Python Developer",
     "dateIssued": "August 2024",
@@ -32,7 +48,7 @@
     "link": "https://www.credly.com/badges/ec43c705-d400-4b18-8d77-ec9c560bf6fb/linked_in_profile"
   },
   {
-    "id": 5,
+    "id": 7,
     "title": "Google: Artificial intelligence and productivity",
     "issuer": "Santander Open Academy",
     "dateIssued": "July 2024",
@@ -40,7 +56,7 @@
     "link": "/portfolio/files/Santander AI Cert.pdf"
   },
   {
-    "id": 6,
+    "id": 8,
     "title": "[PCEP-30-02] PCEP™ - Certified Entry-Level Python Programmer",
     "issuer": "Python Developer",
     "dateIssued": "July 2024",
@@ -48,7 +64,7 @@
     "link": "https://www.credly.com/badges/901cb19f-36dc-487c-9e9a-6e3e60c51e95/linked_in_profile"
   },
   {
-    "id": 7,
+    "id": 9,
     "title": "Level 1: Microsoft Access White Belt",
     "issuer": "McGraw Hill",
     "dateIssued": "June 2024",
@@ -56,7 +72,7 @@
     "link": "https://certificates.simnetonline.com/ad70f6e4-272e-454b-ba37-286cce1f3241"
   },
   {
-    "id": 8,
+    "id": 10,
     "title": "Level 3: Microsoft Excel Purple Belt",
     "issuer": "McGraw Hill",
     "dateIssued": "June 2024",
