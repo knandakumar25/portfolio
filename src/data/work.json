@@ -12,8 +12,8 @@
       "Worked on the following issue fixes and test case development:",
       "  • Fixed a unit price mismatch issue in the CAMT.086 and EDI statement files.",
       "  • Fixed an issue on auto population of an installment field when adding a charge to a service.",
-      "  • Fixed an issue when filling out the Consider for Accrual field for an offer bundle creation in edit mode was coming out as ‘select an option’ instead of ‘yes’ and wrote test cases to test it.",
-      "  • Fixed an issue where the button to apply an offer to a customer disappears when the to date field is not null and wrote test cases to test it."
+      "  • Fixed an issue when filling out the Consider for Accrual field for an offer bundle creation in edit mode was coming out as 'select an option' instead of 'yes' and developed test cases.",
+      "  • Fixed an issue where the button to apply an offer to customer disappears when the to date field is not null and developed test cases."
     ]
   },
   {
