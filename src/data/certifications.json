@@ -21,7 +21,7 @@
     "issuer": "Codecademy",
     "dateIssued": "December 2024",
     "credentialId": "ABCB1AF0-9",
-    "link": ""
+    "link": "https://www.codecademy.com/profiles/text8790029691/certificates/ddc94032dd07fd43ee02f994e8f72af9"
   },
   {
     "id": 4,
@@ -78,5 +78,13 @@
     "dateIssued": "June 2024",
     "credentialId": "105434450",
     "link": "https://certificates.simnetonline.com/b8da9e6f-8c00-43a5-8db1-09d1f62022c1"
+  },
+  {
+    "id": 11,
+    "title": "Data Scientist: Natural Language Processing Specialist Career Path",
+    "issuer": "Codecademy",
+    "dateIssued": "August 2025",
+    "credentialId": "C7623D05-4",
+    "link": "https://www.codecademy.com/profiles/text8790029691/certificates/9c35fed4f15a487385d52456712e0da9"
   }
 ]
