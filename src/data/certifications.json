@@ -86,5 +86,14 @@
     "dateIssued": "August 2025",
     "credentialId": "C7623D05-4",
     "link": "https://www.codecademy.com/profiles/text8790029691/certificates/9c35fed4f15a487385d52456712e0da9"
+  },
+  {
+    "id": 12,
+    "title": "Generative AI Leader Certification",
+    "issuer": "Google",
+    "dateIssued": "August 2025",
+    "expirationDate": "August 2028",
+    "credentialId": "a43f96160efd4385b7aa8deb6153b419",
+    "link": "https://www.credly.com/badges/ce5463c0-c47b-415a-951f-b9198718c240"
   }
 ]

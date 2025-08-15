@@ -287,6 +287,12 @@ body[dir="rtl"] .rtl-center-protect .certifications-grid {
   margin-bottom: 0.5rem;
 }
 
+.certification-dates {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
 .certification-date {
   font-size: 0.9rem;
   color: #718096;
@@ -295,6 +301,21 @@ body[dir="rtl"] .rtl-center-protect .certifications-grid {
   border-radius: 12px;
   border: 1px solid rgba(255, 215, 0, 0.2);
   display: inline-block;
+}
+
+.certification-expiry {
+  font-size: 0.9rem;
+  color: #718096;
+  background: rgba(34, 197, 94, 0.1);
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  border: 1px solid rgba(34, 197, 94, 0.2);
+  display: inline-block;
+}
+
+.date-label {
+  font-weight: 600;
+  margin-right: 0.25rem;
 }
 
 .certification-content {

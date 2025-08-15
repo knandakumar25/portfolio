@@ -10,7 +10,16 @@ const CertificationCard = ({ certification }) => {
       <div className="certification-header">
         <h3 className="certification-title">{certification.title}</h3>
         <h4 className="certification-issuer">{certification.issuer}</h4>
-        <div className="certification-date">{certification.dateIssued}</div>
+        <div className="certification-dates">
+          <div className="certification-date">
+            <span className="date-label">Issued:</span> {certification.dateIssued}
+          </div>
+          {certification.expirationDate && (
+            <div className="certification-expiry">
+              <span className="date-label">Expires:</span> {certification.expirationDate}
+            </div>
+          )}
+        </div>
       </div>
       
       <div className="certification-content">
