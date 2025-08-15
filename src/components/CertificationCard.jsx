@@ -31,6 +31,22 @@ const CertificationCard = ({ certification }) => {
           <div className="id-value">{certification.credentialId}</div>
         </div>
         
+        {certification.skills && certification.skills.length > 0 && (
+          <div className="certification-skills">
+            <div className="skills-label">
+              <i className="bi bi-gear-fill"></i>
+              <span>Skills</span>
+            </div>
+            <div className="skills-tags">
+              {certification.skills.map((skill, index) => (
+                <span key={index} className="skill-tag">
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
+        
         <a 
           href={certification.link} 
           target="_blank" 

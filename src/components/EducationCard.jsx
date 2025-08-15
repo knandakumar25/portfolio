@@ -35,6 +35,19 @@ const EducationCard = ({ education }) => {
             </div>
           </div>
         )}
+        
+        {education.skills && education.skills.length > 0 && (
+          <div className="education-skills">
+            <h5 className="skills-title">Skills Developed</h5>
+            <div className="skills-list">
+              {education.skills.map((skill, index) => (
+                <span key={index} className="education-skill-tag">
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

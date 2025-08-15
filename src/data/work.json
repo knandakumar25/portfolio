@@ -14,7 +14,8 @@
       "  • Fixed an issue on auto population of an installment field when adding a charge to a service.",
       "  • Fixed an issue when filling out the Consider for Accrual field for an offer bundle creation in edit mode was coming out as 'select an option' instead of 'yes' and developed test cases.",
       "  • Fixed an issue where the button to apply an offer to customer disappears when the to date field is not null and developed test cases."
-    ]
+    ],
+    "skills": ["Visual Design", "Unix", "Oracle Database", "WebSphere Application Server", "Data Structures", "Graphical User Interface (GUI)", "Linux", "Interpersonal Skills", "Javadoc", "Back-End Web Development", "CSMS", "WebSphere", "REST APIs", "Eclipse", "Putty", "Git", "DBeaver", "PostgreSQL", "Front-End Development", "Java", "MySQL", "Filezilla", "JBoss EAP", "Spring Boot", "Software Development", "JDOM", "GitHub", "Documentation", "JavaScript", "Workbench", "iText", "JUnit", "SQL", "JBoss Application Server", "Microsoft Visual Studio Code", "Maven"]
   },
   {
     "id": 2,
@@ -24,7 +25,8 @@
     "duration": "October 2021 - June 2022",
     "responsibilities": [
       "Checked-in people as they came in to vote."
-    ]
+    ],
+    "skills": ["Interpersonal Skills", "Voting Systems"]
   },
   {
     "id": 3,
@@ -36,6 +38,7 @@
       "Checked children in as they came in and handed new work.",
       "Taught Math and Reading for kids in elementary and middle schools for 6 hours per week.",
       "Led the younger children out to their parents when they were finished and discussed with parents if needed."
-    ]
+    ],
+    "skills": ["Academic Support Services", "Interpersonal Skills", "One-on-one Instruction"]
   }
 ]

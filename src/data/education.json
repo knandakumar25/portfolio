@@ -5,7 +5,8 @@
     "degree": "Bachelor of Science in Computer Science (Pursuing)",
     "duration": "June 2022 - December 2025",
     "gpa": "3.755",
-    "societies": ["App Development Club"]
+    "societies": ["App Development Club"],
+    "skills": ["Putty", "Machine Learning", "Python (Programming Language)", "Graphical User Interface (GUI)", "Prolog", "Visual Design", "Unix", "GDScript", "Wireframing", "Algorithms", "Artificial Intelligence (AI)", "REST APIs", "Data Structures", "Back-End Web Development", "Interpersonal Skills", "Assembly Language", "Teamwork", "Maven", "Postman API", "Inkle", "MySQL", "Workbench", "Vite", "JUnit", "User Experience (UX)", "SQL", "Software Development", "Game Testing", "Microsoft Visual Studio Code", "React.js", "Documentation", "Front-End Development", "PuzzleScript", "Game Programming", "Shell Scripting", "Filezilla", "Microsoft Access", "Jenkins", "Spring Boot", "C (Programming Language)", "Git", "Bootstrap (Framework)", "HTML5", "Linux", "GitHub", "SQLite", "Javadoc", "Godot", "Docker", "Node.js", "Hibernate", "Twine", "Django", "Web Application Security", "Java", "Eclipse", "Game Design", "Microsoft Excel", "JavaScript eXtension (JSX)"]
   },
   {
     "id": 2,
@@ -13,6 +14,7 @@
     "degree": "High School Diploma",
     "duration": "August 2018 - June 2022",
     "gpa": "4.4615",
-    "societies": ["Environmental Action Club", "National Honor Society"]
+    "societies": ["Environmental Action Club", "National Honor Society"],
+    "skills": ["Python (Programming Language)", "Microsoft Word", "Interpersonal Skills", "Teamwork", "Software Development", "Microsoft Visual Studio Code", "Java", "Microsoft Excel"]
   }
 ]

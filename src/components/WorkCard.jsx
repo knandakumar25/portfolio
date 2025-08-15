@@ -27,6 +27,19 @@ const WorkCard = ({ work }) => {
             </li>
           ))}
         </ul>
+        
+        {work.skills && work.skills.length > 0 && (
+          <div className="work-skills">
+            <h5 className="work-skills-title">Skills & Technologies</h5>
+            <div className="work-skills-list">
+              {work.skills.map((skill, index) => (
+                <span key={index} className="work-skill-tag">
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
