@@ -7,6 +7,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import Header from './components/Header';
 import Contact from './components/Contact';
 import ScrollToTop from './components/ScrollToTop';
+import PortfolioChatbot from './components/PortfolioChatbot';
 import Home from './pages/Home';
 import Experiences from './pages/Experiences';
 import Projects from './pages/Projects';
@@ -31,6 +32,7 @@ function App() {
           </Routes>
         </main>
         <Contact />
+        <PortfolioChatbot />
       </Router>
     </div>
   );
