@@ -41,151 +41,36 @@ const PortfolioChatbot = () => {
   }, [messages]);
 
   const generatePrompt = (userQuestion) => {
-    return `You are a helpful, ethical, and context-aware assistant for Karthik Nandakumar's portfolio. Respond clearly and concisely to questions about his background.
+    return `You are Karthik Nandakumar's portfolio AI assistant. You have access to his complete portfolio data and should provide helpful, conversational responses about his background.
 
-Portfolio Data:
-CERTIFICATIONS: ${JSON.stringify(certificationsData, null, 2)}
-SOFTWARE PROJECTS: ${JSON.stringify(softwareProjectsData, null, 2)}
-GAME PROJECTS: ${JSON.stringify(gameProjectsData, null, 2)}
-WORK EXPERIENCE: ${JSON.stringify(workData, null, 2)}
-EDUCATION: ${JSON.stringify(educationData, null, 2)}
-ORGANIZATIONS: ${JSON.stringify(organizationsData, null, 2)}
-VOLUNTEERING: ${JSON.stringify(volunteeringData, null, 2)}
+PORTFOLIO DATA:
+${JSON.stringify({
+  certifications: certificationsData,
+  softwareProjects: softwareProjectsData,
+  gameProjects: gameProjectsData,
+  workExperience: workData,
+  education: educationData,
+  organizations: organizationsData,
+  volunteering: volunteeringData
+}, null, 2)}
 
-User Question: ${userQuestion}
+USER QUESTION: "${userQuestion}"
 
-Guidelines:
-- Use the exact data provided above
-- Be concise and helpful
-- If asked about specific items, provide details like titles, dates, skills
-- If no relevant data exists, politely say you don't have that information
-- Format responses in a conversational way`;
+INSTRUCTIONS:
+- You are a knowledgeable, friendly assistant representing Karthik's portfolio
+- Answer questions naturally and conversationally based on the data provided
+- If asked about specific projects, experiences, certifications, etc., provide relevant details
+- If you don't have specific information, say so politely
+- Format responses in a readable, engaging way
+- You can infer connections and provide context from the data
+- Be helpful and informative while staying accurate to the provided information
+
+Please respond to the user's question:`;
   };
 
   const getFallbackResponse = (userQuestion) => {
-    const question = userQuestion.toLowerCase();
-    
-    // Check for specific game references first
-    const gameNames = gameProjectsData.map(game => game.title.toLowerCase());
-    const foundGame = gameProjectsData.find(game => 
-      question.includes(game.title.toLowerCase()) || 
-      (question.includes('sixth') && gameProjectsData.indexOf(game) === 5) ||
-      (question.includes('6th') && gameProjectsData.indexOf(game) === 5) ||
-      (question.includes('first') && gameProjectsData.indexOf(game) === 0) ||
-      (question.includes('1st') && gameProjectsData.indexOf(game) === 0) ||
-      (question.includes('second') && gameProjectsData.indexOf(game) === 1) ||
-      (question.includes('2nd') && gameProjectsData.indexOf(game) === 1) ||
-      (question.includes('third') && gameProjectsData.indexOf(game) === 2) ||
-      (question.includes('3rd') && gameProjectsData.indexOf(game) === 2) ||
-      (question.includes('fourth') && gameProjectsData.indexOf(game) === 3) ||
-      (question.includes('4th') && gameProjectsData.indexOf(game) === 3) ||
-      (question.includes('fifth') && gameProjectsData.indexOf(game) === 4) ||
-      (question.includes('5th') && gameProjectsData.indexOf(game) === 4) ||
-      (question.includes('seventh') && gameProjectsData.indexOf(game) === 6) ||
-      (question.includes('7th') && gameProjectsData.indexOf(game) === 6)
-    );
-    
-    if (foundGame) {
-      return `Here's more about "${foundGame.title}":\n\n${foundGame.description}\n\nDuration: ${foundGame.duration}\nSkills: ${foundGame.skills?.join(', ') || 'N/A'}\n\n${foundGame.contributors ? `Contributors: ${foundGame.contributors.map(c => c.name).join(', ')}` : ''}`;
-    }
-    
-    // Check for specific software project references
-    const foundSoftwareProject = softwareProjectsData.find(project => 
-      question.includes(project.title.toLowerCase()) ||
-      question.includes('wolftickets') ||
-      question.includes('wolf tickets') ||
-      question.includes('trip planner') ||
-      question.includes('robot vacuum') ||
-      question.includes('connect 4') ||
-      question.includes('wolfcafe') ||
-      question.includes('wolf cafe')
-    );
-    
-    if (foundSoftwareProject) {
-      return `Here's more about "${foundSoftwareProject.title}":\n\n${foundSoftwareProject.description}\n\nDuration: ${foundSoftwareProject.duration}\nSkills: ${foundSoftwareProject.skills?.join(', ') || 'N/A'}`;
-    }
-    
-    // Simple keyword-based responses for common questions
-    if (question.includes('education') || question.includes('school') || question.includes('university') || question.includes('degree')) {
-      return `Karthik's educational background includes:\n\n${educationData.map(edu => 
-        `• ${edu.degree} from ${edu.institution} (${edu.startDate} - ${edu.endDate})\n  GPA: ${edu.gpa}\n  Relevant Coursework: ${edu.relevantCoursework?.join(', ') || 'N/A'}`
-      ).join('\n\n')}`;
-    }
-    
-    if (question.includes('work') || question.includes('job') || question.includes('experience') || question.includes('employment')) {
-      return `Karthik's work experience includes:\n\n${workData.map(work => 
-        `• ${work.title} at ${work.company} (${work.startDate} - ${work.endDate})\n  ${work.description}`
-      ).join('\n\n')}`;
-    }
-    
-    if (question.includes('certification') || question.includes('cert')) {
-      const certResponse = certificationsData.map(cert => 
-        `• ${cert.title} from ${cert.issuer} (${cert.dateIssued})\n  Skills: ${cert.skills?.join(', ') || 'N/A'}`
-      ).join('\n\n');
-      
-      // Check if they asked about AI specifically
-      if (question.includes('ai') || question.includes('artificial intelligence') || question.includes('machine learning')) {
-        const aiCerts = certificationsData.filter(cert => 
-          cert.title.toLowerCase().includes('ai') || 
-          cert.title.toLowerCase().includes('machine learning') ||
-          cert.skills?.some(skill => skill.toLowerCase().includes('ai') || skill.toLowerCase().includes('machine learning'))
-        );
-        
-        if (aiCerts.length > 0) {
-          return `Yes! Karthik has AI-related certifications:\n\n${aiCerts.map(cert => 
-            `• ${cert.title} from ${cert.issuer} (${cert.dateIssued})\n  Skills: ${cert.skills?.join(', ') || 'N/A'}\n  Credential ID: ${cert.credentialId}`
-          ).join('\n\n')}`;
-        }
-      }
-      
-      return `Karthik's certifications include:\n\n${certResponse}`;
-    }
-    
-    // Check for "game" first before "project" to avoid confusion
-    if (question.includes('game') || question.includes('gaming')) {
-      const gameProjects = gameProjectsData.map(game => 
-        `• ${game.title}: ${game.shortDescription || game.description}\n  Skills: ${game.skills?.join(', ') || 'N/A'}`
-      ).join('\n\n');
-      return `Karthik's game projects include:\n\n${gameProjects}`;
-    }
-    
-    if (question.includes('project') || question.includes('software') || question.includes('development')) {
-      const softwareProjects = softwareProjectsData.map(project => 
-        `• ${project.title}: ${project.description}\n  Skills: ${project.skills?.join(', ') || 'N/A'}`
-      ).join('\n\n');
-      return `Karthik's software projects include:\n\n${softwareProjects}`;
-    }
-    
-    if (question.includes('volunteer') || question.includes('community')) {
-      return `Karthik's volunteering experience includes:\n\n${volunteeringData.map(vol => 
-        `• ${vol.role} at ${vol.organization} (${vol.startDate} - ${vol.endDate})\n  ${vol.description}`
-      ).join('\n\n')}`;
-    }
-    
-    if (question.includes('organization') || question.includes('club') || question.includes('society')) {
-      return `Karthik's organizational involvement includes:\n\n${organizationsData.map(org => 
-        `• ${org.role} at ${org.organization} (${org.startDate} - ${org.endDate})\n  ${org.description}`
-      ).join('\n\n')}`;
-    }
-    
-    if (question.includes('skill') || question.includes('technology') || question.includes('programming')) {
-      const softwareSkills = softwareProjectsData.flatMap(p => p.skills || []);
-      const gameSkills = gameProjectsData.flatMap(p => p.skills || []);
-      const allSkills = [...new Set([...softwareSkills, ...gameSkills])];
-      return `Based on Karthik's projects, his technical skills include: ${allSkills.join(', ')}`;
-    }
-    
-    // Default response
-    return `I can help you learn about Karthik's:
-• Education and academic background
-• Work experience and internships
-• Software development projects
-• Game development projects
-• Certifications and achievements
-• Volunteering and community involvement
-• Organizational roles and leadership
-
-What specific area would you like to know about?`;
+    // Simple fallback when API is not available - let users know to try again
+    return `I'm currently unable to access my AI capabilities. Please try your question again in a moment, or feel free to browse Karthik's portfolio directly to learn about his certifications, software projects, game projects, work experience, education, organizations, and volunteering.`;
   };
 
   const sendMessage = async () => {
