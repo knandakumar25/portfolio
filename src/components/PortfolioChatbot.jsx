@@ -68,7 +68,7 @@ Guidelines:
     // Simple keyword-based responses for common questions
     if (question.includes('education') || question.includes('school') || question.includes('university') || question.includes('degree')) {
       return `Karthik's educational background includes:\n\n${educationData.map(edu => 
-        `• ${edu.degree} from ${edu.institution} (${edu.startDate} - ${edu.endDate})\n  GPA: ${edu.gpa}\n  Relevant Coursework: ${edu.relevantCoursework.join(', ')}`
+        `• ${edu.degree} from ${edu.institution} (${edu.startDate} - ${edu.endDate})\n  GPA: ${edu.gpa}\n  Relevant Coursework: ${edu.relevantCoursework?.join(', ') || 'N/A'}`
       ).join('\n\n')}`;
     }
     
@@ -86,14 +86,14 @@ Guidelines:
     
     if (question.includes('project') || question.includes('software') || question.includes('development')) {
       const softwareProjects = softwareProjectsData.map(project => 
-        `• ${project.name}: ${project.description}\n  Technologies: ${project.technologies.join(', ')}`
+        `• ${project.name}: ${project.description}\n  Technologies: ${project.technologies?.join(', ') || 'N/A'}`
       ).join('\n\n');
       return `Karthik's software projects include:\n\n${softwareProjects}`;
     }
     
     if (question.includes('game') || question.includes('gaming')) {
       const gameProjects = gameProjectsData.map(game => 
-        `• ${game.name}: ${game.description}\n  Technologies: ${game.technologies.join(', ')}`
+        `• ${game.title}: ${game.shortDescription || game.description}\n  Skills: ${game.skills?.join(', ') || 'N/A'}`
       ).join('\n\n');
       return `Karthik's game projects include:\n\n${gameProjects}`;
     }
@@ -111,13 +111,10 @@ Guidelines:
     }
     
     if (question.includes('skill') || question.includes('technology') || question.includes('programming')) {
-      const allTechnologies = [
-        ...new Set([
-          ...softwareProjectsData.flatMap(p => p.technologies),
-          ...gameProjectsData.flatMap(p => p.technologies)
-        ])
-      ];
-      return `Based on Karthik's projects, his technical skills include: ${allTechnologies.join(', ')}`;
+      const softwareTechnologies = softwareProjectsData.flatMap(p => p.technologies || []);
+      const gameSkills = gameProjectsData.flatMap(p => p.skills || []);
+      const allSkills = [...new Set([...softwareTechnologies, ...gameSkills])];
+      return `Based on Karthik's projects, his technical skills include: ${allSkills.join(', ')}`;
     }
     
     // Default response
