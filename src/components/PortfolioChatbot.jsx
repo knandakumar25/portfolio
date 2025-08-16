@@ -84,18 +84,19 @@ Guidelines:
       ).join('\n\n')}`;
     }
     
-    if (question.includes('project') || question.includes('software') || question.includes('development')) {
-      const softwareProjects = softwareProjectsData.map(project => 
-        `• ${project.name}: ${project.description}\n  Technologies: ${project.technologies?.join(', ') || 'N/A'}`
-      ).join('\n\n');
-      return `Karthik's software projects include:\n\n${softwareProjects}`;
-    }
-    
+    // Check for "game" first before "project" to avoid confusion
     if (question.includes('game') || question.includes('gaming')) {
       const gameProjects = gameProjectsData.map(game => 
         `• ${game.title}: ${game.shortDescription || game.description}\n  Skills: ${game.skills?.join(', ') || 'N/A'}`
       ).join('\n\n');
       return `Karthik's game projects include:\n\n${gameProjects}`;
+    }
+    
+    if (question.includes('project') || question.includes('software') || question.includes('development')) {
+      const softwareProjects = softwareProjectsData.map(project => 
+        `• ${project.title}: ${project.description}\n  Skills: ${project.skills?.join(', ') || 'N/A'}`
+      ).join('\n\n');
+      return `Karthik's software projects include:\n\n${softwareProjects}`;
     }
     
     if (question.includes('volunteer') || question.includes('community')) {
@@ -111,9 +112,9 @@ Guidelines:
     }
     
     if (question.includes('skill') || question.includes('technology') || question.includes('programming')) {
-      const softwareTechnologies = softwareProjectsData.flatMap(p => p.technologies || []);
+      const softwareSkills = softwareProjectsData.flatMap(p => p.skills || []);
       const gameSkills = gameProjectsData.flatMap(p => p.skills || []);
-      const allSkills = [...new Set([...softwareTechnologies, ...gameSkills])];
+      const allSkills = [...new Set([...softwareSkills, ...gameSkills])];
       return `Based on Karthik's projects, his technical skills include: ${allSkills.join(', ')}`;
     }
     
