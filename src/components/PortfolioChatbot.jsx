@@ -65,6 +65,46 @@ Guidelines:
   const getFallbackResponse = (userQuestion) => {
     const question = userQuestion.toLowerCase();
     
+    // Check for specific game references first
+    const gameNames = gameProjectsData.map(game => game.title.toLowerCase());
+    const foundGame = gameProjectsData.find(game => 
+      question.includes(game.title.toLowerCase()) || 
+      (question.includes('sixth') && gameProjectsData.indexOf(game) === 5) ||
+      (question.includes('6th') && gameProjectsData.indexOf(game) === 5) ||
+      (question.includes('first') && gameProjectsData.indexOf(game) === 0) ||
+      (question.includes('1st') && gameProjectsData.indexOf(game) === 0) ||
+      (question.includes('second') && gameProjectsData.indexOf(game) === 1) ||
+      (question.includes('2nd') && gameProjectsData.indexOf(game) === 1) ||
+      (question.includes('third') && gameProjectsData.indexOf(game) === 2) ||
+      (question.includes('3rd') && gameProjectsData.indexOf(game) === 2) ||
+      (question.includes('fourth') && gameProjectsData.indexOf(game) === 3) ||
+      (question.includes('4th') && gameProjectsData.indexOf(game) === 3) ||
+      (question.includes('fifth') && gameProjectsData.indexOf(game) === 4) ||
+      (question.includes('5th') && gameProjectsData.indexOf(game) === 4) ||
+      (question.includes('seventh') && gameProjectsData.indexOf(game) === 6) ||
+      (question.includes('7th') && gameProjectsData.indexOf(game) === 6)
+    );
+    
+    if (foundGame) {
+      return `Here's more about "${foundGame.title}":\n\n${foundGame.description}\n\nDuration: ${foundGame.duration}\nSkills: ${foundGame.skills?.join(', ') || 'N/A'}\n\n${foundGame.contributors ? `Contributors: ${foundGame.contributors.map(c => c.name).join(', ')}` : ''}`;
+    }
+    
+    // Check for specific software project references
+    const foundSoftwareProject = softwareProjectsData.find(project => 
+      question.includes(project.title.toLowerCase()) ||
+      question.includes('wolftickets') ||
+      question.includes('wolf tickets') ||
+      question.includes('trip planner') ||
+      question.includes('robot vacuum') ||
+      question.includes('connect 4') ||
+      question.includes('wolfcafe') ||
+      question.includes('wolf cafe')
+    );
+    
+    if (foundSoftwareProject) {
+      return `Here's more about "${foundSoftwareProject.title}":\n\n${foundSoftwareProject.description}\n\nDuration: ${foundSoftwareProject.duration}\nSkills: ${foundSoftwareProject.skills?.join(', ') || 'N/A'}`;
+    }
+    
     // Simple keyword-based responses for common questions
     if (question.includes('education') || question.includes('school') || question.includes('university') || question.includes('degree')) {
       return `Karthik's educational background includes:\n\n${educationData.map(edu => 
