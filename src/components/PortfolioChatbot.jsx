@@ -134,8 +134,13 @@ What specific area would you like to know about?`;
   };
 
   const sendMessage = async () => {
-    if (!inputValue.trim() || isLoading) return;
+    console.log('sendMessage called with input:', inputValue);
+    if (!inputValue.trim() || isLoading) {
+      console.log('sendMessage early return - empty input or loading');
+      return;
+    }
 
+    console.log('Creating user message...');
     const userMessage = {
       id: Date.now(),
       text: inputValue,
@@ -147,15 +152,18 @@ What specific area would you like to know about?`;
     const currentInput = inputValue;
     setInputValue('');
     setIsLoading(true);
+    console.log('Set loading to true, starting response generation...');
 
     try {
       let botResponse;
 
       if (!genAI.current) {
         // Fallback response when API key is not available
+        console.log('Using fallback response - no API key available');
         botResponse = getFallbackResponse(currentInput);
       } else {
         // Use AI when API key is available
+        console.log('Using AI response - API key available');
         const model = genAI.current.getGenerativeModel({
           model: 'gemini-1.5-flash',
           safetySettings: [
@@ -184,6 +192,7 @@ What specific area would you like to know about?`;
         botResponse = response.text();
       }
 
+      console.log('Generated bot response:', botResponse);
       const botMessage = {
         id: Date.now() + 1,
         text: botResponse,
@@ -192,6 +201,7 @@ What specific area would you like to know about?`;
       };
 
       setMessages(prev => [...prev, botMessage]);
+      console.log('Bot message added to chat');
     } catch (error) {
       console.error('Error generating response:', error);
       const errorMessage = {
@@ -207,8 +217,10 @@ What specific area would you like to know about?`;
   };
 
   const handleKeyPress = (e) => {
+    console.log('Key pressed:', e.key);
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
+      console.log('Enter key pressed, calling sendMessage');
       sendMessage();
     }
   };
@@ -342,7 +354,10 @@ What specific area would you like to know about?`;
               style={{ resize: 'none', fontSize: '0.9rem' }}
             />
             <button
-              onClick={sendMessage}
+              onClick={() => {
+                console.log('Send button clicked');
+                sendMessage();
+              }}
               disabled={isLoading || !inputValue.trim()}
               className="btn btn-primary"
               type="button"
