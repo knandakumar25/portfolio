@@ -119,9 +119,26 @@ Guidelines:
     }
     
     if (question.includes('certification') || question.includes('cert')) {
-      return `Karthik's certifications include:\n\n${certificationsData.map(cert => 
-        `• ${cert.name} from ${cert.organization} (${cert.date})\n  ${cert.description}`
-      ).join('\n\n')}`;
+      const certResponse = certificationsData.map(cert => 
+        `• ${cert.title} from ${cert.issuer} (${cert.dateIssued})\n  Skills: ${cert.skills?.join(', ') || 'N/A'}`
+      ).join('\n\n');
+      
+      // Check if they asked about AI specifically
+      if (question.includes('ai') || question.includes('artificial intelligence') || question.includes('machine learning')) {
+        const aiCerts = certificationsData.filter(cert => 
+          cert.title.toLowerCase().includes('ai') || 
+          cert.title.toLowerCase().includes('machine learning') ||
+          cert.skills?.some(skill => skill.toLowerCase().includes('ai') || skill.toLowerCase().includes('machine learning'))
+        );
+        
+        if (aiCerts.length > 0) {
+          return `Yes! Karthik has AI-related certifications:\n\n${aiCerts.map(cert => 
+            `• ${cert.title} from ${cert.issuer} (${cert.dateIssued})\n  Skills: ${cert.skills?.join(', ') || 'N/A'}\n  Credential ID: ${cert.credentialId}`
+          ).join('\n\n')}`;
+        }
+      }
+      
+      return `Karthik's certifications include:\n\n${certResponse}`;
     }
     
     // Check for "game" first before "project" to avoid confusion
