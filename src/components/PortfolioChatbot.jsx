@@ -14,7 +14,7 @@ const PortfolioChatbot = () => {
   const [messages, setMessages] = useState([
     {
       id: 1,
-      text: "Hi! I'm Karthik's AI assistant. I can help you learn about his certifications, software projects, game projects, work experience, education, organizations, and volunteering. What would you like to know?",
+      text: "Hi! I'm Karthik's AI assistant. I can help you learn about his certifications, software projects, game projects, work experience, education, organizations, and volunteering. What would you like to know? (Try asking about his education, work experience, or projects!)",
       isBot: true,
       timestamp: new Date()
     }
@@ -30,6 +30,8 @@ const PortfolioChatbot = () => {
     const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
     if (apiKey) {
       genAI.current = new GoogleGenerativeAI(apiKey);
+    } else {
+      console.warn('VITE_GEMINI_API_KEY not found. Chatbot will provide fallback responses.');
     }
   }, []);
 
@@ -60,8 +62,79 @@ Guidelines:
 - Format responses in a conversational way`;
   };
 
+  const getFallbackResponse = (userQuestion) => {
+    const question = userQuestion.toLowerCase();
+    
+    // Simple keyword-based responses for common questions
+    if (question.includes('education') || question.includes('school') || question.includes('university') || question.includes('degree')) {
+      return `Karthik's educational background includes:\n\n${educationData.map(edu => 
+        `• ${edu.degree} from ${edu.institution} (${edu.startDate} - ${edu.endDate})\n  GPA: ${edu.gpa}\n  Relevant Coursework: ${edu.relevantCoursework.join(', ')}`
+      ).join('\n\n')}`;
+    }
+    
+    if (question.includes('work') || question.includes('job') || question.includes('experience') || question.includes('employment')) {
+      return `Karthik's work experience includes:\n\n${workData.map(work => 
+        `• ${work.title} at ${work.company} (${work.startDate} - ${work.endDate})\n  ${work.description}`
+      ).join('\n\n')}`;
+    }
+    
+    if (question.includes('certification') || question.includes('cert')) {
+      return `Karthik's certifications include:\n\n${certificationsData.map(cert => 
+        `• ${cert.name} from ${cert.organization} (${cert.date})\n  ${cert.description}`
+      ).join('\n\n')}`;
+    }
+    
+    if (question.includes('project') || question.includes('software') || question.includes('development')) {
+      const softwareProjects = softwareProjectsData.map(project => 
+        `• ${project.name}: ${project.description}\n  Technologies: ${project.technologies.join(', ')}`
+      ).join('\n\n');
+      return `Karthik's software projects include:\n\n${softwareProjects}`;
+    }
+    
+    if (question.includes('game') || question.includes('gaming')) {
+      const gameProjects = gameProjectsData.map(game => 
+        `• ${game.name}: ${game.description}\n  Technologies: ${game.technologies.join(', ')}`
+      ).join('\n\n');
+      return `Karthik's game projects include:\n\n${gameProjects}`;
+    }
+    
+    if (question.includes('volunteer') || question.includes('community')) {
+      return `Karthik's volunteering experience includes:\n\n${volunteeringData.map(vol => 
+        `• ${vol.role} at ${vol.organization} (${vol.startDate} - ${vol.endDate})\n  ${vol.description}`
+      ).join('\n\n')}`;
+    }
+    
+    if (question.includes('organization') || question.includes('club') || question.includes('society')) {
+      return `Karthik's organizational involvement includes:\n\n${organizationsData.map(org => 
+        `• ${org.role} at ${org.organization} (${org.startDate} - ${org.endDate})\n  ${org.description}`
+      ).join('\n\n')}`;
+    }
+    
+    if (question.includes('skill') || question.includes('technology') || question.includes('programming')) {
+      const allTechnologies = [
+        ...new Set([
+          ...softwareProjectsData.flatMap(p => p.technologies),
+          ...gameProjectsData.flatMap(p => p.technologies)
+        ])
+      ];
+      return `Based on Karthik's projects, his technical skills include: ${allTechnologies.join(', ')}`;
+    }
+    
+    // Default response
+    return `I can help you learn about Karthik's:
+• Education and academic background
+• Work experience and internships
+• Software development projects
+• Game development projects
+• Certifications and achievements
+• Volunteering and community involvement
+• Organizational roles and leadership
+
+What specific area would you like to know about?`;
+  };
+
   const sendMessage = async () => {
-    if (!inputValue.trim() || isLoading || !genAI.current) return;
+    if (!inputValue.trim() || isLoading) return;
 
     const userMessage = {
       id: Date.now(),
@@ -71,40 +144,49 @@ Guidelines:
     };
 
     setMessages(prev => [...prev, userMessage]);
+    const currentInput = inputValue;
     setInputValue('');
     setIsLoading(true);
 
     try {
-      const model = genAI.current.getGenerativeModel({
-        model: 'gemini-1.5-flash',
-        safetySettings: [
-          {
-            category: 'HARM_CATEGORY_HARASSMENT',
-            threshold: 'BLOCK_LOW_AND_ABOVE',
-          },
-          {
-            category: 'HARM_CATEGORY_HATE_SPEECH',
-            threshold: 'BLOCK_LOW_AND_ABOVE',
-          },
-          {
-            category: 'HARM_CATEGORY_SEXUALLY_EXPLICIT',
-            threshold: 'BLOCK_LOW_AND_ABOVE',
-          },
-          {
-            category: 'HARM_CATEGORY_DANGEROUS_CONTENT',
-            threshold: 'BLOCK_ONLY_HIGH',
-          },
-        ],
-      });
+      let botResponse;
 
-      const prompt = generatePrompt(inputValue);
-      const result = await model.generateContent(prompt);
-      const response = await result.response;
-      const text = response.text();
+      if (!genAI.current) {
+        // Fallback response when API key is not available
+        botResponse = getFallbackResponse(currentInput);
+      } else {
+        // Use AI when API key is available
+        const model = genAI.current.getGenerativeModel({
+          model: 'gemini-1.5-flash',
+          safetySettings: [
+            {
+              category: 'HARM_CATEGORY_HARASSMENT',
+              threshold: 'BLOCK_LOW_AND_ABOVE',
+            },
+            {
+              category: 'HARM_CATEGORY_HATE_SPEECH',
+              threshold: 'BLOCK_LOW_AND_ABOVE',
+            },
+            {
+              category: 'HARM_CATEGORY_SEXUALLY_EXPLICIT',
+              threshold: 'BLOCK_LOW_AND_ABOVE',
+            },
+            {
+              category: 'HARM_CATEGORY_DANGEROUS_CONTENT',
+              threshold: 'BLOCK_ONLY_HIGH',
+            },
+          ],
+        });
+
+        const prompt = generatePrompt(currentInput);
+        const result = await model.generateContent(prompt);
+        const response = await result.response;
+        botResponse = response.text();
+      }
 
       const botMessage = {
         id: Date.now() + 1,
-        text: text,
+        text: botResponse,
         isBot: true,
         timestamp: new Date()
       };
