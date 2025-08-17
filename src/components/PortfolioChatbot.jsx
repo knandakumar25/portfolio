@@ -22,6 +22,9 @@ import scholarDialogue from '../data/The Broken Kingdom Dialogue/Scholar-Dialoug
 import statueSpirit1Dialogue from '../data/The Broken Kingdom Dialogue/StatueSpirit1-Dialogue.json';
 import statueSpirit2Dialogue from '../data/The Broken Kingdom Dialogue/StatueSpirit2-Dialogue.json';
 
+// Import Recourse game dialogue
+import recourseDialogue from '../data/recourse_dialogue.json';
+
 const PortfolioChatbot = () => {
   const [messages, setMessages] = useState([
     {
@@ -75,7 +78,8 @@ ${JSON.stringify({
     scholar: scholarDialogue,
     statueSpirit1: statueSpirit1Dialogue,
     statueSpirit2: statueSpirit2Dialogue
-  }
+  },
+  recourseGameDialogue: recourseDialogue
 }, null, 2)}
 
 USER QUESTION: "${userQuestion}"
@@ -86,6 +90,8 @@ INSTRUCTIONS:
 - If asked about specific projects, experiences, certifications, etc., provide relevant details
 - When asked about "The Broken Kingdom" game, you can reference the dialogue data to explain the story, characters, themes, and gameplay elements
 - The Broken Kingdom dialogue contains conversations between characters that reveal the game's narrative and world-building
+- When asked about "Recourse: A Tall Tale" game, you can reference the recourseGameDialogue data to explain the maritime story, characters, moral choices, and colonial-era setting
+- Recourse is a different game from The Broken Kingdom - it's a maritime interactive fiction about an East India Company negotiator trying to convince his shipmates to continue their journey despite a storm
 - If you don't have specific information, say so politely
 - Format responses in a readable, engaging way
 - You can infer connections and provide context from the data
