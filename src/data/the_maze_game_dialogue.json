@@ -1,0 +1,116 @@
+{
+  "title": "The Maze Game",
+  "subtitle": "A Puzzle Adventure",
+  "description": "A strategic puzzle game where players navigate through increasingly complex mazes, using blocks, keys, teleporters, and various obstacles to reach the endpoint.",
+  "sections": [
+    {
+      "title": "Level 1: Basic Maze Navigation",
+      "content": "The player begins in a simple maze environment. Learn to navigate around walls (@) and wall blocks, while managing moveable colored blocks (gray blocks marked as 'g'). The goal is to reach the green endpoint (e) while understanding basic movement mechanics."
+    },
+    {
+      "title": "Level 2: Block Manipulation",
+      "content": "A more complex maze introduces strategic block placement. Players must push and arrange gray blocks (g) to create pathways through the maze. The level teaches advanced movement patterns and spatial reasoning as blocks can be pushed in chains."
+    },
+    {
+      "title": "Level 3: Keys and Doors",
+      "content": "Introduction of key-door mechanics. Players must collect a yellow key (+) to open a brown closed door (c), which transforms into an open door allowing passage. Orange blocks (o) and gray holes (h) add complexity, requiring careful planning to avoid getting blocks stuck."
+    },
+    {
+      "title": "Level 4: Teleportation System", 
+      "content": "The most advanced level featuring colored teleporter pairs. Red-Purple teleporters (d-i), Blue-Orange teleporters (a-f), and Green-Gray teleporters (m-l) allow instant transportation across the maze. Players must master teleporter mechanics while still managing keys, doors, and block placement to reach the endpoint."
+    }
+  ],
+  "characters": [
+    {
+      "name": "Player",
+      "role": "Protagonist",
+      "description": "A small figure represented by 'p' who navigates through the maze using arrow keys or movement commands."
+    }
+  ],
+  "themes": [
+    "Spatial reasoning and puzzle solving",
+    "Strategic planning and forward thinking", 
+    "Progressive difficulty and skill development",
+    "Environmental navigation and obstacle management"
+  ],
+  "mechanics": {
+    "movement": "Grid-based directional movement with push mechanics",
+    "block_physics": "Blocks can be pushed in chains and destroyed when three align",
+    "teleportation": "Colored teleporter pairs provide instant transport",
+    "key_system": "Keys unlock corresponding doors",
+    "hazards": "Gray holes stop movement, walls block passage",
+    "victory": "Reach the green endpoint to complete each level"
+  },
+  "game_elements": [
+    {
+      "name": "Wall (#)", 
+      "description": "Impassable barriers that define maze structure"
+    },
+    {
+      "name": "Wall Block (@)",
+      "description": "Solid obstacles that cannot be moved or passed through"
+    },
+    {
+      "name": "Player (P/p)",
+      "description": "The controllable character navigating the maze"
+    },
+    {
+      "name": "Gray Blocks (g)",
+      "description": "Moveable blocks that can be pushed and destroyed in groups of three"
+    },
+    {
+      "name": "Colored Blocks (o,k,r,b)",
+      "description": "Special moveable blocks: Orange, Pink, Purple, and Red blocks with unique properties"
+    },
+    {
+      "name": "Gray Holes (h)",
+      "description": "Hazardous spaces that stop player and block movement"
+    },
+    {
+      "name": "Key (+)",
+      "description": "Collectible item that opens closed doors"
+    },
+    {
+      "name": "Closed Door (c)",
+      "description": "Locked barrier that requires a key to open"
+    },
+    {
+      "name": "Teleporters (a,d,f,i,l,m)",
+      "description": "Paired portals that transport player instantly: Blue-Orange (a-f), Red-Purple (d-i), Green-Gray (m-l)"
+    },
+    {
+      "name": "Endpoint (e)",
+      "description": "The green target location that completes the level"
+    }
+  ],
+  "level_progression": [
+    {
+      "level": 1,
+      "focus": "Basic movement and maze navigation",
+      "new_elements": ["Walls", "Wall blocks", "Gray blocks", "Endpoint"]
+    },
+    {
+      "level": 2, 
+      "focus": "Advanced block manipulation and chain pushing",
+      "new_elements": ["Complex maze layout", "Strategic block placement"]
+    },
+    {
+      "level": 3,
+      "focus": "Key-door mechanics and hazard management", 
+      "new_elements": ["Keys", "Locked doors", "Orange blocks", "Gray holes"]
+    },
+    {
+      "level": 4,
+      "focus": "Master teleportation and complex puzzle solving",
+      "new_elements": ["Three teleporter pairs", "Multi-step puzzle sequences"]
+    }
+  ],
+  "rules": [
+    "Players can push moveable objects in straight lines",
+    "Three identical blocks in a row will disappear", 
+    "Keys are consumed when opening doors",
+    "Teleporters transport player between paired locations",
+    "Gray holes stop all movement",
+    "Victory requires reaching the green endpoint"
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "title": "Incredulous",
+  "subtitle": "A Murder Mystery",
+  "description": "A detective mystery where Detective Harold investigates the murder of Lord Gabriel in a twisted tale of family betrayal.",
+  "sections": [
+    {
+      "title": "Introduction",
+      "content": "In a lavish mansion, Lord Gabriel, a highly respected businessman and an extremely kind person, is found dead in his own living room. The cook is the first to find him dead. She immediately calls the police. The detective gets to the scene and starts to investigate. Your detective name is Harold."
+    },
+    {
+      "title": "Initial Investigation",
+      "content": "Detective Harold arrives at the crime scene. Lord Gabriel is found dead with evidence suggesting a struggle - dirt on the floor, grass in his hands, and signs of a confrontation. The detective must interview witnesses and suspects while Lord Gabriel's family is still unaware of the tragedy."
+    },
+    {
+      "title": "Suspect Interviews",
+      "content": "Detective Harold must interview three key workers at the mansion: the gardener, the cook, and the plumber. Each has valuable information about Lord Gabriel's final night. The gardener reveals seeing Lord Gabriel waiting at the door. The cook mentions overhearing conversations about the uncle's debt. The plumber notices dirt forming a path to the garden."
+    },
+    {
+      "title": "Mayor Investigation",
+      "content": "The detective briefly investigates the mayor as a potential suspect but finds no connection to the murder. The mayor is cleared after questioning, allowing the detective to focus on the mansion staff and family members."
+    },
+    {
+      "title": "Family Arrival",
+      "content": "Detective Harold travels to the airport to inform Lord Gabriel's family about the murder. The wife breaks down in tears upon hearing the news, while the uncle becomes suspiciously agitated, demanding justice and asking multiple questions about leads and suspects."
+    },
+    {
+      "title": "The Truth Emerges",
+      "content": "Through careful investigation and evidence analysis, Detective Harold discovers the truth. The gardener was hired by Lord Gabriel's uncle to commit the murder. The uncle, deeply in debt despite Lord Gabriel's generosity, orchestrated the killing for financial gain. Both are arrested for their crimes."
+    },
+    {
+      "title": "Resolution",
+      "content": "The case is solved when both the gardener and uncle confess to their roles in the murder. Detective Harold reflects on the incredulous nature of family betrayal - how someone could murder their own generous relative for money. Justice is served as both criminals are taken into custody."
+    }
+  ],
+  "characters": [
+    {
+      "name": "Detective Harold",
+      "role": "Protagonist",
+      "description": "The investigating detective who solves Lord Gabriel's murder through careful questioning and evidence analysis."
+    },
+    {
+      "name": "Lord Gabriel",
+      "role": "Victim",
+      "description": "A wealthy, generous businessman who was murdered in his own mansion by his uncle and gardener."
+    },
+    {
+      "name": "The Gardener",
+      "role": "Murderer",
+      "description": "Lord Gabriel's gardener who was hired by the uncle to commit the murder in exchange for payment."
+    },
+    {
+      "name": "The Uncle",
+      "role": "Mastermind",
+      "description": "Lord Gabriel's uncle who orchestrated the murder due to his debts, despite his nephew's previous generosity."
+    },
+    {
+      "name": "The Cook",
+      "role": "Witness",
+      "description": "Found Lord Gabriel's body and provided crucial information about the uncle's financial troubles."
+    },
+    {
+      "name": "The Plumber",
+      "role": "Witness", 
+      "description": "Called to fix a leak the night of the murder, noticed dirt tracks leading to the garden."
+    },
+    {
+      "name": "Lord Gabriel's Wife",
+      "role": "Family Member",
+      "description": "Lord Gabriel's wife who was away and learned of the murder when returning home."
+    }
+  ],
+  "themes": [
+    "Family betrayal",
+    "Greed versus generosity", 
+    "Detective investigation",
+    "Justice and consequences",
+    "The corruption of debt and desperation"
+  ],
+  "mechanics": {
+    "interactivity": "Choice-based detective investigation with point system",
+    "consequences": "Player choices affect detective's effectiveness and case outcome",
+    "point_system": "Points awarded for good detective work, deducted for poor choices",
+    "multiple_paths": "Different questioning approaches lead to different evidence discovery"
+  },
+  "key_evidence": [
+    "Dirt on the mansion floor forming a path to the garden",
+    "Grass found in Lord Gabriel's hand indicating a struggle",
+    "Uncle's debt and financial desperation",
+    "Gardener's suspicious behavior and eventual confession",
+    "Timing of the plumber's visit on the night of the murder"
+  ]
+}

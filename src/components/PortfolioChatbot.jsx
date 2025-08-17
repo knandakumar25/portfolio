@@ -22,8 +22,15 @@ import scholarDialogue from '../data/The Broken Kingdom Dialogue/Scholar-Dialoug
 import statueSpirit1Dialogue from '../data/The Broken Kingdom Dialogue/StatueSpirit1-Dialogue.json';
 import statueSpirit2Dialogue from '../data/The Broken Kingdom Dialogue/StatueSpirit2-Dialogue.json';
 
-// Import Recourse game dialogue
+// Import Tetralogy game dialogues
 import recourseDialogue from '../data/recourse_dialogue.json';
+import serendipityDialogue from '../data/serendipity_dialogue.json';
+import restorationDialogue from '../data/restoration_dialogue.json';
+import endgameDialogue from '../data/endgame_dialogue.json';
+
+// Import Incredulous and The Maze Game dialogue
+import incredulousDialogue from '../data/incredulous_dialogue.json';
+import mazegameDialogue from '../data/the_maze_game_dialogue.json';
 
 const PortfolioChatbot = () => {
   const [messages, setMessages] = useState([
@@ -79,7 +86,12 @@ ${JSON.stringify({
     statueSpirit1: statueSpirit1Dialogue,
     statueSpirit2: statueSpirit2Dialogue
   },
-  recourseGameDialogue: recourseDialogue
+  recourseGameDialogue: recourseDialogue,
+  serendipityGameDialogue: serendipityDialogue,
+  restorationGameDialogue: restorationDialogue,
+  endgameGameDialogue: endgameDialogue,
+  incredulousGameDialogue: incredulousDialogue,
+  mazegameDialogue: mazegameDialogue
 }, null, 2)}
 
 USER QUESTION: "${userQuestion}"
@@ -90,8 +102,21 @@ INSTRUCTIONS:
 - If asked about specific projects, experiences, certifications, etc., provide relevant details
 - When asked about "The Broken Kingdom" game, you can reference the dialogue data to explain the story, characters, themes, and gameplay elements
 - The Broken Kingdom dialogue contains conversations between characters that reveal the game's narrative and world-building
-- When asked about "Recourse: A Tall Tale" game, you can reference the recourseGameDialogue data to explain the maritime story, characters, moral choices, and colonial-era setting
-- Recourse is a different game from The Broken Kingdom - it's a maritime interactive fiction about an East India Company negotiator trying to convince his shipmates to continue their journey despite a storm
+
+TETRALOGY GAMES (Connected Series):
+- When asked about the tetralogy or any of these four connected games, you can reference their dialogue data:
+  1. "Recourse: A Tall Tale" - Maritime survival story about an East India Company negotiator facing a storm with moral choices about crew leadership
+  2. "Serendipity" - Survival adventure continuing from Recourse's shipwreck, exploring a mysterious island and discovering Varuna's divine judgment
+  3. "Restoration" - Psychological battle game where the protagonist fights Varuna in their own consciousness to free their mind
+  4. "Endgame" - The finale featuring tactical combat, puzzle-solving, coding challenges, and a profound philosophical dialogue with Varuna
+- These games form a complete narrative arc from maritime survival to divine confrontation to psychological liberation to ultimate philosophical resolution
+- The tetralogy explores themes of moral responsibility, divine judgment, mental liberation, and the nature of choice and consequence
+- Each game builds on the previous one's story and character development
+
+STANDALONE GAMES:
+- When asked about "Incredulous" game, you can reference the incredulousGameDialogue data to explain this murder mystery interactive fiction about Detective Harold investigating Lord Gabriel's death, featuring family betrayal, evidence collection, and choice-based gameplay
+- When asked about "The Maze Game", you can reference the mazegameDialogue data to explain this strategic puzzle game featuring block manipulation, teleporters, keys, doors, and progressive difficulty across 4 levels with spatial reasoning challenges
+
 - If you don't have specific information, say so politely
 - Format responses in a readable, engaging way
 - You can infer connections and provide context from the data
