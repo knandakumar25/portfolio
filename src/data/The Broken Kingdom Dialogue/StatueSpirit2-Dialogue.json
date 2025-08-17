@@ -1,0 +1,25 @@
+{
+	"S1": [
+		{"name": "Spirit:", "text": "This statue truly captures your greatness my king, where may I find such a great sculptor?"}
+	],
+	"S2": [
+		{"name": "Spirit:", "text": "I offer you this basket as a tribute to your generous and fair rule, thank you, great king."}
+	],
+	"S3": [
+		{"name": "Spirit:", "text": "We have nothing and yet you granted my daughter a scholarship to the academy."}, 
+		{"name": "Spirit:", "text": "Her future is very bright, and I hope she goes on to serve you!"}
+	],
+	"M1": [
+		{"name": "Spirit:", "text": "We ask for your guidance in this difficult time, great king."}
+	],
+	"M2": [
+		{"name": "Spirit:", "text": "You used to be so kind to the common folk— What happened?"}
+	],
+	"M3": [
+		{"name": "Spirit:", "text": "You shut yourselves inside your walls while the rest of us stand here and starve."}, 
+		{"name": "Spirit:", "text": "Do not make us break down those doors." }
+	],
+	"neutral": [
+		{"name": "Spirit:", "text": "This stonework is magnificent!"}
+	]
+}

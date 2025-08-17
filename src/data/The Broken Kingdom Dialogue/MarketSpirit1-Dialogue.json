@@ -1,0 +1,24 @@
+{
+	"S1": [
+		{"name": "Spirit:", "text": "Look at all of these items, food, and traders!"}
+	],
+	"S2": [
+		{"name": "Spirit:", "text": "The kingdom seems to be prospering! So many goods!"}
+	],
+	"S3": [
+		{"name": "Spirit:", "text": "I have never seen so many vendors and traders."},
+		{"name": "Spirit:", "text": "The king is truly great, he must have personally had a  word with all of them."}
+	],
+	"M1": [
+		{"name": "Spirit:", "text": "There were so many here last week..."}
+	],
+	"M2": [
+		{"name": "Spirit:", "text": "Why do people like us still try? There is nothing here, and no customers."}
+	],
+	"M3": [
+		{"name": "Spirit:", "text": "I heard that the king took all the items and food for himself! His greedy self!"}
+	],
+	"neutral": [
+		{"name": "Spirit:", "text": "So many vendors!"}
+	]
+}

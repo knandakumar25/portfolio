@@ -1,0 +1,23 @@
+{
+	"S1": [
+		{"name": "Spirit:", "text": "I can see the moon reflecting in the water! It’s like a mirror, it's beautiful!"}
+	],
+	"S2": [
+		{"name": "Spirit:", "text": "They say any wish made in the fountain our great king will grant!"}
+	],
+	"S3": [
+		{"name": "Spirit:", "text": "The king granted my wish!! I’m off to the academy!"}
+	],
+	"M1": [
+		{"name": "Spirit:", "text": "I can see the sun reflecting in the water! It’s like a mirror, it's beautiful!"}
+	],
+	"M2": [
+		{"name": "Spirit:", "text": "This isn’t what I wished for… "}
+	],
+	"M3": [
+		{"name": "Spirit:", "text": "Even the fountain has started to run dry…"}
+	],
+	"neutral": [
+		{"name": "Spirit:", "text": "Should I take a drink?"}
+	]
+}

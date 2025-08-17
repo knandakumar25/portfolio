@@ -1,0 +1,119 @@
+{
+	"intro": [
+		{"name": "Scholar:", "text": "That scythe… Could it be? No--"},
+		{"name": "Scholar:", "text": "Hello traveler, welcome to Solunaris. It’s been a while since anybody has passed through here."},
+		{"name": "Scholar:", "text": "I apologize for the sorry state of this place but... you’re welcome to take a look around."}
+	],
+	"milestone20": [
+		{"name": "Scholar:", "text": "Solunaris was once a great and prosperous kingdom "},
+		{"name": "Scholar:", "text": "Commoners and Nobles alike came together to build a better future for everyone. "},
+		{"name": "Scholar:", "text": "And now..."}
+	],
+	"milestone40": [
+		{"name": "Scholar:", "text": "Though the kingdom prospered, rumors began to grow about a being who would one day judge this kingdom and decide its fate."},
+		{"name": "Scholar:", "text": "They were said to wield a scythe and had the power to harness the wrath of the sun and the mending light moon."},
+		{"name": "Scholar:", "text": "Fears began to grow around this being the people dubbed The Judge."},
+		{"name": "Scholar:", "text": "They people began obsessing over making the kingdom the best it could be,"},
+		{"name": "Scholar:", "text": "To ensure that when this judgment arrived, they would be judged worthy."}
+	],
+	"milestone60": [
+		{"name": "Scholar:", "text": "Obsessions over The Judge led to the start of a new golden age of the kingdom. People prospered like never before."},
+		{"name": "Scholar:", "text": "King Solun on the other hand, grew uneasy by the fearmongering this rumor caused."},
+		{"name": "Scholar:", "text": "He reassured everyone he had everything under control, and we believed him."}
+	],
+	"milestone80": [
+		{"name": "Scholar:", "text": "Then things started to change once King Solun fell ill. "},
+		{"name": "Scholar:", "text": "Families started to grow hungry as food supplies were diverted towards the crown, and some people began to go missing."},
+		{"name": "Scholar:", "text": "I could see it was the beginning of the end."},
+		{"name": "Scholar:", "text": "I'm afraid nobody else did..."}
+	],
+	"milestone100": [
+		{"name": "Scholar:", "text": "It is known Solun's insanity drove the kingdom to ruin, but not exactly how."},
+		{"name": "Scholar:", "text": "I believe he resorted to drastic measures to save himself and his family, but my research has yet to corroborate that."},
+		{"name": "Scholar:", "text": "Perhaps it is time to visit his old palace, maybe there are some answers there."}
+	],
+	"destruction": [ 
+		{"name": "Scholar:", "text": "You have progressed along the path of destruction."},
+		{"name": "Scholar:", "text": "Is this truly the path you chose to follow? Tread carefully."},
+		{"name": "Scholar:", "text": "Perhaps some things are best left forgotten."}
+	],
+	"restoration": [
+		{"name": "Scholar:", "text": "You have progressed along the path of restoration."},
+		{"name": "Scholar:", "text": "Is this truly the path you chose to follow? Tread carefully."},
+		{"name": "Scholar:", "text": "Perhaps there is hope for this kingdom yet."}
+	],
+	"neutral": [
+		{"name": "Scholar:", "text": "You walk a delicate balance traveller."}
+	],
+	"academy-destroyed": [
+		{"name": "Scholar:", "text": "So the Solunaris Academy was destroyed… I used to teach there, you know."},
+		{"name": "Scholar:", "text": "Oh well… It’s probably for the best– Some things there are best left forgotten."}
+	],
+	"academy-rebuilt": [
+		{"name": "Scholar:", "text": "I couldn’t help but notice the Solunaris Academy has been rebuilt."},
+		{"name": "Scholar:", "text": "The Academy was renowned around the world for its prestige and the opportunities it provided for all."},
+		{"name": "Scholar:", "text": "Maybe I can even return to my office there."}
+	],
+	"farm-destroyed": [
+		{"name": "Scholar:", "text": "The Alder’s farm was the largest in the kingdom."},
+		{"name": "Scholar:", "text": "When their crops fell ill and the little they had went to the palace… I fear that was the beginning of the end for Solunaris."}
+	],
+	"farm-rebuilt": [
+		{"name": "Scholar:", "text": "The Alder’s farm was the largest in the kingdom."},
+		{"name": "Scholar:", "text": "I hope that life can return to the fields and once again provide grain to all of Solunaris’s people."}
+	],
+	"cookhouse-destroyed": [
+		{"name": "Scholar:", "text": "Good to see the cookhouse in a pile of rubble."},
+		{"name": "Scholar:", "text": "I remember so many blurred faces waiting in line with nothing but a faint hope for food in their hearts… only to get none in return."}
+	],
+	"cookhouse-rebuilt": [
+		{"name": "Scholar:", "text": "In the Kingdom’s prime, the Solunaris Cookhouse served food to all her people, commoners and nobles alike."},
+		{"name": "Scholar:", "text": "Maybe those days will come again soon."}
+	],
+	"church-destroyed": [
+		{"name": "Scholar:", "text": "The people of Solunaris were never quite religious, but the few who were were all crazed fanatics."},
+		{"name": "Scholar:", "text": "They worshipped a deity that would bring ruin to this kingdom."},
+		{"name": "Scholar:", "text": "Now I think maybe they had a point. "}
+	],
+	"church-rebuilt": [
+		{"name": "Scholar:", "text": "I never was religious myself, but I admired those who were."},
+		{"name": "Scholar:", "text": "They worshiped a deity who would one day pass judgment on Solunaris’s people."},
+		{"name": "Scholar:", "text": "Come to think of it…  the depiction in the stained glass looked a bit familiar."}
+	],
+	"theatre-destroyed": [
+		{"name": "Scholar:", "text": "People went to the theater to escape reality but when things went dark and the palace shut its doors, all their shows turned to tragedies."},
+		{"name": "Scholar:", "text": "It was a very bleak affair."},
+		{"name": "Scholar:", "text": "The theater was no longer an escape… only a mirror."}
+	],
+	"theatre-rebuilt": [
+		{"name": "Scholar:", "text": "The Eclipse Theater was the main attraction in Solunaris."},
+		{"name": "Scholar:", "text": "Travelers from all over would come to watch their acclaimed performances and all were welcome."},
+		{"name": "Scholar:", "text": "Now that it has been rebuilt, I would love to see a show again sometime."}
+	],
+	"castle-destroyed": [
+		{"name": "Scholar:", "text": "Looks like we will be living forever in hell."}
+	],
+	"castle-rebuilt": [
+		{"name": "Scholar:", "text": "May the glory return."}
+	],
+	"prison-destroyed": [
+		{"name": "Scholar:", "text": "All those pour souls locked up in there..."},
+		{"name": "Scholar:", "text": "There were rumors that prisoners disapeared during Solunaris's decline"},
+		{"name": "Scholar:", "text": "Some said researchers experimented on the prisoners towards the end"},
+		{"name": "Scholar:", "text": "Only rumors though..."}
+	],
+	"prison-rebuilt": [
+		{"name": "Scholar:", "text": "The heart of law and order in Solunaris."},
+		{"name": "Scholar:", "text": "The prisoners were often treated well."},
+		{"name": "Scholar:", "text": "Some prisoners were trained to serve in the king's army."}
+	],
+	"library-destroyed": [
+		{"name": "Scholar:", "text": "Who knows what dark secrets those tomes held."},
+		{"name": "Scholar:", "text": "They will be of no concern to us anymore"}
+	],
+	"library-rebuilt": [
+		{"name": "Scholar:", "text": "While the original knowledge may be lost, there is hope for more"},
+		{"name": "Scholar:", "text": "In fact... I may get to writing right away"},
+		{"name": "Scholar:", "text": "About the arrival of the Judge..."}
+	]
+}

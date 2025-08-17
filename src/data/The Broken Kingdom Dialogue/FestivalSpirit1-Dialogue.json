@@ -1,0 +1,24 @@
+{
+	"S1": [
+		{"name": "Spirit:", "text": "The festival is very pretty and lively."}
+	],
+	"S2": [
+		{"name": "Spirit:", "text": "This harvest has brought a lot of crops for us. The kingdom will be well fed."}
+	],
+	"S3": [
+		{"name": "Spirit:", "text": "Look at the vendors! The king is so generous to bring so many to us."}
+	],
+	"M1": [
+		{"name": "Spirit:", "text": "Another solemn harvest festival."}
+	],
+	"M2": [
+		{"name": "Spirit:", "text": "Why does the king still host this? "}
+	],
+	"M3": [
+		{"name": "Spirit:", "text": "The king must be hoarding all the good crops for himself!"},
+		{"name": "Spirit:", "text": "What about us? We are YOUR people!"}
+	],
+	"neutral": [
+		{"name": "Spirit:", "text": "There are so many crops!"}
+	]
+}

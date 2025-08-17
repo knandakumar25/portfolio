@@ -10,6 +10,18 @@ import educationData from '../data/education.json';
 import organizationsData from '../data/organizations.json';
 import volunteeringData from '../data/volunteering.json';
 
+// Import The Broken Kingdom dialogue files
+import festivalSpirit1Dialogue from '../data/The Broken Kingdom Dialogue/FestivalSpirit1-Dialogue.json';
+import festivalSpirit2Dialogue from '../data/The Broken Kingdom Dialogue/FestivalSpirit2-Dialogue.json';
+import fountainSpirit1Dialogue from '../data/The Broken Kingdom Dialogue/FountainSpirit1-Dialogue.json';
+import fountainSpirit2Dialogue from '../data/The Broken Kingdom Dialogue/FountainSpirit2-Dialogue.json';
+import kingPedestalDialogue from '../data/The Broken Kingdom Dialogue/KingPedestal-Dialogue.json';
+import marketSpirit1Dialogue from '../data/The Broken Kingdom Dialogue/MarketSpirit1-Dialogue.json';
+import marketSpirit2Dialogue from '../data/The Broken Kingdom Dialogue/MarketSpirit2-Dialogue.json';
+import scholarDialogue from '../data/The Broken Kingdom Dialogue/Scholar-Dialouge.json';
+import statueSpirit1Dialogue from '../data/The Broken Kingdom Dialogue/StatueSpirit1-Dialogue.json';
+import statueSpirit2Dialogue from '../data/The Broken Kingdom Dialogue/StatueSpirit2-Dialogue.json';
+
 const PortfolioChatbot = () => {
   const [messages, setMessages] = useState([
     {
@@ -51,7 +63,19 @@ ${JSON.stringify({
   workExperience: workData,
   education: educationData,
   organizations: organizationsData,
-  volunteering: volunteeringData
+  volunteering: volunteeringData,
+  theBrokenKingdomDialogue: {
+    festivalSpirit1: festivalSpirit1Dialogue,
+    festivalSpirit2: festivalSpirit2Dialogue,
+    fountainSpirit1: fountainSpirit1Dialogue,
+    fountainSpirit2: fountainSpirit2Dialogue,
+    kingPedestal: kingPedestalDialogue,
+    marketSpirit1: marketSpirit1Dialogue,
+    marketSpirit2: marketSpirit2Dialogue,
+    scholar: scholarDialogue,
+    statueSpirit1: statueSpirit1Dialogue,
+    statueSpirit2: statueSpirit2Dialogue
+  }
 }, null, 2)}
 
 USER QUESTION: "${userQuestion}"
@@ -60,6 +84,8 @@ INSTRUCTIONS:
 - You are a knowledgeable, friendly assistant representing Karthik's portfolio
 - Answer questions naturally and conversationally based on the data provided
 - If asked about specific projects, experiences, certifications, etc., provide relevant details
+- When asked about "The Broken Kingdom" game, you can reference the dialogue data to explain the story, characters, themes, and gameplay elements
+- The Broken Kingdom dialogue contains conversations between characters that reveal the game's narrative and world-building
 - If you don't have specific information, say so politely
 - Format responses in a readable, engaging way
 - You can infer connections and provide context from the data
