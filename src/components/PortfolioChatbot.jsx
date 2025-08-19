@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { GoogleGenerativeAI } from '@google/generative-ai';
+import { generateAISuggestions } from './aiSuggestions';
 
 // Import your JSON data
 import certificationsData from '../data/certifications.json';
@@ -44,6 +45,11 @@ const PortfolioChatbot = () => {
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [suggestions, setSuggestions] = useState([
+    "Tell me about Karthik's education",
+    "What certifications does he have?",
+    "Show me his game projects"
+  ]);
   const messagesEndRef = useRef(null);
   const genAI = useRef(null);
 
@@ -130,6 +136,86 @@ Please respond to the user's question:`;
     return `I'm currently unable to access my AI capabilities. Please try your question again in a moment, or feel free to browse Karthik's portfolio directly to learn about his certifications, software projects, game projects, work experience, education, organizations, and volunteering.`;
   };
 
+  const handleSuggestionClick = async (suggestion) => {
+    if (isLoading) return; // Prevent multiple clicks while loading
+    
+    // Directly send the suggestion without setting inputValue
+    console.log('Suggestion clicked:', suggestion);
+    
+    const userMessage = {
+      id: Date.now(),
+      text: suggestion,
+      isBot: false,
+      timestamp: new Date()
+    };
+
+    setMessages(prev => [...prev, userMessage]);
+    setIsLoading(true);
+
+    try {
+      let botResponse;
+
+      if (!genAI.current) {
+        botResponse = getFallbackResponse(suggestion);
+      } else {
+        const model = genAI.current.getGenerativeModel({
+          model: 'gemini-1.5-flash',
+          safetySettings: [
+            {
+              category: 'HARM_CATEGORY_HARASSMENT',
+              threshold: 'BLOCK_LOW_AND_ABOVE',
+            },
+            {
+              category: 'HARM_CATEGORY_HATE_SPEECH',
+              threshold: 'BLOCK_LOW_AND_ABOVE',
+            },
+            {
+              category: 'HARM_CATEGORY_SEXUALLY_EXPLICIT',
+              threshold: 'BLOCK_LOW_AND_ABOVE',
+            },
+            {
+              category: 'HARM_CATEGORY_DANGEROUS_CONTENT',
+              threshold: 'BLOCK_ONLY_HIGH',
+            },
+          ],
+        });
+
+        const prompt = generatePrompt(suggestion);
+        const result = await model.generateContent(prompt);
+        const response = await result.response;
+        botResponse = response.text();
+      }
+
+      const botMessage = {
+        id: Date.now() + 1,
+        text: botResponse,
+        isBot: true,
+        timestamp: new Date()
+      };
+
+      setMessages(prev => [...prev, botMessage]);
+      
+      // Generate new suggestions
+      try {
+        const newSuggestions = await generateAISuggestions(botResponse, genAI.current);
+        setSuggestions(newSuggestions);
+      } catch (error) {
+        console.error('Error generating suggestions:', error);
+      }
+    } catch (error) {
+      console.error('Error generating response:', error);
+      const errorMessage = {
+        id: Date.now() + 1,
+        text: "I'm sorry, I encountered an error. Please try again later.",
+        isBot: true,
+        timestamp: new Date()
+      };
+      setMessages(prev => [...prev, errorMessage]);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   const sendMessage = async () => {
     console.log('sendMessage called with input:', inputValue);
     if (!inputValue.trim() || isLoading) {
@@ -199,6 +285,14 @@ Please respond to the user's question:`;
 
       setMessages(prev => [...prev, botMessage]);
       console.log('Bot message added to chat');
+      
+      // Generate AI suggestions based on the bot's response
+      try {
+        const newSuggestions = await generateAISuggestions(botResponse, genAI.current);
+        setSuggestions(newSuggestions);
+      } catch (error) {
+        console.error('Error generating suggestions:', error);
+      }
     } catch (error) {
       console.error('Error generating response:', error);
       const errorMessage = {
@@ -335,6 +429,34 @@ Please respond to the user's question:`;
             </div>
           )}
           <div ref={messagesEndRef} />
+        </div>
+
+        {/* AI-Generated Suggestion Buttons */}
+        <div className="chatbot-suggestions p-2 border-top" style={{ backgroundColor: '#f8f9fa' }}>
+          <small className="text-muted mb-2 d-block">
+            <i className="bi bi-lightbulb me-1"></i>
+            Try asking:
+          </small>
+          <div className="d-flex flex-wrap gap-2">
+            {suggestions.map((suggestion, index) => (
+              <button
+                key={index}
+                onClick={() => handleSuggestionClick(suggestion)}
+                disabled={isLoading}
+                className="btn btn-outline-primary btn-sm"
+                style={{ 
+                  fontSize: '0.8rem',
+                  flex: '1 1 auto',
+                  minWidth: '0',
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis'
+                }}
+                title={suggestion}
+              >
+                {suggestion}
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Input */}
