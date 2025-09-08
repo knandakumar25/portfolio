@@ -98,5 +98,12 @@
     "credentialId": "a43f96160efd4385b7aa8deb6153b419",
     "link": "https://www.credly.com/badges/ce5463c0-c47b-415a-951f-b9198718c240",
     "skills": ["Artificial Intelligence (AI)", "AI Ethics", "Artificial Intelligence Applications", "Business Acumen", "Business Analysis", "Business Awareness", "Cloud Computing", "Generative AI", "Google Cloud Platform (GCP)", "Strategic Business Units"]
+  },
+  {
+    "id": 13,
+    "title": "Introduction to Figma",
+    "issuer": "uxtoast",
+    "dateIssued": "September 2025",
+    "skills": ["Figma", "UI/UX Design", "Design Systems", "Prototyping"]
   }
 ]
