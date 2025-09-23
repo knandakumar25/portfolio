@@ -105,5 +105,13 @@
     "issuer": "uxtoast",
     "dateIssued": "September 2025",
     "skills": ["Figma", "UI/UX Design", "Design Systems", "Prototyping"]
+  },
+  {
+    "id": 14,
+    "title": "Learn C# Course",
+    "issuer": "Codecademy",
+    "dateIssued": "September 2025",
+    "link": "https://www.codecademy.com/profiles/text8790029691/certificates/65f0ff88f4fc58e0536b3b51648dff24",
+    "skills": ["C#", "Software Development"]
   }
 ]
