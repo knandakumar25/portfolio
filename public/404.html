@@ -16,23 +16,24 @@
         // e.g. https://www.foo.tld/one/two?a=b&c=d#qwe becomes
         // https://www.foo.tld/?/one/two&a=b~and~c=d#qwe
 
-        var pathSegmentsToKeep = 1;
-
-        var l = window.location;
-        
-        // Don't redirect if this is a request for a game file - let it 404 naturally
-        if (l.pathname.includes('/games/')) {
-            // For game files, don't redirect to React Router
-            return;
-        }
-        
-        l.replace(
-            l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-            l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
-            l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
-            (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
-            l.hash
-        );
+        (function() {
+            var pathSegmentsToKeep = 1;
+            var l = window.location;
+            
+            // Don't redirect if this is a request for a game file - let it 404 naturally
+            if (l.pathname.includes('/games/')) {
+                // For game files, don't redirect to React Router
+                return;
+            }
+            
+            l.replace(
+                l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+                l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+                l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+                (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+                l.hash
+            );
+        })();
     </script>
 </head>
 
