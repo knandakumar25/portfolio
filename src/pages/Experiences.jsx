@@ -81,13 +81,6 @@ const Experiences = () => {
       {/* Content Section */}
       <section className="experiences-content">
         <div className="container">
-          <div className="section-header" style={centerAlignStyle}>
-            <div className="section-icon" style={centerAlignStyle}>
-              <i className={`bi ${activeTabData.icon}`}></i>
-            </div>
-            <h2 className="section-title anek-devanagari-font rtl-center-protect" style={centerTextOnly}>{activeTabData.label}</h2>
-          </div>
-          
           <div className="experiences-grid">
             {activeTabData.data.map(item => (
               <activeTabData.Component key={item.id} {...{[activeTab]: item}} />

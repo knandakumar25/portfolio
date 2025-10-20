@@ -1,5 +1,39 @@
 [
   {
+    "id": 13,
+    "title": "Introduction to Figma",
+    "issuer": "uxtoast",
+    "dateIssued": "September 2025",
+    "skills": ["Figma", "UI/UX Design", "Design Systems", "Prototyping"]
+  },
+  {
+    "id": 14,
+    "title": "Learn C# Course",
+    "issuer": "Codecademy",
+    "dateIssued": "September 2025",
+    "link": "https://www.codecademy.com/profiles/text8790029691/certificates/65f0ff88f4fc58e0536b3b51648dff24",
+    "skills": ["C#", "Software Development"]
+  },
+  {
+    "id": 12,
+    "title": "Generative AI Leader Certification",
+    "issuer": "Google",
+    "dateIssued": "August 2025",
+    "expirationDate": "August 2028",
+    "credentialId": "a43f96160efd4385b7aa8deb6153b419",
+    "link": "https://www.credly.com/badges/ce5463c0-c47b-415a-951f-b9198718c240",
+    "skills": ["Artificial Intelligence (AI)", "AI Ethics", "Artificial Intelligence Applications", "Business Acumen", "Business Analysis", "Business Awareness", "Cloud Computing", "Generative AI", "Google Cloud Platform (GCP)", "Strategic Business Units"]
+  },
+  {
+    "id": 11,
+    "title": "Data Scientist: Natural Language Processing Specialist Career Path",
+    "issuer": "Codecademy",
+    "dateIssued": "August 2025",
+    "credentialId": "C7623D05-4",
+    "link": "https://www.codecademy.com/profiles/text8790029691/certificates/9c35fed4f15a487385d52456712e0da9",
+    "skills": ["Python (Programming Language)", "Artificial Intelligence (AI)", "Machine Learning"]
+  },
+  {
     "id": 1,
     "title": "Full-Stack Engineer Career Path",
     "issuer": "Codecademy",
@@ -79,39 +113,5 @@
     "credentialId": "105434450",
     "link": "https://certificates.simnetonline.com/b8da9e6f-8c00-43a5-8db1-09d1f62022c1",
     "skills": ["Microsoft Excel"]
-  },
-  {
-    "id": 11,
-    "title": "Data Scientist: Natural Language Processing Specialist Career Path",
-    "issuer": "Codecademy",
-    "dateIssued": "August 2025",
-    "credentialId": "C7623D05-4",
-    "link": "https://www.codecademy.com/profiles/text8790029691/certificates/9c35fed4f15a487385d52456712e0da9",
-    "skills": ["Python (Programming Language)", "Artificial Intelligence (AI)", "Machine Learning"]
-  },
-  {
-    "id": 12,
-    "title": "Generative AI Leader Certification",
-    "issuer": "Google",
-    "dateIssued": "August 2025",
-    "expirationDate": "August 2028",
-    "credentialId": "a43f96160efd4385b7aa8deb6153b419",
-    "link": "https://www.credly.com/badges/ce5463c0-c47b-415a-951f-b9198718c240",
-    "skills": ["Artificial Intelligence (AI)", "AI Ethics", "Artificial Intelligence Applications", "Business Acumen", "Business Analysis", "Business Awareness", "Cloud Computing", "Generative AI", "Google Cloud Platform (GCP)", "Strategic Business Units"]
-  },
-  {
-    "id": 13,
-    "title": "Introduction to Figma",
-    "issuer": "uxtoast",
-    "dateIssued": "September 2025",
-    "skills": ["Figma", "UI/UX Design", "Design Systems", "Prototyping"]
-  },
-  {
-    "id": 14,
-    "title": "Learn C# Course",
-    "issuer": "Codecademy",
-    "dateIssued": "September 2025",
-    "link": "https://www.codecademy.com/profiles/text8790029691/certificates/65f0ff88f4fc58e0536b3b51648dff24",
-    "skills": ["C#", "Software Development"]
   }
 ]

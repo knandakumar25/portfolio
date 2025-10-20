@@ -35,16 +35,6 @@ const Certifications = () => {
       {/* Certifications Section */}
       <section className="certifications-section">
         <div className="container">
-          <div className="section-header" style={sectionCenterStyle}>
-            <div className="section-icon" style={sectionCenterStyle}>
-              <i className="bi bi-award-fill"></i>
-            </div>
-            <h2 className="section-title anek-devanagari-font rtl-center-protect" style={textCenterOnly}>Professional Certifications</h2>
-            <p className="section-description rtl-center-protect" style={textCenterOnly}>
-              Validated skills and expertise across technology domains
-            </p>
-          </div>
-          
           <div className="certifications-grid" style={gridCenterStyle}>
             {certificationsData.map(certification => (
               <CertificationCard key={certification.id} certification={certification} />

@@ -298,10 +298,12 @@ body[dir="rtl"] .rtl-center-protect .stats-grid {
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, minmax(280px, 1fr));
   gap: 2rem;
   max-width: 900px;
   margin: 0 auto;
+  justify-content: center;
+  justify-items: center;
 }
 
 .skill-card {
@@ -350,10 +352,12 @@ body[dir="rtl"] .rtl-center-protect .stats-grid {
 /* Stats Grid */
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
-  max-width: 800px;
+  max-width: 500px;
   margin: 0 auto;
+  justify-content: center;
+  justify-items: center;
 }
 
 .stat-card {
@@ -367,6 +371,13 @@ body[dir="rtl"] .rtl-center-protect .stats-grid {
   border: 1px solid rgba(255, 255, 255, 0.2);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 220px;
 }
 
 .stat-card:hover {
@@ -431,10 +442,16 @@ body[dir="rtl"] .rtl-center-protect .stats-grid {
     font-size: 2rem;
   }
   
-  .skills-grid,
-  .stats-grid {
+  .skills-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+    max-width: 400px;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    max-width: 400px;
   }
   
   .about-text-card {
@@ -464,5 +481,14 @@ body[dir="rtl"] .rtl-center-protect .stats-grid {
   .skill-card,
   .stat-card {
     padding: 2rem 1.5rem;
+  }
+  
+  .skills-grid {
+    max-width: 350px;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+    max-width: 300px;
   }
 }
