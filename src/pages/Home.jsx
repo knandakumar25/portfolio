@@ -38,7 +38,6 @@ const Home = () => {
             <div className="hero-roles rtl-center-protect" style={centerAlignStyle}>
               <p className="hero-subtitle rtl-center-protect" style={centerTextOnly}>Senior at North Carolina State University</p>
               <p className="hero-detail rtl-center-protect" style={centerTextOnly}>College of Engineering</p>
-              <p className="hero-position rtl-center-protect" style={centerTextOnly}>Project Intern at SunTec Business Solutions</p>
             </div>
             <div className="hero-divider rtl-center-protect" style={centerAlignStyle}></div>
           </div>
