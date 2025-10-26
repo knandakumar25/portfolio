@@ -15,7 +15,7 @@
       "  • Fixed an issue when filling out the Consider for Accrual field for an offer bundle creation in edit mode was coming out as 'select an option' instead of 'yes' and developed test cases.",
       "  • Fixed an issue where the button to apply an offer to customer disappears when the to date field is not null and developed test cases."
     ],
-    "skills": ["Visual Design", "Unix", "Oracle Database", "WebSphere Application Server", "Data Structures", "Graphical User Interface (GUI)", "Linux", "Interpersonal Skills", "Javadoc", "Back-End Web Development", "CSMS", "WebSphere", "REST APIs", "Eclipse", "Putty", "Git", "DBeaver", "PostgreSQL", "Front-End Development", "Java", "MySQL", "Filezilla", "JBoss EAP", "Spring Boot", "Software Development", "JDOM", "GitHub", "Documentation", "JavaScript", "Workbench", "iText", "JUnit", "SQL", "JBoss Application Server", "Microsoft Visual Studio Code", "Maven"]
+    "skills": ["Visual Design", "Unix", "Oracle Database", "WebSphere Application Server", "Data Structures", "Graphical User Interface (GUI)", "Linux", "Interpersonal Skills", "Javadoc", "Back-End Web Development", "CSMS", "WebSphere", "REST APIs", "Eclipse", "Putty", "Git", "DBeaver", "PostgreSQL", "Front-End Development", "Java", "MySQL", "Filezilla", "JBoss EAP", "Spring Boot", "Software Development", "JDOM", "GitHub", "Documentation", "JavaScript", "Workbench", "iText", "JUnit", "SQL", "JBoss Application Server", "Microsoft Visual Studio Code", "Maven", "Amazon Web Services (AWS)"]
   },
   {
     "id": 2,
