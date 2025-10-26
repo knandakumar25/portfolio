@@ -3,48 +3,67 @@ import '../assets/contact.css';
 
 const Contact = () => {
   return (
-    <footer className="bg-dark text-light py-3">
+    <footer className="modern-footer">
       <div className="container">
-        <div className="row align-items-center mb-2">
-          <div className="col-12">
-            <div className="alert alert-info mb-0 py-2 px-3 small" style={{ backgroundColor: '#d1ecf1', color: '#0c5460', border: 'none' }}>
-              <i className="bi bi-info-circle-fill me-2"></i>
-              <strong>Email Update:</strong> I'm transitioning from karthiknk21@gmail.com to karthiknk21@proton.me. Both email addresses are currently active.
-            </div>
-          </div>
+        {/* Email Update Banner */}
+        <div className="email-update-banner">
+          <i className="bi bi-info-circle-fill"></i>
+          <span><strong>Email Update:</strong> I'm transitioning from karthiknk21@gmail.com to karthiknk21@proton.me. Both email addresses are currently active.</span>
         </div>
-        <div className="row align-items-center">
-          <div className="col-md-8">
-            <div className="d-flex flex-wrap align-items-center gap-3 small">
-              <span><i className="bi bi-envelope-fill me-1"></i>karthiknk21@gmail.com</span>
-              <span><i className="bi bi-envelope-fill me-1"></i>karthiknk21@proton.me</span>
-              <span><i className="bi bi-telephone-fill me-1"></i>+1 (215) 666-3741</span>
-              <span>All images used under the Creative Commons license.</span>
+
+        {/* Main Footer Content */}
+        <div className="footer-content">
+          {/* Contact Info Section */}
+          <div className="footer-section contact-info">
+            <h3 className="footer-heading">Get In Touch</h3>
+            <div className="contact-items">
+              <a href="mailto:karthiknk21@gmail.com" className="contact-item">
+                <i className="bi bi-envelope-fill"></i>
+                <span>karthiknk21@gmail.com</span>
+              </a>
+              <a href="mailto:karthiknk21@proton.me" className="contact-item">
+                <i className="bi bi-envelope-fill"></i>
+                <span>karthiknk21@proton.me</span>
+              </a>
+              <a href="tel:+12156663741" className="contact-item">
+                <i className="bi bi-telephone-fill"></i>
+                <span>+1 (215) 666-3741</span>
+              </a>
             </div>
           </div>
-          <div className="col-md-4 text-md-end">
-            <div className="d-flex justify-content-md-end justify-content-start align-items-center gap-3 mt-2 mt-md-0">
+
+          {/* Social Links Section */}
+          <div className="footer-section social-section">
+            <h3 className="footer-heading">Connect With Me</h3>
+            <div className="social-links">
               <a
                 href="https://www.linkedin.com/in/karthiknandakumar1/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-light"
+                className="social-link"
                 aria-label="LinkedIn"
               >
                 <i className="bi bi-linkedin"></i>
+                <span>LinkedIn</span>
               </a>
               <a
                 href="https://github.com/knandakumar25"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-light"
+                className="social-link"
                 aria-label="GitHub"
               >
                 <i className="bi bi-github"></i>
+                <span>GitHub</span>
               </a>
-              <span className="small text-muted">© 2025 Karthik Nandakumar</span>
             </div>
           </div>
+        </div>
+
+        {/* Footer Bottom */}
+        <div className="footer-bottom">
+          <p className="copyright">© 2025 Karthik Nandakumar. All rights reserved.</p>
+          <p className="attribution">All images used under the Creative Commons license.</p>
         </div>
       </div>
     </footer>
