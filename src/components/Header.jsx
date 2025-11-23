@@ -123,7 +123,7 @@ const Header = () => {
       
       // Define the callback function
       window.googleTranslateElementInit = function() {
-        console.log('Google Translate initializing...');
+        // ...existing code...
         
         try {        
           window.googleTranslateInstance = new window.google.translate.TranslateElement({
@@ -132,7 +132,7 @@ const Header = () => {
             layout: window.google.translate.TranslateElement.InlineLayout.HORIZONTAL
           }, 'google_translate_element');
           
-          console.log('Google Translate initialized successfully');
+          // ...existing code...
           
           // Override Google Translate banner functions
           if (window.google && window.google.translate && window.google.translate.TranslateElement) {
@@ -140,7 +140,6 @@ const Header = () => {
             const originalShowBanner = window.google.translate.TranslateElement.prototype.showBanner;
             if (originalShowBanner) {
               window.google.translate.TranslateElement.prototype.showBanner = function() {
-                console.log('Google Translate banner display blocked');
                 // Do nothing - this prevents the banner from showing
               };
             }
@@ -148,7 +147,6 @@ const Header = () => {
             // Override any other banner-related functions
             if (window.google.translate._createBanner) {
               window.google.translate._createBanner = function() {
-                console.log('Google Translate banner creation blocked');
                 return null;
               };
             }
@@ -158,7 +156,7 @@ const Header = () => {
           setTimeout(() => {
             const selectElement = document.querySelector('#google_translate_element select');
             if (selectElement) {
-              console.log('Google Translate select element found');
+              // ...existing code...
               
               // Extract available languages from Google's select element
               const googleLanguages = Array.from(selectElement.options)
@@ -177,7 +175,7 @@ const Header = () => {
                 : [englishOption, ...googleLanguages];
               
               setAvailableLanguages(finalLanguages);
-              console.log('Extracted languages from Google Translate:', finalLanguages);
+              // ...existing code...
               
               // Hide the default widget
               const widget = document.querySelector('#google_translate_element .goog-te-gadget');
@@ -265,7 +263,7 @@ const Header = () => {
           (element.id && element.id.includes('goog-gt'));
         
         if (isGoogleTranslateElement) {
-          console.log('Detected and suppressing Google Translate banner element:', element);
+          // ...existing code...
           element.style.display = 'none';
           element.style.visibility = 'hidden';
           element.style.opacity = '0';
@@ -284,7 +282,7 @@ const Header = () => {
                 element.parentNode.removeChild(element);
               }
             } catch (e) {
-              console.log('Could not remove element:', e);
+              // ...existing code...
             }
           }, 0);
         }
@@ -449,14 +447,14 @@ const Header = () => {
         // Cookie format is usually /en/[target_language]
         const match = cookieValue.match(/\/en\/([a-z-]+)/);
         if (match && match[1] && match[1] !== 'en') {
-          console.log('Detected translated language from cookie:', match[1]);
+          // ...existing code...
           setCurrentLanguage(match[1]);
           
           // Apply RTL styling if the detected language is RTL
           applyRTLStyling(isRTLLanguage(match[1]));
         } else {
           // If translation is to English or invalid, set to English
-          console.log('Translation detected as English or invalid, setting to English');
+          // ...existing code...
           setCurrentLanguage('en');
           applyRTLStyling(false);
         }
@@ -484,7 +482,6 @@ const Header = () => {
         const match = cookieValue.match(/\/en\/([a-z-]+)/);
         if (match && match[1]) {
           detectedLang = match[1];
-          console.log('Language detected from cookie:', detectedLang);
         }
       }
       
@@ -494,13 +491,12 @@ const Header = () => {
         const selectLang = selectElement.value;
         if (selectLang !== '' && selectLang !== 'en|en') {
           detectedLang = selectLang;
-          console.log('Language detected from select element:', detectedLang);
         }
       }
       
       // Update current language if it changed
       if (detectedLang !== currentLanguage) {
-        console.log('Language change detected:', currentLanguage, '→', detectedLang);
+        // ...existing code...
         setCurrentLanguage(detectedLang);
         applyRTLStyling(isRTLLanguage(detectedLang));
       }
@@ -511,7 +507,7 @@ const Header = () => {
       const hasCorrectDir = htmlElement.getAttribute('dir') === (isCurrentlyRTL ? 'rtl' : 'ltr');
       
       if (!hasCorrectDir && currentLanguage !== 'en') {
-        console.log('Reapplying RTL styling due to attribute removal');
+        // ...existing code...
         applyRTLStyling(isCurrentlyRTL);
       }
     };
@@ -522,12 +518,7 @@ const Header = () => {
   }, [currentLanguage, applyRTLStyling, isRTLLanguage]);
 
   const translatePage = (langCode) => {
-    console.log('=== TRANSLATE PAGE DEBUG ===');
-    console.log('Attempting to translate to:', langCode);
-    console.log('Is RTL language?', isRTLLanguage(langCode));
-    console.log('RTL_LANGUAGES array:', RTL_LANGUAGES);
-    console.log('langCode type:', typeof langCode);
-    console.log('=== END DEBUG ===');
+    // ...existing code...
     
     // Apply RTL styling before translation
     applyRTLStyling(isRTLLanguage(langCode));
@@ -555,7 +546,7 @@ const Header = () => {
 
   // Alternative translation method using cookies (Google Translate's method)
   const translatePageWithCookie = (langCode) => {
-    console.log('Using cookie-based translation method for:', langCode);
+    // ...existing code...
     
     // Apply RTL styling before setting cookie
     applyRTLStyling(isRTLLanguage(langCode));
@@ -572,7 +563,7 @@ const Header = () => {
     document.cookie = `${cookieName}=${cookieValue}; path=/; domain=${window.location.hostname}`;
     document.cookie = `${cookieName}=${cookieValue}; path=/`;
     
-    console.log('Set translation cookie:', cookieValue);
+    // ...existing code...
     
     // Update UI state before reload
     setCurrentLanguage(langCode);

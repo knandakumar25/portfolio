@@ -102,7 +102,7 @@
                     storyContainer.appendChild(imageElement);
 
                     imageElement.onload = () => {
-                        console.log(`scrollingto ${previousBottomEdge}`)
+                        // ...existing code...
                         scrollDown(previousBottomEdge)
                     }
 
