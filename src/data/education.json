@@ -1,8 +1,8 @@
 [
   {
     "id": 1,
-    "institution": "Arizona State University",
-    "degree": "Master of Science in Computer Science (Incoming)",
+    "institution": "Ira A. Fulton Schools of Engineering at Arizona State University",
+    "degree": "Master of Science in Computer Science (Pursuing)",
     "duration": "January 2026 - ",
     "gpa": "",
     "societies": [],
@@ -11,9 +11,9 @@
   {
     "id": 2,
     "institution": "North Carolina State University",
-    "degree": "Bachelor of Science in Computer Science (Pursuing)",
+    "degree": "Bachelor of Science in Computer Science (Summa Cum Laude)",
     "duration": "June 2022 - December 2025",
-    "gpa": "3.755",
+    "gpa": "3.769",
     "societies": ["App Development Club"],
     "skills": ["Putty", "Machine Learning", "Python (Programming Language)", "Graphical User Interface (GUI)", "Prolog", "Visual Design", "Unix", "GDScript", "Wireframing", "Algorithms", "Artificial Intelligence (AI)", "REST APIs", "Data Structures", "Back-End Web Development", "Interpersonal Skills", "Assembly Language", "Teamwork", "Maven", "Postman API", "Inkle", "MySQL", "Workbench", "Vite", "JUnit", "User Experience (UX)", "SQL", "Software Development", "Game Testing", "Microsoft Visual Studio Code", "React.js", "Documentation", "Front-End Development", "PuzzleScript", "Game Programming", "Shell Scripting", "Filezilla", "Microsoft Access", "Jenkins", "Spring Boot", "C (Programming Language)", "Git", "Bootstrap (Framework)", "HTML5", "Linux", "GitHub", "SQLite", "Javadoc", "Godot", "Docker", "Node.js", "Hibernate", "Twine", "Django", "Web Application Security", "Java", "Eclipse", "Game Design", "Microsoft Excel", "JavaScript eXtension (JSX)"]
   },
