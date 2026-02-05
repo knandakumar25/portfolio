@@ -5,12 +5,6 @@ const Contact = () => {
   return (
     <footer className="modern-footer">
       <div className="container">
-        {/* Email Update Banner */}
-        <div className="email-update-banner">
-          <i className="bi bi-info-circle-fill"></i>
-          <span><strong>Email Update:</strong> I'm transitioning from karthiknk21@gmail.com to karthiknk21@proton.me. Both email addresses are currently active.</span>
-        </div>
-
         {/* Main Footer Content */}
         <div className="footer-content">
           {/* Contact Info Section */}
@@ -20,10 +14,6 @@ const Contact = () => {
               <a href="mailto:karthiknk21@gmail.com" className="contact-item">
                 <i className="bi bi-envelope-fill"></i>
                 <span>karthiknk21@gmail.com</span>
-              </a>
-              <a href="mailto:karthiknk21@proton.me" className="contact-item">
-                <i className="bi bi-envelope-fill"></i>
-                <span>karthiknk21@proton.me</span>
               </a>
               <a href="tel:+12156663741" className="contact-item">
                 <i className="bi bi-telephone-fill"></i>
