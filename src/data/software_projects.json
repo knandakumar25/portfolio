@@ -94,5 +94,13 @@
         "type": "document"
       }
     ]
+  },
+  {
+    "id": 7,
+    "title": "SmartHome Gesture Control Application",
+    "duration": "January 2026 - Present",
+    "description": "Developed a Java-based Android application to show gestures to users that they can use to control many items in the house, like lights and fans, and allow them to practice them using a camera built into the app. Applied ML models for the classification of gestures.",
+    "skills": ["Java", "Android Studio", "Python (Programming Language)", "TensorFlow", "Flask"],
+    "organization": "Ira A. Fulton Schools of Engineering at Arizona State University"
   }
 ]
