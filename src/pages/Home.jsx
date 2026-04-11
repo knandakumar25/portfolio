@@ -36,8 +36,8 @@ const Home = () => {
             </div>
             <h1 className="hero-title anek-devanagari-font rtl-center-protect" style={centerTextOnly}>KARTHIK NANDAKUMAR</h1>
             <div className="hero-roles rtl-center-protect" style={centerAlignStyle}>
-              <p className="hero-subtitle rtl-center-protect" style={centerTextOnly}>Senior at North Carolina State University</p>
-              <p className="hero-detail rtl-center-protect" style={centerTextOnly}>College of Engineering</p>
+              <p className="hero-subtitle rtl-center-protect" style={centerTextOnly}>Graduate Student at Arizona State University</p>
+              <p className="hero-detail rtl-center-protect" style={centerTextOnly}>Ira A. Fulton Schools of Engineering</p>
             </div>
             <div className="hero-divider rtl-center-protect" style={centerAlignStyle}></div>
           </div>
@@ -60,7 +60,7 @@ const Home = () => {
           <div className="about-content">
             <div className="about-text-card">
               <p className="about-text rtl-center-protect" style={centerTextOnly}>
-                Computer Science senior at North Carolina State University with hands-on experience in 
+                Computer Science graduate (B.S., Summa Cum Laude, NCSU) now pursuing a Master of Science in Computer Science at Arizona State University. Hands-on experience in 
                 <span className="highlight"> full-stack web development</span>, 
                 <span className="highlight"> machine learning</span>, and 
                 <span className="highlight"> game design</span>. 
@@ -136,7 +136,7 @@ const Home = () => {
               </div>
             </div>
             <div className="stat-card">
-              <div className="stat-number rtl-center-protect" style={centerTextOnly}>3.7</div>
+              <div className="stat-number rtl-center-protect" style={centerTextOnly}>4.0</div>
               <div className="stat-label rtl-center-protect" style={centerTextOnly}>GPA</div>
               <div className="stat-icon-small rtl-center-protect" style={centerAlignStyle}>
                 <i className="bi bi-mortarboard"></i>
