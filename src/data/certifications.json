@@ -145,5 +145,40 @@
     "dateIssued": "March 2026",
     "credentialId": "98811488-2",
     "skills": []
+  },
+  {
+    "id": 19,
+    "title": "Certificate of completion: Claude code 101",
+    "issuer": "Anthropic",
+    "dateIssued": "May 2026",
+    "credentialId": "yrtt9x2te4z5",
+    "link": "https://verify.skilljar.com/c/yrtt9x2te4z5",
+    "skills": []
+  },
+  {
+    "id": 20,
+    "title": "Artificial Intelligence Fundamentals",
+    "issuer": "IBM",
+    "dateIssued": "May 2026",
+    "link": "https://www.credly.com/badges/266390e2-ac23-4648-8d92-fc4836b62797/linked_in_profile",
+    "skills": ["IBM Watson"]
+  },
+  {
+    "id": 21,
+    "title": "Google AI Essentials",
+    "issuer": "Google",
+    "dateIssued": "May 2026",
+    "credentialId": "KUX48SDPI4RY",
+    "link": "https://www.coursera.org/account/accomplishments/specialization/KUX48SDPI4RY",
+    "skills": ["AI Ethics", "AI Fluency", "Artificial Intelligence (AI)", "Generative AI"]
+  },
+  {
+    "id": 22,
+    "title": "Certificate of completion: AI Fluency for students",
+    "issuer": "Anthropic",
+    "dateIssued": "May 2026",
+    "credentialId": "j6ag8w8vv3r3",
+    "link": "https://verify.skilljar.com/c/j6ag8w8vv3r3",
+    "skills": []
   }
 ]
