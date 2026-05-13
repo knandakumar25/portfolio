@@ -52,7 +52,7 @@ const Contact = () => {
 
         {/* Footer Bottom */}
         <div className="footer-bottom">
-          <p className="copyright">© 2025 Karthik Nandakumar. All rights reserved.</p>
+          <p className="copyright">© 2026 Karthik Nandakumar. All rights reserved.</p>
           <p className="attribution">All images used under the Creative Commons license.</p>
         </div>
       </div>

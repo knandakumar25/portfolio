@@ -1,14 +1,32 @@
-import React from 'react';
+import React, { useState, useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
 import SoftwareCard from '../components/SoftwareCard';
-import GameCard from '../components/GameCard';
 
 import softwareProjectsData from '../data/software_projects.json';
 import gameProjectsData from '../data/game_projects.json';
 
 import '../assets/projects.css';
 
+const parseEndYear = (duration = '') => {
+  if (/[-–]\s*$/.test(duration)) return 9999;
+  const years = duration.match(/\d{4}/g);
+  return years ? parseInt(years[years.length - 1]) : 0;
+};
+
+// Combine both datasets with a type tag
+const allProjects = [
+  ...softwareProjectsData.map(p => ({ ...p, type: 'Software' })),
+  ...gameProjectsData.map(g => ({ ...g, type: 'Game' })),
+];
+
 const Projects = () => {
-  // Inline styles for RTL protection with higher specificity
+  const navigate = useNavigate();
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [typeFilter, setTypeFilter] = useState('');
+  const [skillFilter, setSkillFilter] = useState('');
+  const [sortOrder, setSortOrder] = useState('default');
+
   const centerAlignStyle = {
     textAlign: 'center',
     direction: 'ltr',
@@ -16,10 +34,66 @@ const Projects = () => {
     flexDirection: 'column',
     alignItems: 'center'
   };
-  
+
   const centerTextOnly = {
     textAlign: 'center',
     direction: 'ltr'
+  };
+
+  // All unique skills across every project, sorted A-Z
+  const skillOptions = useMemo(() => {
+    const values = new Set();
+    allProjects.forEach(p => (p.skills || []).forEach(s => values.add(s)));
+    return Array.from(values).sort();
+  }, []);
+
+  const displayData = useMemo(() => {
+    let data = [...allProjects];
+
+    // Text search across title + description fields
+    if (searchQuery.trim()) {
+      const q = searchQuery.toLowerCase();
+      data = data.filter(p =>
+        (p.title || '').toLowerCase().includes(q) ||
+        (p.description || '').toLowerCase().includes(q) ||
+        (p.shortDescription || '').toLowerCase().includes(q)
+      );
+    }
+
+    // Type filter
+    if (typeFilter) {
+      data = data.filter(p => p.type === typeFilter);
+    }
+
+    // Exact skill filter (prevents "Java" matching "JavaScript")
+    if (skillFilter) {
+      data = data.filter(p => (p.skills || []).includes(skillFilter));
+    }
+
+    // Sort
+    if (sortOrder === 'name-asc') {
+      data.sort((a, b) => (a.title || '').localeCompare(b.title || ''));
+    } else if (sortOrder === 'name-desc') {
+      data.sort((a, b) => (b.title || '').localeCompare(a.title || ''));
+    } else if (sortOrder === 'recent') {
+      data.sort((a, b) => parseEndYear(b.duration) - parseEndYear(a.duration));
+    } else if (sortOrder === 'oldest') {
+      data.sort((a, b) => parseEndYear(a.duration) - parseEndYear(b.duration));
+    }
+
+    return data;
+  }, [searchQuery, typeFilter, skillFilter, sortOrder]);
+
+  const handleDetails = (project) => {
+    if (project.type === 'Game') {
+      const urlFriendlyTitle = project.title
+        .toLowerCase()
+        .replace(/\s+/g, '-')
+        .replace(/[^a-z0-9-]/g, '');
+      navigate(`/game/${urlFriendlyTitle}`);
+    } else {
+      setSelectedProject(project);
+    }
   };
 
   return (
@@ -33,49 +107,117 @@ const Projects = () => {
         </div>
       </div>
 
-      {/* Software Projects Section */}
-      <section className="projects-section software-section">
+      {/* Projects Table Section */}
+      <section className="proj-content">
         <div className="container">
-          <div className="section-header rtl-center-protect" style={centerAlignStyle}>
-            <div className="section-icon software-icon rtl-center-protect" style={centerAlignStyle}>
-              <i className="bi bi-code-slash"></i>
+
+          {/* Controls */}
+          <div className="proj-controls">
+            <div className="proj-search-wrap">
+              <i className="bi bi-search proj-search-icon"></i>
+              <input
+                className="proj-search"
+                type="text"
+                placeholder="Search…"
+                value={searchQuery}
+                onChange={e => setSearchQuery(e.target.value)}
+              />
+              {searchQuery && (
+                <button className="proj-clear-btn" onClick={() => setSearchQuery('')}>
+                  <i className="bi bi-x"></i>
+                </button>
+              )}
             </div>
-            <h2 className="section-title anek-devanagari-font rtl-center-protect" style={centerTextOnly}>Software Development</h2>
-            <p className="section-description rtl-center-protect" style={centerTextOnly}>
-              Full-stack applications, AI implementations, and enterprise solutions
-            </p>
+
+            <select
+              className="proj-select"
+              value={typeFilter}
+              onChange={e => setTypeFilter(e.target.value)}
+            >
+              <option value="">All Types</option>
+              <option value="Software">Software</option>
+              <option value="Game">Game</option>
+            </select>
+
+            <select
+              className="proj-select"
+              value={skillFilter}
+              onChange={e => setSkillFilter(e.target.value)}
+            >
+              <option value="">All Skills</option>
+              {skillOptions.map(opt => (
+                <option key={opt} value={opt}>{opt}</option>
+              ))}
+            </select>
+
+            <select
+              className="proj-select"
+              value={sortOrder}
+              onChange={e => setSortOrder(e.target.value)}
+            >
+              <option value="default">Sort: Default</option>
+              <option value="name-asc">Name A → Z</option>
+              <option value="name-desc">Name Z → A</option>
+              <option value="recent">Most Recent</option>
+              <option value="oldest">Oldest First</option>
+            </select>
           </div>
-          <div className="projects-grid">
-            {softwareProjectsData.map((project) => (
-              <SoftwareCard key={project.id} project={project} />
-            ))}
+
+          {/* Table */}
+          <div className="proj-table">
+            <div className="proj-table-header">
+              <div className="proj-table-th">Title</div>
+              <div className="proj-table-th">Type</div>
+              <div className="proj-table-th">Duration</div>
+              <div className="proj-table-th proj-table-th--action"></div>
+            </div>
+
+            {displayData.length === 0 ? (
+              <div className="proj-no-results">
+                <i className="bi bi-search"></i>
+                <span>No projects match your search or filter.</span>
+              </div>
+            ) : (
+              displayData.map(project => (
+                <div key={`${project.type}-${project.id}`} className="proj-table-row">
+                  <div className="proj-table-td proj-title">{project.title}</div>
+                  <div className="proj-table-td">
+                    <span className={`proj-type-badge proj-type-badge--${project.type.toLowerCase()}`}>
+                      <i className={`bi ${project.type === 'Software' ? 'bi-code-slash' : 'bi-joystick'}`}></i>
+                      {project.type}
+                    </span>
+                  </div>
+                  <div className="proj-table-td">{project.duration}</div>
+                  <div className="proj-table-td proj-table-td--action">
+                    <button
+                      className="proj-details-btn"
+                      onClick={() => handleDetails(project)}
+                    >
+                      {project.type === 'Game' ? (
+                        <><i className="bi bi-arrow-up-right-square"></i> View</>
+                      ) : (
+                        'Details'
+                      )}
+                    </button>
+                  </div>
+                </div>
+              ))
+            )}
           </div>
         </div>
       </section>
 
-      {/* Game Projects Section */}
-      <section className="projects-section game-section">
-        <div className="container">
-          <div className="section-header rtl-center-protect" style={centerAlignStyle}>
-            <div className="section-icon game-icon rtl-center-protect" style={centerAlignStyle}>
-              <i className="bi bi-joystick"></i>
-            </div>
-            <h2 className="section-title anek-devanagari-font rtl-center-protect" style={centerTextOnly}>Game Development</h2>
-            <p className="section-description rtl-center-protect" style={centerTextOnly}>
-              Interactive narratives, puzzle games, and immersive experiences
-            </p>
-          </div>
-          <div className="game-notice">
-            <i className="bi bi-info-circle me-2"></i>
-            <span className="rtl-center-protect" style={centerTextOnly}>macOS and iOS versions coming soon!</span>
-          </div>
-          <div className="projects-grid">
-            {gameProjectsData.map((game) => (
-              <GameCard key={game.id} game={game} />
-            ))}
+      {/* Software Project Modal */}
+      {selectedProject && (
+        <div className="proj-modal-overlay" onClick={() => setSelectedProject(null)}>
+          <div className="proj-modal" onClick={e => e.stopPropagation()}>
+            <button className="proj-modal-close" onClick={() => setSelectedProject(null)}>
+              <i className="bi bi-x-lg"></i>
+            </button>
+            <SoftwareCard project={selectedProject} />
           </div>
         </div>
-      </section>
+      )}
     </div>
   );
 };
