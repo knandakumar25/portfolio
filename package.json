@@ -4,8 +4,8 @@
   "private": true,
   "homepage": "https://knandakumar25.github.io/portfolio",
   "engines": {
-    "node": ">=18.0.0",
-    "npm": ">=9.0.0"
+    "node": ">=26.1.0",
+    "npm": ">=11.14.1"
   },
   "dependencies": {
     "bootstrap": "^5.3.8",
