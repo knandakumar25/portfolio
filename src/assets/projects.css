@@ -786,6 +786,19 @@ body[dir="rtl"] .rtl-center-protect .projects-grid {
   border: 1px solid rgba(250, 112, 154, 0.3);
 }
 
+.proj-category-badge {
+  display: inline-block;
+  margin-left: 0.5rem;
+  padding: 0.15rem 0.55rem;
+  border-radius: 12px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  background: rgba(139, 92, 246, 0.12);
+  color: #6d28d9;
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  vertical-align: middle;
+}
+
 .proj-details-btn {
   display: inline-flex;
   align-items: center;

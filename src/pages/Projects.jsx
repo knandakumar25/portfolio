@@ -24,6 +24,7 @@ const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [typeFilter, setTypeFilter] = useState('');
+  const [categoryFilter, setCategoryFilter] = useState('');
   const [skillFilter, setSkillFilter] = useState('');
   const [sortOrder, setSortOrder] = useState('default');
 
@@ -47,6 +48,13 @@ const Projects = () => {
     return Array.from(values).sort();
   }, []);
 
+  // All unique categories from software projects
+  const categoryOptions = useMemo(() => {
+    const values = new Set();
+    allProjects.forEach(p => { if (p.category) values.add(p.category); });
+    return Array.from(values).sort();
+  }, []);
+
   const displayData = useMemo(() => {
     let data = [...allProjects];
 
@@ -63,6 +71,11 @@ const Projects = () => {
     // Type filter
     if (typeFilter) {
       data = data.filter(p => p.type === typeFilter);
+    }
+
+    // Category filter
+    if (categoryFilter) {
+      data = data.filter(p => p.category === categoryFilter);
     }
 
     // Exact skill filter (prevents "Java" matching "JavaScript")
@@ -82,7 +95,7 @@ const Projects = () => {
     }
 
     return data;
-  }, [searchQuery, typeFilter, skillFilter, sortOrder]);
+  }, [searchQuery, typeFilter, categoryFilter, skillFilter, sortOrder]);
 
   const handleDetails = (project) => {
     if (project.type === 'Game') {
@@ -139,6 +152,19 @@ const Projects = () => {
               <option value="Game">Game</option>
             </select>
 
+            {categoryOptions.length > 0 && (
+              <select
+                className="proj-select"
+                value={categoryFilter}
+                onChange={e => setCategoryFilter(e.target.value)}
+              >
+                <option value="">All Categories</option>
+                {categoryOptions.map(opt => (
+                  <option key={opt} value={opt}>{opt}</option>
+                ))}
+              </select>
+            )}
+
             <select
               className="proj-select"
               value={skillFilter}
@@ -180,7 +206,12 @@ const Projects = () => {
             ) : (
               displayData.map(project => (
                 <div key={`${project.type}-${project.id}`} className="proj-table-row">
-                  <div className="proj-table-td proj-title">{project.title}</div>
+                  <div className="proj-table-td proj-title">
+                    {project.title}
+                    {project.category && (
+                      <span className="proj-category-badge">{project.category}</span>
+                    )}
+                  </div>
                   <div className="proj-table-td">
                     <span className={`proj-type-badge proj-type-badge--${project.type.toLowerCase()}`}>
                       <i className={`bi ${project.type === 'Software' ? 'bi-code-slash' : 'bi-joystick'}`}></i>

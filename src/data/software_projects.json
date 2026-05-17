@@ -102,5 +102,13 @@
     "description": "Developed a Java-based Android application to show gestures to users that they can use to control many items in the house, like lights and fans, and allow them to practice them using a camera built into the app. Applied ML models for the classification of gestures.",
     "skills": ["Java", "Android Studio", "Python (Programming Language)", "TensorFlow", "Flask"],
     "organization": "Ira A. Fulton Schools of Engineering at Arizona State University"
+  },
+  {
+    "id": 8,
+    "title": "Cargo Router Microservice",
+    "duration": "May 2026",
+    "category": "Personal Projects",
+    "description": "Engineered and deployed an autonomous, event-driven cargo routing microservice using Java 25 and Spring Boot 3.5 running on JDK virtual threads to dynamically optimize active supply chain paths. Implemented a standalone Apache Kafka 4.2 (KRaft mode) messaging backbone to ingest real-time cargo payloads asynchronously, enforcing strict data validation and transaction idempotency. Integrated external REST APIs to capture live weather hazard data across 34 North American freight hubs, utilizing a defensive \"worst-waypoint-dominates\" risk assessment strategy. Developed a custom Power-of-Two Min-Heap sorting algorithm to evaluate alternative travel routes using a weighted composite score function, resolving global path optimization in O(k log k) time. Designed a complete regression-testing layer consisting of 36 unit tests utilizing comprehensive Mockito isolation to verify boundary condition safety, null-pointer resilience, and heap resize limits.",
+    "skills": ["Java", "Spring Boot", "Apache Kafka", "Hibernate", "H2", "JUnit 5", "Mockito"]
   }
 ]

@@ -1,5 +1,18 @@
 [
   {
+    "id": 6,
+    "company": "Electronic Arts",
+    "position": "Software Engineering",
+    "type": "Job Simulation",
+    "duration": "May 2026",
+    "responsibilities": [
+      "Proposed a new feature for the EA Sports College Football and wrote a Feature Proposal describing it to other stakeholders.",
+      "Built a class diagram and created a header file in C++ with class definitions for each object.",
+      "Patched a bugfix and optimized the EA Sports College Football codebase by implementing an improved data structure."
+    ],
+    "skills": ["C++", "Object-Oriented Design", "UML", "Class Diagrams", "Data Structures", "Technical Writing", "Software Engineering", "Debugging"]
+  },
+  {
     "id": 4,
     "company": "JPMorgan Chase",
     "position": "Software Engineering",
