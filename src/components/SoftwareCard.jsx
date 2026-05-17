@@ -92,7 +92,7 @@ const SoftwareCard = ({ project }) => {
                   rel="noopener noreferrer"
                   onClick={(e) => handleLinkClick(e, link)}
                 >
-                  <i className="bi bi-file-text me-1"></i>
+                  <i className={`bi ${link.type === 'github' ? 'bi-github' : 'bi-file-text'} me-1`}></i>
                   {link.title}
                 </a>
               ))}
