@@ -1,5 +1,18 @@
 [
   {
+    "id": 8,
+    "company": "British Airways",
+    "position": "Data Science",
+    "type": "Job Simulation",
+    "duration": "May 2026",
+    "responsibilities": [
+      "Completed a simulation focussing on how data science is a critical component of British Airways' success.",
+      "Scraped and analysed customer review data to uncover findings.",
+      "Built a predictive model to understand factors that influence buying behaviour."
+    ],
+    "skills": ["Data Science", "Data Scraping", "Data Analysis", "Predictive Modeling"]
+  },
+  {
     "id": 7,
     "company": "Tata Group",
     "position": "Data Analytics",
