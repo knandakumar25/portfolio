@@ -19,6 +19,14 @@ const Contact = () => {
                 <i className="bi bi-telephone-fill"></i>
                 <span>+1 (215) 666-3741</span>
               </a>
+              <div className="contact-item">
+                <i className="bi bi-geo-alt-fill"></i>
+                <span>Cary, North Carolina, United States, 27519</span>
+              </div>
+              <div className="contact-item">
+                <i className="bi bi-person-badge-fill"></i>
+                <span>Authorized to work in both the United States and India</span>
+              </div>
             </div>
           </div>
 
