@@ -180,5 +180,14 @@
     "credentialId": "j6ag8w8vv3r3",
     "link": "https://verify.skilljar.com/c/j6ag8w8vv3r3",
     "skills": []
+  },
+  {
+    "id": 23,
+    "title": "Digital Marketing Certified",
+    "issuer": "HubSpot Academy",
+    "dateIssued": "May 2026",
+    "link": "https://app-na2.hubspot.com/academy/achievements/7093c9q4/en/1/karthik-nandakumar/digital-marketing-certified",
+    "badgeImage": "https://hubspot-credentials-na1.s3.amazonaws.com/prod/badges/user/6acd132ff3dd47db81b2ead4fc9bb136.png",
+    "skills": ["Digital Marketing"]
   }
 ]

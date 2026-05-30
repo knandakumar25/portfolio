@@ -3,11 +3,24 @@ import React from 'react';
 const CertificationCard = ({ certification }) => {
   return (
     <div className="certification-card">
-      <div className="cert-badge">
-        <i className="bi bi-award-fill"></i>
-      </div>
-      
-      <div className="certification-header">
+      {certification.badgeImage ? (
+        <div className="academy-badge">
+          <a
+            href={certification.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            title={certification.title}
+          >
+            <img src={certification.badgeImage} alt={certification.title} />
+          </a>
+        </div>
+      ) : (
+        <div className="cert-badge">
+          <i className="bi bi-award-fill"></i>
+        </div>
+      )}
+
+      <div className={`certification-header${certification.badgeImage ? ' certification-header--badge' : ''}`}>
         <h3 className="certification-title">{certification.title}</h3>
         <h4 className="certification-issuer">{certification.issuer}</h4>
         <div className="certification-dates">
@@ -21,16 +34,18 @@ const CertificationCard = ({ certification }) => {
           )}
         </div>
       </div>
-      
+
       <div className="certification-content">
-        <div className="certification-id">
-          <div className="id-label">
-            <i className="bi bi-key-fill"></i>
-            <span>Credential ID</span>
+        {certification.credentialId && (
+          <div className="certification-id">
+            <div className="id-label">
+              <i className="bi bi-key-fill"></i>
+              <span>Credential ID</span>
+            </div>
+            <div className="id-value">{certification.credentialId}</div>
           </div>
-          <div className="id-value">{certification.credentialId}</div>
-        </div>
-        
+        )}
+
         {certification.skills && certification.skills.length > 0 && (
           <div className="certification-skills">
             <div className="skills-label">
@@ -46,16 +61,18 @@ const CertificationCard = ({ certification }) => {
             </div>
           </div>
         )}
-        
-        <a 
-          href={certification.link} 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="certification-link"
-        >
-          <span>View Certificate</span>
-          <i className="bi bi-box-arrow-up-right"></i>
-        </a>
+
+        {certification.link && (
+          <a
+            href={certification.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="certification-link"
+          >
+            <span>View Certificate</span>
+            <i className="bi bi-box-arrow-up-right"></i>
+          </a>
+        )}
       </div>
     </div>
   );

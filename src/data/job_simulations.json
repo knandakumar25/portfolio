@@ -1,0 +1,318 @@
+[
+  {
+    "id": 17,
+    "company": "Hewlett Packard Enterprise",
+    "position": "Software Engineering",
+    "duration": "May 2026",
+    "responsibilities": [
+      "Wrote a proposal for a RESTful web service to manage a list of employees.",
+      "Built a web server application in Java Spring Boot that can accept and respond to HTTP requests as well as support uploading JSON data.",
+      "Developed and ran a set of unit tests to assess my Java Spring Boot application's performance."
+    ],
+    "skills": [
+      "API Development",
+      "Communication",
+      "HPE GreenLake",
+      "HTTP",
+      "Java",
+      "JSON",
+      "Spring Boot",
+      "Unit Testing"
+    ]
+  },
+  {
+    "id": 16,
+    "company": "Skyscanner",
+    "position": "Software Engineering",
+    "duration": "May 2026",
+    "responsibilities": [
+      "Completed a job simulation involving building a basic web app.",
+      "Created a Dropwizard microservice to assist users in finding car rentals and hotels.",
+      "Developed an Android application to display a user's flight itinerary using Backpack."
+    ],
+    "skills": [
+      "Android Development",
+      "Backpack",
+      "Collaboration",
+      "Java Frameworks",
+      "Java",
+      "JavaScript",
+      "Kotlin",
+      "Microservices Architecture",
+      "Project Management",
+      "React Development",
+      "UI/UX Tools"
+    ]
+  },
+  {
+    "id": 15,
+    "company": "Quantium",
+    "position": "Software Engineering",
+    "duration": "May 2026",
+    "responsibilities": [
+      "Developed an interactive Dash application that enabled the client to assess the impact of price changes on sales and profitability.",
+      "Implemented a test suite to verify the Dash application is working and a bash script to automatically run the test suite.",
+      "Developed an intuitive user interface to make the application enjoyable and engaging for the client to interact with."
+    ],
+    "skills": [
+      "CSS",
+      "Dashboard Tools",
+      "Data Analysis",
+      "Data Management",
+      "Python",
+      "Unit Testing",
+      "Shell Scripting",
+      "Virtual Environments"
+    ]
+  },
+  {
+    "id": 14,
+    "company": "Datacom",
+    "position": "Software Development",
+    "duration": "May 2026",
+    "responsibilities": [
+      "Completed a simulation focussed on how the software development team at Datacom approaches their work.",
+      "Reviewed a web application and planned for future improvements.",
+      "Identified the root cause of bugs and implemented a fix to improve the application."
+    ],
+    "skills": [
+      "Critical Thinking",
+      "Development Tools",
+      "Root Cause Analysis",
+      "Software Development",
+      "Communication"
+    ]
+  },
+  {
+    "id": 13,
+    "company": "Lloyds Banking Group",
+    "position": "Data Science",
+    "duration": "May 2026",
+    "responsibilities": [
+      "Completed a job simulation involving customer churn prediction for the Data Science & Analytics team at Lloyds Banking Group.",
+      "Developed and implemented a predictive model using random forest and other machine learning algorithms, achieving an ROC-AUC score of 0.82.",
+      "Conducted advanced data preprocessing, including handling missing values, encoding categorical variables, and feature scaling, utilising Python libraries such as pandas, scikit-learn, and matplotlib.",
+      "Performed comprehensive model evaluation and tuning, optimising hyperparameters with GridSearchCV, and applied feature importance analysis to derive actionable business insights."
+    ],
+    "skills": [
+      "Communication",
+      "Critical Thinking",
+      "Data Integration",
+      "Data Preprocessing",
+      "Data Visualization",
+      "Exploratory Data Analysis",
+      "Machine Learning",
+      "Model Evaluation"
+    ]
+  },
+  {
+    "id": 12,
+    "company": "EY",
+    "position": "Technology Risk",
+    "duration": "May 2026",
+    "responsibilities": [
+      "Completed a virtual job simulation involving understanding of typical IT risks and processes for EY's Tech Risk team.",
+      "Engaged in practical tasks to improve my relationship building skills, teaming and productivity.",
+      "Learned the importance of teaming."
+    ],
+    "skills": [
+      "Problem Solving",
+      "Bias Recognition",
+      "Communication",
+      "Critical Thinking",
+      "Data Analysis",
+      "Feedback Delivery",
+      "Internal Controls",
+      "Interpersonal Skills",
+      "Interview Skills",
+      "Professional Judgment",
+      "Professional Skepticism",
+      "Questioning Techniques",
+      "Risk Assessment",
+      "Collaboration"
+    ]
+  },
+  {
+    "id": 11,
+    "company": "Deloitte Australia",
+    "position": "Technology",
+    "duration": "May 2026",
+    "responsibilities": [
+      "Completed a job simulation involving development and coding.",
+      "Wrote a proposal for creating a dashboard."
+    ],
+    "skills": [
+      "Computer Networking",
+      "Data Analysis",
+      "Data Modeling",
+      "Data Structures",
+      "Data Visualization",
+      "Communication",
+      "Log Analysis",
+      "Planning",
+      "Python",
+      "Software Development",
+      "Spreadsheet Skills",
+      "Web Security"
+    ]
+  },
+  {
+    "id": 10,
+    "company": "Commonwealth Bank",
+    "position": "Software Engineering",
+    "duration": "May 2026",
+    "responsibilities": [
+      "Completed a job simulation focused on backend and frontend development for Commonwealth Bank's Software Engineering team.",
+      "Extended the backend using C# to enable icons, gaining proficiency in .NET, MongoDB, Postman, and Git.",
+      "Modified an existing React/Redux frontend to enable icons, expanding expertise in React, Redux, TypeScript, NPM, and Git.",
+      "Strengthened coding skills and learned unit testing with C#, xUnit, and .NET, ensuring comprehensive code coverage and support for icons.",
+      "Improved Git and Github skills, emphasizing effective communication through the submission of changes for team review."
+    ],
+    "skills": [
+      ".NET Development",
+      "API Development",
+      "C#",
+      "Communication",
+      "HTTP",
+      "NoSQL Databases",
+      "Package Management",
+      "React Development",
+      "State Management",
+      "TypeScript",
+      "Unit Testing",
+      "Version Control",
+      "Web Development"
+    ]
+  },
+  {
+    "id": 9,
+    "company": "Blackbird Australia",
+    "position": "Software Engineering",
+    "duration": "May 2026",
+    "responsibilities": [
+      "Completed a job simulation where I participated as a software engineer in a start-up environment.",
+      "Built and verified code, assessed cloud infrastructure.",
+      "Proposed a new feature to undergo A/B Testing.",
+      "Participated in sprint retrospectives with a hypothetical project team with the goal of improving cross-functional teamwork.",
+      "Implemented designs for an IoT temperature warning system using Arduino."
+    ],
+    "skills": [
+      "A/B Testing",
+      "Agile Methodology",
+      "Amazon Web Services",
+      "Arduino Programming",
+      "Cloud Computing",
+      "Collaboration",
+      "Hardware Knowledge",
+      "JavaScript",
+      "Product Analytics",
+      "Project Management",
+      "React Development",
+      "System Architecture",
+      "Unit Testing",
+      "Version Control"
+    ]
+  },
+  {
+    "id": 8,
+    "company": "British Airways",
+    "position": "Data Science",
+    "duration": "May 2026",
+    "responsibilities": [
+      "Completed a simulation focussing on how data science is a critical component of British Airways' success.",
+      "Scraped and analysed customer review data to uncover findings.",
+      "Built a predictive model to understand factors that influence buying behaviour."
+    ],
+    "skills": [
+      "Data Science",
+      "Data Scraping",
+      "Data Analysis",
+      "Predictive Modeling"
+    ]
+  },
+  {
+    "id": 7,
+    "company": "Tata Group",
+    "position": "Data Analytics",
+    "duration": "May 2026",
+    "responsibilities": [
+      "Completed a job simulation involving AI-powered data analytics and strategy development for the Financial Services team at Tata iQ.",
+      "Conducted exploratory data analysis (EDA) using GenAI tools to assess data quality, identify risk indicators, and structure insights for predictive modeling.",
+      "Proposed and justified an initial no-code predictive modeling framework to assess customer delinquency risk, leveraging GenAI for structured model logic and evaluation criteria.",
+      "Designed an AI-driven collections strategy leveraging agentic AI and automation, incorporating ethical AI principles, regulatory compliance, and scalable implementation frameworks."
+    ],
+    "skills": [
+      "Data Analysis",
+      "Artificial Intelligence (AI)",
+      "Generative AI",
+      "Exploratory Data Analysis",
+      "Predictive Modeling",
+      "AI Ethics"
+    ]
+  },
+  {
+    "id": 6,
+    "company": "Electronic Arts",
+    "position": "Software Engineering",
+    "duration": "May 2026",
+    "responsibilities": [
+      "Proposed a new feature for the EA Sports College Football and wrote a Feature Proposal describing it to other stakeholders.",
+      "Built a class diagram and created a header file in C++ with class definitions for each object.",
+      "Patched a bugfix and optimized the EA Sports College Football codebase by implementing an improved data structure."
+    ],
+    "skills": [
+      "C++",
+      "Object-Oriented Design",
+      "UML",
+      "Class Diagrams",
+      "Data Structures",
+      "Technical Writing",
+      "Software Development",
+      "Debugging"
+    ]
+  },
+  {
+    "id": 4,
+    "company": "JPMorgan Chase",
+    "position": "Software Engineering",
+    "duration": "May 2026",
+    "responsibilities": [
+      "Integrated Kafka into a Spring Boot microservice to consume and deserialize high-volume transaction messages using a configurable topic and embedded Kafka test framework.",
+      "Implemented transaction validation and persistence logic with Spring Data JPA and an H2 SQL database, including entity modeling and balance updates across relational User records.",
+      "Connected the service to an external REST Incentive API using RestTemplate, processing incentive responses and incorporating them into transactional workflows.",
+      "Developed a REST endpoint for querying user balances, returning JSON responses through a Spring controller while maintaining clean architectural boundaries.",
+      "Verified system behavior using Maven test suites and debugger-driven inspection, ensuring reliability across message ingestion, database operations, and external API interactions."
+    ],
+    "skills": [
+      "Java",
+      "Spring Boot",
+      "Apache Kafka",
+      "Spring Data JPA",
+      "H2",
+      "API Development",
+      "Maven",
+      "Unit Testing"
+    ]
+  },
+  {
+    "id": 5,
+    "company": "Walmart USA",
+    "position": "Advanced Software Engineering",
+    "duration": "May 2026",
+    "responsibilities": [
+      "Completed the Advanced Software Engineering Job Simulation where I solved difficult technical projects for a variety of teams at Walmart.",
+      "Developed a novel version of a heap data structure in Java for Walmart's shipping department, showcasing strong problem-solving and algorithmic skills.",
+      "Designed a UML class diagram for a data processor, considering different operating modes and database connections.",
+      "Created an entity relationship diagram to design a new database accounting for all requirements provided by Walmart's pet department."
+    ],
+    "skills": [
+      "Java",
+      "Data Structures",
+      "Algorithms",
+      "UML",
+      "Entity-Relationship Diagrams",
+      "Software Design",
+      "Database Design"
+    ]
+  }
+]

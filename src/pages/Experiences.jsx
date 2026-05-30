@@ -1,10 +1,12 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import WorkCard from '../components/WorkCard';
+import JobSimulationCard from '../components/JobSimulationCard';
 import EducationCard from '../components/EducationCard';
 import VolunteeringCard from '../components/VolunteeringCard';
 import OrganizationCard from '../components/OrganizationCard';
 
 import workData from '../data/work.json';
+import jobSimulationsData from '../data/job_simulations.json';
 import educationData from '../data/education.json';
 import volunteeringData from '../data/volunteering.json';
 import organizationsData from '../data/organizations.json';
@@ -33,6 +35,21 @@ const tabs = [
       { label: 'Company',  getValue: item => item.company },
       { label: 'Position', getValue: item => item.position },
       { label: 'Type',     getValue: item => item.type },
+      { label: 'Duration', getValue: item => item.duration },
+    ]
+  },
+  {
+    id: 'simulations',
+    label: 'Job Simulations',
+    icon: 'bi-laptop-fill',
+    data: jobSimulationsData,
+    Component: JobSimulationCard,
+    sortNameField: 'company',
+    filterLabel: 'Skill',
+    getFilterValues: item => item.skills || [],
+    columns: [
+      { label: 'Company',  getValue: item => item.company },
+      { label: 'Position', getValue: item => item.position },
       { label: 'Duration', getValue: item => item.duration },
     ]
   },

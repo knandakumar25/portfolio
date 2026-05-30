@@ -267,6 +267,42 @@ body[dir="rtl"] .rtl-center-protect .certifications-grid {
   z-index: 2;
 }
 
+.academy-badge {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.academy-badge a {
+  display: inline-block;
+  background: none;
+  border: none;
+  padding: 0;
+  transition: transform 0.3s ease;
+}
+
+.academy-badge a:hover {
+  transform: translateY(-3px);
+  background: none;
+  border-color: transparent;
+}
+
+.academy-badge img {
+  display: block;
+  max-width: 180px;
+  width: 100%;
+  height: auto;
+}
+
+.certification-header--badge {
+  padding-right: 0;
+  text-align: center;
+}
+
+.certification-header--badge .certification-dates {
+  align-items: center;
+}
+
 .certification-header {
   margin-bottom: 2rem;
   padding-right: 4rem;
