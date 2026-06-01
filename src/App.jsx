@@ -1,5 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence, motion } from 'framer-motion';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'bootstrap-icons/font/bootstrap-icons.css';
@@ -15,6 +16,30 @@ import GameDetails from './pages/GameDetails';
 
 import './App.css';
 
+function AnimatedRoutes() {
+  const location = useLocation();
+  return (
+    <AnimatePresence mode="wait" initial={false}>
+      <motion.div
+        key={location.pathname}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.18, ease: 'easeInOut' }}
+        style={{ minHeight: '100%' }}
+      >
+        <Routes location={location}>
+          <Route path="/" element={<Home />} />
+          <Route path="/experiences" element={<Experiences />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/certifications" element={<Certifications />} />
+          <Route path="/game/:gameId" element={<GameDetails />} />
+        </Routes>
+      </motion.div>
+    </AnimatePresence>
+  );
+}
+
 function App() {
   return (
     <div className="App">
@@ -22,13 +47,7 @@ function App() {
         <ScrollToTop />
         <Header />
         <main className="main-content">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/experiences" element={<Experiences />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/certifications" element={<Certifications />} />
-            <Route path="/game/:gameId" element={<GameDetails />} />
-          </Routes>
+          <AnimatedRoutes />
         </main>
         <Contact />
       </Router>

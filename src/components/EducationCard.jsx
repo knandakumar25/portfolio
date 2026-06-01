@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const EducationCard = ({ education }) => {
   return (
@@ -27,10 +28,16 @@ const EducationCard = ({ education }) => {
             <h5 className="societies-title">Societies & Organizations</h5>
             <div className="societies-list">
               {education.societies.map((society, index) => (
-                <span key={index} className="society-tag">
+                <motion.span
+                  key={index}
+                  className="society-tag"
+                  initial={{ opacity: 0, scale: 0.85 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.25, delay: index * 0.06, ease: 'easeOut' }}
+                >
                   <i className="bi bi-people-fill"></i>
                   {society}
-                </span>
+                </motion.span>
               ))}
             </div>
           </div>
@@ -41,9 +48,15 @@ const EducationCard = ({ education }) => {
             <h5 className="skills-title">Skills Developed</h5>
             <div className="skills-list">
               {education.skills.map((skill, index) => (
-                <span key={index} className="education-skill-tag">
+                <motion.span
+                  key={index}
+                  className="education-skill-tag"
+                  initial={{ opacity: 0, scale: 0.85 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.25, delay: index * 0.06, ease: 'easeOut' }}
+                >
                   {skill}
-                </span>
+                </motion.span>
               ))}
             </div>
           </div>

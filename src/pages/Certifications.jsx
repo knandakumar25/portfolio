@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import CertificationCard from '../components/CertificationCard';
 import certificationsData from '../data/certifications.json';
 import '../assets/certifications.css';
@@ -82,11 +83,17 @@ const Certifications = () => {
     <div className="certifications-container">
       {/* Hero Section */}
       <div className="certifications-hero">
-        <div className="container text-center" style={sectionCenterStyle}>
+        <motion.div
+          className="container text-center"
+          style={sectionCenterStyle}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+        >
           <h1 className="hero-title anek-devanagari-font rtl-center-protect" style={textCenterOnly}>Certifications</h1>
           <p className="hero-subtitle rtl-center-protect" style={textCenterOnly}>Professional achievements and continuous learning</p>
           <div className="hero-divider" style={sectionCenterStyle}></div>
-        </div>
+        </motion.div>
       </div>
 
       {/* Certifications Table Section */}
@@ -161,8 +168,14 @@ const Certifications = () => {
                 <span>No certifications match your search or filter.</span>
               </div>
             ) : (
-              displayData.map(cert => (
-                <div key={cert.id} className="cert-table-row">
+              displayData.map((cert, index) => (
+                <motion.div
+                  key={cert.id}
+                  className="cert-table-row"
+                  initial={{ opacity: 0, x: -18 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3, delay: index * 0.05, ease: 'easeOut' }}
+                >
                   <div className="cert-table-td cert-table-title">{cert.title}</div>
                   <div className="cert-table-td">{cert.issuer}</div>
                   <div className="cert-table-td">{cert.dateIssued}</div>
@@ -174,7 +187,7 @@ const Certifications = () => {
                       Details
                     </button>
                   </div>
-                </div>
+                </motion.div>
               ))
             )}
           </div>
@@ -182,16 +195,32 @@ const Certifications = () => {
       </section>
 
       {/* Modal */}
-      {selectedCert && (
-        <div className="cert-modal-overlay" onClick={() => setSelectedCert(null)}>
-          <div className="cert-modal" onClick={e => e.stopPropagation()}>
-            <button className="cert-modal-close" onClick={() => setSelectedCert(null)}>
-              <i className="bi bi-x-lg"></i>
-            </button>
-            <CertificationCard certification={selectedCert} />
-          </div>
-        </div>
-      )}
+      <AnimatePresence>
+        {selectedCert && (
+          <motion.div
+            className="cert-modal-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            onClick={() => setSelectedCert(null)}
+          >
+            <motion.div
+              className="cert-modal"
+              initial={{ opacity: 0, scale: 0.88, y: 24 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.88, y: 24 }}
+              transition={{ duration: 0.28, ease: 'easeOut' }}
+              onClick={e => e.stopPropagation()}
+            >
+              <button className="cert-modal-close" onClick={() => setSelectedCert(null)}>
+                <i className="bi bi-x-lg"></i>
+              </button>
+              <CertificationCard certification={selectedCert} />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

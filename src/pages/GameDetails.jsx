@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import gameProjects from '../data/game_projects.json';
 
 
@@ -87,7 +88,12 @@ const GameDetails = () => {
   };
 
   return (
-    <div className="container mt-5">
+    <motion.div
+      className="container mt-5"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: 'easeOut' }}
+    >
       {/* Back Button */}
       <div className="row mb-4">
         <div className="col-12">
@@ -178,7 +184,13 @@ const GameDetails = () => {
       </div>
 
       {/* Game Description */}
-      <div className="row mb-4">
+      <motion.div
+        className="row mb-4"
+        initial={{ opacity: 0, y: 25 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.45, ease: 'easeOut' }}
+        viewport={{ once: true, amount: 0.2 }}
+      >
         <div className="col-12">
           <div className="card">
             <div className="card-body">
@@ -190,11 +202,17 @@ const GameDetails = () => {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Skills & Technologies */}
       {game.skills && game.skills.length > 0 && (
-        <div className="row mb-4">
+        <motion.div
+          className="row mb-4"
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.45, ease: 'easeOut', delay: 0.05 }}
+          viewport={{ once: true, amount: 0.2 }}
+        >
           <div className="col-12">
             <div className="card">
               <div className="card-body">
@@ -212,12 +230,18 @@ const GameDetails = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       )}
 
       {/* Contributors */}
       {game.contributors && game.contributors.length > 0 && (
-        <div className="row mb-4">
+        <motion.div
+          className="row mb-4"
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.45, ease: 'easeOut', delay: 0.1 }}
+          viewport={{ once: true, amount: 0.2 }}
+        >
           <div className="col-12">
             <div className="card">
               <div className="card-body">
@@ -255,7 +279,7 @@ const GameDetails = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       )}
 
       {/* Game Player Modal */}
@@ -316,7 +340,7 @@ const GameDetails = () => {
       )}
 
 
-    </div>
+    </motion.div>
   );
 };
 

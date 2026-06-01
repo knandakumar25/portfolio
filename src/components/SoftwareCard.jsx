@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 
 const SoftwareCard = ({ project }) => {
   const [showModal, setShowModal] = useState(false);
@@ -44,9 +45,15 @@ const SoftwareCard = ({ project }) => {
               <h6 className="mb-2">Skills & Technologies:</h6>
               <div>
                 {project.skills.slice(0, 8).map((skill, index) => (
-                  <span key={index} className="skill-tag">
+                  <motion.span
+                    key={index}
+                    className="skill-tag"
+                    initial={{ opacity: 0, scale: 0.85 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.25, delay: index * 0.06, ease: 'easeOut' }}
+                  >
                     {skill}
-                  </span>
+                  </motion.span>
                 ))}
                 {project.skills.length > 8 && (
                   <span className="skill-tag">+{project.skills.length - 8} more</span>
@@ -61,7 +68,12 @@ const SoftwareCard = ({ project }) => {
               <h6>Contributors:</h6>
               <ul className="list-unstyled mb-0">
                 {project.contributors.map((contributor, index) => (
-                  <li key={index}>
+                  <motion.li
+                    key={index}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.25, delay: index * 0.07 }}
+                  >
                     {contributor.linkedin ? (
                       <a 
                         href={contributor.linkedin} 
@@ -74,7 +86,7 @@ const SoftwareCard = ({ project }) => {
                     ) : (
                       <span>{contributor.name}</span>
                     )}
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
             </div>

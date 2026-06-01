@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import '../assets/contact.css';
 
 const Contact = () => {
@@ -8,7 +9,13 @@ const Contact = () => {
         {/* Main Footer Content */}
         <div className="footer-content">
           {/* Contact Info Section */}
-          <div className="footer-section contact-info">
+          <motion.div
+            className="footer-section contact-info"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, ease: 'easeOut' }}
+            viewport={{ once: true, amount: 0.2 }}
+          >
             <h3 className="footer-heading">Get In Touch</h3>
             <div className="contact-items">
               <a href="mailto:karthiknk21@gmail.com" className="contact-item">
@@ -28,10 +35,16 @@ const Contact = () => {
                 <span>Authorized to work in both the United States and India</span>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Social Links Section */}
-          <div className="footer-section social-section">
+          <motion.div
+            className="footer-section social-section"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, ease: 'easeOut', delay: 0.12 }}
+            viewport={{ once: true, amount: 0.2 }}
+          >
             <h3 className="footer-heading">Connect With Me</h3>
             <div className="social-links">
               <a
@@ -55,7 +68,7 @@ const Contact = () => {
                 <span>GitHub</span>
               </a>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Footer Bottom */}

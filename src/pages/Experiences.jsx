@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import WorkCard from '../components/WorkCard';
 import JobSimulationCard from '../components/JobSimulationCard';
 import EducationCard from '../components/EducationCard';
@@ -192,11 +193,17 @@ const Experiences = () => {
     <div className="experiences-container">
       {/* Hero Section */}
       <div className="experiences-hero">
-        <div className="container text-center" style={centerAlignStyle}>
+        <motion.div
+          className="container text-center"
+          style={centerAlignStyle}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+        >
           <h1 className="hero-title anek-devanagari-font rtl-center-protect" style={centerTextOnly}>My Journey</h1>
           <p className="hero-subtitle rtl-center-protect" style={centerTextOnly}>Professional experiences, education, and community involvement</p>
           <div className="hero-divider" style={centerAlignStyle}></div>
-        </div>
+        </motion.div>
       </div>
 
       {/* Tab Navigation */}
@@ -267,50 +274,81 @@ const Experiences = () => {
             </select>
           </div>
 
-          <div className="exp-table">
-            <div className="exp-table-header">
-              {activeTabData.columns.map(col => (
-                <div key={col.label} className="exp-table-th">{col.label}</div>
-              ))}
-              <div className="exp-table-th exp-table-th--action"></div>
-            </div>
-            {displayData.length === 0 ? (
-              <div className="exp-no-results">
-                <i className="bi bi-search"></i>
-                <span>No results match your search or filter.</span>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeTab}
+              className="exp-table"
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -15 }}
+              transition={{ duration: 0.25, ease: 'easeInOut' }}
+            >
+              <div className="exp-table-header">
+                {activeTabData.columns.map(col => (
+                  <div key={col.label} className="exp-table-th">{col.label}</div>
+                ))}
+                <div className="exp-table-th exp-table-th--action"></div>
               </div>
-            ) : (
-              displayData.map(item => (
-                <div key={item.id} className="exp-table-row">
-                  {activeTabData.columns.map(col => (
-                    <div key={col.label} className="exp-table-td">{col.getValue(item)}</div>
-                  ))}
-                  <div className="exp-table-td exp-table-td--action">
-                    <button
-                      className="exp-details-btn"
-                      onClick={() => setSelectedItem({ item, tab: activeTabData })}
-                    >
-                      Details
-                    </button>
-                  </div>
+              {displayData.length === 0 ? (
+                <div className="exp-no-results">
+                  <i className="bi bi-search"></i>
+                  <span>No results match your search or filter.</span>
                 </div>
-              ))
-            )}
-          </div>
+              ) : (
+                displayData.map((item, index) => (
+                  <motion.div
+                    key={item.id}
+                    className="exp-table-row"
+                    initial={{ opacity: 0, x: -18 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.3, delay: index * 0.05, ease: 'easeOut' }}
+                  >
+                    {activeTabData.columns.map(col => (
+                      <div key={col.label} className="exp-table-td">{col.getValue(item)}</div>
+                    ))}
+                    <div className="exp-table-td exp-table-td--action">
+                      <button
+                        className="exp-details-btn"
+                        onClick={() => setSelectedItem({ item, tab: activeTabData })}
+                      >
+                        Details
+                      </button>
+                    </div>
+                  </motion.div>
+                ))
+              )}
+            </motion.div>
+          </AnimatePresence>
         </div>
       </section>
 
       {/* Detail Modal */}
-      {selectedItem && (
-        <div className="exp-modal-overlay" onClick={() => setSelectedItem(null)}>
-          <div className="exp-modal" onClick={e => e.stopPropagation()}>
-            <button className="exp-modal-close" onClick={() => setSelectedItem(null)}>
-              <i className="bi bi-x-lg"></i>
-            </button>
-            <selectedItem.tab.Component {...{ [selectedItem.tab.id]: selectedItem.item }} />
-          </div>
-        </div>
-      )}
+      <AnimatePresence>
+        {selectedItem && (
+          <motion.div
+            className="exp-modal-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            onClick={() => setSelectedItem(null)}
+          >
+            <motion.div
+              className="exp-modal"
+              initial={{ opacity: 0, scale: 0.88, y: 24 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.88, y: 24 }}
+              transition={{ duration: 0.28, ease: 'easeOut' }}
+              onClick={e => e.stopPropagation()}
+            >
+              <button className="exp-modal-close" onClick={() => setSelectedItem(null)}>
+                <i className="bi bi-x-lg"></i>
+              </button>
+              <selectedItem.tab.Component {...{ [selectedItem.tab.id]: selectedItem.item }} />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

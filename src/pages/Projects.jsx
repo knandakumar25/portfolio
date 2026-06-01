@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import SoftwareCard from '../components/SoftwareCard';
 
 import softwareProjectsData from '../data/software_projects.json';
@@ -113,11 +114,17 @@ const Projects = () => {
     <div className="projects-container">
       {/* Hero Section */}
       <div className="projects-hero">
-        <div className="container text-center rtl-center-protect" style={centerAlignStyle}>
+        <motion.div
+          className="container text-center rtl-center-protect"
+          style={centerAlignStyle}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+        >
           <h1 className="hero-title anek-devanagari-font rtl-center-protect" style={centerTextOnly}>My Projects</h1>
           <p className="hero-subtitle rtl-center-protect" style={centerTextOnly}>Explore my journey through code, creativity, and innovation</p>
           <div className="hero-divider rtl-center-protect" style={centerAlignStyle}></div>
-        </div>
+        </motion.div>
       </div>
 
       {/* Projects Table Section */}
@@ -204,8 +211,14 @@ const Projects = () => {
                 <span>No projects match your search or filter.</span>
               </div>
             ) : (
-              displayData.map(project => (
-                <div key={`${project.type}-${project.id}`} className="proj-table-row">
+              displayData.map((project, index) => (
+                <motion.div
+                  key={`${project.type}-${project.id}`}
+                  className="proj-table-row"
+                  initial={{ opacity: 0, x: -18 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3, delay: index * 0.05, ease: 'easeOut' }}
+                >
                   <div className="proj-table-td proj-title">
                     {project.title}
                     {project.category && (
@@ -231,7 +244,7 @@ const Projects = () => {
                       )}
                     </button>
                   </div>
-                </div>
+                </motion.div>
               ))
             )}
           </div>
@@ -239,16 +252,32 @@ const Projects = () => {
       </section>
 
       {/* Software Project Modal */}
-      {selectedProject && (
-        <div className="proj-modal-overlay" onClick={() => setSelectedProject(null)}>
-          <div className="proj-modal" onClick={e => e.stopPropagation()}>
-            <button className="proj-modal-close" onClick={() => setSelectedProject(null)}>
-              <i className="bi bi-x-lg"></i>
-            </button>
-            <SoftwareCard project={selectedProject} />
-          </div>
-        </div>
-      )}
+      <AnimatePresence>
+        {selectedProject && (
+          <motion.div
+            className="proj-modal-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            onClick={() => setSelectedProject(null)}
+          >
+            <motion.div
+              className="proj-modal"
+              initial={{ opacity: 0, scale: 0.88, y: 24 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.88, y: 24 }}
+              transition={{ duration: 0.28, ease: 'easeOut' }}
+              onClick={e => e.stopPropagation()}
+            >
+              <button className="proj-modal-close" onClick={() => setSelectedProject(null)}>
+                <i className="bi bi-x-lg"></i>
+              </button>
+              <SoftwareCard project={selectedProject} />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const VolunteeringCard = ({ volunteering }) => {
   return (
@@ -27,10 +28,16 @@ const VolunteeringCard = ({ volunteering }) => {
           <h5 className="responsibilities-title">Contributions</h5>
           <ul className="responsibilities-list">
             {volunteering.responsibilities.map((responsibility, index) => (
-              <li key={index} className="responsibility-item">
+              <motion.li
+                key={index}
+                className="responsibility-item"
+                initial={{ opacity: 0, x: -12 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.3, delay: index * 0.07, ease: 'easeOut' }}
+              >
                 <i className="bi bi-heart"></i>
                 <span>{responsibility}</span>
-              </li>
+              </motion.li>
             ))}
           </ul>
         </div>

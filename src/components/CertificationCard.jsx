@@ -1,10 +1,16 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const CertificationCard = ({ certification }) => {
   return (
     <div className="certification-card">
       {certification.badgeImage ? (
-        <div className="academy-badge">
+        <motion.div
+          className="academy-badge"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.4, ease: [0.34, 1.56, 0.64, 1] }}
+        >
           <a
             href={certification.link}
             target="_blank"
@@ -13,11 +19,16 @@ const CertificationCard = ({ certification }) => {
           >
             <img src={certification.badgeImage} alt={certification.title} />
           </a>
-        </div>
+        </motion.div>
       ) : (
-        <div className="cert-badge">
+        <motion.div
+          className="cert-badge"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.4, ease: [0.34, 1.56, 0.64, 1] }}
+        >
           <i className="bi bi-award-fill"></i>
-        </div>
+        </motion.div>
       )}
 
       <div className={`certification-header${certification.badgeImage ? ' certification-header--badge' : ''}`}>
@@ -54,9 +65,15 @@ const CertificationCard = ({ certification }) => {
             </div>
             <div className="skills-tags">
               {certification.skills.map((skill, index) => (
-                <span key={index} className="skill-tag">
+                <motion.span
+                  key={index}
+                  className="skill-tag"
+                  initial={{ opacity: 0, scale: 0.85 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.25, delay: index * 0.06, ease: 'easeOut' }}
+                >
                   {skill}
-                </span>
+                </motion.span>
               ))}
             </div>
           </div>
