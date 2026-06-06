@@ -4,7 +4,12 @@ import { motion } from 'framer-motion';
 const CertificationCard = ({ certification }) => {
   return (
     <div className="certification-card">
-      {certification.badgeImage ? (
+      {certification.embedCode ? (
+        <div 
+          className="academy-badge"
+          dangerouslySetInnerHTML={{ __html: certification.embedCode }}
+        />
+      ) : certification.badgeImage ? (
         <motion.div
           className="academy-badge"
           initial={{ opacity: 0, scale: 0.8 }}
@@ -31,7 +36,7 @@ const CertificationCard = ({ certification }) => {
         </motion.div>
       )}
 
-      <div className={`certification-header${certification.badgeImage ? ' certification-header--badge' : ''}`}>
+      <div className={`certification-header${certification.badgeImage || certification.embedCode ? ' certification-header--badge' : ''}`}>
         <h3 className="certification-title">{certification.title}</h3>
         <h4 className="certification-issuer">{certification.issuer}</h4>
         <div className="certification-dates">
@@ -96,3 +101,4 @@ const CertificationCard = ({ certification }) => {
 };
 
 export default CertificationCard;
+

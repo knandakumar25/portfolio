@@ -50,7 +50,7 @@
     "issuer": "Santander Open Academy",
     "dateIssued": "July 2024",
     "credentialId": "OA-2024-0726000080323",
-    "link": "/portfolio/files/Santander AI Cert.pdf",
+    "link": "/files/Santander AI Cert.pdf",
     "skills": ["Artificial Intelligence (AI)", "Google Gemini", "Software Development"]
   },
   {
@@ -97,6 +97,7 @@
     "expirationDate": "August 2028",
     "credentialId": "a43f96160efd4385b7aa8deb6153b419",
     "link": "https://www.credly.com/badges/ce5463c0-c47b-415a-951f-b9198718c240",
+    "embedCode": "<div data-iframe-width=\"150\" data-iframe-height=\"270\" data-share-badge-id=\"ce5463c0-c47b-415a-951f-b9198718c240\" data-share-badge-host=\"https://www.credly.com\"></div><script type=\"text/javascript\" async src=\"//cdn.credly.com/assets/utilities/embed.js\"></script>",
     "skills": ["Artificial Intelligence (AI)", "AI Ethics", "Artificial Intelligence Applications", "Business Acumen", "Business Analysis", "Business Awareness", "Cloud Computing", "Generative AI", "Google Cloud Platform (GCP)", "Strategic Business Units"]
   },
   {
@@ -161,7 +162,8 @@
     "issuer": "IBM",
     "dateIssued": "May 2026",
     "link": "https://www.credly.com/badges/266390e2-ac23-4648-8d92-fc4836b62797/linked_in_profile",
-    "skills": ["IBM Watson"]
+    "embedCode": "<div data-iframe-width=\"150\" data-iframe-height=\"270\" data-share-badge-id=\"266390e2-ac23-4648-8d92-fc4836b62797\" data-share-badge-host=\"https://www.credly.com\"></div><script type=\"text/javascript\" async src=\"//cdn.credly.com/assets/utilities/embed.js\"></script>",
+    "skills": ["AI Ethics", "Artificial Neural Networks", "Chatbots", "Computer Vision", "Deep Learning", "AI Applications", "AI Capabilities", "Artificial Intelligence", "Machine Learning", "Natural Language Processing", "PWID-B0133500", "Watson Studio"]
   },
   {
     "id": 21,
@@ -189,5 +191,13 @@
     "link": "https://app-na2.hubspot.com/academy/achievements/7093c9q4/en/1/karthik-nandakumar/digital-marketing-certified",
     "badgeImage": "https://hubspot-credentials-na1.s3.amazonaws.com/prod/badges/user/6acd132ff3dd47db81b2ead4fc9bb136.png",
     "skills": ["Digital Marketing"]
+    },
+  {
+    "id": 24,
+    "title": "Introduction to Cybersecurity",
+    "issuer": "Cisco",
+    "dateIssued": "May 2026",
+    "embedCode": "<div data-iframe-width=\"150\" data-iframe-height=\"270\" data-share-badge-id=\"986f5b15-7aa2-4b55-adee-6095381b96a1\" data-share-badge-host=\"https://www.credly.com\"></div><script type=\"text/javascript\" async src=\"//cdn.credly.com/assets/utilities/embed.js\"></script>",
+    "skills": ["Cybersecurity", "Threat Detection", "Cyber Best Practices", "Network Vulnerabilities", "Privacy And Data Confidentiality"]
   }
 ]
