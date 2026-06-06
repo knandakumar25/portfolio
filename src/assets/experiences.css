@@ -81,6 +81,26 @@ body[dir="rtl"] .rtl-center-protect .experiences-grid {
   justify-items: center !important;
 }
 
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes heroGradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes dotsFloat {
+  0% { background-position: 0px 0px; }
+  25% { background-position: 30px 20px; }
+  50% { background-position: 60px 0px; }
+  75% { background-position: 30px -20px; }
+  100% { background-position: 0px 0px; }
+}
+
 /* Experiences Container */
 .experiences-container {
   min-height: 100vh;
@@ -88,7 +108,9 @@ body[dir="rtl"] .rtl-center-protect .experiences-grid {
 
 /* Hero Section */
 .experiences-hero {
-  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 25%, #6366f1 50%, #2563eb 75%, #1e40af 100%);
+  background-size: 300% 300%;
+  animation: heroGradientShift 8s ease infinite;
   color: white;
   padding: 120px 0 80px;
   margin-top: -90px;
@@ -104,6 +126,7 @@ body[dir="rtl"] .rtl-center-protect .experiences-grid {
   right: 0;
   bottom: 0;
   background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/><circle cx="10" cy="90" r="0.8" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+  animation: dotsFloat 12s ease-in-out infinite;
   pointer-events: none;
 }
 
@@ -135,7 +158,9 @@ body[dir="rtl"] .rtl-center-protect .experiences-grid {
 /* Tab Navigation */
 .experiences-navigation {
   padding: 40px 0;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 50%, #f5f7fa 100%);
+  background-size: 200% 200%;
+  animation: gradientShift 15s ease infinite;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
@@ -215,7 +240,9 @@ body[dir="rtl"] .rtl-center-protect .experiences-grid {
 /* Content Section */
 .experiences-content {
   padding: 80px 0;
-  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 50%, #ffecd2 100%);
+  background-size: 200% 200%;
+  animation: gradientShift 15s ease infinite;
   min-height: 60vh;
 }
 
