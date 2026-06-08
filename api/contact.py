@@ -70,10 +70,10 @@ class handler(BaseHTTPRequestHandler):
             raise Exception('Gmail credentials not configured')
 
         msg = MIMEMultipart()
-        msg['From'] = gmail_email
+        msg['From'] = f"{name} <{gmail_email}>"
         msg['To'] = gmail_email
         msg['Reply-To'] = email
-        msg['Subject'] = f'New Contact Form Submission from {name}'
+        msg['Subject'] = f'New Contact: {name} ({email})'
 
         body = f"""
 You have a new message from your portfolio contact form:
