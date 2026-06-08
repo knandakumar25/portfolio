@@ -94,7 +94,7 @@ const Home = () => {
             >
               <div className="image-frame rtl-center-protect" style={centerAlignStyle}>
                 <img 
-                  src="/portfolio/photos/Lumatic_Headshot.jpg" 
+                  src="/photos/Lumatic_Headshot.jpg"
                   alt="Karthik Nandakumar" 
                   className="profile-image rtl-center-protect"
                   onError={(e) => {

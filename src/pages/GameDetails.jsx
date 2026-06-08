@@ -58,9 +58,6 @@ const GameDetails = () => {
     if (path.startsWith('http://') || path.startsWith('https://')) {
       return path;
     }
-    if (path.startsWith('/portfolio/')) {
-      return path;
-    }
     const publicUrl = process.env.PUBLIC_URL || '';
     return `${publicUrl}${path}`;
   };
