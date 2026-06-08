@@ -1,93 +1,74 @@
 import json
-import psycopg2
 import os
-import smtplib
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
-from http.server import BaseHTTPRequestHandler
 
-class handler(BaseHTTPRequestHandler):
-    def do_POST(self):
-        content_length = int(self.headers.get('Content-Length', 0))
-        body = self.rfile.read(content_length).decode('utf-8')
+import psycopg2
+from django.conf import settings
+from django.core.mail import EmailMessage
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+
+
+@csrf_exempt
+def contact_view(request):
+    if request.method != 'POST':
+        return JsonResponse({'error': 'Method not allowed'}, status=405)
+
+    try:
+        data = json.loads(request.body.decode('utf-8'))
+    except json.JSONDecodeError:
+        return JsonResponse({'error': 'Invalid JSON'}, status=400)
+
+    name = data.get('name')
+    email = data.get('email')
+    subject = data.get('subject')
+    message = data.get('message')
+
+    if not name or not email or not subject or not message:
+        return JsonResponse({'error': 'Missing required fields'}, status=400)
+
+    try:
+        db_url = os.environ.get('DATABASE_URL')
+        if not db_url:
+            raise Exception('DATABASE_URL not set')
+
+        with psycopg2.connect(db_url) as conn:
+            with conn.cursor() as cur:
+                cur.execute(
+                    'INSERT INTO contact_messages (name, email, subject, message) VALUES (%s, %s, %s, %s)',
+                    (name, email, subject, message),
+                )
 
         try:
-            data = json.loads(body)
-        except json.JSONDecodeError:
-            self.send_error(400, 'Invalid JSON')
-            return
+            _send_email(name, email, subject, message)
+        except Exception as exc:
+            print(f'Email send failed: {exc}')
 
-        name = data.get('name')
-        email = data.get('email')
-        subject = data.get('subject')
-        message = data.get('message')
+        return JsonResponse({'status': 'success', 'message': 'Message sent successfully!'})
+    except Exception as exc:
+        return JsonResponse({'error': str(exc)}, status=500)
 
-        if not name or not email or not subject or not message:
-            self.send_response(400)
-            self.send_header('Content-Type', 'application/json')
-            self.end_headers()
-            self.wfile.write(json.dumps({'error': 'Missing required fields'}).encode())
-            return
 
-        try:
-            db_url = os.environ.get('DATABASE_URL')
-            if not db_url:
-                raise Exception('DATABASE_URL not set')
+def _send_email(name, email, subject, message):
+    gmail_email = getattr(settings, 'EMAIL_HOST_USER', '')
+    gmail_password = getattr(settings, 'EMAIL_HOST_PASSWORD', '')
 
-            conn = psycopg2.connect(db_url)
-            cur = conn.cursor()
+    if not gmail_email or not gmail_password:
+        raise Exception('Gmail credentials not configured')
 
-            cur.execute(
-                "INSERT INTO contact_messages (name, email, subject, message) VALUES (%s, %s, %s, %s)",
-                (name, email, subject, message)
-            )
+    body = (
+        'You have a new message from your portfolio contact form:\n\n'
+        f'Name: {name}\n'
+        f'Email: {email}\n'
+        f'Subject: {subject}\n'
+        'Message:\n'
+        f'{message}\n'
+    )
 
-            conn.commit()
-            cur.close()
-            conn.close()
-
-            # Send email notification
-            try:
-                self._send_email(name, email, subject, message)
-            except Exception as e:
-                print(f"Email send failed: {e}")
-
-            self.send_response(200)
-            self.send_header('Content-Type', 'application/json')
-            self.end_headers()
-            self.wfile.write(json.dumps({'status': 'success', 'message': 'Message sent successfully!'}).encode())
-
-        except Exception as e:
-            self.send_response(500)
-            self.send_header('Content-Type', 'application/json')
-            self.end_headers()
-            self.wfile.write(json.dumps({'error': str(e)}).encode())
-
-    def _send_email(self, name, email, subject, message):
-        gmail_email = os.environ.get('GMAIL_EMAIL')
-        gmail_password = os.environ.get('GMAIL_APP_PASSWORD')
-
-        if not gmail_email or not gmail_password:
-            raise Exception('Gmail credentials not configured')
-
-        msg = MIMEMultipart()
-        msg['From'] = f"{name} <{gmail_email}>"
-        msg['To'] = gmail_email
-        msg['Reply-To'] = email
-        msg['Subject'] = subject
-
-        body = f"""
-You have a new message from your portfolio contact form:
-
-Name: {name}
-Email: {email}
-Subject: {subject}
-Message:
-{message}
-        """
-
-        msg.attach(MIMEText(body, 'plain'))
-
-        with smtplib.SMTP_SSL('smtp.gmail.com', 465) as server:
-            server.login(gmail_email, gmail_password)
-            server.send_message(msg)
+    email_message = EmailMessage(
+        subject=subject,
+        body=body,
+        from_email=gmail_email,
+        to=[gmail_email],
+        reply_to=[email],
+    )
+    email_message.send(fail_silently=False)

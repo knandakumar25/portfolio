@@ -71,3 +71,14 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 # portfolio
+
+## Contact API
+
+The contact form now posts to a small Django backend in `api/` instead of the old serverless handler.
+
+Run it with the existing Python environment, no new virtual environment required:
+
+1. `cd api`
+2. `python manage.py runserver 127.0.0.1:8000`
+
+For local frontend development, Vite proxies `/api/*` to that Django server.
