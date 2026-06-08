@@ -1,0 +1,5 @@
+public/games/
+public/photos/
+node_modules/
+.git/
+dist/
