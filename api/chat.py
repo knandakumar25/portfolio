@@ -73,8 +73,15 @@ class handler(BaseHTTPRequestHandler):
             return
 
         try:
+            api_key = os.environ.get("GEMINI_API_KEY")
+            if not api_key:
+                raise Exception('GEMINI_API_KEY environment variable not set')
+
+            # Debug: Log first few characters of key (don't log full key)
+            print(f"[DEBUG] API Key loaded: {api_key[:10]}...")
+
             client = genai.Client(
-                api_key=os.environ.get("GEMINI_API_KEY"),
+                api_key=api_key,
             )
 
             model = "gemma-4-26b-a4b-it"
