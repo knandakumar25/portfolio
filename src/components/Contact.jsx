@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import '../assets/contact.css';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
   const [status, setStatus] = useState('idle'); // idle | submitting | success | error
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -25,7 +25,7 @@ const Contact = () => {
 
       if (response.ok) {
         setStatus('success');
-        setFormData({ name: '', email: '', message: '' });
+        setFormData({ name: '', email: '', subject: '', message: '' });
       } else {
         const errorData = await response.json();
         throw new Error(errorData.error || 'Something went wrong');
@@ -65,6 +65,16 @@ const Contact = () => {
                 name="email"
                 placeholder="Your Email"
                 value={formData.email}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <input
+                type="text"
+                name="subject"
+                placeholder="Subject"
+                value={formData.subject}
                 onChange={handleChange}
                 required
               />

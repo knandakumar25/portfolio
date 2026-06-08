@@ -19,9 +19,10 @@ class handler(BaseHTTPRequestHandler):
 
         name = data.get('name')
         email = data.get('email')
+        subject = data.get('subject')
         message = data.get('message')
 
-        if not name or not email or not message:
+        if not name or not email or not subject or not message:
             self.send_response(400)
             self.send_header('Content-Type', 'application/json')
             self.end_headers()
@@ -37,8 +38,8 @@ class handler(BaseHTTPRequestHandler):
             cur = conn.cursor()
 
             cur.execute(
-                "INSERT INTO contact_messages (name, email, message) VALUES (%s, %s, %s)",
-                (name, email, message)
+                "INSERT INTO contact_messages (name, email, subject, message) VALUES (%s, %s, %s, %s)",
+                (name, email, subject, message)
             )
 
             conn.commit()
@@ -47,7 +48,7 @@ class handler(BaseHTTPRequestHandler):
 
             # Send email notification
             try:
-                self._send_email(name, email, message)
+                self._send_email(name, email, subject, message)
             except Exception as e:
                 print(f"Email send failed: {e}")
 
@@ -62,7 +63,7 @@ class handler(BaseHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(json.dumps({'error': str(e)}).encode())
 
-    def _send_email(self, name, email, message):
+    def _send_email(self, name, email, subject, message):
         gmail_email = os.environ.get('GMAIL_EMAIL')
         gmail_password = os.environ.get('GMAIL_APP_PASSWORD')
 
@@ -73,13 +74,14 @@ class handler(BaseHTTPRequestHandler):
         msg['From'] = f"{name} <{gmail_email}>"
         msg['To'] = gmail_email
         msg['Reply-To'] = email
-        msg['Subject'] = f'New Contact: {name} ({email})'
+        msg['Subject'] = subject
 
         body = f"""
 You have a new message from your portfolio contact form:
 
 Name: {name}
 Email: {email}
+Subject: {subject}
 Message:
 {message}
         """
