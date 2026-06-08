@@ -43,7 +43,7 @@ function AnimatedRoutes() {
 function App() {
   return (
     <div className="App">
-      <Router basename="/portfolio">
+      <Router>
         <ScrollToTop />
         <Header />
         <main className="main-content">
