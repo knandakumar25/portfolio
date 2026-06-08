@@ -1,14 +1,62 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import '../assets/contact.css';
 
+const MAX_ATTACHMENT_SIZE = 2 * 1024 * 1024;
+const ALLOWED_ATTACHMENT_TYPES = [
+  'application/pdf',
+  'image/png',
+  'image/jpeg',
+  'text/plain',
+  'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+];
+
 const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
+  const [attachment, setAttachment] = useState(null);
   const [status, setStatus] = useState('idle'); // idle | submitting | success | error
   const [errorMessage, setErrorMessage] = useState('');
+  const fileInputRef = useRef(null);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleFileChange = (e) => {
+    const file = e.target.files?.[0] || null;
+
+    if (!file) {
+      setAttachment(null);
+      return;
+    }
+
+    if (!ALLOWED_ATTACHMENT_TYPES.includes(file.type)) {
+      setAttachment(null);
+      setErrorMessage('Unsupported file type. Allowed: PDF, PNG, JPG, TXT, DOCX.');
+      e.target.value = '';
+      return;
+    }
+
+    if (file.size > MAX_ATTACHMENT_SIZE) {
+      setAttachment(null);
+      setErrorMessage('Attachment exceeds 2 MB limit.');
+      e.target.value = '';
+      return;
+    }
+
+    setErrorMessage('');
+    setAttachment(file);
+  };
+
+  const parseErrorResponse = async (response) => {
+    const responseText = await response.text();
+
+    try {
+      const data = JSON.parse(responseText);
+      return data.error || 'Something went wrong';
+    } catch {
+      return 'Request failed. Please try again.';
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -17,18 +65,30 @@ const Contact = () => {
     setErrorMessage('');
 
     try {
+      const payload = new FormData();
+      payload.append('name', formData.name);
+      payload.append('email', formData.email);
+      payload.append('subject', formData.subject);
+      payload.append('message', formData.message);
+      if (attachment) {
+        payload.append('attachment', attachment);
+      }
+
       const response = await fetch('/api/contact', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: payload,
       });
 
       if (response.ok) {
         setStatus('success');
         setFormData({ name: '', email: '', subject: '', message: '' });
+        setAttachment(null);
+        if (fileInputRef.current) {
+          fileInputRef.current.value = '';
+        }
       } else {
-        const errorData = await response.json();
-        throw new Error(errorData.error || 'Something went wrong');
+        const error = await parseErrorResponse(response);
+        throw new Error(error);
       }
     } catch (err) {
       setStatus('error');
@@ -87,6 +147,16 @@ const Contact = () => {
                 onChange={handleChange}
                 required
               />
+            </div>
+            <div className="form-group">
+              <input
+                ref={fileInputRef}
+                type="file"
+                name="attachment"
+                accept=".pdf,.png,.jpg,.jpeg,.txt,.docx"
+                onChange={handleFileChange}
+              />
+              <small>Optional attachment (1 file, max 2 MB): PDF, PNG, JPG, TXT, DOCX</small>
             </div>
             <motion.button
               type="submit"
