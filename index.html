@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script type="text/javascript">
+      // Redirect GitHub Pages visitors to the new Vercel deployment
+      if (window.location.hostname === 'knandakumar25.github.io') {
+        document.title = "Redirecting to Karthik's Portfolio";
+        document.addEventListener('DOMContentLoaded', function() {
+          document.body.innerHTML = '<p style="font-family:sans-serif;text-align:center;padding:2em">Moving to my new portfolio site\u2026 If you are not redirected, <a href="https://knandakumar-portfolio.vercel.app/">click here</a>.</p>';
+        });
+        window.location.replace('https://knandakumar-portfolio.vercel.app/');
+        throw new Error('redirecting');
+      }
+    </script>
     <meta charset="utf-8" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -95,6 +106,11 @@
   </head>
   <body class="anek-devanagari-font">
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    <p id="github-redirect-msg" style="display:none;font-family:sans-serif;text-align:center;padding:2em">
+      Moving to my new portfolio site… If you are not redirected,
+      <a href="https://knandakumar-portfolio.vercel.app/">click here</a>.
+    </p>
+    <script>if(window.location.hostname==='knandakumar25.github.io'){document.getElementById('github-redirect-msg').style.display='block';}</script>
     <div id="root"></div>
   </body>
 </html>
