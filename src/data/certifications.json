@@ -199,5 +199,24 @@
     "dateIssued": "May 2026",
     "embedCode": "<div data-iframe-width=\"150\" data-iframe-height=\"270\" data-share-badge-id=\"986f5b15-7aa2-4b55-adee-6095381b96a1\" data-share-badge-host=\"https://www.credly.com\"></div><script type=\"text/javascript\" async src=\"//cdn.credly.com/assets/utilities/embed.js\"></script>",
     "skills": ["Cybersecurity", "Threat Detection", "Cyber Best Practices", "Network Vulnerabilities", "Privacy And Data Confidentiality"]
+  },
+  {
+    "id": 25,
+    "title": "Tata Cybersecurity Security Analyst Job Simulation",
+    "issuer": "Forage",
+    "dateIssued": "June 7, 2026",
+    "skills": [
+      "Communication",
+      "Critical Thinking",
+      "Identity Management",
+      "Identity Management Assessment",
+      "Identity Management Design",
+      "Problem Solving",
+      "Process Analysis",
+      "Process Management",
+      "Project Planning",
+      "Solution Architecture",
+      "Strategy Evaluation"
+    ]
   }
 ]
