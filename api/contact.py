@@ -72,6 +72,7 @@ class handler(BaseHTTPRequestHandler):
         msg = MIMEMultipart()
         msg['From'] = gmail_email
         msg['To'] = gmail_email
+        msg['Reply-To'] = email
         msg['Subject'] = f'New Contact Form Submission from {name}'
 
         body = f"""
