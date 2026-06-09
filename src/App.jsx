@@ -14,6 +14,7 @@ import Experiences from './pages/Experiences';
 import Projects from './pages/Projects';
 import Certifications from './pages/Certifications';
 import GameDetails from './pages/GameDetails';
+import { TranslationProvider } from './components/TranslationProvider';
 
 import './App.css';
 
@@ -46,15 +47,17 @@ function App() {
 
   return (
     <div className="App">
-      <Router>
-        <ScrollToTop />
-        <Header />
-        <main className="main-content">
-          <AnimatedRoutes />
-        </main>
-        <Contact />
-        <Chat chatState={chatState} setChatState={setChatState} />
-      </Router>
+      <TranslationProvider>
+        <Router>
+          <ScrollToTop />
+          <Header />
+          <main className="main-content">
+            <AnimatedRoutes />
+          </main>
+          <Contact />
+          <Chat chatState={chatState} setChatState={setChatState} />
+        </Router>
+      </TranslationProvider>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { NavLink } from 'react-router-dom';
 import '../assets/header.css';
+import { useTranslation } from './TranslationProvider';
 
 // Define RTL languages outside component to avoid recreation
 const RTL_LANGUAGES = [
@@ -18,12 +19,15 @@ const RTL_LANGUAGES = [
 ];
 
 const Header = () => {
+  const { browserLang } = useTranslation();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [translateOpen, setTranslateOpen] = useState(false);
   const [currentLanguage, setCurrentLanguage] = useState('en');
   const [availableLanguages, setAvailableLanguages] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const [autoDetectedLang, setAutoDetectedLang] = useState('');
+  const [showAutoDetectNotice, setShowAutoDetectNotice] = useState(false);
 
   // Function to check if a language is RTL
   const isRTLLanguage = useCallback((langCode) => {
@@ -517,6 +521,53 @@ const Header = () => {
     return () => clearInterval(interval);
   }, [currentLanguage, applyRTLStyling, isRTLLanguage]);
 
+  // Handle auto-detect notification on page load
+  useEffect(() => {
+    const autoLangNotice = sessionStorage.getItem('showAutoLanguageNotice');
+    if (autoLangNotice) {
+      setAutoDetectedLang(autoLangNotice);
+      setShowAutoDetectNotice(true);
+      const timer = setTimeout(() => {
+        setShowAutoDetectNotice(false);
+        sessionStorage.removeItem('showAutoLanguageNotice');
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
+  // Perform auto-detection once languages are loaded
+  useEffect(() => {
+    if (availableLanguages.length === 0) return;
+
+    const cookies = document.cookie.split(';');
+    const googTransCookie = cookies.find(cookie => cookie.trim().startsWith('googtrans='));
+    
+    // Only auto-detect if there is no previous manual setting and we haven't tried in this session
+    if (!googTransCookie && !sessionStorage.getItem('autoLanguageAttempted')) {
+      sessionStorage.setItem('autoLanguageAttempted', 'true');
+      
+      const baseBrowserLang = browserLang.split('-')[0].toLowerCase();
+      
+      // 1. Try to find exact match (e.g. zh-CN)
+      let matchedLang = availableLanguages.find(
+        lang => lang.code.toLowerCase() === browserLang.toLowerCase()
+      );
+      
+      // 2. Try base language match (e.g. fr)
+      if (!matchedLang) {
+        matchedLang = availableLanguages.find(
+          lang => lang.code.toLowerCase() === baseBrowserLang
+        );
+      }
+      
+      // 3. If found and not English, translate
+      if (matchedLang && matchedLang.code !== 'en') {
+        sessionStorage.setItem('showAutoLanguageNotice', matchedLang.name);
+        translatePage(matchedLang.code);
+      }
+    }
+  }, [availableLanguages, browserLang]);
+
   const translatePage = (langCode) => {
     // ...existing code...
     
@@ -673,6 +724,13 @@ const Header = () => {
                 <span className="current-lang-text">{getCurrentLanguage().name}</span>
                 <span className={`dropdown-arrow ${translateOpen ? 'open' : ''}`}>▼</span>
               </button>
+              
+              {showAutoDetectNotice && (
+                <div className="auto-detect-badge">
+                  <i className="bi bi-geo-alt-fill"></i>
+                  Auto-detected: {autoDetectedLang}
+                </div>
+              )}
               
               {translateOpen && (
                 <div className="translate-dropdown">
