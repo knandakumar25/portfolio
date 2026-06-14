@@ -19,28 +19,38 @@ import CommandDock from './components/SystemShell/CommandDock';
 import MainViewport from './components/SystemShell/MainViewport';
 import KernelConsole from './components/Kernel/KernelConsole';
 import ContextMenu from './components/Kernel/ContextMenu';
+import ModuleWrapper from './components/Modules/ModuleWrapper';
 
 import './App.css';
 
 function AnimatedRoutes() {
   const location = useLocation();
+
+  const formatModuleName = (path) => {
+    if (path === '/') return 'CORE_SYSTEM';
+    const base = path.split('/')[1] || 'UNKNOWN';
+    return `${base.toUpperCase()}_MOD`;
+  };
+
   return (
     <AnimatePresence mode="wait" initial={false}>
       <motion.div
         key={location.pathname}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.18, ease: 'easeInOut' }}
+        initial={{ opacity: 0, scaleY: 0.01, scaleX: 1 }}
+        animate={{ opacity: 1, scaleY: 1, scaleX: 1 }}
+        exit={{ opacity: 0, scaleY: 0.01, scaleX: 1 }}
+        transition={{ duration: 0.3, ease: 'easeInOut' }}
         style={{ minHeight: '100%' }}
       >
-        <Routes location={location}>
-          <Route path="/" element={<Home />} />
-          <Route path="/experiences" element={<Experiences />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/certifications" element={<Certifications />} />
-          <Route path="/game/:gameId" element={<GameDetails />} />
-        </Routes>
+        <ModuleWrapper moduleName={formatModuleName(location.pathname)}>
+          <Routes location={location}>
+            <Route path="/" element={<Home />} />
+            <Route path="/experiences" element={<Experiences />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/certifications" element={<Certifications />} />
+            <Route path="/game/:gameId" element={<GameDetails />} />
+          </Routes>
+        </ModuleWrapper>
       </motion.div>
     </AnimatePresence>
   );
