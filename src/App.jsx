@@ -11,7 +11,6 @@ import Home from './pages/Home';
 import Experiences from './pages/Experiences';
 import Projects from './pages/Projects';
 import Certifications from './pages/Certifications';
-import GameDetails from './pages/GameDetails';
 import { TranslationProvider } from './components/TranslationProvider';
 
 import SystemBar from './components/SystemShell/SystemBar';
@@ -48,7 +47,6 @@ function AnimatedRoutes({ setIsBooted }) {
             <Route path="/experiences" element={<Experiences />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/certifications" element={<Certifications />} />
-            <Route path="/game/:gameId" element={<GameDetails />} />
           </Routes>
         </ModuleWrapper>
       </motion.div>
