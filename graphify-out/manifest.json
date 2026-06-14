@@ -10,7 +10,7 @@
     "semantic_hash": "f0e77c3fd2d832511ace66c1b9e5b4c8"
   },
   "package.json": {
-    "mtime": 1781271246.3614304,
+    "mtime": 1781467047.7009366,
     "ast_hash": "fad5cc727d77f8f333a5f656b0a45e62",
     "semantic_hash": "fad5cc727d77f8f333a5f656b0a45e62"
   },
@@ -80,7 +80,7 @@
     "semantic_hash": "89be60895176466398d53bd4a693d9f6"
   },
   "src/App.jsx": {
-    "mtime": 1781271246.36768,
+    "mtime": 1781451915.5824058,
     "ast_hash": "8f3dbe8b1171d7c273ad7d4f15e070ec",
     "semantic_hash": "8f3dbe8b1171d7c273ad7d4f15e070ec"
   },
@@ -95,12 +95,12 @@
     "semantic_hash": "07b10b5a5defba198624c4cbae212098"
   },
   "src/components/Chat.jsx": {
-    "mtime": 1781271246.3808522,
+    "mtime": 1781451915.5844142,
     "ast_hash": "7de3169cf8693003f7a7deeccdbb0165",
     "semantic_hash": ""
   },
   "src/components/Contact.jsx": {
-    "mtime": 1781276379.1165414,
+    "mtime": 1781451915.5844142,
     "ast_hash": "892553a374d09efc544d1d1adefa74e9",
     "semantic_hash": "892553a374d09efc544d1d1adefa74e9"
   },
@@ -115,7 +115,7 @@
     "semantic_hash": "9e64a7ff818eca1f0982f528ba582573"
   },
   "src/components/Header.jsx": {
-    "mtime": 1781276379.1165414,
+    "mtime": 1781467019.8407385,
     "ast_hash": "e9325056c58365fcf480648a9869008d",
     "semantic_hash": "e9325056c58365fcf480648a9869008d"
   },
@@ -145,7 +145,7 @@
     "semantic_hash": "d34ab0dc394d083b065376b84a82fb17"
   },
   "src/components/TranslationProvider.jsx": {
-    "mtime": 1781271246.3918507,
+    "mtime": 1781451915.5864227,
     "ast_hash": "1e8eb37151f9eeb95a68d7a271089ef9",
     "semantic_hash": ""
   },
@@ -295,29 +295,29 @@
     "semantic_hash": "e0e08baa6af0e4f336435b435fbe2982"
   },
   "src/pages/Certifications.jsx": {
-    "mtime": 1781280678.9066508,
-    "ast_hash": "17e43403a39e88374ca9e18c3c7d4966",
-    "semantic_hash": "17e43403a39e88374ca9e18c3c7d4966"
+    "mtime": 1781467238.0350282,
+    "ast_hash": "03630550c55bf89c3f3f911e5b0dedb3",
+    "semantic_hash": ""
   },
   "src/pages/Experiences.jsx": {
-    "mtime": 1781280678.9066508,
-    "ast_hash": "0a552f18861e5a631851a29accac383f",
-    "semantic_hash": "0a552f18861e5a631851a29accac383f"
+    "mtime": 1781467297.171378,
+    "ast_hash": "231584980bf2aa846d04ce6a40f5fd24",
+    "semantic_hash": ""
   },
   "src/pages/GameDetails.jsx": {
-    "mtime": 1781280678.9066508,
+    "mtime": 1781467034.8370807,
     "ast_hash": "8a3f17135e1f0fb2400a33774aefb0a5",
     "semantic_hash": "8a3f17135e1f0fb2400a33774aefb0a5"
   },
   "src/pages/Home.jsx": {
-    "mtime": 1781280678.9066508,
-    "ast_hash": "079327913bb0473da685d2ba7e768422",
-    "semantic_hash": "079327913bb0473da685d2ba7e768422"
+    "mtime": 1781467206.3928113,
+    "ast_hash": "2b03bb4e1804f00e34fb5551833a10a0",
+    "semantic_hash": ""
   },
   "src/pages/Projects.jsx": {
-    "mtime": 1781280678.9066508,
-    "ast_hash": "3d192c0dc99a45cf97eafc822d7e7fd3",
-    "semantic_hash": "3d192c0dc99a45cf97eafc822d7e7fd3"
+    "mtime": 1781467262.6996884,
+    "ast_hash": "0cace617796476fd7ae61881b3102f26",
+    "semantic_hash": ""
   },
   "src/reportWebVitals.js": {
     "mtime": 1780845306.8204541,
@@ -390,7 +390,7 @@
     "semantic_hash": "c547d886c5a4a2af522acb1683837545"
   },
   "index.html": {
-    "mtime": 1780922378.9289668,
+    "mtime": 1781451356.882644,
     "ast_hash": "49e49417536afc4acc3cda3c9c1b3e7b",
     "semantic_hash": "49e49417536afc4acc3cda3c9c1b3e7b"
   },
@@ -625,8 +625,78 @@
     "semantic_hash": "06e733283fa43d1dd57738cfc409adbd"
   },
   ".claude/settings.local.json": {
-    "mtime": 1781265589.9910288,
-    "ast_hash": "612aca7cc5e9161dbb39325c362b1c43",
+    "mtime": 1781458658.1525865,
+    "ast_hash": "8989ca0f49226eaf44dc9d0e5fcbbfca",
+    "semantic_hash": ""
+  },
+  "postcss.config.js": {
+    "mtime": 1781465921.8055184,
+    "ast_hash": "a00d3fff735a49ccf3cdb6e90a9d8df3",
+    "semantic_hash": ""
+  },
+  "tailwind.config.js": {
+    "mtime": 1781463239.2283955,
+    "ast_hash": "1518e60c8ffa5219524bc8112a1a58df",
+    "semantic_hash": ""
+  },
+  "downloaded_screens/certifications_and_licenses.html": {
+    "mtime": 1781461901.6063595,
+    "ast_hash": "678c319ded2b14e84fcc403928138658",
+    "semantic_hash": ""
+  },
+  "downloaded_screens/featured_projects.html": {
+    "mtime": 1781461892.039895,
+    "ast_hash": "ab868f4073613e509553220529376432",
+    "semantic_hash": ""
+  },
+  "downloaded_screens/professional_experiences.html": {
+    "mtime": 1781461910.8314188,
+    "ast_hash": "2b64faa2988eed988f29039912bcb5d9",
+    "semantic_hash": ""
+  },
+  "design_variants/stitch_modern_portfolio_home_variant_1/minimalist_portfolio_home_variant_2/screen.png": {
+    "mtime": 1781469856.0,
+    "ast_hash": "fc1454db060e02927f60c85378f4d327",
+    "semantic_hash": ""
+  },
+  "design_variants/stitch_modern_portfolio_home_variant_1/modern_portfolio_home_variant_1/screen.png": {
+    "mtime": 1781469856.0,
+    "ast_hash": "d5fc59242c9f7f6885d888be7ba191ed",
+    "semantic_hash": ""
+  },
+  "design_variants/stitch_modern_portfolio_home_variant_1/tech_forward_portfolio_home_variant_3/screen.png": {
+    "mtime": 1781469856.0,
+    "ast_hash": "d2053c7c9ae948d3181537992b38d45f",
+    "semantic_hash": ""
+  },
+  "downloaded_screens/certifications_and_licenses.png": {
+    "mtime": 1781461906.177316,
+    "ast_hash": "05092f07070095b86f7ffd2b599749ac",
+    "semantic_hash": ""
+  },
+  "downloaded_screens/featured_projects.png": {
+    "mtime": 1781461896.4660852,
+    "ast_hash": "ddffccfa92939b4ed2098ca97a1c0cd0",
+    "semantic_hash": ""
+  },
+  "downloaded_screens/modern_portfolio_home_variant_1.png": {
+    "mtime": 1781461877.9957461,
+    "ast_hash": "a45a475212cc2c7a6c6f7f4fa6fe0261",
+    "semantic_hash": ""
+  },
+  "downloaded_screens/professional_experiences.png": {
+    "mtime": 1781461915.396876,
+    "ast_hash": "f3a94fd4411435686c10d59f76368973",
+    "semantic_hash": ""
+  },
+  "downloaded_screens/screen_3.png": {
+    "mtime": 1781461925.1403947,
+    "ast_hash": "a627ee604b6a442974c45e0dcef2a77b",
+    "semantic_hash": ""
+  },
+  "downloaded_screens/screen_6.png": {
+    "mtime": 1781461934.4403925,
+    "ast_hash": "370f557469974ea5e5d77b66e864fb60",
     "semantic_hash": ""
   }
 }

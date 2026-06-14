@@ -14,6 +14,31 @@ const parseEndYear = (duration = '') => {
   return years ? parseInt(years[years.length - 1]) : 0;
 };
 
+const getProjectIcon = (project) => {
+  if (project.type === 'Game') return 'bi-joystick';
+  const title = (project.title || '').toLowerCase();
+  if (title.includes('router') || title.includes('nexus')) return 'bi-router';
+  if (title.includes('gesture') || title.includes('home')) return 'bi-house-gear';
+  if (title.includes('ai') || title.includes('opponent')) return 'bi-cpu';
+  if (title.includes('cafe')) return 'bi-cup-hot';
+  if (title.includes('sustainability')) return 'bi-globe-americas';
+  if (title.includes('vacuum')) return 'bi-robot';
+  if (title.includes('tickets')) return 'bi-ticket-detailed';
+  return 'bi-code-slash';
+};
+
+const getPlaceholderGradient = (id) => {
+  const gradients = [
+    'linear-gradient(135deg, #1e3a8a 0%, #0b1326 100%)', // Blue/Navy
+    'linear-gradient(135deg, #064e3b 0%, #0b1326 100%)', // Green/Navy
+    'linear-gradient(135deg, #581c87 0%, #060e20 100%)', // Purple/Navy
+    'linear-gradient(135deg, #7c2d12 0%, #0b1326 100%)', // Orange/Navy
+    'linear-gradient(135deg, #831843 0%, #0b1326 100%)', // Pink/Navy
+    'linear-gradient(135deg, #115e59 0%, #060e20 100%)', // Teal/Navy
+  ];
+  return gradients[id % gradients.length];
+};
+
 // Combine both datasets with a type tag
 const allProjects = [
   ...softwareProjectsData.map(p => ({ ...p, type: 'Software' })),
@@ -79,7 +104,7 @@ const Projects = () => {
       data = data.filter(p => p.category === categoryFilter);
     }
 
-    // Exact skill filter (prevents "Java" matching "JavaScript")
+    // Exact skill filter
     if (skillFilter) {
       data = data.filter(p => (p.skills || []).includes(skillFilter));
     }
@@ -93,6 +118,9 @@ const Projects = () => {
       data.sort((a, b) => parseEndYear(b.duration) - parseEndYear(a.duration));
     } else if (sortOrder === 'oldest') {
       data.sort((a, b) => parseEndYear(a.duration) - parseEndYear(b.duration));
+    } else {
+      // Default: sort by recent
+      data.sort((a, b) => parseEndYear(b.duration) - parseEndYear(a.duration));
     }
 
     return data;
@@ -110,6 +138,22 @@ const Projects = () => {
     }
   };
 
+  // Stagger variants for grid load
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.08
+      }
+    }
+  };
+
+  const itemAnim = {
+    hidden: { opacity: 0, y: 30 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } }
+  };
+
   return (
     <div className="projects-container">
       {/* Hero Section */}
@@ -122,15 +166,16 @@ const Projects = () => {
           transition={{ duration: 0.6, ease: 'easeOut' }}
         >
           <h1 className="hero-title anek-devanagari-font rtl-center-protect" style={centerTextOnly}>My Projects</h1>
-          <p className="hero-subtitle rtl-center-protect" style={centerTextOnly}>Explore my journey through code, creativity, and innovation</p>
+          <p className="hero-subtitle rtl-center-protect" style={centerTextOnly}>
+            A showcase of technical explorations, full-stack applications, and experimental game designs built using modern ecosystems.
+          </p>
           <div className="hero-divider rtl-center-protect" style={centerAlignStyle}></div>
         </motion.div>
       </div>
 
-      {/* Projects Table Section */}
+      {/* Projects Grid Section */}
       <section className="proj-content">
         <div className="container">
-
           {/* Controls */}
           <div className="proj-controls">
             <div className="proj-search-wrap">
@@ -138,7 +183,7 @@ const Projects = () => {
               <input
                 className="proj-search"
                 type="text"
-                placeholder="Search…"
+                placeholder="Search projects..."
                 value={searchQuery}
                 onChange={e => setSearchQuery(e.target.value)}
               />
@@ -196,58 +241,95 @@ const Projects = () => {
             </select>
           </div>
 
-          {/* Table */}
-          <div className="proj-table">
-            <div className="proj-table-header">
-              <div className="proj-table-th">Title</div>
-              <div className="proj-table-th">Type</div>
-              <div className="proj-table-th">Duration</div>
-              <div className="proj-table-th proj-table-th--action"></div>
+          {displayData.length === 0 ? (
+            <div className="proj-no-results">
+              <i className="bi bi-search"></i>
+              <span>No projects match your search or filter.</span>
             </div>
-
-            {displayData.length === 0 ? (
-              <div className="proj-no-results">
-                <i className="bi bi-search"></i>
-                <span>No projects match your search or filter.</span>
-              </div>
-            ) : (
-              displayData.map((project, index) => (
+          ) : (
+            <motion.div
+              className="projects-grid"
+              variants={staggerContainer}
+              initial="hidden"
+              animate="show"
+            >
+              {displayData.map((project) => (
                 <motion.div
                   key={`${project.type}-${project.id}`}
-                  className="proj-table-row"
-                  initial={{ opacity: 0, x: -18 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.3, delay: index * 0.05, ease: 'easeOut' }}
+                  className="project-grid-card glass-card"
+                  variants={itemAnim}
                 >
-                  <div className="proj-table-td proj-title">
-                    {project.title}
-                    {project.category && (
-                      <span className="proj-category-badge">{project.category}</span>
+                  {/* Image or Themed Gradient cover */}
+                  <div className="project-card-image-wrap">
+                    {project.image ? (
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="project-card-image"
+                        onError={(e) => {
+                          e.target.style.display = 'none';
+                        }}
+                      />
+                    ) : (
+                      <div
+                        className="project-card-placeholder"
+                        style={{ background: getPlaceholderGradient(project.id) }}
+                      >
+                        <i className={`bi ${getProjectIcon(project)} project-card-placeholder-icon`}></i>
+                      </div>
                     )}
+                    <div className="project-image-overlay">
+                      <span className="project-overlay-text">
+                        {project.type === 'Game' ? 'LAUNCH EXPERIENCE' : 'VIEW CASE STUDY'}
+                      </span>
+                    </div>
                   </div>
-                  <div className="proj-table-td">
-                    <span className={`proj-type-badge proj-type-badge--${project.type.toLowerCase()}`}>
-                      <i className={`bi ${project.type === 'Software' ? 'bi-code-slash' : 'bi-joystick'}`}></i>
-                      {project.type}
-                    </span>
-                  </div>
-                  <div className="proj-table-td">{project.duration}</div>
-                  <div className="proj-table-td proj-table-td--action">
-                    <button
-                      className="proj-details-btn"
-                      onClick={() => handleDetails(project)}
-                    >
-                      {project.type === 'Game' ? (
-                        <><i className="bi bi-arrow-up-right-square"></i> View</>
-                      ) : (
-                        'Details'
+
+                  {/* Card Content */}
+                  <div className="project-card-body">
+                    {/* Tags */}
+                    {project.skills && project.skills.length > 0 && (
+                      <div className="project-tags-wrap">
+                        {project.skills.slice(0, 3).map((skill, index) => (
+                          <span key={index} className="project-tag">
+                            {skill}
+                          </span>
+                        ))}
+                        {project.skills.length > 3 && (
+                          <span className="project-tag">+{project.skills.length - 3}</span>
+                        )}
+                      </div>
+                    )}
+
+                    {/* Title */}
+                    <h3 className="project-card-title">
+                      {project.title}
+                      {project.category && (
+                        <span className="project-cat-badge">{project.category}</span>
                       )}
-                    </button>
+                    </h3>
+
+                    {/* Description */}
+                    <p className="project-card-desc line-clamp-3">
+                      {project.shortDescription || project.description}
+                    </p>
+
+                    {/* Card Footer */}
+                    <div className="project-card-footer">
+                      <button
+                        className="project-btn-details"
+                        onClick={() => handleDetails(project)}
+                      >
+                        {project.type === 'Game' ? 'Launch Game' : 'View Details'}{' '}
+                        <i className="bi bi-arrow-right"></i>
+                      </button>
+                      <i className={`bi ${project.type === 'Game' ? 'bi-joystick' : 'bi-code-slash'} project-type-indicator-icon`}></i>
+                    </div>
                   </div>
                 </motion.div>
-              ))
-            )}
-          </div>
+              ))}
+            </motion.div>
+          )}
         </div>
       </section>
 

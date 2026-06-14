@@ -140,7 +140,7 @@ const Home = () => {
           
           <div className="about-content">
             <motion.div
-              className="about-text-card"
+              className="about-text-card glass-card"
               initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, ease: 'easeOut', delay: 0.1 }}
@@ -167,21 +167,21 @@ const Home = () => {
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.2 }}
               >
-                <motion.div className="skill-card" variants={cardVariants}>
+                <motion.div className="skill-card glass-card" variants={cardVariants}>
                   <div className="skill-icon rtl-center-protect" style={centerAlignStyle}>
                     <i className="bi bi-code-slash"></i>
                   </div>
                   <h4 className="rtl-center-protect" style={centerTextOnly}>Full-Stack Development</h4>
                   <p className="rtl-center-protect" style={centerTextOnly}>React, Node.js, Spring Boot</p>
                 </motion.div>
-                <motion.div className="skill-card" variants={cardVariants}>
+                <motion.div className="skill-card glass-card" variants={cardVariants}>
                   <div className="skill-icon rtl-center-protect" style={centerAlignStyle}>
                     <i className="bi bi-robot"></i>
                   </div>
                   <h4 className="rtl-center-protect" style={centerTextOnly}>Machine Learning</h4>
                   <p className="rtl-center-protect" style={centerTextOnly}>Python, AI Algorithms</p>
                 </motion.div>
-                <motion.div className="skill-card" variants={cardVariants}>
+                <motion.div className="skill-card glass-card" variants={cardVariants}>
                   <div className="skill-icon rtl-center-protect" style={centerAlignStyle}>
                     <i className="bi bi-joystick"></i>
                   </div>
@@ -219,7 +219,7 @@ const Home = () => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
           >
-            <motion.div className="stat-card" variants={cardVariants}>
+            <motion.div className="stat-card glass-card" variants={cardVariants}>
               <div className="stat-number rtl-center-protect" style={centerTextOnly}>
                 <CountUp end={7} suffix="+" />
               </div>
@@ -228,7 +228,7 @@ const Home = () => {
                 <i className="bi bi-joystick"></i>
               </div>
             </motion.div>
-            <motion.div className="stat-card" variants={cardVariants}>
+            <motion.div className="stat-card glass-card" variants={cardVariants}>
               <div className="stat-number rtl-center-protect" style={centerTextOnly}>
                 <CountUp end={6} suffix="+" />
               </div>
@@ -237,7 +237,7 @@ const Home = () => {
                 <i className="bi bi-code-slash"></i>
               </div>
             </motion.div>
-            <motion.div className="stat-card" variants={cardVariants}>
+            <motion.div className="stat-card glass-card" variants={cardVariants}>
               <div className="stat-number rtl-center-protect" style={centerTextOnly}>
                 <CountUp end={8} suffix="+" />
               </div>
@@ -246,7 +246,7 @@ const Home = () => {
                 <i className="bi bi-award"></i>
               </div>
             </motion.div>
-            <motion.div className="stat-card" variants={cardVariants}>
+            <motion.div className="stat-card glass-card" variants={cardVariants}>
               <div className="stat-number rtl-center-protect" style={centerTextOnly}>
                 <CountUp end={4.0} suffix="" decimals={1} />
               </div>
