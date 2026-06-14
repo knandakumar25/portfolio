@@ -54,7 +54,7 @@ const CountUp = ({ end, suffix = '', decimals = 0 }) => {
   }, [isInView, end, decimals]);
 
   return (
-    <span ref={ref}>
+    <span ref={ref} className="notranslate">
       {decimals > 0 ? count.toFixed(decimals) : count}{suffix}
     </span>
   );
