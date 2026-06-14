@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from '../TranslationProvider';
 
 const SystemBar = () => {
   const [time, setTime] = useState(new Date().toUTCString());
+  const { browserLang, setBrowserLang } = useTranslation();
+  const languages = ['en', 'es', 'hi'];
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -40,9 +43,34 @@ const SystemBar = () => {
     boxShadow: '0 0 8px #00ff00',
   };
 
+  const protoStyle = {
+    display: 'flex',
+    gap: '8px',
+    cursor: 'pointer',
+    userSelect: 'none',
+  };
+
   return (
     <div style={barStyle}>
-      <div>OS_CORE_v1.0</div>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+        <div>OS_CORE_v1.0</div>
+        <div style={protoStyle}>
+          <span>PROTO:</span>
+          {languages.map(lang => (
+            <span
+              key={lang}
+              onClick={() => setBrowserLang(lang)}
+              style={{
+                color: browserLang === lang ? 'var(--os-accent)' : 'var(--os-text-muted)',
+                fontWeight: browserLang === lang ? 'bold' : 'normal',
+                transition: 'color 0.2s'
+              }}
+            >
+              {lang.toUpperCase()}
+            </span>
+          ))}
+        </div>
+      </div>
       <div style={{ opacity: 0.8 }}>{time}</div>
       <div style={{ display: 'flex', alignItems: 'center' }}>
         <motion.span

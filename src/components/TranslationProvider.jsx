@@ -17,7 +17,7 @@ export const TranslationProvider = ({ children }) => {
 
       const navLang = navigator.language || (navigator.languages && navigator.languages[0]);
       if (navLang) {
-        setBrowserLang(navLang);
+        setBrowserLang(navLang.split('-')[0]);
       }
     };
 
@@ -25,7 +25,7 @@ export const TranslationProvider = ({ children }) => {
   }, []);
 
   return (
-    <TranslationContext.Provider value={{ browserLang }}>
+    <TranslationContext.Provider value={{ browserLang, setBrowserLang }}>
       {children}
     </TranslationContext.Provider>
   );

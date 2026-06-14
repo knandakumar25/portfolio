@@ -6,7 +6,6 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 import Contact from './components/Contact';
-import Chat from './components/Chat';
 import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
 import Experiences from './pages/Experiences';
@@ -18,6 +17,8 @@ import { TranslationProvider } from './components/TranslationProvider';
 import SystemBar from './components/SystemShell/SystemBar';
 import CommandDock from './components/SystemShell/CommandDock';
 import MainViewport from './components/SystemShell/MainViewport';
+import KernelConsole from './components/Kernel/KernelConsole';
+import ContextMenu from './components/Kernel/ContextMenu';
 
 import './App.css';
 
@@ -60,7 +61,8 @@ function App() {
           </MainViewport>
           <CommandDock />
           <Contact />
-          <Chat chatState={chatState} setChatState={setChatState} />
+          <KernelConsole chatState={chatState} setChatState={setChatState} />
+          <ContextMenu chatState={chatState} setChatState={setChatState} />
         </Router>
       </TranslationProvider>
     </div>
