@@ -5,7 +5,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
-import Header from './components/Header';
 import Contact from './components/Contact';
 import Chat from './components/Chat';
 import ScrollToTop from './components/ScrollToTop';
@@ -15,6 +14,10 @@ import Projects from './pages/Projects';
 import Certifications from './pages/Certifications';
 import GameDetails from './pages/GameDetails';
 import { TranslationProvider } from './components/TranslationProvider';
+
+import SystemBar from './components/SystemShell/SystemBar';
+import CommandDock from './components/SystemShell/CommandDock';
+import MainViewport from './components/SystemShell/MainViewport';
 
 import './App.css';
 
@@ -47,13 +50,15 @@ function App() {
 
   return (
     <div className="App">
+      <div className="os-grid-overlay" />
       <TranslationProvider>
         <Router>
           <ScrollToTop />
-          <Header />
-          <main className="main-content">
+          <SystemBar />
+          <MainViewport>
             <AnimatedRoutes />
-          </main>
+          </MainViewport>
+          <CommandDock />
           <Contact />
           <Chat chatState={chatState} setChatState={setChatState} />
         </Router>
