@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import CertificationCard from '../components/CertificationCard';
+import DataSheet from '../components/Modules/DataSheet';
 import certificationsData from '../data/certifications.json';
 import '../assets/certifications.css';
 
@@ -17,7 +17,6 @@ const parseDateValue = (dateStr = '') => {
 };
 
 const Certifications = () => {
-  const [selectedCert, setSelectedCert] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [skillFilter, setSkillFilter] = useState('');
   const [issuerFilter, setIssuerFilter] = useState('');
@@ -61,7 +60,6 @@ const Certifications = () => {
       data = data.filter(c => c.issuer === issuerFilter);
     }
 
-    // Exact skill match
     if (skillFilter) {
       data = data.filter(c => (c.skills || []).includes(skillFilter));
     }
@@ -79,9 +77,43 @@ const Certifications = () => {
     return data;
   }, [searchQuery, skillFilter, issuerFilter, sortOrder]);
 
+  const renderCertDetails = (cert) => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+      <div style={{ fontWeight: 'bold', color: 'var(--os-accent)', fontSize: '0.75rem', marginBottom: '4px' }}>
+        {`> ISSUER: ${cert.issuer}`}
+      </div>
+      {cert.credentialId && (
+        <div style={{ opacity: 0.8, marginBottom: '8px' }}>
+          {`> CREDENTIAL_ID: ${cert.credentialId}`}
+        </div>
+      )}
+      {cert.link && (
+        <div style={{ marginTop: '8px' }}>
+          <a
+            href={cert.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              color: 'var(--os-accent)',
+              textDecoration: 'none',
+              fontSize: '0.7rem',
+              border: '1px solid var(--os-accent)',
+              padding: '2px 6px',
+              borderRadius: '3px',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '4px'
+            }}
+          >
+            VIEW_CERTIFICATE <i className="bi bi-box-arrow-up-right" style={{ fontSize: '0.6rem' }}></i>
+          </a>
+        </div>
+      )}
+    </div>
+  );
+
   return (
     <div className="certifications-container">
-      {/* Hero Section */}
       <div className="certifications-hero">
         <motion.div
           className="container text-center"
@@ -96,11 +128,8 @@ const Certifications = () => {
         </motion.div>
       </div>
 
-      {/* Certifications Table Section */}
       <section className="certifications-section">
         <div className="container">
-
-          {/* Controls */}
           <div className="cert-controls">
             <div className="cert-search-wrap">
               <i className="bi bi-search cert-search-icon"></i>
@@ -153,74 +182,15 @@ const Certifications = () => {
             </select>
           </div>
 
-          {/* Table */}
-          <div className="cert-table">
-            <div className="cert-table-header">
-              <div className="cert-table-th">Title</div>
-              <div className="cert-table-th">Issuer</div>
-              <div className="cert-table-th">Date Issued</div>
-              <div className="cert-table-th cert-table-th--action"></div>
-            </div>
-
-            {displayData.length === 0 ? (
-              <div className="cert-no-results">
-                <i className="bi bi-search"></i>
-                <span>No certifications match your search or filter.</span>
-              </div>
-            ) : (
-              displayData.map((cert, index) => (
-                <motion.div
-                  key={cert.id}
-                  className="cert-table-row"
-                  initial={{ opacity: 0, x: -18 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.3, delay: index * 0.05, ease: 'easeOut' }}
-                >
-                  <div className="cert-table-td cert-table-title">{cert.title}</div>
-                  <div className="cert-table-td">{cert.issuer}</div>
-                  <div className="cert-table-td">{cert.dateIssued}</div>
-                  <div className="cert-table-td cert-table-td--action">
-                    <button
-                      className="cert-details-btn"
-                      onClick={() => setSelectedCert(cert)}
-                    >
-                      Details
-                    </button>
-                  </div>
-                </motion.div>
-              ))
-            )}
-          </div>
+          <DataSheet
+            data={displayData}
+            idPrefix="CERT"
+            titleField="title"
+            dateField="dateIssued"
+            renderDetails={renderCertDetails}
+          />
         </div>
       </section>
-
-      {/* Modal */}
-      <AnimatePresence>
-        {selectedCert && (
-          <motion.div
-            className="cert-modal-overlay"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            onClick={() => setSelectedCert(null)}
-          >
-            <motion.div
-              className="cert-modal"
-              initial={{ opacity: 0, scale: 0.88, y: 24 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.88, y: 24 }}
-              transition={{ duration: 0.28, ease: 'easeOut' }}
-              onClick={e => e.stopPropagation()}
-            >
-              <button className="cert-modal-close" onClick={() => setSelectedCert(null)}>
-                <i className="bi bi-x-lg"></i>
-              </button>
-              <CertificationCard certification={selectedCert} />
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </div>
   );
 };
