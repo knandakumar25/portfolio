@@ -23,7 +23,7 @@ import ModuleWrapper from './components/Modules/ModuleWrapper';
 
 import './App.css';
 
-function AnimatedRoutes() {
+function AnimatedRoutes({ setIsBooted }) {
   const location = useLocation();
 
   const formatModuleName = (path) => {
@@ -44,7 +44,7 @@ function AnimatedRoutes() {
       >
         <ModuleWrapper moduleName={formatModuleName(location.pathname)}>
           <Routes location={location}>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home onBootComplete={setIsBooted} />} />
             <Route path="/experiences" element={<Experiences />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/certifications" element={<Certifications />} />
@@ -58,6 +58,7 @@ function AnimatedRoutes() {
 
 function App() {
   const [chatState, setChatState] = useState({ messages: [] });
+  const [isBooted, setIsBooted] = useState(false);
 
   return (
     <div className="App">
@@ -67,9 +68,9 @@ function App() {
           <ScrollToTop />
           <SystemBar />
           <MainViewport>
-            <AnimatedRoutes />
+            <AnimatedRoutes setIsBooted={setIsBooted} />
           </MainViewport>
-          <CommandDock />
+          {isBooted && <CommandDock />}
           <Contact />
           <KernelConsole chatState={chatState} setChatState={setChatState} />
           <ContextMenu chatState={chatState} setChatState={setChatState} />
