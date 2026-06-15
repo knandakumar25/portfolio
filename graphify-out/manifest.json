@@ -1,63 +1,8 @@
 {
-  "api/chat.py": {
-    "mtime": 1780946663.6119092,
-    "ast_hash": "40ab74c55ab1a360731d50cdfed6c197",
-    "semantic_hash": "40ab74c55ab1a360731d50cdfed6c197"
-  },
-  "api/contact.py": {
-    "mtime": 1780956652.5263758,
-    "ast_hash": "f0e77c3fd2d832511ace66c1b9e5b4c8",
-    "semantic_hash": "f0e77c3fd2d832511ace66c1b9e5b4c8"
-  },
   "package.json": {
     "mtime": 1781467047.7009366,
     "ast_hash": "fad5cc727d77f8f333a5f656b0a45e62",
     "semantic_hash": "fad5cc727d77f8f333a5f656b0a45e62"
-  },
-  "public/games/Endgame/Endgame (Web)/index.audio.position.worklet.js": {
-    "mtime": 1780845303.3402631,
-    "ast_hash": "03ff6b9d9c957c11a9501c347607627e",
-    "semantic_hash": "03ff6b9d9c957c11a9501c347607627e"
-  },
-  "public/games/Endgame/Endgame (Web)/index.audio.worklet.js": {
-    "mtime": 1780845303.3402631,
-    "ast_hash": "cd716d7a3d02fd3331b475725a767c26",
-    "semantic_hash": "cd716d7a3d02fd3331b475725a767c26"
-  },
-  "public/games/Endgame/Endgame (Web)/index.js": {
-    "mtime": 1780845303.3402631,
-    "ast_hash": "360c603187511207f87a4f469f834783",
-    "semantic_hash": "360c603187511207f87a4f469f834783"
-  },
-  "public/games/Recourse/Recourse.js": {
-    "mtime": 1780845305.019517,
-    "ast_hash": "d4cb335c5cfca4179338e1de88ba8ff2",
-    "semantic_hash": "d4cb335c5cfca4179338e1de88ba8ff2"
-  },
-  "public/games/Recourse/ink.js": {
-    "mtime": 1780845305.0413551,
-    "ast_hash": "9ba13c0b6157b6a324a7e17ee8517b6d",
-    "semantic_hash": "9ba13c0b6157b6a324a7e17ee8517b6d"
-  },
-  "public/games/Recourse/main.js": {
-    "mtime": 1780845305.0413551,
-    "ast_hash": "b37e8b37deff0d5e0410eb3753fd6fea",
-    "semantic_hash": "b37e8b37deff0d5e0410eb3753fd6fea"
-  },
-  "public/games/Restoration/Restoration (Web)/index.audio.position.worklet.js": {
-    "mtime": 1780845305.0754457,
-    "ast_hash": "03ff6b9d9c957c11a9501c347607627e",
-    "semantic_hash": "03ff6b9d9c957c11a9501c347607627e"
-  },
-  "public/games/Restoration/Restoration (Web)/index.audio.worklet.js": {
-    "mtime": 1780845305.0754457,
-    "ast_hash": "cd716d7a3d02fd3331b475725a767c26",
-    "semantic_hash": "cd716d7a3d02fd3331b475725a767c26"
-  },
-  "public/games/Restoration/Restoration (Web)/index.js": {
-    "mtime": 1780845305.0815327,
-    "ast_hash": "03ca20d8f43ff04c531f4182c0f5b9cd",
-    "semantic_hash": "03ca20d8f43ff04c531f4182c0f5b9cd"
   },
   "public/games/The Broken Kingdom/The Broken Kingdom (Web)/index.audio.position.worklet.js": {
     "mtime": 1780845305.9788642,
@@ -97,12 +42,12 @@
   "src/components/Chat.jsx": {
     "mtime": 1781451915.5844142,
     "ast_hash": "7de3169cf8693003f7a7deeccdbb0165",
-    "semantic_hash": ""
+    "semantic_hash": "7de3169cf8693003f7a7deeccdbb0165"
   },
   "src/components/Contact.jsx": {
-    "mtime": 1781451915.5844142,
-    "ast_hash": "892553a374d09efc544d1d1adefa74e9",
-    "semantic_hash": "892553a374d09efc544d1d1adefa74e9"
+    "mtime": 1781526780.5053325,
+    "ast_hash": "5098e69ee7084685071e6e5f99a7baaf",
+    "semantic_hash": ""
   },
   "src/components/EducationCard.jsx": {
     "mtime": 1781276379.1165414,
@@ -115,7 +60,7 @@
     "semantic_hash": "9e64a7ff818eca1f0982f528ba582573"
   },
   "src/components/Header.jsx": {
-    "mtime": 1781467019.8407385,
+    "mtime": 1781467790.0719566,
     "ast_hash": "e9325056c58365fcf480648a9869008d",
     "semantic_hash": "e9325056c58365fcf480648a9869008d"
   },
@@ -147,7 +92,7 @@
   "src/components/TranslationProvider.jsx": {
     "mtime": 1781451915.5864227,
     "ast_hash": "1e8eb37151f9eeb95a68d7a271089ef9",
-    "semantic_hash": ""
+    "semantic_hash": "1e8eb37151f9eeb95a68d7a271089ef9"
   },
   "src/components/VolunteeringCard.jsx": {
     "mtime": 1781276379.1165414,
@@ -217,7 +162,7 @@
   "src/data/certifications.json": {
     "mtime": 1781364162.417408,
     "ast_hash": "3db9dcaaaac62ca0e9b8481216a62b16",
-    "semantic_hash": ""
+    "semantic_hash": "3db9dcaaaac62ca0e9b8481216a62b16"
   },
   "src/data/education.json": {
     "mtime": 1780845306.804801,
@@ -230,9 +175,9 @@
     "semantic_hash": "1d1b00741b2d53672a29d05d5f597489"
   },
   "src/data/game_projects.json": {
-    "mtime": 1780883872.0974138,
-    "ast_hash": "5481ebab8c37ffdb25d9141f24093d20",
-    "semantic_hash": "5481ebab8c37ffdb25d9141f24093d20"
+    "mtime": 1781526395.412752,
+    "ast_hash": "a7486f835a32c75b32d4f17f427676ce",
+    "semantic_hash": ""
   },
   "src/data/incredulous_dialogue.json": {
     "mtime": 1780845306.804801,
@@ -297,27 +242,27 @@
   "src/pages/Certifications.jsx": {
     "mtime": 1781467238.0350282,
     "ast_hash": "03630550c55bf89c3f3f911e5b0dedb3",
-    "semantic_hash": ""
+    "semantic_hash": "03630550c55bf89c3f3f911e5b0dedb3"
   },
   "src/pages/Experiences.jsx": {
     "mtime": 1781467297.171378,
     "ast_hash": "231584980bf2aa846d04ce6a40f5fd24",
-    "semantic_hash": ""
+    "semantic_hash": "231584980bf2aa846d04ce6a40f5fd24"
   },
   "src/pages/GameDetails.jsx": {
-    "mtime": 1781467034.8370807,
-    "ast_hash": "8a3f17135e1f0fb2400a33774aefb0a5",
-    "semantic_hash": "8a3f17135e1f0fb2400a33774aefb0a5"
+    "mtime": 1781527670.6525967,
+    "ast_hash": "e31a1e3f0ca6ba22af7910c0110e4ce3",
+    "semantic_hash": ""
   },
   "src/pages/Home.jsx": {
-    "mtime": 1781467206.3928113,
-    "ast_hash": "2b03bb4e1804f00e34fb5551833a10a0",
-    "semantic_hash": ""
+    "mtime": 1781479755.1645179,
+    "ast_hash": "f0d08fd863237e25d37010c9d37c291f",
+    "semantic_hash": "f0d08fd863237e25d37010c9d37c291f"
   },
   "src/pages/Projects.jsx": {
     "mtime": 1781467262.6996884,
     "ast_hash": "0cace617796476fd7ae61881b3102f26",
-    "semantic_hash": ""
+    "semantic_hash": "0cace617796476fd7ae61881b3102f26"
   },
   "src/reportWebVitals.js": {
     "mtime": 1780845306.8204541,
@@ -333,36 +278,6 @@
     "mtime": 1780951718.6630833,
     "ast_hash": "169d1c823cdcc800ff3c222c7ecbe138",
     "semantic_hash": "169d1c823cdcc800ff3c222c7ecbe138"
-  },
-  "public/games/Recourse/420467__glitterglass__ship-creaking-24b.wav": {
-    "mtime": 1780845304.6963313,
-    "ast_hash": "aa06896b2a483d10fb390e0c2df308db",
-    "semantic_hash": "aa06896b2a483d10fb390e0c2df308db"
-  },
-  "public/games/Recourse/490511__soundflakes__lost-in-the-dream.mp3": {
-    "mtime": 1780845304.8077078,
-    "ast_hash": "bec86df17c7e822f2bdc05e9124e2dbc",
-    "semantic_hash": "bec86df17c7e822f2bdc05e9124e2dbc"
-  },
-  "public/games/Recourse/588310__wolfowi__creaking-tension-shipwood-owi.mp3": {
-    "mtime": 1780845304.818841,
-    "ast_hash": "e7caf4671f5b9d85e7a65f323a4ca3a7",
-    "semantic_hash": "e7caf4671f5b9d85e7a65f323a4ca3a7"
-  },
-  "public/games/Recourse/645101__tsunchoo__blade-runner-style-ambience-loop.mp3": {
-    "mtime": 1780845304.9077022,
-    "ast_hash": "1ce80469f1531e97984d36038c1b2719",
-    "semantic_hash": "1ce80469f1531e97984d36038c1b2719"
-  },
-  "public/games/Recourse/736879__ulrich_wehner__horror-atmosphere-6_the-abyss-stares-back_loop.mp3": {
-    "mtime": 1780845304.9553957,
-    "ast_hash": "22d193b5ba6b3d0b076c0dbf9562f69a",
-    "semantic_hash": "22d193b5ba6b3d0b076c0dbf9562f69a"
-  },
-  "public/games/Recourse/91072__lxx70__on-a-wooden-ship-at-sea-02.mp3": {
-    "mtime": 1780845305.019517,
-    "ast_hash": "5bdba1bfb6e155fa97a725b861359eab",
-    "semantic_hash": "5bdba1bfb6e155fa97a725b861359eab"
   },
   ".agents/rules/graphify.md": {
     "mtime": 1781187126.9216623,
@@ -384,11 +299,6 @@
     "ast_hash": "61b7f72895507d405acebbdada5a9da3",
     "semantic_hash": "61b7f72895507d405acebbdada5a9da3"
   },
-  "api/requirements.txt": {
-    "mtime": 1780952118.550035,
-    "ast_hash": "c547d886c5a4a2af522acb1683837545",
-    "semantic_hash": "c547d886c5a4a2af522acb1683837545"
-  },
   "index.html": {
     "mtime": 1781451356.882644,
     "ast_hash": "49e49417536afc4acc3cda3c9c1b3e7b",
@@ -399,40 +309,10 @@
     "ast_hash": "bbcae76f990035de41df767233c910bd",
     "semantic_hash": "bbcae76f990035de41df767233c910bd"
   },
-  "public/games/Endgame/Endgame (Web)/index.html": {
-    "mtime": 1780845303.3402631,
-    "ast_hash": "817ec1dda4cb210602977ba26da6ebee",
-    "semantic_hash": "817ec1dda4cb210602977ba26da6ebee"
-  },
   "public/games/Incredulous/index.html": {
     "mtime": 1780845304.482463,
     "ast_hash": "edf6d1c2deb36604efbf5e68fe5c8698",
     "semantic_hash": "edf6d1c2deb36604efbf5e68fe5c8698"
-  },
-  "public/games/Recourse/README.txt": {
-    "mtime": 1780845305.019517,
-    "ast_hash": "51a941027c073c79ed52860e7c5804e0",
-    "semantic_hash": "51a941027c073c79ed52860e7c5804e0"
-  },
-  "public/games/Recourse/Recourse - A Tall Tale/index.html": {
-    "mtime": 1780845305.019517,
-    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
-    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
-  },
-  "public/games/Recourse/index.html": {
-    "mtime": 1780845305.0413551,
-    "ast_hash": "87d2d8360e3fadf33eaecc675f5883a1",
-    "semantic_hash": "87d2d8360e3fadf33eaecc675f5883a1"
-  },
-  "public/games/Restoration/Restoration (Web)/index.html": {
-    "mtime": 1780845305.0754457,
-    "ast_hash": "a3b148cc9b3d8d6891d83aecd43c5085",
-    "semantic_hash": "a3b148cc9b3d8d6891d83aecd43c5085"
-  },
-  "public/games/Serendipity/Serendipity (Web)/index.html": {
-    "mtime": 1780845305.9788642,
-    "ast_hash": "e30a10bc268fcaa647e8b5491d5d9181",
-    "semantic_hash": "e30a10bc268fcaa647e8b5491d5d9181"
   },
   "public/games/The Broken Kingdom/The Broken Kingdom (Web)/index.html": {
     "mtime": 1780845305.9788642,
@@ -469,90 +349,10 @@
     "ast_hash": "52ce4cc1b98c7eeb40d1e1923c773b12",
     "semantic_hash": "52ce4cc1b98c7eeb40d1e1923c773b12"
   },
-  "public/games/Endgame/Endgame (Web)/index.apple-touch-icon.png": {
-    "mtime": 1780845303.3242173,
-    "ast_hash": "f6baf62d0154f565edbb672a7f2c1212",
-    "semantic_hash": "f6baf62d0154f565edbb672a7f2c1212"
-  },
-  "public/games/Endgame/Endgame (Web)/index.icon.png": {
-    "mtime": 1780845303.3402631,
-    "ast_hash": "944bd692c6f3552770269e78483eba58",
-    "semantic_hash": "944bd692c6f3552770269e78483eba58"
-  },
-  "public/games/Endgame/Endgame (Web)/index.png": {
-    "mtime": 1780845303.9039936,
-    "ast_hash": "7e41bf3051b18e392a4bb6c0cc45cd7c",
-    "semantic_hash": "7e41bf3051b18e392a4bb6c0cc45cd7c"
-  },
   "public/games/Incredulous/congratulations.png": {
     "mtime": 1780845304.4704492,
     "ast_hash": "e935666f745289ed7d4dafaa0dcb0a14",
     "semantic_hash": "e935666f745289ed7d4dafaa0dcb0a14"
-  },
-  "public/games/Recourse/andrew.png": {
-    "mtime": 1780845305.019517,
-    "ast_hash": "f0965f794770d9613c5b3bbea0931b3c",
-    "semantic_hash": "f0965f794770d9613c5b3bbea0931b3c"
-  },
-  "public/games/Recourse/arjun.png": {
-    "mtime": 1780845305.0353277,
-    "ast_hash": "856d327bce69e2ee9d12943c368bc27b",
-    "semantic_hash": "856d327bce69e2ee9d12943c368bc27b"
-  },
-  "public/games/Recourse/belowDeck.png": {
-    "mtime": 1780845305.0373375,
-    "ast_hash": "2d982da8eb2a2ae59873cfeed813ff19",
-    "semantic_hash": "2d982da8eb2a2ae59873cfeed813ff19"
-  },
-  "public/games/Recourse/captainCabin.png": {
-    "mtime": 1780845305.0413551,
-    "ast_hash": "97a6cb11106c04bec6d43b16fb4fbbb2",
-    "semantic_hash": "97a6cb11106c04bec6d43b16fb4fbbb2"
-  },
-  "public/games/Recourse/mainDeck.png": {
-    "mtime": 1780845305.0413551,
-    "ast_hash": "021a54b44edd20538ff77f797a71fdc9",
-    "semantic_hash": "021a54b44edd20538ff77f797a71fdc9"
-  },
-  "public/games/Recourse/mastan.png": {
-    "mtime": 1780845305.0511827,
-    "ast_hash": "3435c20b13324c3b1e9cb0fed45e3e02",
-    "semantic_hash": "3435c20b13324c3b1e9cb0fed45e3e02"
-  },
-  "public/games/Recourse/muhammad.png": {
-    "mtime": 1780845305.0552018,
-    "ast_hash": "653b3faeffe580d44eabe163e71ff05f",
-    "semantic_hash": "653b3faeffe580d44eabe163e71ff05f"
-  },
-  "public/games/Recourse/raul.png": {
-    "mtime": 1780845305.0633614,
-    "ast_hash": "a5cb6454f4e502785effa8c0fef7a45b",
-    "semantic_hash": "a5cb6454f4e502785effa8c0fef7a45b"
-  },
-  "public/games/Recourse/robert.png": {
-    "mtime": 1780845305.0671625,
-    "ast_hash": "409d6df190287aa9200362b93c1511fe",
-    "semantic_hash": "409d6df190287aa9200362b93c1511fe"
-  },
-  "public/games/Recourse/ship.jpg": {
-    "mtime": 1780845305.0671625,
-    "ast_hash": "6bf3dbdcc1400dfe8c622a2b9dcc3897",
-    "semantic_hash": "6bf3dbdcc1400dfe8c622a2b9dcc3897"
-  },
-  "public/games/Restoration/Restoration (Web)/index.apple-touch-icon.png": {
-    "mtime": 1780845305.0754457,
-    "ast_hash": "f6baf62d0154f565edbb672a7f2c1212",
-    "semantic_hash": "f6baf62d0154f565edbb672a7f2c1212"
-  },
-  "public/games/Restoration/Restoration (Web)/index.icon.png": {
-    "mtime": 1780845305.0754457,
-    "ast_hash": "944bd692c6f3552770269e78483eba58",
-    "semantic_hash": "944bd692c6f3552770269e78483eba58"
-  },
-  "public/games/Restoration/Restoration (Web)/index.png": {
-    "mtime": 1780845305.4266136,
-    "ast_hash": "7e41bf3051b18e392a4bb6c0cc45cd7c",
-    "semantic_hash": "7e41bf3051b18e392a4bb6c0cc45cd7c"
   },
   "public/games/The Broken Kingdom/The Broken Kingdom (Web)/index.apple-touch-icon.png": {
     "mtime": 1780845305.9788642,
@@ -625,78 +425,8 @@
     "semantic_hash": "06e733283fa43d1dd57738cfc409adbd"
   },
   ".claude/settings.local.json": {
-    "mtime": 1781458658.1525865,
-    "ast_hash": "8989ca0f49226eaf44dc9d0e5fcbbfca",
-    "semantic_hash": ""
-  },
-  "postcss.config.js": {
-    "mtime": 1781465921.8055184,
-    "ast_hash": "a00d3fff735a49ccf3cdb6e90a9d8df3",
-    "semantic_hash": ""
-  },
-  "tailwind.config.js": {
-    "mtime": 1781463239.2283955,
-    "ast_hash": "1518e60c8ffa5219524bc8112a1a58df",
-    "semantic_hash": ""
-  },
-  "downloaded_screens/certifications_and_licenses.html": {
-    "mtime": 1781461901.6063595,
-    "ast_hash": "678c319ded2b14e84fcc403928138658",
-    "semantic_hash": ""
-  },
-  "downloaded_screens/featured_projects.html": {
-    "mtime": 1781461892.039895,
-    "ast_hash": "ab868f4073613e509553220529376432",
-    "semantic_hash": ""
-  },
-  "downloaded_screens/professional_experiences.html": {
-    "mtime": 1781461910.8314188,
-    "ast_hash": "2b64faa2988eed988f29039912bcb5d9",
-    "semantic_hash": ""
-  },
-  "design_variants/stitch_modern_portfolio_home_variant_1/minimalist_portfolio_home_variant_2/screen.png": {
-    "mtime": 1781469856.0,
-    "ast_hash": "fc1454db060e02927f60c85378f4d327",
-    "semantic_hash": ""
-  },
-  "design_variants/stitch_modern_portfolio_home_variant_1/modern_portfolio_home_variant_1/screen.png": {
-    "mtime": 1781469856.0,
-    "ast_hash": "d5fc59242c9f7f6885d888be7ba191ed",
-    "semantic_hash": ""
-  },
-  "design_variants/stitch_modern_portfolio_home_variant_1/tech_forward_portfolio_home_variant_3/screen.png": {
-    "mtime": 1781469856.0,
-    "ast_hash": "d2053c7c9ae948d3181537992b38d45f",
-    "semantic_hash": ""
-  },
-  "downloaded_screens/certifications_and_licenses.png": {
-    "mtime": 1781461906.177316,
-    "ast_hash": "05092f07070095b86f7ffd2b599749ac",
-    "semantic_hash": ""
-  },
-  "downloaded_screens/featured_projects.png": {
-    "mtime": 1781461896.4660852,
-    "ast_hash": "ddffccfa92939b4ed2098ca97a1c0cd0",
-    "semantic_hash": ""
-  },
-  "downloaded_screens/modern_portfolio_home_variant_1.png": {
-    "mtime": 1781461877.9957461,
-    "ast_hash": "a45a475212cc2c7a6c6f7f4fa6fe0261",
-    "semantic_hash": ""
-  },
-  "downloaded_screens/professional_experiences.png": {
-    "mtime": 1781461915.396876,
-    "ast_hash": "f3a94fd4411435686c10d59f76368973",
-    "semantic_hash": ""
-  },
-  "downloaded_screens/screen_3.png": {
-    "mtime": 1781461925.1403947,
-    "ast_hash": "a627ee604b6a442974c45e0dcef2a77b",
-    "semantic_hash": ""
-  },
-  "downloaded_screens/screen_6.png": {
-    "mtime": 1781461934.4403925,
-    "ast_hash": "370f557469974ea5e5d77b66e864fb60",
+    "mtime": 1781526537.8859315,
+    "ast_hash": "967ac4e76673bb5cc4b346e39a61640a",
     "semantic_hash": ""
   }
 }

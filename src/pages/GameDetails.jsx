@@ -58,13 +58,19 @@ const GameDetails = () => {
     if (path.startsWith('http://') || path.startsWith('https://')) {
       return path;
     }
-    const publicUrl = process.env.PUBLIC_URL || '';
-    return `${publicUrl}${path}`;
+    const base = import.meta.env.BASE_URL || '/';
+    const cleanBase = base.endsWith('/') ? base : `${base}/`;
+    const cleanPath = path.startsWith('/') ? path.substring(1) : path;
+    return `${cleanBase}${cleanPath}`;
   };
 
   // Check if game has web version
   const hasWebVersion = game.links && game.links.some(link => link.type === 'web');
   const webGameUrl = hasWebVersion ? game.links.find(link => link.type === 'web')?.url : null;
+
+  // Games that should open directly in a new tab instead of in a modal iframe
+  const directOpenGames = ['recourse', 'serendipity', 'restoration', 'endgame', 'the broken kingdom'];
+  const shouldOpenDirectly = game && directOpenGames.includes(game.title.toLowerCase());
 
   // Get embedded game URL for iframe (handle both local and external URLs)
   const getEmbeddedGameUrl = (url) => {
@@ -130,13 +136,25 @@ const GameDetails = () => {
               {/* Play/Download Actions */}
               <div className="mb-4">
                 {hasWebVersion && (
-                  <button 
-                    className="btn btn-success btn-lg me-3 mb-2"
-                    onClick={() => setShowGamePlayer(true)}
-                  >
-                    <i className="bi bi-play-circle me-2"></i>
-                    Play Game
-                  </button>
+                  shouldOpenDirectly ? (
+                    <a 
+                      href={getPublicUrl(webGameUrl)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn btn-success btn-lg me-3 mb-2"
+                    >
+                      <i className="bi bi-box-arrow-up-right me-2"></i>
+                      Open Link
+                    </a>
+                  ) : (
+                    <button 
+                      className="btn btn-success btn-lg me-3 mb-2"
+                      onClick={() => setShowGamePlayer(true)}
+                    >
+                      <i className="bi bi-play-circle me-2"></i>
+                      Play Game
+                    </button>
+                  )
                 )}
                 
                 {/* Download Links */}

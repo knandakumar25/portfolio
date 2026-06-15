@@ -20,7 +20,7 @@
     "links": [
       {
         "title": "Play on Web",
-        "url": "/games/Recourse/index.html",
+        "url": "https://the-mandala-of-memory.vercel.app/recourse",
         "type": "web",
         "icon": "bi-globe"
       }
@@ -47,22 +47,10 @@
     ],
     "links": [
       {
-        "title": "Download for Windows",
-        "url": "/games/Serendipity/Serendipity (Windows).zip",
-        "type": "download",
-        "icon": "bi-windows"
-      },
-      {
-        "title": "Download for Android",
-        "url": "/games/Serendipity/Serendipity (Android).zip",
-        "type": "download",
-        "icon": "bi-android"
-      },
-      {
-        "title": "Download for Linux",
-        "url": "/games/Serendipity/Serendipity (Linux).tar",
-        "type": "download",
-        "icon": "bi-ubuntu"
+        "title": "Play on Web",
+        "url": "https://the-mandala-of-memory.vercel.app/serendipity",
+        "type": "web",
+        "icon": "bi-globe"
       }
     ],
     "featured": true
@@ -106,26 +94,8 @@
     ],
     "links": [
       {
-        "title": "Download for Windows",
-        "url": "/games/Restoration/Restoration (Windows).zip",
-        "type": "download",
-        "icon": "bi-windows"
-      },
-      {
-        "title": "Download for Android",
-        "url": "/games/Restoration/Restoration (Android).zip",
-        "type": "download",
-        "icon": "bi-android"
-      },
-      {
-        "title": "Download for Linux",
-        "url": "/games/Restoration/Restoration (Linux).tar",
-        "type": "download",
-        "icon": "bi-ubuntu"
-      },
-      {
         "title": "Play on Web",
-        "url": "/games/Restoration/Restoration (Web)/index.html",
+        "url": "https://the-mandala-of-memory.vercel.app/restoration",
         "type": "web",
         "icon": "bi-globe"
       }
@@ -175,26 +145,8 @@
     ],
     "links": [
       {
-        "title": "Download for Windows",
-        "url": "https://drive.proton.me/urls/5R878HZVPM#HGP0XTiOzJ5t",
-        "type": "download",
-        "icon": "bi-windows"
-      },
-      {
-        "title": "Download for Android",
-        "url": "/games/The Broken Kingdom/The Broken Kingdom (Android).zip",
-        "type": "download",
-        "icon": "bi-android"
-      },
-      {
-        "title": "Download for Linux",
-        "url": "/games/The Broken Kingdom/The Broken Kingdom (Linux).tar",
-        "type": "download",
-        "icon": "bi-ubuntu"
-      },
-      {
         "title": "Play on Web",
-        "url": "/games/The Broken Kingdom/The Broken Kingdom (Web)/index.html",
+        "url": "https://the-broken-kingdom.vercel.app/",
         "type": "web",
         "icon": "bi-globe"
       }
@@ -221,26 +173,8 @@
     ],
     "links": [
       {
-        "title": "Download for Windows",
-        "url": "/games/Endgame/Endgame (Windows).zip",
-        "type": "download",
-        "icon": "bi-windows"
-      },
-      {
-        "title": "Download for Android",
-        "url": "/games/Endgame/Endgame (Android).zip",
-        "type": "download",
-        "icon": "bi-android"
-      },
-      {
-        "title": "Download for Linux",
-        "url": "https://drive.proton.me/urls/HA599BPHDM#dH3oUlmrKGMi",
-        "type": "download",
-        "icon": "bi-ubuntu"
-      },
-      {
         "title": "Play on Web",
-        "url": "/games/Endgame/Endgame (Web)/index.html",
+        "url": "https://the-mandala-of-memory.vercel.app/endgame",
         "type": "web",
         "icon": "bi-globe"
       }
