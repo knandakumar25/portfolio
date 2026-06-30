@@ -149,6 +149,15 @@
   },
   {
     "id": 19,
+    "title": "Copado AI",
+    "issuer": "Copado",
+    "dateIssued": "June 2026",
+    "expirationDate": "September 2027",
+    "credentialId": "071910",
+    "link": "/files/Copado Certified Copado AI.pdf",
+    "skills": ["Artificial Intelligence (AI)", "Copado"]
+  }
+    "id": 19,
     "title": "Certificate of completion: Claude code 101",
     "issuer": "Anthropic",
     "dateIssued": "May 2026",
