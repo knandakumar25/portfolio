@@ -156,8 +156,9 @@
     "credentialId": "071910",
     "link": "/files/Copado Certified Copado AI.pdf",
     "skills": ["Artificial Intelligence (AI)", "Copado"]
-  }
-    "id": 19,
+  },
+  {
+    "id": 191,
     "title": "Certificate of completion: Claude code 101",
     "issuer": "Anthropic",
     "dateIssued": "May 2026",
