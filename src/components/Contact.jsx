@@ -3,15 +3,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import ContactUplink from './Modules/ContactUplink';
 import '../assets/contact.css';
 
-const MAX_ATTACHMENT_SIZE = 2 * 1024 * 1024;
-const ALLOWED_ATTACHMENT_TYPES = [
-  'application/pdf',
-  'image/png',
-  'image/jpeg',
-  'text/plain',
-  'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-];
-
 const Contact = () => {
   const [status, setStatus] = useState('idle'); // idle | submitting | success | error
   const [errorMessage, setErrorMessage] = useState('');
@@ -66,7 +57,6 @@ const Contact = () => {
           <h3 className="footer-heading">Send a Message</h3>
           <ContactUplink sendSignal={sendSignal} />
         </motion.div>
-
         {/* Main Footer Content */}
         <div className="footer-content">
           {/* Contact Info Section */}

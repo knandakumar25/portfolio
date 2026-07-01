@@ -1,0 +1,41 @@
+# =============================================================================
+# Docker Compose for React + Vite Portfolio
+# Usage:
+#   docker compose up --build          # Production (nginx)
+#   docker compose -f docker-compose.yml -f docker-compose.dev.yml up --build  # Development (Vite dev server)
+# =============================================================================
+
+services:
+  # Production service (nginx)
+  portfolio:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: portfolio-prod
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  # Development service (Vite dev server with HMR)
+  portfolio-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: portfolio-dev
+    ports:
+      - "5173:5173"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true
+    stdin_open: true
+    tty: true

@@ -1,4 +1,0 @@
-psycopg2-binary
-google-genai
-Django
-dj-database-url

@@ -1,0 +1,24 @@
+# =============================================================================
+# Docker Compose Override for Development
+# Usage: docker compose -f docker-compose.yml -f docker-compose.dev.yml up --build
+# =============================================================================
+
+services:
+  portfolio-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: portfolio-dev
+    ports:
+      - "5173:5173"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true
+    stdin_open: true
+    tty: true
+    # Override command to ensure host binding
+    command: ["npm", "run", "dev", "--", "--host", "0.0.0.0", "--port", "5173"]
