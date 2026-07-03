@@ -46,7 +46,7 @@ const SoftwareCard = ({ project }) => {
               <div>
                 {project.skills.slice(0, 8).map((skill, index) => (
                   <motion.span
-                    key={index}
+                    key={skill}
                     className="skill-tag"
                     initial={{ opacity: 0, scale: 0.85 }}
                     animate={{ opacity: 1, scale: 1 }}
@@ -69,7 +69,7 @@ const SoftwareCard = ({ project }) => {
               <ul className="list-unstyled mb-0">
                 {project.contributors.map((contributor, index) => (
                   <motion.li
-                    key={index}
+                    key={contributor.name}
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.25, delay: index * 0.07 }}
@@ -97,7 +97,7 @@ const SoftwareCard = ({ project }) => {
             <div className="project-links">
               {project.links.map((link, index) => (
                 <a
-                  key={index}
+                  key={link.url}
                   href={link.url}
                   className="btn btn-outline-success"
                   target={link.type === 'document' ? undefined : "_blank"}

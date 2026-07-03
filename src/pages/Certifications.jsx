@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import CertificationCard from '../components/CertificationCard';
 import certificationsData from '../data/certifications.json';
 import '../assets/certifications.css';
+import { centerAlignStyle, centerTextOnly, sectionCenterStyle, textCenterOnly } from '../styles/commonStyles';
 
 const MONTHS = {
   January: 1, February: 2, March: 3, April: 4, May: 5, June: 6,
@@ -42,18 +43,6 @@ const Certifications = () => {
   const [skillFilter, setSkillFilter] = useState('');
   const [issuerFilter, setIssuerFilter] = useState('');
   const [sortOrder, setSortOrder] = useState('default');
-
-  const sectionCenterStyle = {
-    direction: 'ltr',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center'
-  };
-
-  const textCenterOnly = {
-    textAlign: 'center',
-    direction: 'ltr'
-  };
 
   const skillOptions = useMemo(() => {
     const values = new Set();

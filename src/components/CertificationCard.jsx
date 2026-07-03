@@ -7,6 +7,7 @@ const CertificationCard = ({ certification }) => {
       {certification.embedCode ? (
         <div 
           className="academy-badge"
+          {/* NOTE: Using dangerouslySetInnerHTML for embed code – ensure the source is trusted to avoid XSS */}
           dangerouslySetInnerHTML={{ __html: certification.embedCode }}
         />
       ) : certification.badgeImage ? (
@@ -71,7 +72,7 @@ const CertificationCard = ({ certification }) => {
             <div className="skills-tags">
               {certification.skills.map((skill, index) => (
                 <motion.span
-                  key={index}
+                  key={skill}
                   className="skill-tag"
                   initial={{ opacity: 0, scale: 0.85 }}
                   animate={{ opacity: 1, scale: 1 }}

@@ -7,6 +7,7 @@ import softwareProjectsData from '../data/software_projects.json';
 import gameProjectsData from '../data/game_projects.json';
 
 import '../assets/projects.css';
+import { centerAlignStyle, centerTextOnly } from '../styles/commonStyles';
 
 const parseEndYear = (duration = '') => {
   if (/[-–]\s*$/.test(duration)) return 9999;
@@ -53,19 +54,6 @@ const Projects = () => {
   const [categoryFilter, setCategoryFilter] = useState('');
   const [skillFilter, setSkillFilter] = useState('');
   const [sortOrder, setSortOrder] = useState('default');
-
-  const centerAlignStyle = {
-    textAlign: 'center',
-    direction: 'ltr',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center'
-  };
-
-  const centerTextOnly = {
-    textAlign: 'center',
-    direction: 'ltr'
-  };
 
   // All unique skills across every project, sorted A-Z
   const skillOptions = useMemo(() => {

@@ -187,7 +187,7 @@ const Header = () => {
                 widget.style.display = 'none';
               }
             } else {
-              console.warn('Google Translate select element not found');
+              // console.warn('Google Translate select element not found');
             }
             
             // Aggressive banner hiding
@@ -435,7 +435,7 @@ const Header = () => {
         }
       });
       
-    }, 50); // Check every 50ms for more aggressive suppression
+    }, 500); // Check every 500ms for more aggressive suppression
 
     return () => clearInterval(interval);
   }, []);

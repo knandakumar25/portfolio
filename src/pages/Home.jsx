@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import '../assets/home.css';
+import { centerAlignStyle, centerTextOnly } from '../styles/commonStyles';
 
 // --- Animation variants ---
 const heroContainerVariants = {
@@ -62,18 +63,6 @@ const CountUp = ({ end, suffix = '', decimals = 0 }) => {
 
 const Home = () => {
   // Inline styles for RTL protection with higher specificity
-  const centerAlignStyle = {
-    textAlign: 'center',
-    direction: 'ltr',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center'
-  };
-  
-  const centerTextOnly = {
-    textAlign: 'center',
-    direction: 'ltr'
-  };
 
   return (
     <div className="home-container">
