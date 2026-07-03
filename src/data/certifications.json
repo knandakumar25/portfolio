@@ -237,5 +237,14 @@
     "credentialId": "by7rqsjr3tij",
     "link": "https://verify.skilljar.com/c/by7rqsjr3tij",
     "skills": []
+  },
+  {
+    "id": 27,
+    "title": "Fundamentals of Machine Learning and Artificial Intelligence",
+    "issuer": "Amazon Web Services (AWS)",
+    "dateIssued": "July 2026",
+    "link": "/files/document.pdf",
+    "skills": ["Machine Learning", "Artificial Intelligence (AI)", "Amazon Web Services (AWS)"]
   }
 ]
+
