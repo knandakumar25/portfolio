@@ -305,7 +305,6 @@ const Experiences = () => {
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}
-<<<<<<< HEAD
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -15 }}
@@ -318,148 +317,8 @@ const Experiences = () => {
                 dateField={activeTabData.dateField}
                 renderDetails={activeTabData.renderDetails}
               />
-=======
-              className="timeline-wrapper"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.25 }}
-            >
-              {/* Timeline Vertical Line */}
-              {displayData.length > 0 && <div className="timeline-line"></div>}
-
-              {displayData.length === 0 ? (
-                <div className="exp-no-results">
-                  <i className="bi bi-search"></i>
-                  <span>No results match your search or filter.</span>
-                </div>
-              ) : (
-                displayData.map((item, index) => {
-                  const orgName = item.company || item.institution || item.organization || item.name;
-                  const subTitle = item.position || item.degree || item.role;
-                  const duration = item.duration;
-                  const bulletPoints = item.responsibilities || item.activities || item.societies || [];
-                  const skills = item.skills || [];
-
-                  const isLeft = index % 2 === 0;
-
-                  return (
-                    <motion.div
-                      key={item.id}
-                      className="timeline-item"
-                      initial={{ opacity: 0, y: 30 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.4, delay: index * 0.05, ease: 'easeOut' }}
-                    >
-                      {/* Timeline Dot */}
-                      <div className="timeline-dot-container">
-                        <div className="timeline-dot"></div>
-                      </div>
-
-                      {/* Left Side */}
-                      {isLeft ? (
-                        /* Meta Info on the left */
-                        <div className="timeline-meta-col align-right md:order-1">
-                          <span className="timeline-date-badge">{duration}</span>
-                          <h3 className="timeline-main-title">{subTitle}</h3>
-                          <p className="timeline-sub-title">{orgName}</p>
-                        </div>
-                      ) : (
-                        /* Card on the left */
-                        <div className="timeline-card-col md:order-1">
-                          <div className="timeline-card glass-card">
-                            <div className="timeline-card-header">
-                              <div className="timeline-card-icon-wrap">
-                                <i className={`bi ${activeTabData.icon}`}></i>
-                              </div>
-                              <h3 className="timeline-org-name">{orgName}</h3>
-                            </div>
-                            {/* Bullets preview */}
-                            {bulletPoints.length > 0 && (
-                              <ul className="timeline-bullets">
-                                {bulletPoints.slice(0, 2).map((pt, ptIdx) => (
-                                  <li key={ptIdx} className="timeline-bullet-item">
-                                    <span className="timeline-bullet-dot">•</span>
-                                    <span>{pt}</span>
-                                  </li>
-                                ))}
-                              </ul>
-                            )}
-                            {/* Skills preview */}
-                            {skills.length > 0 && (
-                              <div className="timeline-tags">
-                                {skills.slice(0, 3).map((s, sIdx) => (
-                                  <span key={sIdx} className="timeline-tag">{s}</span>
-                                ))}
-                                {skills.length > 3 && (
-                                  <span className="timeline-tag">+{skills.length - 3}</span>
-                                )}
-                              </div>
-                            )}
-                            <button
-                              className="timeline-details-btn"
-                              onClick={() => setSelectedItem({ item, tab: activeTabData })}
-                            >
-                              View Details <i className="bi bi-arrow-right"></i>
-                            </button>
-                          </div>
-                        </div>
-                      )}
-
-                      {/* Right Side */}
-                      {isLeft ? (
-                        /* Card on the right */
-                        <div className="timeline-card-col md:order-2">
-                          <div className="timeline-card glass-card">
-                            <div className="timeline-card-header">
-                              <div className="timeline-card-icon-wrap">
-                                <i className={`bi ${activeTabData.icon}`}></i>
-                              </div>
-                              <h3 className="timeline-org-name">{orgName}</h3>
-                            </div>
-                            {/* Bullets preview */}
-                            {bulletPoints.length > 0 && (
-                              <ul className="timeline-bullets">
-                                {bulletPoints.slice(0, 2).map((pt, ptIdx) => (
-                                  <li key={ptIdx} className="timeline-bullet-item">
-                                    <span className="timeline-bullet-dot">•</span>
-                                    <span>{pt}</span>
-                                  </li>
-                                ))}
-                              </ul>
-                            )}
-                            {/* Skills preview */}
-                            {skills.length > 0 && (
-                              <div className="timeline-tags">
-                                {skills.slice(0, 3).map((s, sIdx) => (
-                                  <span key={sIdx} className="timeline-tag">{s}</span>
-                                ))}
-                                {skills.length > 3 && (
-                                  <span className="timeline-tag">+{skills.length - 3}</span>
-                                )}
-                              </div>
-                            )}
-                            <button
-                              className="timeline-details-btn"
-                              onClick={() => setSelectedItem({ item, tab: activeTabData })}
-                            >
-                              View Details <i className="bi bi-arrow-right"></i>
-                            </button>
-                          </div>
-                        </div>
-                      ) : (
-                        /* Meta Info on the right */
-                        <div className="timeline-meta-col align-left md:order-2">
-                          <span className="timeline-date-badge">{duration}</span>
-                          <h3 className="timeline-main-title">{subTitle}</h3>
-                          <p className="timeline-sub-title">{orgName}</p>
-                        </div>
-                      )}
-                    </motion.div>
-                  );
-                })
-              )}
->>>>>>> 10413bfc114a5b72f7eca8af7e4ceec8ee1b9034
+            </motion.div>
+          </AnimatePresence>
             </motion.div>
           </AnimatePresence>
         </div>
