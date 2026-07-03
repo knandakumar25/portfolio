@@ -262,7 +262,7 @@ const Experiences = () => {
               >
                 <div className="tab-icon" style={centerAlignStyle}>
                   <i className={`bi ${tab.icon}`}></i>
-                </div}
+                </div>
                 <span className="tab-label" style={centerTextOnly}>{tab.label}</span>
               </button>
             ))}
@@ -272,10 +272,7 @@ const Experiences = () => {
 
       <section className="experiences-content">
         <div className="container">
-<<<<<<< HEAD
-=======
           {/* Controls */}
->>>>>>> 10413bfc114a5b72f7eca8af7e4ceec8ee1b9034
           <div className="exp-controls">
             <div className="exp-search-wrap">
               <i className="bi bi-search exp-search-icon"></i>
