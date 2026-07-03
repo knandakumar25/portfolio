@@ -7,6 +7,7 @@ import jobSimulationsData from '../data/job_simulations.json';
 import educationData from '../data/education.json';
 import volunteeringData from '../data/volunteering.json';
 import organizationsData from '../data/organizations.json';
+import { centerAlignStyle, centerTextOnly } from '../styles/commonStyles';
 
 import '../assets/experiences.css';
 
@@ -155,19 +156,6 @@ const Experiences = () => {
   const [activeFilter, setActiveFilter] = useState('');
   const [sortOrder, setSortOrder] = useState('default');
 
-  const centerAlignStyle = {
-    textAlign: 'center',
-    direction: 'ltr',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center'
-  };
-
-  const centerTextOnly = {
-    textAlign: 'center',
-    direction: 'ltr'
-  };
-
   const tabSelectorStyle = {
     textAlign: 'center',
     direction: 'ltr',
@@ -262,7 +250,7 @@ const Experiences = () => {
               >
                 <div className="tab-icon" style={centerAlignStyle}>
                   <i className={`bi ${tab.icon}`}></i>
-                </div}
+                </div>
                 <span className="tab-label" style={centerTextOnly}>{tab.label}</span>
               </button>
             ))}
@@ -272,10 +260,7 @@ const Experiences = () => {
 
       <section className="experiences-content">
         <div className="container">
-<<<<<<< HEAD
-=======
           {/* Controls */}
->>>>>>> 10413bfc114a5b72f7eca8af7e4ceec8ee1b9034
           <div className="exp-controls">
             <div className="exp-search-wrap">
               <i className="bi bi-search exp-search-icon"></i>
