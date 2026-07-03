@@ -195,10 +195,7 @@ const Experiences = () => {
   const displayData = useMemo(() => {
     let data = [...activeTabData.data];
 
-<<<<<<< HEAD
-=======
     // Text search across all fields
->>>>>>> 10413bfc114a5b72f7eca8af7e4ceec8ee1b9034
     if (searchQuery.trim()) {
       const q = searchQuery.toLowerCase();
       data = data.filter(item =>
@@ -208,10 +205,7 @@ const Experiences = () => {
       );
     }
 
-<<<<<<< HEAD
-=======
     // Exact-match filter
->>>>>>> 10413bfc114a5b72f7eca8af7e4ceec8ee1b9034
     if (activeFilter) {
       data = data.filter(item =>
         activeTabData.getFilterValues(item).includes(activeFilter)
