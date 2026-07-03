@@ -1,0 +1,42 @@
+Team Project Presentation
+CSC326-TP-202-4
+
+Team 202-4
+ Yavin Hamm  Ryan Hinshaw  Narim Lee  Karthik Nandakumar  Brandon Troy  Jerry Zemble
+
+Our project enables users to perform the following tasks:
+ Admin: CRUD operations on staff, view and set tax rate
+ Barista: Managing inventory, view order history and fulfill orders
+ Manager: CRUD for items, viewing order history chart (can also do Barista tasks)
+ Customer: Place orders, view their own order histories and pick up orders
+ Guest: Same as Customer, but no account so order history can't transfer across devices
+
+Contributions
+ Yavin Hamm: order history staff, tax frontend, error/success message popup, helped debug backend
+ Ryan Hinshaw: Backend Orders - Place, Fulfill, Pickup, Order History  Narim Lee: backend design, Implemented anonymous login, tax  Karthik Nandakumar: user and guest implementation and testing for CRUD
+functionalities, backend permissions  Brandon Troy: frontend permissions, items and inventory, badges extra
+credit  Jerry Zemble: users UI, order history customer view and pickup
+
+Description of Team Process
+
+Frontend Subteam  Yavin Hamm  Brandon Troy  Jerry Zemble
+Backend Subteam  Ryan Hinshaw  Narim Lee  Karthik Nandakumar
+
+Within each subteam, members are assigned feature-based tasks.
+Frontend team inspects backend, backend inspects frontend
+Each use case has 4 associated issues on GitHub: Backend design, Backend implementation, Frontend design, and Frontend Implementation
+Each member assigned to issues depending on which tasks they are responsible for
+
+Description of Team Process
+During the lab: Inspections, troubleshooting, task assignments Outside the lab: Working on assigned tasks, weekly team meetings
+ Discussion was needed to ensure teams were on the same page about API endpoints sitting between the layers.
+ Weekly meetings scheduled for Monday night via Discord call.  Most communication through Discord chat, providing the opportunity to ask
+questions or provide feedback.  Details about the inspections listed in Issues page  Pull requests require reviews from the other team members before they can
+be merged
+
+Description of Team Process
+Lessons learned: - Importance of time management and planning - Feedback process - Importance of communication when working with a larger team - Importance of detailed and well-reviewed designs
+
+Demo
+
+

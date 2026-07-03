@@ -1,10 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import WorkCard from '../components/WorkCard';
-import JobSimulationCard from '../components/JobSimulationCard';
-import EducationCard from '../components/EducationCard';
-import VolunteeringCard from '../components/VolunteeringCard';
-import OrganizationCard from '../components/OrganizationCard';
+import DataSheet from '../components/Modules/DataSheet';
 
 import workData from '../data/work.json';
 import jobSimulationsData from '../data/job_simulations.json';
@@ -27,85 +23,134 @@ const tabs = [
     label: 'Work Experience',
     icon: 'bi-briefcase-fill',
     data: workData,
-    Component: WorkCard,
     sortNameField: 'company',
     filterLabel: 'Skill',
     getFilterValues: item => item.skills || [],
-    columns: [
-      { label: 'Company',  getValue: item => item.company },
-      { label: 'Position', getValue: item => item.position },
-      { label: 'Type',     getValue: item => item.type },
-      { label: 'Duration', getValue: item => item.duration },
-    ]
+    titleField: 'company',
+    dateField: 'duration',
+    renderDetails: (item) => (
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+        <div style={{ fontWeight: 'bold', color: 'var(--os-accent)', fontSize: '0.75rem', marginBottom: '4px' }}>
+          {`> POSITION: ${item.position}`}
+        </div>
+        <div style={{ opacity: 0.8, lineHeight: '1.6' }}>
+          {item.responsibilities.map((resp, i) => (
+            <div key={i} style={{ marginBottom: '2px' }}>{`> ${resp}`}</div>
+          ))}
+        </div>
+      </div>
+    )
   },
   {
     id: 'simulations',
     label: 'Job Simulations',
     icon: 'bi-laptop-fill',
     data: jobSimulationsData,
-    Component: JobSimulationCard,
     sortNameField: 'company',
     filterLabel: 'Skill',
     getFilterValues: item => item.skills || [],
-    columns: [
-      { label: 'Company',  getValue: item => item.company },
-      { label: 'Position', getValue: item => item.position },
-      { label: 'Duration', getValue: item => item.duration },
-    ]
+    titleField: 'company',
+    dateField: 'duration',
+    renderDetails: (item) => (
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+        <div style={{ fontWeight: 'bold', color: 'var(--os-accent)', fontSize: '0.75rem', marginBottom: '4px' }}>
+          {`> POSITION: ${item.position}`}
+        </div>
+        <div style={{ opacity: 0.8, lineHeight: '1.6' }}>
+          {item.responsibilities.map((resp, i) => (
+            <div key={i} style={{ marginBottom: '2px' }}>{`> ${resp}`}</div>
+          ))}
+        </div>
+      </div>
+    )
   },
   {
     id: 'education',
     label: 'Education',
     icon: 'bi-mortarboard-fill',
     data: educationData,
-    Component: EducationCard,
     sortNameField: 'institution',
     filterLabel: 'Skill',
     getFilterValues: item => item.skills || [],
-    columns: [
-      { label: 'Institution', getValue: item => item.institution },
-      { label: 'Degree',      getValue: item => item.degree },
-      { label: 'GPA',         getValue: item => item.gpa },
-      { label: 'Duration',    getValue: item => item.duration },
-    ]
+    titleField: 'institution',
+    dateField: 'duration',
+    renderDetails: (item) => (
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+        <div style={{ fontWeight: 'bold', color: 'var(--os-accent)', fontSize: '0.75rem', marginBottom: '4px' }}>
+          {`> DEGREE: ${item.degree}`}
+        </div>
+        <div style={{ opacity: 0.8, marginBottom: '8px' }}>
+          {`> GPA: ${item.gpa}`}
+        </div>
+        {item.societies && item.societies.length > 0 && (
+          <div style={{ opacity: 0.8, lineHeight: '1.6' }}>
+            <div style={{ fontSize: '0.7rem', color: 'var(--os-text-muted)', marginBottom: '4px' }}>
+              {`> SOCIETIES: `}
+            </div>
+            {item.societies.map((soc, i) => (
+              <div key={i} style={{ marginBottom: '2px' }}>{`> ${soc}`}</div>
+            ))}
+          </div>
+        )}
+      </div>
+    )
   },
   {
     id: 'volunteering',
     label: 'Volunteering',
     icon: 'bi-people-fill',
     data: volunteeringData,
-    Component: VolunteeringCard,
     sortNameField: 'organization',
     filterLabel: 'Cause',
     getFilterValues: item => item.cause ? [item.cause] : [],
-    columns: [
-      { label: 'Organization', getValue: item => item.organization },
-      { label: 'Position',     getValue: item => item.position },
-      { label: 'Cause',        getValue: item => item.cause },
-      { label: 'Duration',     getValue: item => item.duration },
-    ]
+    titleField: 'organization',
+    dateField: 'duration',
+    renderDetails: (item) => (
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+        <div style={{ fontWeight: 'bold', color: 'var(--os-accent)', fontSize: '0.75rem', marginBottom: '4px' }}>
+          {`> POSITION: ${item.position}`}
+        </div>
+        <div style={{ opacity: 0.8, marginBottom: '8px' }}>
+          {`> CAUSE: ${item.cause}`}
+        </div>
+        <div style={{ opacity: 0.8, lineHeight: '1.6' }}>
+          {item.responsibilities.map((resp, i) => (
+            <div key={i} style={{ marginBottom: '2px' }}>{`> ${resp}`}</div>
+          ))}
+        </div>
+      </div>
+    )
   },
   {
     id: 'organizations',
     label: 'Organizations',
     icon: 'bi-diagram-3-fill',
     data: organizationsData,
-    Component: OrganizationCard,
     sortNameField: 'name',
     filterLabel: 'School',
     getFilterValues: item => item.school ? [item.school] : [],
-    columns: [
-      { label: 'Name',     getValue: item => item.name },
-      { label: 'Role',     getValue: item => item.role },
-      { label: 'School',   getValue: item => item.school },
-      { label: 'Duration', getValue: item => item.duration },
-    ]
+    titleField: 'name',
+    dateField: 'duration',
+    renderDetails: (item) => (
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+        <div style={{ fontWeight: 'bold', color: 'var(--os-accent)', fontSize: '0.75rem', marginBottom: '4px' }}>
+          {`> SCHOOL: ${item.school}`}
+        </div>
+        <div style={{ opacity: 0.8, marginBottom: '8px' }}>
+          {`> ROLE: ${item.role}`}
+        </div>
+        <div style={{ opacity: 0.8, lineHeight: '1.6' }}>
+          {item.activities.map((act, i) => (
+            <div key={i} style={{ marginBottom: '2px' }}>{`> ${act}`}</div>
+          ))}
+        </div>
+      </div>
+    )
   }
 ];
 
 const Experiences = () => {
   const [activeTab, setActiveTab] = useState('work');
-  const [selectedItem, setSelectedItem] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [activeFilter, setActiveFilter] = useState('');
   const [sortOrder, setSortOrder] = useState('default');
@@ -133,14 +178,12 @@ const Experiences = () => {
 
   const activeTabData = tabs.find(tab => tab.id === activeTab);
 
-  // Reset controls whenever the active tab changes
   useEffect(() => {
     setSearchQuery('');
     setActiveFilter('');
     setSortOrder('default');
   }, [activeTab]);
 
-  // Collect unique filter values for the current tab (sorted A-Z)
   const filterOptions = useMemo(() => {
     const values = new Set();
     activeTabData.data.forEach(item =>
@@ -149,28 +192,32 @@ const Experiences = () => {
     return Array.from(values).sort();
   }, [activeTabData]);
 
-  // Apply search, filter, and sort
   const displayData = useMemo(() => {
     let data = [...activeTabData.data];
 
+<<<<<<< HEAD
+=======
     // Text search across all fields
+>>>>>>> 10413bfc114a5b72f7eca8af7e4ceec8ee1b9034
     if (searchQuery.trim()) {
       const q = searchQuery.toLowerCase();
       data = data.filter(item =>
-        activeTabData.columns.some(col =>
-          String(col.getValue(item) || '').toLowerCase().includes(q)
+        Object.values(item).some(val =>
+          String(val || '').toLowerCase().includes(q)
         )
       );
     }
 
+<<<<<<< HEAD
+=======
     // Exact-match filter
+>>>>>>> 10413bfc114a5b72f7eca8af7e4ceec8ee1b9034
     if (activeFilter) {
       data = data.filter(item =>
         activeTabData.getFilterValues(item).includes(activeFilter)
       );
     }
 
-    // Sort
     if (sortOrder === 'name-asc') {
       data.sort((a, b) =>
         String(a[activeTabData.sortNameField] || '').localeCompare(String(b[activeTabData.sortNameField] || ''))
@@ -193,7 +240,6 @@ const Experiences = () => {
 
   return (
     <div className="experiences-container">
-      {/* Hero Section */}
       <div className="experiences-hero">
         <motion.div
           className="container text-center rtl-center-protect"
@@ -210,7 +256,6 @@ const Experiences = () => {
         </motion.div>
       </div>
 
-      {/* Tab Navigation */}
       <section className="experiences-navigation">
         <div className="container" style={centerAlignStyle}>
           <div className="tab-selector" style={tabSelectorStyle}>
@@ -223,7 +268,7 @@ const Experiences = () => {
               >
                 <div className="tab-icon" style={centerAlignStyle}>
                   <i className={`bi ${tab.icon}`}></i>
-                </div>
+                </div}
                 <span className="tab-label" style={centerTextOnly}>{tab.label}</span>
               </button>
             ))}
@@ -231,10 +276,12 @@ const Experiences = () => {
         </div>
       </section>
 
-      {/* Content Section */}
       <section className="experiences-content">
         <div className="container">
+<<<<<<< HEAD
+=======
           {/* Controls */}
+>>>>>>> 10413bfc114a5b72f7eca8af7e4ceec8ee1b9034
           <div className="exp-controls">
             <div className="exp-search-wrap">
               <i className="bi bi-search exp-search-icon"></i>
@@ -279,6 +326,20 @@ const Experiences = () => {
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}
+<<<<<<< HEAD
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -15 }}
+              transition={{ duration: 0.25, ease: 'easeInOut' }}
+            >
+              <DataSheet
+                data={displayData}
+                idPrefix="EXP"
+                titleField={activeTabData.titleField}
+                dateField={activeTabData.dateField}
+                renderDetails={activeTabData.renderDetails}
+              />
+=======
               className="timeline-wrapper"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -419,38 +480,11 @@ const Experiences = () => {
                   );
                 })
               )}
+>>>>>>> 10413bfc114a5b72f7eca8af7e4ceec8ee1b9034
             </motion.div>
           </AnimatePresence>
         </div>
       </section>
-
-      {/* Detail Modal */}
-      <AnimatePresence>
-        {selectedItem && (
-          <motion.div
-            className="exp-modal-overlay"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            onClick={() => setSelectedItem(null)}
-          >
-            <motion.div
-              className="exp-modal"
-              initial={{ opacity: 0, scale: 0.88, y: 24 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.88, y: 24 }}
-              transition={{ duration: 0.28, ease: 'easeOut' }}
-              onClick={e => e.stopPropagation()}
-            >
-              <button className="exp-modal-close" onClick={() => setSelectedItem(null)}>
-                <i className="bi bi-x-lg"></i>
-              </button>
-              <selectedItem.tab.Component {...{ [selectedItem.tab.id]: selectedItem.item }} />
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </div>
   );
 };

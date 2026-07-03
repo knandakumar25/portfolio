@@ -1,11 +1,62 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import ContactUplink from './Modules/ContactUplink';
 import '../assets/contact.css';
 
 const Contact = () => {
+  const [status, setStatus] = useState('idle'); // idle | submitting | success | error
+  const [errorMessage, setErrorMessage] = useState('');
+
+
+  const parseErrorResponse = async (response) => {
+    const responseText = await response.text();
+
+    try {
+      const data = JSON.parse(responseText);
+      return data.error || 'Something went wrong';
+    } catch {
+      return 'Request failed. Please try again.';
+    }
+  };
+
+  const sendSignal = async (formData) => {
+    try {
+      const payload = new FormData();
+      payload.append('name', formData.name);
+      payload.append('email', formData.email);
+      payload.append('subject', 'Signal Terminal Transmission');
+      payload.append('message', formData.message);
+
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        body: payload,
+      });
+
+      if (response.ok) {
+        return { success: true };
+      } else {
+        const error = await parseErrorResponse(response);
+        return { success: false, error };
+      }
+    } catch (err) {
+      return { success: false, error: err.message };
+    }
+  };
+
   return (
     <footer className="modern-footer">
       <div className="container">
+        {/* Contact Form Section */}
+        <motion.div
+          className="contact-form-section"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, ease: 'easeOut' }}
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          <h3 className="footer-heading">Send a Message</h3>
+          <ContactUplink sendSignal={sendSignal} />
+        </motion.div>
         {/* Main Footer Content */}
         <div className="footer-content">
           {/* Contact Info Section */}

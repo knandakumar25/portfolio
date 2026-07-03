@@ -1,0 +1,65 @@
+SUSTAINABILITY
+v2.0
+
+Empowering Educators to Inspire Sustainable Futures
+
+Diya Bhavsar
+
+Ary Santhosh Kumar
+
+Karthik Nandakumar
+
+Sponsor
+Dr. Nathalie Lavoine
+Asst Prof Dept of Forest Biomaterials Advancing sustainability through research and education Believes education is key to improving the planet Supports our project as a contribution to sustainability
+
+Sustainability
+
+Arjun Saddy
+
+Sahiti Talluri
+
+High-Level Design
+
+EDULab Platform
+EDULab v2.0 is a continuing project from previous semester and is a digital tool designed to help faculty integrate sustainability concepts into their curriculum by being able to create and share activities.
+Activity
+
+Educator Activity Flow
+
+Start
+
+Educator Signs Up
+
+Admin Approves Account
+
+AI Image Generation
+
+Admin Approves Activity
+
+Educator Creates Activity
+
+Educator Logs In
+
+Activity Gets Saved To Database
+
+Educator Searches Activity
+
+End
+
+Requirements
+Enhance UI to increase user engagement Significantly modify Activity creation Integrate AI image generation Integrate Search Functionality Make the platform Mobile accessible
+
+Unit tests
+56/56
+
+Testing
+Coverage
+85%
+
+System tests
+32/32
+
+Sample AI Image generated : Humane Mousetrap Redesign
+
+

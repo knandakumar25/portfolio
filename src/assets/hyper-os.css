@@ -1,0 +1,31 @@
+:root {
+  --os-bg: #0a0a0a;
+  --os-accent: #ccff00;
+  --os-text: #ffffff;
+  --os-text-muted: #888888;
+  --os-grid: rgba(204, 255, 0, 0.05);
+  --os-glass: rgba(20, 20, 20, 0.7);
+  --os-font-mono: 'JetBrains Mono', 'Roboto Mono', monospace;
+  --os-font-header: 'Inter', sans-serif;
+}
+
+body {
+  background-color: var(--os-bg);
+  color: var(--os-text);
+  font-family: var(--os-font-header);
+  margin: 0;
+}
+
+.os-grid-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  background-image:
+    linear-gradient(var(--os-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--os-grid) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
