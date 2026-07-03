@@ -7,6 +7,7 @@ import jobSimulationsData from '../data/job_simulations.json';
 import educationData from '../data/education.json';
 import volunteeringData from '../data/volunteering.json';
 import organizationsData from '../data/organizations.json';
+import { centerAlignStyle, centerTextOnly } from '../styles/commonStyles';
 
 import '../assets/experiences.css';
 
@@ -154,19 +155,6 @@ const Experiences = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [activeFilter, setActiveFilter] = useState('');
   const [sortOrder, setSortOrder] = useState('default');
-
-  const centerAlignStyle = {
-    textAlign: 'center',
-    direction: 'ltr',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center'
-  };
-
-  const centerTextOnly = {
-    textAlign: 'center',
-    direction: 'ltr'
-  };
 
   const tabSelectorStyle = {
     textAlign: 'center',
