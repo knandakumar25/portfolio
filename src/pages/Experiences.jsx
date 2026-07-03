@@ -319,8 +319,6 @@ const Experiences = () => {
               />
             </motion.div>
           </AnimatePresence>
-            </motion.div>
-          </AnimatePresence>
         </div>
       </section>
     </div>
