@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import liquidGlass from '../assets/js/liquid-glass';
 
 const GameCard = ({ game }) => {
   const navigate = useNavigate();
+  const glassRef = useRef(null);
+
+  useEffect(() => {
+    if (glassRef.current) {
+      const glass = liquidGlass(glassRef.current);
+      return () => glass.destroy();
+    }
+  }, []);
 
   // Handle card click to navigate to game details
   const handleCardClick = () => {
@@ -13,7 +22,8 @@ const GameCard = ({ game }) => {
 
   return (
     <div 
-      className="card h-100 game-card-clickable" 
+      ref={glassRef}
+      className="card h-100 game-card-clickable glass" 
       onClick={handleCardClick}
     >
       <div className="card-body d-flex flex-column">

@@ -322,8 +322,9 @@ body[dir="rtl"] .rtl-center-protect * {
 }
 
 .timeline-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
   border-radius: 16px;
   padding: 2rem;
   width: 100%;

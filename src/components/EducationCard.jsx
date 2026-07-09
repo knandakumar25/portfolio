@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
+import liquidGlass from '../assets/js/liquid-glass';
 
 const EducationCard = ({ education }) => {
+  const glassRef = useRef(null);
+
+  useEffect(() => {
+    if (glassRef.current) {
+      const glass = liquidGlass(glassRef.current);
+      return () => glass.destroy();
+    }
+  }, []);
+
   return (
-    <div className="education-card">
+    <div ref={glassRef} className="education-card glass">
       <div className="education-header">
         <div className="education-icon">
           <i className="bi bi-mortarboard-fill"></i>

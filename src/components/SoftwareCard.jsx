@@ -1,10 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
+import liquidGlass from '../assets/js/liquid-glass';
 
 const SoftwareCard = ({ project }) => {
   const [showModal, setShowModal] = useState(false);
   const [modalUrl, setModalUrl] = useState('');
   const [modalTitle, setModalTitle] = useState('');
+  const glassRef = useRef(null);
+
+  useEffect(() => {
+    if (glassRef.current) {
+      const glass = liquidGlass(glassRef.current);
+      return () => glass.destroy();
+    }
+  }, []);
 
   const handleLinkClick = (e, link) => {
     if (link.type === 'document') {
@@ -33,7 +42,7 @@ const SoftwareCard = ({ project }) => {
 
   return (
     <>
-      <div className="card">
+      <div ref={glassRef} className="card glass">
         <div className="card-body">
           <h4 className="card-title" style={{textAlign: 'center'}}>{project.title}</h4>
           <h6 className="text-muted mb-3">Duration: {project.duration}</h6>
