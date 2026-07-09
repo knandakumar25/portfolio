@@ -314,5 +314,74 @@
       "Software Design",
       "Database Design"
     ]
+  },
+  {
+    "id": 18,
+    "company": "Tata Consultancy Services",
+    "position": "Cybersecurity Security Analyst",
+    "duration": "June 2026",
+    "responsibilities": [
+      "Completed a job simulation involving identity and access management (IAM) for Tata Consultancy Services, collaborating with a Cybersecurity Consulting team.",
+      "Acquired expertise in IAM principles, cybersecurity best practices, and strategic alignment with business objectives.",
+      "Delivered comprehensive documentation and presentations, showcasing the ability to communicate complex technical concepts effectively."
+    ],
+    "skills": [
+      "Communication",
+      "Critical Thinking",
+      "Identity Management",
+      "Identity Management Assessment",
+      "Identity Management Design",
+      "Problem Solving",
+      "Process Analysis",
+      "Process Management",
+      "Project Planning",
+      "Solution Architecture",
+      "Strategy Evaluation"
+    ]
+  },
+  {
+    "id": 19,
+    "company": "Wells Fargo",
+    "position": "Software Engineering",
+    "duration": "June 2026",
+    "responsibilities": [
+      "Understood relevant requirements for building a system to manage financial portfolios",
+      "Figured out what data the system needed to keep track of",
+      "Drafted a visual representation of the data as an entity relationship diagram (ERD)",
+      "Used the IntelliJ developer application to implement the ERD and published it to GitHub"
+    ],
+    "skills": [
+      "Data Modeling",
+      "Database Design",
+      "Java Persistence",
+      "Java Programming",
+      "Spring Framework",
+      "Systems Design"
+    ]
+  },
+  {
+    "id": 20,
+    "company": "Citi",
+    "position": "ICG Technology Software Development",
+    "duration": "July 2026",
+    "responsibilities": [
+      "Completed a job simulation involving hypothetical tasks to improve Citi's loan management system and stock market risk reporting",
+      "Created a state diagram of the loan management process using the Unified Modeling Language (UML)",
+      "Researched potential machine learning systems to assess credit risk and provided recommendations for next steps",
+      "Used Java to build an internal tool visualizing stock market risk in real time"
+    ],
+    "skills": [
+      "API Development",
+      "Backend Development",
+      "Data Visualization",
+      "Frontend Development",
+      "Java Programming",
+      "Machine Learning",
+      "Process Mapping",
+      "Risk Assessment",
+      "System Design",
+      "Systems Design",
+      "Written Communication"
+    ]
   }
 ]
