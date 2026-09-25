@@ -13,6 +13,8 @@
  * Technique per https://aave.com/design/building-glass-for-the-web and
  * https://github.com/rizroze/liquid-glass
  */
+let liquidGlass;
+
 (function (global) {
   "use strict";
 
@@ -23,11 +25,12 @@
   // Chromium can apply SVG filters via backdrop-filter; Safari and Firefox
   // silently no-op, so they get the frosted fallback instead.
   const supported = (() => {
+    if (typeof window === "undefined" || typeof navigator === "undefined") return false;
     const ua = navigator.userAgent;
     const isSafari = /Safari/.test(ua) && !/Chrome|Chromium|Edg/.test(ua);
     const isFirefox = /Firefox/.test(ua);
     if (isSafari || isFirefox) return false;
-    if (!CSS.supports("backdrop-filter", "url(#lg)")) return false;
+    if (typeof CSS === "undefined" || !CSS.supports || !CSS.supports("backdrop-filter", "url(#lg)")) return false;
     try {
       const c = document.createElement("canvas");
       c.width = c.height = 4;
@@ -173,7 +176,7 @@
    * @param {number} [opts.fallbackBlur=16] Frosted blur (px) where refraction is unsupported.
    * @returns {{supported: boolean, refresh: Function, destroy: Function}}
    */
-  function liquidGlass(el, opts) {
+  function createLiquidGlass(el, opts) {
     const o = Object.assign(
       { scale: -112, chroma: 6, border: 0.07, mapBlur: 12,
         blur: 3, saturate: 1.5, radius: null, fallbackBlur: 16 },
@@ -229,5 +232,12 @@
     };
   }
 
-  global.liquidGlass = liquidGlass;
-})(window);
+  liquidGlass = createLiquidGlass;
+  if (typeof global !== "undefined") {
+    global.liquidGlass = createLiquidGlass;
+  }
+})(typeof window !== "undefined" ? window : (typeof globalThis !== "undefined" ? globalThis : this));
+
+export default liquidGlass;
+export { liquidGlass };
+

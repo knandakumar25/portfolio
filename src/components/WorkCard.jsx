@@ -28,30 +28,36 @@ const WorkCard = ({ work }) => {
         </div>
       </div>
       
-      <div className="work-content">
-        <h5 className="responsibilities-title">Key Responsibilities</h5>
-        <ul className="responsibilities-list">
-          {work.responsibilities.map((responsibility, index) => (
-            <li key={index} className="responsibility-item">
-              <i className="bi bi-check-circle-fill"></i>
-              <span>{responsibility}</span>
-            </li>
-          ))}
-        </ul>
-        
-        {work.skills && work.skills.length > 0 && (
-          <div className="work-skills">
-            <h5 className="work-skills-title">Skills & Technologies</h5>
-            <div className="work-skills-list">
-              {work.skills.map((skill, index) => (
-                <span key={index} className="work-skill-tag">
-                  {skill}
-                </span>
-              ))}
+      {((work.responsibilities && work.responsibilities.length > 0) || (work.skills && work.skills.length > 0)) && (
+        <div className="work-content">
+          {work.responsibilities && work.responsibilities.length > 0 && (
+            <>
+              <h5 className="responsibilities-title">Key Responsibilities</h5>
+              <ul className="responsibilities-list">
+                {work.responsibilities.map((responsibility, index) => (
+                  <li key={index} className="responsibility-item">
+                    <i className="bi bi-check-circle-fill"></i>
+                    <span>{responsibility}</span>
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
+          
+          {work.skills && work.skills.length > 0 && (
+            <div className="work-skills">
+              <h5 className="work-skills-title">Skills & Technologies</h5>
+              <div className="work-skills-list">
+                {work.skills.map((skill, index) => (
+                  <span key={index} className="work-skill-tag">
+                    {skill}
+                  </span>
+                ))}
+              </div>
             </div>
-          </div>
-        )}
-      </div>
+          )}
+        </div>
+      )}
     </div>
   );
 };

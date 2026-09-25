@@ -12,8 +12,9 @@ const MONTHS = {
 const parseDateValue = (dateStr = '') => {
   const parts = dateStr.trim().split(' ');
   const month = MONTHS[parts[0]] || 0;
-  const year = parseInt(parts[1]) || 0;
-  return year * 100 + month;
+  const year = parseInt(parts[parts.length - 1]) || 0;
+  const day = parts.length === 3 ? parseInt(parts[1]) || 0 : 0;
+  return year * 10000 + month * 100 + day;
 };
 
 const getCertificationIcon = (title = '', issuer = '') => {

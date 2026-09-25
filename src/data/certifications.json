@@ -237,5 +237,39 @@
     "credentialId": "by7rqsjr3tij",
     "link": "https://verify.skilljar.com/c/by7rqsjr3tij",
     "skills": []
+  },
+  {
+    "id": 27,
+    "title": "Wells Fargo Software Engineering Job Simulation",
+    "issuer": "Forage",
+    "dateIssued": "June 9, 2026",
+    "skills": [
+      "Data Modeling",
+      "Database Design",
+      "Java Persistence",
+      "Java Programming",
+      "Spring Framework",
+      "Systems Design"
+    ]
+  },
+  {
+    "id": 28,
+    "title": "Citi ICG Technology Software Development Job Simulation",
+    "issuer": "Forage",
+    "dateIssued": "July 4, 2026",
+    "skills": [
+      "API Development",
+      "Backend Development",
+      "Data Visualization",
+      "Frontend Development",
+      "Java Programming",
+      "Machine Learning",
+      "Process Mapping",
+      "Risk Assessment",
+      "System Design",
+      "Systems Design",
+      "Written Communication"
+    ]
   }
 ]
+

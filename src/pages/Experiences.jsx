@@ -14,11 +14,23 @@ import organizationsData from '../data/organizations.json';
 
 import '../assets/experiences.css';
 
-// Extract the rightmost year from a duration string for sorting.
+const MONTHS = {
+  January: 1, February: 2, March: 3, April: 4, May: 5, June: 6,
+  July: 7, August: 8, September: 9, October: 10, November: 11, December: 12
+};
+
+// Extract the end date value from a duration string for sorting.
 const parseEndYear = (duration = '') => {
-  if (/[-–]\s*$/.test(duration)) return 9999;
+  if (/[-–]\s*$/.test(duration) || /present/i.test(duration)) return 999999;
   const years = duration.match(/\d{4}/g);
-  return years ? parseInt(years[years.length - 1]) : 0;
+  const year = years ? parseInt(years[years.length - 1]) : 0;
+  let lastMonth = 0;
+  for (const [mName, mNum] of Object.entries(MONTHS)) {
+    if (duration.includes(mName)) {
+      lastMonth = mNum;
+    }
+  }
+  return year * 100 + lastMonth;
 };
 
 const tabs = [
