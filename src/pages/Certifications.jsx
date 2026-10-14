@@ -1,6 +1,8 @@
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import CertificationCard from '../components/CertificationCard';
+import CertificationsPolyhedron3D from '../components/CertificationsPolyhedron3D';
+import Card3DTilt from '../components/Card3DTilt';
 import certificationsData from '../data/certifications.json';
 import '../assets/certifications.css';
 
@@ -140,6 +142,7 @@ const Certifications = () => {
             A curated collection of professional qualifications, technical specializations, and industry-standard licenses documenting my continuous learning journey.
           </p>
           <div className="hero-divider" style={sectionCenterStyle}></div>
+          <CertificationsPolyhedron3D />
         </motion.div>
       </div>
 
@@ -255,53 +258,59 @@ const Certifications = () => {
               {/* Featured Certification (Large Card) - displayData[0] */}
               {displayData[0] && (
                 <motion.div
-                  className="bento-card-featured glass-card"
+                  className="bento-card-featured-wrap"
                   variants={itemAnim}
-                  whileHover={{ y: -6, transition: { duration: 0.2 } }}
                 >
-                  <i className="bi bi-patch-check-fill absolute -bottom-6 -right-6 text-[180px] opacity-[0.03] pointer-events-none"></i>
-                  <div>
-                    <span className="featured-badge">MOST RECENT</span>
-                    <h2 className="featured-title">{displayData[0].title}</h2>
-                    <p className="featured-issuer">{displayData[0].issuer}</p>
-                  </div>
-                  <div className="bento-featured-footer">
-                    <div>
-                      <p className="bento-meta-label">Issue Date</p>
-                      <p className="bento-meta-value">{displayData[0].dateIssued}</p>
+                  <Card3DTilt className="h-100" maxTilt={5} scale={1.015}>
+                    <div className="bento-card-featured glass-card h-100">
+                      <i className="bi bi-patch-check-fill absolute -bottom-6 -right-6 text-[180px] opacity-[0.03] pointer-events-none"></i>
+                      <div>
+                        <span className="featured-badge">MOST RECENT</span>
+                        <h2 className="featured-title">{displayData[0].title}</h2>
+                        <p className="featured-issuer">{displayData[0].issuer}</p>
+                      </div>
+                      <div className="bento-featured-footer">
+                        <div>
+                          <p className="bento-meta-label">Issue Date</p>
+                          <p className="bento-meta-value">{displayData[0].dateIssued}</p>
+                        </div>
+                        <div>
+                          <p className="bento-meta-label">Credential ID</p>
+                          <p className="bento-meta-value-mono">{displayData[0].credentialId || 'N/A'}</p>
+                        </div>
+                        <div>
+                          <button
+                            className="verify-btn w-100"
+                            onClick={() => setSelectedCert(displayData[0])}
+                          >
+                            Verify Credential <i className="bi bi-arrow-right"></i>
+                          </button>
+                        </div>
+                      </div>
                     </div>
-                    <div>
-                      <p className="bento-meta-label">Credential ID</p>
-                      <p className="bento-meta-value-mono">{displayData[0].credentialId || 'N/A'}</p>
-                    </div>
-                    <div>
-                      <button
-                        className="verify-btn w-100"
-                        onClick={() => setSelectedCert(displayData[0])}
-                      >
-                        Verify Credential <i className="bi bi-arrow-right"></i>
-                      </button>
-                    </div>
-                  </div>
+                  </Card3DTilt>
                 </motion.div>
               )}
 
               {/* Side Card (Stats Focus) */}
               <motion.div
-                className="bento-card-stats glass-card"
+                className="bento-card-stats-wrap"
                 variants={itemAnim}
-                whileHover={{ y: -6, transition: { duration: 0.2 } }}
               >
-                <div className="stats-circle">
-                  <i className="bi bi-award-fill"></i>
-                </div>
-                <div className="stats-number-huge">{certificationsData.length}+</div>
-                <p className="stats-label-mono">ACTIVE CREDENTIALS</p>
-                <div className="stats-quote-divider">
-                  <p className="stats-quote-text">
-                    "Commitment to excellence through verifiable domain expertise across the full stack."
-                  </p>
-                </div>
+                <Card3DTilt className="h-100" maxTilt={6} scale={1.02}>
+                  <div className="bento-card-stats glass-card h-100">
+                    <div className="stats-circle">
+                      <i className="bi bi-award-fill"></i>
+                    </div>
+                    <div className="stats-number-huge">{certificationsData.length}+</div>
+                    <p className="stats-label-mono">ACTIVE CREDENTIALS</p>
+                    <div className="stats-quote-divider">
+                      <p className="stats-quote-text">
+                        "Commitment to excellence through verifiable domain expertise across the full stack."
+                      </p>
+                    </div>
+                  </div>
+                </Card3DTilt>
               </motion.div>
 
               {/* Medium Grid Cards (Next 3 certs) - displayData[1, 2, 3] */}

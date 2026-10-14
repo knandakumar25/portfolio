@@ -2,6 +2,8 @@ import React, { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import SoftwareCard from '../components/SoftwareCard';
+import ProjectsShowcase3D from '../components/ProjectsShowcase3D';
+import Card3DTilt from '../components/Card3DTilt';
 
 import softwareProjectsData from '../data/software_projects.json';
 import gameProjectsData from '../data/game_projects.json';
@@ -176,6 +178,16 @@ const Projects = () => {
       {/* Projects Grid Section */}
       <section className="proj-content">
         <div className="container">
+          {/* 3D Interactive Project Hologram Showcase */}
+          <ProjectsShowcase3D
+            onSelectProject={(projName) => {
+              if (projName.includes('Cargo')) setTypeFilter('Software');
+              else if (projName.includes('Connect')) setTypeFilter('Software');
+              else if (projName.includes('SmartHome')) setTypeFilter('Software');
+              else if (projName.includes('WolfCafe')) setTypeFilter('Software');
+            }}
+          />
+
           {/* Controls */}
           <div className="proj-controls">
             <div className="proj-search-wrap">
@@ -256,9 +268,11 @@ const Projects = () => {
               {displayData.map((project) => (
                 <motion.div
                   key={`${project.type}-${project.id}`}
-                  className="project-grid-card glass-card"
+                  className="project-grid-card-wrap"
                   variants={itemAnim}
                 >
+                  <Card3DTilt className="h-100" maxTilt={6} scale={1.02}>
+                    <div className="project-grid-card glass-card h-100">
                   {/* Image or Themed Gradient cover */}
                   <div className="project-card-image-wrap">
                     {project.image ? (
@@ -326,6 +340,8 @@ const Projects = () => {
                       <i className={`bi ${project.type === 'Game' ? 'bi-joystick' : 'bi-code-slash'} project-type-indicator-icon`}></i>
                     </div>
                   </div>
+                    </div>
+                  </Card3DTilt>
                 </motion.div>
               ))}
             </motion.div>

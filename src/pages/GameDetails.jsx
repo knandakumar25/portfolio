@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import gameProjects from '../data/game_projects.json';
+import GameCartridge3D from '../components/GameCartridge3D';
+import Card3DTilt from '../components/Card3DTilt';
 
 
 const GameDetails = () => {
@@ -101,11 +103,21 @@ const GameDetails = () => {
       <div className="row mb-4">
         <div className="col-12">
           <button 
-            className="btn btn-outline-secondary"
+            className="btn btn-modern-secondary"
             onClick={() => navigate('/projects')}
           >
-            <i className="bi bi-arrow-left"></i> Back to Projects
+            <i className="bi bi-arrow-left me-2"></i> Back to Projects
           </button>
+        </div>
+      </div>
+
+      {/* 3D Interactive Cartridge Inspector */}
+      <div className="row mb-4">
+        <div className="col-12 col-md-5 col-lg-4 mx-auto">
+          <GameCartridge3D 
+            title={game.title} 
+            imageUrl={game.image ? getPublicUrl(game.image) : null} 
+          />
         </div>
       </div>
 
@@ -141,14 +153,14 @@ const GameDetails = () => {
                       href={getPublicUrl(webGameUrl)}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="btn btn-success btn-lg me-3 mb-2"
+                      className="btn-modern-primary me-3 mb-2"
                     >
                       <i className="bi bi-box-arrow-up-right me-2"></i>
-                      Open Link
+                      Open Game Link
                     </a>
                   ) : (
                     <button 
-                      className="btn btn-success btn-lg me-3 mb-2"
+                      className="btn-modern-primary me-3 mb-2"
                       onClick={() => setShowGamePlayer(true)}
                     >
                       <i className="bi bi-play-circle me-2"></i>
@@ -207,15 +219,17 @@ const GameDetails = () => {
         viewport={{ once: true, amount: 0.2 }}
       >
         <div className="col-12">
-          <div className="card">
-            <div className="card-body">
-              <h3 className="card-title">
-                <i className="bi bi-info-circle me-2"></i>
-                About This Game
-              </h3>
-              <p className="card-text">{game.description}</p>
+          <Card3DTilt maxTilt={4} scale={1.01}>
+            <div className="card glass-card">
+              <div className="card-body">
+                <h3 className="card-title">
+                  <i className="bi bi-info-circle me-2 text-cyan"></i>
+                  About This Game
+                </h3>
+                <p className="card-text">{game.description}</p>
+              </div>
             </div>
-          </div>
+          </Card3DTilt>
         </div>
       </motion.div>
 
@@ -229,21 +243,23 @@ const GameDetails = () => {
           viewport={{ once: true, amount: 0.2 }}
         >
           <div className="col-12">
-            <div className="card">
-              <div className="card-body">
-                <h3 className="card-title">
-                  <i className="bi bi-tools me-2"></i>
-                  Skills & Technologies
-                </h3>
-                <div className="d-flex flex-wrap gap-2">
-                  {game.skills.map((skill, index) => (
-                    <span key={index} className="badge bg-primary fs-6">
-                      {skill}
-                    </span>
-                  ))}
+            <Card3DTilt maxTilt={4} scale={1.01}>
+              <div className="card glass-card">
+                <div className="card-body">
+                  <h3 className="card-title">
+                    <i className="bi bi-tools me-2 text-cyan"></i>
+                    Skills & Technologies
+                  </h3>
+                  <div className="d-flex flex-wrap gap-2">
+                    {game.skills.map((skill, index) => (
+                      <span key={index} className="tech-pill">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
+            </Card3DTilt>
           </div>
         </motion.div>
       )}
@@ -258,41 +274,43 @@ const GameDetails = () => {
           viewport={{ once: true, amount: 0.2 }}
         >
           <div className="col-12">
-            <div className="card">
-              <div className="card-body">
-                <h3 className="card-title">
-                  <i className="bi bi-people me-2"></i>
-                  Contributors
-                </h3>
-                <div className="row">
-                  {game.contributors.map((contributor, index) => (
-                    <div key={index} className="col-md-6 col-lg-4 mb-3">
-                      <div className="d-flex align-items-center">
-                        <div className="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center me-3" 
-                             style={{ width: '40px', height: '40px' }}>
-                          <i className="bi bi-person"></i>
-                        </div>
-                        <div>
-                          {contributor.linkedin ? (
-                            <a 
-                              href={contributor.linkedin} 
-                              target="_blank" 
-                              rel="noopener noreferrer"
-                              className="text-decoration-none fw-semibold"
-                            >
-                              {contributor.name}
-                              <i className="bi bi-linkedin ms-1"></i>
-                            </a>
-                          ) : (
-                            <span className="fw-semibold">{contributor.name}</span>
-                          )}
+            <Card3DTilt maxTilt={4} scale={1.01}>
+              <div className="card glass-card">
+                <div className="card-body">
+                  <h3 className="card-title">
+                    <i className="bi bi-people me-2 text-cyan"></i>
+                    Contributors
+                  </h3>
+                  <div className="row">
+                    {game.contributors.map((contributor, index) => (
+                      <div key={index} className="col-md-6 col-lg-4 mb-3">
+                        <div className="d-flex align-items-center">
+                          <div className="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center me-3" 
+                               style={{ width: '40px', height: '40px' }}>
+                            <i className="bi bi-person"></i>
+                          </div>
+                          <div>
+                            {contributor.linkedin ? (
+                              <a 
+                                href={contributor.linkedin} 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="text-decoration-none fw-semibold"
+                              >
+                                {contributor.name}
+                                <i className="bi bi-linkedin ms-1"></i>
+                              </a>
+                            ) : (
+                              <span className="fw-semibold">{contributor.name}</span>
+                            )}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
+            </Card3DTilt>
           </div>
         </motion.div>
       )}

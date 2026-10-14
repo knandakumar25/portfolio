@@ -15,6 +15,7 @@ import Projects from './pages/Projects';
 import Certifications from './pages/Certifications';
 import GameDetails from './pages/GameDetails';
 import { TranslationProvider } from './components/TranslationProvider';
+import AmbientScene3D from './components/AmbientScene3D';
 
 import './App.css';
 
@@ -47,6 +48,7 @@ function App() {
 
   return (
     <div className="App">
+      <AmbientScene3D />
       <TranslationProvider>
         <Router>
           <ScrollToTop />

@@ -611,3 +611,47 @@
     gap: 1rem;
   }
 }
+
+
+/* =========================================================
+   3D TACTILE CONTACT ITEMS & SOCIAL BUTTONS
+   ========================================================= */
+.contact-item {
+  transform-style: preserve-3d;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.4), 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.contact-item:hover {
+  transform: translateY(-2px) translateZ(8px) !important;
+  border-color: rgba(56, 189, 248, 0.4) !important;
+  box-shadow: 0 5px 0 rgba(56, 189, 248, 0.3), 0 8px 18px rgba(56, 189, 248, 0.25) !important;
+  color: #38bdf8 !important;
+}
+
+.contact-item:active {
+  transform: translateY(1px) translateZ(4px) !important;
+  box-shadow: 0 1px 0 rgba(56, 189, 248, 0.3), 0 2px 6px rgba(56, 189, 248, 0.15) !important;
+}
+
+.social-link {
+  transform-style: preserve-3d;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.4), 0 6px 14px rgba(0, 0, 0, 0.25) !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.social-link:hover {
+  transform: translateY(-3px) translateZ(10px) !important;
+  box-shadow: 0 5px 0 rgba(56, 189, 248, 0.35), 0 10px 22px rgba(56, 189, 248, 0.25) !important;
+  border-color: rgba(56, 189, 248, 0.4) !important;
+  color: #38bdf8 !important;
+}
+
+.social-link:active {
+  transform: translateY(1px) translateZ(4px) !important;
+  box-shadow: 0 1px 0 rgba(56, 189, 248, 0.35), 0 2px 6px rgba(56, 189, 248, 0.15) !important;
+}
+
+.footer-heading {
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}

@@ -11,6 +11,8 @@ import jobSimulationsData from '../data/job_simulations.json';
 import educationData from '../data/education.json';
 import volunteeringData from '../data/volunteering.json';
 import organizationsData from '../data/organizations.json';
+import ExperiencesOrb3D from '../components/ExperiencesOrb3D';
+import Card3DTilt from '../components/Card3DTilt';
 
 import '../assets/experiences.css';
 
@@ -219,6 +221,7 @@ const Experiences = () => {
             A technical breakdown of my journey through software engineering, academics, and leadership.
           </p>
           <div className="hero-divider" style={centerAlignStyle}></div>
+          <ExperiencesOrb3D activeTab={activeTab} />
         </motion.div>
       </div>
 
@@ -339,42 +342,44 @@ const Experiences = () => {
                       ) : (
                         /* Card on the left */
                         <div className="timeline-card-col md:order-1">
-                          <div className="timeline-card glass-card">
-                            <div className="timeline-card-header">
-                              <div className="timeline-card-icon-wrap">
-                                <i className={`bi ${activeTabData.icon}`}></i>
+                          <Card3DTilt maxTilt={6} scale={1.015}>
+                            <div className="timeline-card glass-card">
+                              <div className="timeline-card-header">
+                                <div className="timeline-card-icon-wrap">
+                                  <i className={`bi ${activeTabData.icon}`}></i>
+                                </div>
+                                <h3 className="timeline-org-name">{orgName}</h3>
                               </div>
-                              <h3 className="timeline-org-name">{orgName}</h3>
+                              {/* Bullets preview */}
+                              {bulletPoints.length > 0 && (
+                                <ul className="timeline-bullets">
+                                  {bulletPoints.slice(0, 2).map((pt, ptIdx) => (
+                                    <li key={ptIdx} className="timeline-bullet-item">
+                                      <span className="timeline-bullet-dot">•</span>
+                                      <span>{pt}</span>
+                                    </li>
+                                  ))}
+                                </ul>
+                              )}
+                              {/* Skills preview */}
+                              {skills.length > 0 && (
+                                <div className="timeline-tags">
+                                  {skills.slice(0, 3).map((s, sIdx) => (
+                                    <span key={sIdx} className="timeline-tag">{s}</span>
+                                  ))}
+                                  {skills.length > 3 && (
+                                    <span className="timeline-tag">+{skills.length - 3}</span>
+                                  )}
+                                </div>
+                              )}
+                              <button
+                                className="timeline-details-btn"
+                                onClick={() => setSelectedItem({ item, tab: activeTabData })}
+                              >
+                                View Details <i className="bi bi-arrow-right"></i>
+                              </button>
                             </div>
-                            {/* Bullets preview */}
-                            {bulletPoints.length > 0 && (
-                              <ul className="timeline-bullets">
-                                {bulletPoints.slice(0, 2).map((pt, ptIdx) => (
-                                  <li key={ptIdx} className="timeline-bullet-item">
-                                    <span className="timeline-bullet-dot">•</span>
-                                    <span>{pt}</span>
-                                  </li>
-                                ))}
-                              </ul>
-                            )}
-                            {/* Skills preview */}
-                            {skills.length > 0 && (
-                              <div className="timeline-tags">
-                                {skills.slice(0, 3).map((s, sIdx) => (
-                                  <span key={sIdx} className="timeline-tag">{s}</span>
-                                ))}
-                                {skills.length > 3 && (
-                                  <span className="timeline-tag">+{skills.length - 3}</span>
-                                )}
-                              </div>
-                            )}
-                            <button
-                              className="timeline-details-btn"
-                              onClick={() => setSelectedItem({ item, tab: activeTabData })}
-                            >
-                              View Details <i className="bi bi-arrow-right"></i>
-                            </button>
-                          </div>
+                          </Card3DTilt>
                         </div>
                       )}
 
@@ -382,42 +387,44 @@ const Experiences = () => {
                       {isLeft ? (
                         /* Card on the right */
                         <div className="timeline-card-col md:order-2">
-                          <div className="timeline-card glass-card">
-                            <div className="timeline-card-header">
-                              <div className="timeline-card-icon-wrap">
-                                <i className={`bi ${activeTabData.icon}`}></i>
+                          <Card3DTilt maxTilt={6} scale={1.015}>
+                            <div className="timeline-card glass-card">
+                              <div className="timeline-card-header">
+                                <div className="timeline-card-icon-wrap">
+                                  <i className={`bi ${activeTabData.icon}`}></i>
+                                </div>
+                                <h3 className="timeline-org-name">{orgName}</h3>
                               </div>
-                              <h3 className="timeline-org-name">{orgName}</h3>
+                              {/* Bullets preview */}
+                              {bulletPoints.length > 0 && (
+                                <ul className="timeline-bullets">
+                                  {bulletPoints.slice(0, 2).map((pt, ptIdx) => (
+                                    <li key={ptIdx} className="timeline-bullet-item">
+                                      <span className="timeline-bullet-dot">•</span>
+                                      <span>{pt}</span>
+                                    </li>
+                                  ))}
+                                </ul>
+                              )}
+                              {/* Skills preview */}
+                              {skills.length > 0 && (
+                                <div className="timeline-tags">
+                                  {skills.slice(0, 3).map((s, sIdx) => (
+                                    <span key={sIdx} className="timeline-tag">{s}</span>
+                                  ))}
+                                  {skills.length > 3 && (
+                                    <span className="timeline-tag">+{skills.length - 3}</span>
+                                  )}
+                                </div>
+                              )}
+                              <button
+                                className="timeline-details-btn"
+                                onClick={() => setSelectedItem({ item, tab: activeTabData })}
+                              >
+                                View Details <i className="bi bi-arrow-right"></i>
+                              </button>
                             </div>
-                            {/* Bullets preview */}
-                            {bulletPoints.length > 0 && (
-                              <ul className="timeline-bullets">
-                                {bulletPoints.slice(0, 2).map((pt, ptIdx) => (
-                                  <li key={ptIdx} className="timeline-bullet-item">
-                                    <span className="timeline-bullet-dot">•</span>
-                                    <span>{pt}</span>
-                                  </li>
-                                ))}
-                              </ul>
-                            )}
-                            {/* Skills preview */}
-                            {skills.length > 0 && (
-                              <div className="timeline-tags">
-                                {skills.slice(0, 3).map((s, sIdx) => (
-                                  <span key={sIdx} className="timeline-tag">{s}</span>
-                                ))}
-                                {skills.length > 3 && (
-                                  <span className="timeline-tag">+{skills.length - 3}</span>
-                                )}
-                              </div>
-                            )}
-                            <button
-                              className="timeline-details-btn"
-                              onClick={() => setSelectedItem({ item, tab: activeTabData })}
-                            >
-                              View Details <i className="bi bi-arrow-right"></i>
-                            </button>
-                          </div>
+                          </Card3DTilt>
                         </div>
                       ) : (
                         /* Meta Info on the right */

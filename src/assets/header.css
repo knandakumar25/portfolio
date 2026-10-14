@@ -610,3 +610,18 @@ body.translated-rtl {
     transform: translateX(-50%);
   }
 }
+
+
+/* =========================================================
+   3D SPATIAL NAVBAR ELEVATION
+   ========================================================= */
+.modern-navbar.scrolled {
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.15) !important;
+}
+
+.nav-link.active {
+  background: rgba(56, 189, 248, 0.08) !important;
+  border: 1px solid rgba(56, 189, 248, 0.25) !important;
+  box-shadow: 0 2px 0 rgba(56, 189, 248, 0.3), 0 4px 14px rgba(56, 189, 248, 0.15), inset 0 1px 1px rgba(255, 255, 255, 0.15) !important;
+  transform: translateY(-1px);
+}

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import liquidGlass from '../assets/js/liquid-glass';
+import Card3DTilt from './Card3DTilt';
 
 const SoftwareCard = ({ project }) => {
   const [showModal, setShowModal] = useState(false);
@@ -42,7 +43,8 @@ const SoftwareCard = ({ project }) => {
 
   return (
     <>
-      <div ref={glassRef} className="card glass">
+      <Card3DTilt className="h-100" maxTilt={6} scale={1.015}>
+        <div ref={glassRef} className="card glass h-100">
         <div className="card-body">
           <h4 className="card-title" style={{textAlign: 'center'}}>{project.title}</h4>
           <h6 className="text-muted mb-3">Duration: {project.duration}</h6>
@@ -121,6 +123,7 @@ const SoftwareCard = ({ project }) => {
           )}
         </div>
       </div>
+      </Card3DTilt>
 
       {/* Document Modal */}
       {showModal && (
