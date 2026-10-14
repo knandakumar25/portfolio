@@ -62,19 +62,6 @@ const CertificationsPolyhedron3D = () => {
     const innerMesh = new THREE.Mesh(innerGeo, innerMat);
     scene.add(innerMesh);
 
-    // Orbiting Golden Credential Rings
-    const ringGeo1 = new THREE.RingGeometry(2.1, 2.18, 64);
-    const ringMat1 = new THREE.MeshBasicMaterial({ color: 0xfbbf24, side: THREE.DoubleSide, transparent: true, opacity: 0.6 });
-    const ring1 = new THREE.Mesh(ringGeo1, ringMat1);
-    ring1.rotation.x = Math.PI / 3;
-    scene.add(ring1);
-
-    const ringGeo2 = new THREE.RingGeometry(2.4, 2.46, 64);
-    const ringMat2 = new THREE.MeshBasicMaterial({ color: 0x38bdf8, side: THREE.DoubleSide, transparent: true, opacity: 0.5 });
-    const ring2 = new THREE.Mesh(ringGeo2, ringMat2);
-    ring2.rotation.y = Math.PI / 3;
-    scene.add(ring2);
-
     // Sparkling floating credential particles
     const particleCount = 60;
     const particlePositions = new Float32Array(particleCount * 3);
@@ -123,20 +110,18 @@ const CertificationsPolyhedron3D = () => {
 
     // Animation
     let animationFrameId;
-    let clock = new THREE.Clock();
+    let timer = new THREE.Timer();
 
     const animate = () => {
       animationFrameId = requestAnimationFrame(animate);
-      const elapsed = clock.getElapsedTime();
+      timer.update();
+      const elapsed = timer.getElapsed();
 
       gemMesh.rotation.x = elapsed * 0.4 + mouseY * 0.4;
       gemMesh.rotation.y = elapsed * 0.5 + mouseX * 0.4;
 
       innerMesh.rotation.x = -elapsed * 0.3;
       innerMesh.rotation.y = -elapsed * 0.4;
-
-      ring1.rotation.z += 0.01;
-      ring2.rotation.z -= 0.008;
 
       particles.rotation.y = elapsed * 0.08;
 
@@ -153,12 +138,9 @@ const CertificationsPolyhedron3D = () => {
       gemMat.dispose();
       innerGeo.dispose();
       innerMat.dispose();
-      ringGeo1.dispose();
-      ringMat1.dispose();
-      ringGeo2.dispose();
-      ringMat2.dispose();
       particleGeo.dispose();
       particleMat.dispose();
+      timer.dispose();
       renderer.dispose();
       if (currentMount.contains(renderer.domElement)) {
         currentMount.removeChild(renderer.domElement);

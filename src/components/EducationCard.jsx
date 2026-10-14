@@ -1,78 +1,79 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import liquidGlass from '../assets/js/liquid-glass';
+import Card3DTilt from './Card3DTilt';
 
-const EducationCard = ({ education }) => {
-  const glassRef = useRef(null);
-
-  useEffect(() => {
-    if (glassRef.current) {
-      const glass = liquidGlass(glassRef.current);
-      return () => glass.destroy();
-    }
-  }, []);
-
+const EducationCard = (props) => {
+  const education = props.education || props.edu || props.item || props;
+  if (!education) return null;
   return (
-    <div ref={glassRef} className="education-card glass">
-      <div className="education-header">
-        <div className="education-icon">
-          <i className="bi bi-mortarboard-fill"></i>
-        </div>
-        <div className="education-meta">
-          <h3 className="education-institution">{education.institution}</h3>
-          <h4 className="education-degree">{education.degree}</h4>
-          <div className="education-duration">{education.duration}</div>
-        </div>
-      </div>
-      
-      <div className="education-content">
-        <div className="education-stats">
-          <div className="stat-item">
-            <div className="stat-label">GPA</div>
-            <div className="stat-value">{education.gpa}</div>
+    <Card3DTilt maxTilt={6} scale={1.01} className="w-100">
+      <div className="exp-modal-3d-card education-card-3d">
+        <div className="exp-3d-header">
+          <div className="exp-3d-icon-badge badge-purple">
+            <i className="bi bi-mortarboard-fill"></i>
           </div>
-        </div>
-        
-        {education.societies && education.societies.length > 0 && (
-          <div className="education-societies">
-            <h5 className="societies-title">Societies & Organizations</h5>
-            <div className="societies-list">
-              {education.societies.map((society, index) => (
-                <motion.span
-                  key={index}
-                  className="society-tag"
-                  initial={{ opacity: 0, scale: 0.85 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.25, delay: index * 0.06, ease: 'easeOut' }}
-                >
-                  <i className="bi bi-people-fill"></i>
-                  {society}
-                </motion.span>
-              ))}
+          <div className="exp-3d-meta">
+            <h3 className="exp-3d-title">{education.institution}</h3>
+            <h4 className="exp-3d-subtitle">{education.degree}</h4>
+            <div className="exp-3d-pills">
+              <span className="exp-pill font-mono">
+                <i className="bi bi-calendar3 me-1"></i>
+                {education.duration}
+              </span>
+              <span className="exp-pill exp-pill-highlight font-mono">
+                <i className="bi bi-star-fill me-1 text-amber"></i>
+                GPA: {education.gpa}
+              </span>
             </div>
           </div>
-        )}
-        
-        {education.skills && education.skills.length > 0 && (
-          <div className="education-skills">
-            <h5 className="skills-title">Skills Developed</h5>
-            <div className="skills-list">
-              {education.skills.map((skill, index) => (
-                <motion.span
-                  key={index}
-                  className="education-skill-tag"
-                  initial={{ opacity: 0, scale: 0.85 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.25, delay: index * 0.06, ease: 'easeOut' }}
-                >
-                  {skill}
-                </motion.span>
-              ))}
+        </div>
+
+        <div className="exp-3d-body">
+          {education.societies && education.societies.length > 0 && (
+            <div className="exp-responsibilities-block mb-4">
+              <h5 className="exp-block-heading font-mono">
+                <i className="bi bi-people-fill me-1 text-purple"></i> Societies &amp; Honors
+              </h5>
+              <div className="exp-skills-tags-wrap">
+                {education.societies.map((society, index) => (
+                  <motion.span
+                    key={index}
+                    className="exp-skill-tag-3d tag-purple"
+                    initial={{ opacity: 0, scale: 0.85 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.25, delay: index * 0.05 }}
+                  >
+                    <i className="bi bi-award me-1"></i>
+                    {society}
+                  </motion.span>
+                ))}
+              </div>
             </div>
-          </div>
-        )}
+          )}
+
+          {education.skills && education.skills.length > 0 && (
+            <div className="exp-skills-block">
+              <h5 className="exp-block-heading font-mono">
+                <i className="bi bi-cpu me-1 text-cyan"></i> Academic Focus &amp; Skills
+              </h5>
+              <div className="exp-skills-tags-wrap">
+                {education.skills.map((skill, index) => (
+                  <motion.span
+                    key={index}
+                    className="exp-skill-tag-3d"
+                    initial={{ opacity: 0, scale: 0.85 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.25, delay: index * 0.05 }}
+                  >
+                    {skill}
+                  </motion.span>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
       </div>
-    </div>
+    </Card3DTilt>
   );
 };
 

@@ -114,11 +114,6 @@ const ProjectsShowcase3D = ({ onSelectProject }) => {
         modelGroup.add(hub);
 
         // Surrounding Waypoint Satellites
-        const ringLineGeo = new THREE.RingGeometry(1.9, 2.05, 32);
-        const ringLineMat = new THREE.MeshBasicMaterial({ color: p.color, side: THREE.DoubleSide, transparent: true, opacity: 0.4 });
-        const ringLine = new THREE.Mesh(ringLineGeo, ringLineMat);
-        ringLine.rotation.x = Math.PI / 2.5;
-        modelGroup.add(ringLine);
 
         for (let i = 0; i < 6; i++) {
           const angle = (i / 6) * Math.PI * 2;
@@ -158,11 +153,6 @@ const ProjectsShowcase3D = ({ onSelectProject }) => {
         });
         const torus = new THREE.Mesh(torusGeo, torusMat);
         modelGroup.add(torus);
-
-        const scanRingGeo = new THREE.RingGeometry(1.6, 1.7, 32);
-        const scanRingMat = new THREE.MeshBasicMaterial({ color: 0x38bdf8, side: THREE.DoubleSide, transparent: true, opacity: 0.7 });
-        const scanRing = new THREE.Mesh(scanRingGeo, scanRingMat);
-        modelGroup.add(scanRing);
       } else {
         // WolfCafe: Stacked architectural cylinders / microservices layer
         for (let l = 0; l < 4; l++) {
@@ -194,11 +184,12 @@ const ProjectsShowcase3D = ({ onSelectProject }) => {
 
     // Animation Loop
     let animationFrameId;
-    let clock = new THREE.Clock();
+    let timer = new THREE.Timer();
 
     const animate = () => {
       animationFrameId = requestAnimationFrame(animate);
-      const elapsed = clock.getElapsedTime();
+      timer.update();
+      const elapsed = timer.getElapsed();
 
       // Smooth rotation
       modelGroup.rotation.y += 0.012;
@@ -226,6 +217,7 @@ const ProjectsShowcase3D = ({ onSelectProject }) => {
       cancelAnimationFrame(animationFrameId);
       currentMount.removeEventListener('pointermove', handlePointerMove);
       resizeObserver.disconnect();
+      timer.dispose();
       renderer.dispose();
       if (currentMount.contains(renderer.domElement)) {
         currentMount.removeChild(renderer.domElement);

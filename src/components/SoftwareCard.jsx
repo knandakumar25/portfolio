@@ -1,20 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import liquidGlass from '../assets/js/liquid-glass';
 import Card3DTilt from './Card3DTilt';
 
 const SoftwareCard = ({ project }) => {
   const [showModal, setShowModal] = useState(false);
   const [modalUrl, setModalUrl] = useState('');
   const [modalTitle, setModalTitle] = useState('');
-  const glassRef = useRef(null);
-
-  useEffect(() => {
-    if (glassRef.current) {
-      const glass = liquidGlass(glassRef.current);
-      return () => glass.destroy();
-    }
-  }, []);
 
   const handleLinkClick = (e, link) => {
     if (link.type === 'document') {
@@ -43,114 +34,126 @@ const SoftwareCard = ({ project }) => {
 
   return (
     <>
-      <Card3DTilt className="h-100" maxTilt={6} scale={1.015}>
-        <div ref={glassRef} className="card glass h-100">
-        <div className="card-body">
-          <h4 className="card-title" style={{textAlign: 'center'}}>{project.title}</h4>
-          <h6 className="text-muted mb-3">Duration: {project.duration}</h6>
-          <p className="card-text">{project.description}</p>
-          
-          {/* Skills */}
-          {project.skills && project.skills.length > 0 && (
-            <div className="skills-container">
-              <h6 className="mb-2">Skills & Technologies:</h6>
-              <div>
-                {project.skills.slice(0, 8).map((skill, index) => (
-                  <motion.span
-                    key={index}
-                    className="skill-tag"
-                    initial={{ opacity: 0, scale: 0.85 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.25, delay: index * 0.06, ease: 'easeOut' }}
-                  >
-                    {skill}
-                  </motion.span>
-                ))}
-                {project.skills.length > 8 && (
-                  <span className="skill-tag">+{project.skills.length - 8} more</span>
-                )}
+      <Card3DTilt className="h-100" maxTilt={8} scale={1.02}>
+        <div className="software-card-3d h-100">
+          <div className="card-body d-flex flex-column">
+            {/* Header / Title */}
+            <div className="card-3d-header">
+              <span className="card-type-tag font-mono">
+                <i className="bi bi-cpu-fill me-1"></i> Software Architecture
+              </span>
+              <span className="card-duration-badge">
+                <i className="bi bi-clock me-1"></i> {project.duration}
+              </span>
+            </div>
+
+            <h3 className="software-card-title">{project.title}</h3>
+            <p className="software-card-desc">{project.description}</p>
+            
+            {/* Skills */}
+            {project.skills && project.skills.length > 0 && (
+              <div className="software-skills-section mt-auto mb-3">
+                <h6 className="software-skills-heading font-mono">Core Stack &amp; Technologies</h6>
+                <div className="software-skills-wrap">
+                  {project.skills.slice(0, 8).map((skill, index) => (
+                    <motion.span
+                      key={index}
+                      className="software-skill-pill-3d"
+                      initial={{ opacity: 0, scale: 0.85 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.25, delay: index * 0.05, ease: 'easeOut' }}
+                    >
+                      {skill}
+                    </motion.span>
+                  ))}
+                  {project.skills.length > 8 && (
+                    <span className="software-skill-pill-3d more-pill">
+                      +{project.skills.length - 8} more
+                    </span>
+                  )}
+                </div>
               </div>
-            </div>
-          )}
+            )}
 
-          {/* Contributors */}
-          {project.contributors && project.contributors.length > 0 && (
-            <div className="contributors-section">
-              <h6>Contributors:</h6>
-              <ul className="list-unstyled mb-0">
-                {project.contributors.map((contributor, index) => (
-                  <motion.li
+            {/* Contributors */}
+            {project.contributors && project.contributors.length > 0 && (
+              <div className="contributors-section mb-3">
+                <h6 className="software-skills-heading font-mono">Collaborators</h6>
+                <div className="contributors-wrap">
+                  {project.contributors.map((contributor, index) => (
+                    <div key={index} className="contributor-chip-3d">
+                      <i className="bi bi-person-fill"></i>
+                      {contributor.linkedin ? (
+                        <a 
+                          href={contributor.linkedin} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="contributor-link-3d"
+                        >
+                          {contributor.name}
+                        </a>
+                      ) : (
+                        <span>{contributor.name}</span>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Project Links */}
+            {project.links && project.links.length > 0 && (
+              <div className="project-links-3d-group mt-2">
+                {project.links.map((link, index) => (
+                  <a
                     key={index}
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.25, delay: index * 0.07 }}
+                    href={link.url}
+                    className="btn-3d-action"
+                    target={link.type === 'document' ? undefined : "_blank"}
+                    rel="noopener noreferrer"
+                    onClick={(e) => handleLinkClick(e, link)}
                   >
-                    {contributor.linkedin ? (
-                      <a 
-                        href={contributor.linkedin} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="contributor-link"
-                      >
-                        {contributor.name}
-                      </a>
-                    ) : (
-                      <span>{contributor.name}</span>
-                    )}
-                  </motion.li>
+                    <i className={`bi ${link.type === 'github' ? 'bi-github' : 'bi-file-earmark-pdf-fill'} me-2`}></i>
+                    <span>{link.title}</span>
+                  </a>
                 ))}
-              </ul>
-            </div>
-          )}
-
-          {/* Project Links */}
-          {project.links && project.links.length > 0 && (
-            <div className="project-links">
-              {project.links.map((link, index) => (
-                <a
-                  key={index}
-                  href={link.url}
-                  className="btn btn-outline-success"
-                  target={link.type === 'document' ? undefined : "_blank"}
-                  rel="noopener noreferrer"
-                  onClick={(e) => handleLinkClick(e, link)}
-                >
-                  <i className={`bi ${link.type === 'github' ? 'bi-github' : 'bi-file-text'} me-1`}></i>
-                  {link.title}
-                </a>
-              ))}
-            </div>
-          )}
+              </div>
+            )}
+          </div>
         </div>
-      </div>
       </Card3DTilt>
 
       {/* Document Modal */}
       {showModal && (
         <div className="document-modal-overlay" onClick={() => setShowModal(false)}>
-          <div className="document-modal" onClick={(e) => e.stopPropagation()}>
+          <div className="document-modal modal-3d-frame" onClick={(e) => e.stopPropagation()}>
             <div className="document-modal-header">
-              <h3>{modalTitle}</h3>
+              <h3 className="modal-title-3d">
+                <i className="bi bi-file-earmark-text-fill me-2 text-cyan"></i>
+                {modalTitle}
+              </h3>
               <div className="document-modal-actions">
                 <button 
-                  className="btn btn-sm btn-outline-primary me-2" 
+                  className="btn-3d-sm me-2" 
                   onClick={handleDownload}
                   title="Download"
                 >
-                  <i className="bi bi-download"></i> Download
+                  <i className="bi bi-download me-1"></i> Download
                 </button>
                 <button 
-                  className="btn btn-sm btn-outline-primary me-2" 
+                  className="btn-3d-sm me-2" 
                   onClick={handlePrint}
                   title="Print"
                 >
-                  <i className="bi bi-printer"></i> Print
+                  <i className="bi bi-printer me-1"></i> Print
                 </button>
                 <button 
-                  className="btn btn-sm btn-close" 
+                  className="btn-3d-sm btn-3d-close" 
                   onClick={() => setShowModal(false)}
-                  aria-label="Close"
-                ></button>
+                  title="Close"
+                >
+                  <i className="bi bi-x-lg"></i>
+                </button>
               </div>
             </div>
             <div className="document-modal-body">
@@ -160,7 +163,8 @@ const SoftwareCard = ({ project }) => {
                 title={modalTitle}
                 width="100%"
                 height="100%"
-              ></iframe>
+                style={{ border: 'none' }}
+              />
             </div>
           </div>
         </div>

@@ -1,64 +1,74 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import liquidGlass from '../assets/js/liquid-glass';
+import Card3DTilt from './Card3DTilt';
 
-const WorkCard = ({ work }) => {
-  const glassRef = useRef(null);
-
-  useEffect(() => {
-    if (glassRef.current) {
-      const glass = liquidGlass(glassRef.current);
-      return () => glass.destroy();
-    }
-  }, []);
-
+const WorkCard = (props) => {
+  const work = props.work || props.job || props.item || props;
+  if (!work) return null;
   return (
-    <div ref={glassRef} className="work-card glass">
-      <div className="work-header">
-        <div className="work-icon">
-          <i className="bi bi-building"></i>
-        </div>
-        <div className="work-meta">
-          <h3 className="work-company">{work.company}</h3>
-          <h4 className="work-position">{work.position}</h4>
-          <div className="work-details">
-            <span className="work-type">{work.type}</span>
-            <span className="work-duration">{work.duration}</span>
+    <Card3DTilt maxTilt={6} scale={1.01} className="w-100">
+      <div className="exp-modal-3d-card work-card-3d">
+        <div className="exp-3d-header">
+          <div className="exp-3d-icon-badge">
+            <i className="bi bi-building-fill"></i>
+          </div>
+          <div className="exp-3d-meta">
+            <h3 className="exp-3d-title">{work.company}</h3>
+            <h4 className="exp-3d-subtitle">{work.position}</h4>
+            <div className="exp-3d-pills">
+              <span className="exp-pill font-mono">{work.type}</span>
+              <span className="exp-pill font-mono">
+                <i className="bi bi-calendar3 me-1"></i>
+                {work.duration}
+              </span>
+            </div>
           </div>
         </div>
-      </div>
-      
-      {((work.responsibilities && work.responsibilities.length > 0) || (work.skills && work.skills.length > 0)) && (
-        <div className="work-content">
-          {work.responsibilities && work.responsibilities.length > 0 && (
-            <>
-              <h5 className="responsibilities-title">Key Responsibilities</h5>
-              <ul className="responsibilities-list">
-                {work.responsibilities.map((responsibility, index) => (
-                  <li key={index} className="responsibility-item">
-                    <i className="bi bi-check-circle-fill"></i>
-                    <span>{responsibility}</span>
-                  </li>
-                ))}
-              </ul>
-            </>
-          )}
-          
-          {work.skills && work.skills.length > 0 && (
-            <div className="work-skills">
-              <h5 className="work-skills-title">Skills & Technologies</h5>
-              <div className="work-skills-list">
-                {work.skills.map((skill, index) => (
-                  <span key={index} className="work-skill-tag">
-                    {skill}
-                  </span>
-                ))}
+        
+        {((work.responsibilities && work.responsibilities.length > 0) || (work.skills && work.skills.length > 0)) && (
+          <div className="exp-3d-body">
+            {work.responsibilities && work.responsibilities.length > 0 && (
+              <div className="exp-responsibilities-block mb-4">
+                <h5 className="exp-block-heading font-mono">
+                  <i className="bi bi-check-all me-1 text-cyan"></i> Key Engineering Impact
+                </h5>
+                <ul className="exp-3d-list">
+                  {work.responsibilities.map((responsibility, index) => (
+                    <motion.li
+                      key={index}
+                      className="exp-3d-list-item"
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.25, delay: index * 0.05 }}
+                    >
+                      <span className="exp-check-icon">
+                        <i className="bi bi-check-circle-fill"></i>
+                      </span>
+                      <span className="exp-list-text">{responsibility}</span>
+                    </motion.li>
+                  ))}
+                </ul>
               </div>
-            </div>
-          )}
-        </div>
-      )}
-    </div>
+            )}
+            
+            {work.skills && work.skills.length > 0 && (
+              <div className="exp-skills-block">
+                <h5 className="exp-block-heading font-mono">
+                  <i className="bi bi-cpu-fill me-1 text-cyan"></i> Skills &amp; Stack
+                </h5>
+                <div className="exp-skills-tags-wrap">
+                  {work.skills.map((skill, index) => (
+                    <span key={index} className="exp-skill-tag-3d">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+    </Card3DTilt>
   );
 };
 

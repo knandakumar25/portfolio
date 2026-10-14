@@ -114,13 +114,14 @@ const AmbientScene3D = () => {
 
     // Animation Loop
     let animationFrameId;
-    let clock = new THREE.Clock();
+    let timer = new THREE.Timer();
 
     const animate = () => {
       animationFrameId = requestAnimationFrame(animate);
       if (document.hidden) return; // Pause when tab is hidden
 
-      const elapsedTime = clock.getElapsedTime();
+      timer.update();
+      const elapsedTime = timer.getElapsed();
 
       // Smooth interpolation
       mouseX += (targetMouseX - mouseX) * 0.04;
@@ -161,6 +162,7 @@ const AmbientScene3D = () => {
       particleMat.dispose();
       planeGeo.dispose();
       planeMat.dispose();
+      timer.dispose();
       renderer.dispose();
 
       if (currentMount.contains(renderer.domElement)) {

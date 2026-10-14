@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion, useInView } from 'framer-motion';
 import DistributedMatrix3D from '../components/DistributedMatrix3D';
 import Card3DTilt from '../components/Card3DTilt';
+import AvatarHolo3D from '../components/AvatarHolo3D';
 import '../assets/home.css';
 
 // --- Animation variants ---
@@ -68,7 +69,7 @@ const Home = () => {
       <section className="home-hero">
         <div className="container">
           <div className="hero-split-grid">
-            {/* Left Column: Razor-Sharp 2D Technical Profile */}
+            {/* Left Column: Razor-Sharp 3D Technical Profile */}
             <motion.div
               className="hero-text-col"
               variants={heroContainerVariants}
@@ -81,21 +82,9 @@ const Home = () => {
                 <span>Intern @ LlamaPress AI • Open to Roles</span>
               </motion.div>
 
-              {/* Profile Avatar & Name */}
+              {/* 3D Holographic Profile Avatar & Name */}
               <motion.div className="hero-identity-row" variants={heroItemVariants}>
-                <div className="hero-avatar-wrapper">
-                  <img
-                    src="/photos/Lumatic_Headshot.jpg"
-                    alt="Karthik Nandakumar"
-                    className="hero-avatar-img"
-                    onError={(e) => {
-                      e.target.style.display = 'none';
-                    }}
-                  />
-                  <div className="avatar-online-badge" title="Active Developer">
-                    <i className="bi bi-patch-check-fill"></i>
-                  </div>
-                </div>
+                <AvatarHolo3D />
 
                 <div className="hero-identity-meta">
                   <h1 className="hero-title">KARTHIK NANDAKUMAR</h1>
@@ -103,16 +92,20 @@ const Home = () => {
                 </div>
               </motion.div>
 
-              {/* Education & Credibility Badges */}
+              {/* Education & Credibility Badges in 3D */}
               <motion.div className="hero-credentials" variants={heroItemVariants}>
-                <div className="credential-badge">
-                  <i className="bi bi-mortarboard-fill"></i>
-                  <span><strong>M.S. Computer Science</strong> • Arizona State University (4.0 GPA)</span>
-                </div>
-                <div className="credential-badge">
-                  <i className="bi bi-award-fill"></i>
-                  <span><strong>B.S. Computer Science</strong> • NC State (Summa Cum Laude)</span>
-                </div>
+                <Card3DTilt maxTilt={5} scale={1.015} className="credential-tilt-wrap">
+                  <div className="credential-badge">
+                    <i className="bi bi-mortarboard-fill"></i>
+                    <span><strong>M.S. Computer Science</strong> • Arizona State University (4.0 GPA)</span>
+                  </div>
+                </Card3DTilt>
+                <Card3DTilt maxTilt={5} scale={1.015} className="credential-tilt-wrap">
+                  <div className="credential-badge">
+                    <i className="bi bi-award-fill"></i>
+                    <span><strong>B.S. Computer Science</strong> • NC State (Summa Cum Laude)</span>
+                  </div>
+                </Card3DTilt>
               </motion.div>
 
               {/* Mission Summary */}

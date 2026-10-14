@@ -58,24 +58,16 @@ const ExperiencesOrb3D = ({ activeTab = 'work' }) => {
     scene.add(core);
     coreRef.current = core;
 
-    // Nested Orbital Rings
-    const ringRadii = [1.35, 1.85, 2.35, 2.85, 3.35];
+    // Orbiting Milestone Nodes without loops
+    const nodeRadii = [1.35, 1.85, 2.35, 2.85, 3.35];
     const rings = [];
 
-    ringRadii.forEach((radius, i) => {
-      const ringGeo = new THREE.RingGeometry(radius, radius + 0.05, 64);
-      const ringMat = new THREE.MeshBasicMaterial({
-        color: 0x3b82f6,
-        side: THREE.DoubleSide,
-        transparent: true,
-        opacity: 0.35
-      });
-      const ringMesh = new THREE.Mesh(ringGeo, ringMat);
-      ringMesh.rotation.x = Math.PI / 3 + (i * Math.PI) / 6;
-      ringMesh.rotation.y = (i * Math.PI) / 4;
-      scene.add(ringMesh);
+    nodeRadii.forEach((radius, i) => {
+      const orbitPivot = new THREE.Group();
+      orbitPivot.rotation.x = Math.PI / 3 + (i * Math.PI) / 6;
+      orbitPivot.rotation.y = (i * Math.PI) / 4;
+      scene.add(orbitPivot);
 
-      // Add orbiting milestone token
       const tokenGeo = new THREE.SphereGeometry(0.12, 16, 16);
       const tokenMat = new THREE.MeshStandardMaterial({
         color: 0xffffff,
@@ -84,9 +76,9 @@ const ExperiencesOrb3D = ({ activeTab = 'work' }) => {
       });
       const token = new THREE.Mesh(tokenGeo, tokenMat);
       token.position.set(radius, 0, 0);
-      ringMesh.add(token);
+      orbitPivot.add(token);
 
-      rings.push({ mesh: ringMesh, token, radius });
+      rings.push({ mesh: orbitPivot, token, radius });
     });
     ringsRef.current = rings;
 
@@ -105,11 +97,12 @@ const ExperiencesOrb3D = ({ activeTab = 'work' }) => {
 
     // Animation Loop
     let animationFrameId;
-    let clock = new THREE.Clock();
+    let timer = new THREE.Timer();
 
     const animate = () => {
       animationFrameId = requestAnimationFrame(animate);
-      const elapsed = clock.getElapsedTime();
+      timer.update();
+      const elapsed = timer.getElapsed();
 
       core.rotation.x = elapsed * 0.3;
       core.rotation.y = elapsed * 0.45;
@@ -129,6 +122,7 @@ const ExperiencesOrb3D = ({ activeTab = 'work' }) => {
       resizeObserver.disconnect();
       coreGeo.dispose();
       coreMat.dispose();
+      timer.dispose();
       renderer.dispose();
       if (currentMount.contains(renderer.domElement)) {
         currentMount.removeChild(renderer.domElement);
@@ -152,10 +146,9 @@ const ExperiencesOrb3D = ({ activeTab = 'work' }) => {
     if (ringsRef.current.length > 0) {
       ringsRef.current.forEach((r, idx) => {
         const isHighlight = idx === theme.ringIdx;
-        r.mesh.material.color = isHighlight ? color : new THREE.Color(0x3b82f6);
-        r.mesh.material.opacity = isHighlight ? 0.9 : 0.25;
-        r.mesh.scale.set(isHighlight ? 1.08 : 1, isHighlight ? 1.08 : 1, isHighlight ? 1.08 : 1);
+        r.mesh.scale.set(isHighlight ? 1.15 : 1, isHighlight ? 1.15 : 1, isHighlight ? 1.15 : 1);
         r.token.material.emissive = isHighlight ? color : new THREE.Color(0x38bdf8);
+        r.token.scale.set(isHighlight ? 1.5 : 1, isHighlight ? 1.5 : 1, isHighlight ? 1.5 : 1);
       });
     }
   }, [activeTab]);

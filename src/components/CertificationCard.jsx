@@ -1,114 +1,100 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import liquidGlass from '../assets/js/liquid-glass';
+import Card3DTilt from './Card3DTilt';
 
 const CertificationCard = ({ certification }) => {
-  const glassRef = useRef(null);
-
-  useEffect(() => {
-    if (glassRef.current) {
-      const glass = liquidGlass(glassRef.current);
-      return () => glass.destroy();
-    }
-  }, []);
-
   return (
-    <div ref={glassRef} className="certification-card glass">
-      {certification.embedCode ? (
-        <div 
-          className="academy-badge"
-          dangerouslySetInnerHTML={{ __html: certification.embedCode }}
-        />
-      ) : certification.badgeImage ? (
-        <motion.div
-          className="academy-badge"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.4, ease: [0.34, 1.56, 0.64, 1] }}
-        >
-          <a
-            href={certification.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            title={certification.title}
-          >
-            <img src={certification.badgeImage} alt={certification.title} />
-          </a>
-        </motion.div>
-      ) : (
-        <motion.div
-          className="cert-badge"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.4, ease: [0.34, 1.56, 0.64, 1] }}
-        >
-          <i className="bi bi-award-fill"></i>
-        </motion.div>
-      )}
-
-      <div className={`certification-header${certification.badgeImage || certification.embedCode ? ' certification-header--badge' : ''}`}>
-        <h3 className="certification-title">{certification.title}</h3>
-        <h4 className="certification-issuer">{certification.issuer}</h4>
-        <div className="certification-dates">
-          <div className="certification-date">
-            <span className="date-label">Issued:</span> {certification.dateIssued}
-          </div>
-          {certification.expirationDate && (
-            <div className="certification-expiry">
-              <span className="date-label">Expires:</span> {certification.expirationDate}
+    <Card3DTilt maxTilt={6} scale={1.01} className="w-100">
+      <div className="certification-card-3d">
+        {/* Badge or Icon Header */}
+        <div className="cert-3d-header">
+          {certification.embedCode ? (
+            <div 
+              className="cert-embed-badge-wrap"
+              dangerouslySetInnerHTML={{ __html: certification.embedCode }}
+            />
+          ) : certification.badgeImage ? (
+            <div className="cert-badge-frame-3d">
+              <a
+                href={certification.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={certification.title}
+              >
+                <img src={certification.badgeImage} alt={certification.title} className="cert-badge-img" />
+              </a>
             </div>
+          ) : (
+            <div className="cert-icon-seal-3d">
+              <i className="bi bi-award-fill"></i>
+            </div>
+          )}
+
+          <div className="cert-meta-3d">
+            <span className="cert-issuer-badge font-mono">
+              <i className="bi bi-patch-check-fill me-1 text-cyan"></i>
+              {certification.issuer}
+            </span>
+            <h3 className="cert-title-3d">{certification.title}</h3>
+            <div className="cert-date-pills">
+              <span className="cert-pill font-mono">
+                <i className="bi bi-calendar-check me-1"></i>
+                Issued: {certification.dateIssued}
+              </span>
+              {certification.expirationDate && (
+                <span className="cert-pill font-mono">
+                  Expires: {certification.expirationDate}
+                </span>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Content Details */}
+        <div className="cert-content-3d">
+          {certification.credentialId && (
+            <div className="cert-id-block-3d mb-3">
+              <span className="cert-id-label font-mono">
+                <i className="bi bi-key-fill me-1"></i> Credential ID:
+              </span>
+              <span className="cert-id-value-mono font-mono">{certification.credentialId}</span>
+            </div>
+          )}
+
+          {certification.skills && certification.skills.length > 0 && (
+            <div className="cert-skills-block mb-3">
+              <h5 className="cert-skills-heading font-mono">Verified Competencies</h5>
+              <div className="cert-skills-tags">
+                {certification.skills.map((skill, index) => (
+                  <motion.span
+                    key={index}
+                    className="cert-skill-tag-3d"
+                    initial={{ opacity: 0, scale: 0.85 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.25, delay: index * 0.05 }}
+                  >
+                    {skill}
+                  </motion.span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {certification.link && (
+            <a
+              href={certification.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-3d-verify"
+            >
+              <i className="bi bi-box-arrow-up-right me-2"></i>
+              <span>Verify Official Credential</span>
+            </a>
           )}
         </div>
       </div>
-
-      <div className="certification-content">
-        {certification.credentialId && (
-          <div className="certification-id">
-            <div className="id-label">
-              <i className="bi bi-key-fill"></i>
-              <span>Credential ID</span>
-            </div>
-            <div className="id-value">{certification.credentialId}</div>
-          </div>
-        )}
-
-        {certification.skills && certification.skills.length > 0 && (
-          <div className="certification-skills">
-            <div className="skills-label">
-              <i className="bi bi-gear-fill"></i>
-              <span>Skills</span>
-            </div>
-            <div className="skills-tags">
-              {certification.skills.map((skill, index) => (
-                <motion.span
-                  key={index}
-                  className="skill-tag"
-                  initial={{ opacity: 0, scale: 0.85 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.25, delay: index * 0.06, ease: 'easeOut' }}
-                >
-                  {skill}
-                </motion.span>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {certification.link && (
-          <a
-            href={certification.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="certification-link"
-          >
-            <span>View Certificate</span>
-            <i className="bi bi-box-arrow-up-right"></i>
-          </a>
-        )}
-      </div>
-    </div>
+    </Card3DTilt>
   );
 };
 
 export default CertificationCard;
-

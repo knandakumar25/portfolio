@@ -127,15 +127,19 @@ const GameDetails = () => {
           <div className="d-flex flex-column flex-md-row align-items-start">
             {game.image && (
               <div className="me-md-4 mb-3 mb-md-0">
-                <img
-                  src={getPublicUrl(game.image)}
-                  alt={`${game.title} Title Card`}
-                  className="img-fluid rounded shadow"
-                  style={{ maxWidth: '300px', height: 'auto' }}
-                  onError={(e) => {
-                    e.target.style.display = 'none';
-                  }}
-                />
+                <Card3DTilt maxTilt={8} scale={1.03}>
+                  <div className="game-detail-cover-frame-3d">
+                    <img
+                      src={getPublicUrl(game.image)}
+                      alt={`${game.title} Title Card`}
+                      className="img-fluid rounded"
+                      style={{ maxWidth: '300px', height: 'auto', display: 'block' }}
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                      }}
+                    />
+                  </div>
+                </Card3DTilt>
               </div>
             )}
             <div className="flex-grow-1">
@@ -285,9 +289,8 @@ const GameDetails = () => {
                     {game.contributors.map((contributor, index) => (
                       <div key={index} className="col-md-6 col-lg-4 mb-3">
                         <div className="d-flex align-items-center">
-                          <div className="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center me-3" 
-                               style={{ width: '40px', height: '40px' }}>
-                            <i className="bi bi-person"></i>
+                          <div className="contributor-coin-3d me-3">
+                            <i className="bi bi-person-fill"></i>
                           </div>
                           <div>
                             {contributor.linkedin ? (
@@ -295,13 +298,13 @@ const GameDetails = () => {
                                 href={contributor.linkedin} 
                                 target="_blank" 
                                 rel="noopener noreferrer"
-                                className="text-decoration-none fw-semibold"
+                                className="text-decoration-none fw-semibold text-cyan"
                               >
                                 {contributor.name}
                                 <i className="bi bi-linkedin ms-1"></i>
                               </a>
                             ) : (
-                              <span className="fw-semibold">{contributor.name}</span>
+                              <span className="fw-semibold text-light">{contributor.name}</span>
                             )}
                           </div>
                         </div>

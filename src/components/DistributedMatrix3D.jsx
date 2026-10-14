@@ -338,11 +338,12 @@ const DistributedMatrix3D = ({ onNodeSelect }) => {
 
     // 11. Animation Loop
     let animationFrameId;
-    let clock = new THREE.Clock();
+    let timer = new THREE.Timer();
 
     const animate = () => {
       animationFrameId = requestAnimationFrame(animate);
-      const elapsedTime = clock.getElapsedTime();
+      timer.update();
+      const elapsedTime = timer.getElapsed();
 
       // Idle auto-rotation (gentler when dragging)
       if (!isDraggingRef.current) {
@@ -411,6 +412,7 @@ const DistributedMatrix3D = ({ onNodeSelect }) => {
       linesMaterial.dispose();
       particleGeometry.dispose();
       particleMaterial.dispose();
+      timer.dispose();
       renderer.dispose();
 
       if (currentMount.contains(renderer.domElement)) {

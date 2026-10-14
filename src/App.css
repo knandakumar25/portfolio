@@ -14,8 +14,8 @@ body {
 }
 
 body {
-  background-color: #e0f0ff;
-  color: #000000;
+  background-color: #0b1326;
+  color: #f1f5f9;
   padding-top: 80px;
 }
 
@@ -221,4 +221,98 @@ body.translated-rtl {
   padding: 2px 6px;
   font-family: "Anek Devanagari", sans-serif;
   font-size: 0.9rem;
+}
+
+
+/* =========================================================
+   GLOBAL 3D GLASS CARDS & DARK SURFACE ELEVATION
+   ========================================================= */
+.glass-card {
+  background: linear-gradient(150deg, rgba(30, 41, 59, 0.88) 0%, rgba(15, 23, 42, 0.98) 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 18px;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.2) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  color: #f1f5f9 !important;
+  transform-style: preserve-3d;
+}
+
+.card.glass-card {
+  color: #f1f5f9 !important;
+}
+
+.card.glass-card .card-body {
+  color: #f1f5f9 !important;
+  padding: 1.75rem;
+}
+
+.card.glass-card .card-title {
+  color: #f8fafc !important;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.card.glass-card .card-text {
+  color: #94a3b8 !important;
+  line-height: 1.7;
+  font-size: 1.02rem;
+}
+
+/* GameDetails 3D Elements */
+.game-detail-cover-frame-3d {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 24px rgba(56, 189, 248, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transform-style: preserve-3d;
+  background: rgba(15, 23, 42, 0.8);
+}
+
+.contributor-coin-3d {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border: 2px solid rgba(56, 189, 248, 0.45);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #38bdf8;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  transform-style: preserve-3d;
+  transition: all 0.25s ease;
+}
+
+.contributor-coin-3d:hover {
+  transform: scale(1.1) rotate(12deg);
+  border-color: #38bdf8;
+  box-shadow: 0 6px 18px rgba(56, 189, 248, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+/* Modal Dark Theme Overrides */
+.modal-content {
+  background: linear-gradient(150deg, rgba(30, 41, 59, 0.96) 0%, rgba(15, 23, 42, 0.99) 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 20px !important;
+  color: #f1f5f9 !important;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7) !important;
+  backdrop-filter: blur(24px) !important;
+}
+
+.modal-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: #f1f5f9 !important;
+}
+
+.modal-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.btn-close {
+  filter: invert(1) grayscale(100%) brightness(200%);
 }

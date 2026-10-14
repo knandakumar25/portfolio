@@ -82,13 +82,6 @@ const GameCartridge3D = ({ title = 'Arcade Experience', imageUrl = null }) => {
     labelMesh.position.y = -0.3;
     cartGroup.add(labelMesh);
 
-    // Glowing Neon Hologram Ring around cartridge
-    const ringGeo = new THREE.RingGeometry(2.3, 2.38, 48);
-    const ringMat = new THREE.MeshBasicMaterial({ color: 0x38bdf8, side: THREE.DoubleSide, transparent: true, opacity: 0.6 });
-    const ring = new THREE.Mesh(ringGeo, ringMat);
-    ring.rotation.x = Math.PI / 2.2;
-    cartGroup.add(ring);
-
     // Interactive Drag to Rotate
     let isDragging = false;
     let prevMousePos = { x: 0, y: 0 };
@@ -130,18 +123,17 @@ const GameCartridge3D = ({ title = 'Arcade Experience', imageUrl = null }) => {
 
     // Animation Loop
     let animationFrameId;
-    let clock = new THREE.Clock();
+    let timer = new THREE.Timer();
 
     const animate = () => {
       animationFrameId = requestAnimationFrame(animate);
-      const elapsed = clock.getElapsedTime();
+      timer.update();
+      const elapsed = timer.getElapsed();
 
       if (!isDragging) {
         cartGroup.rotation.y += 0.008;
         cartGroup.rotation.x = Math.sin(elapsed * 0.8) * 0.12;
       }
-
-      ring.rotation.z += 0.015;
 
       renderer.render(scene, camera);
     };
@@ -158,8 +150,7 @@ const GameCartridge3D = ({ title = 'Arcade Experience', imageUrl = null }) => {
       bodyMat.dispose();
       labelGeo.dispose();
       labelMat.dispose();
-      ringGeo.dispose();
-      ringMat.dispose();
+      timer.dispose();
       renderer.dispose();
       if (currentMount.contains(renderer.domElement)) {
         currentMount.removeChild(renderer.domElement);

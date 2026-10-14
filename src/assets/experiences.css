@@ -322,17 +322,18 @@ body[dir="rtl"] .rtl-center-protect * {
 }
 
 .timeline-card {
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  border-radius: 16px;
+  background: linear-gradient(150deg, rgba(30, 41, 59, 0.85) 0%, rgba(15, 23, 42, 0.98) 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 18px;
   padding: 2rem;
   width: 100%;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.2) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transform-style: preserve-3d;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
-  -webkit-backdrop-filter: blur(20px);
-  backdrop-filter: blur(20px);
 }
 
 .timeline-card:hover {
@@ -813,4 +814,189 @@ body[dir="rtl"] .rtl-center-protect * {
 .exp-modal {
   transform-style: preserve-3d;
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.15), inset 0 1px 1px rgba(255, 255, 255, 0.3) !important;
+}
+
+/* =========================================================
+   3D DETAIL MODAL CARDS (Work, Sim, Education, Org, Vol)
+   ========================================================= */
+
+.exp-modal-3d-card {
+  background: linear-gradient(150deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.98) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), inset 0 1px 2px rgba(255, 255, 255, 0.25);
+  transform-style: preserve-3d;
+  width: 100%;
+}
+
+.exp-3d-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  margin-bottom: 1.75rem;
+  transform: translateZ(26px);
+}
+
+.exp-3d-icon-badge {
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  color: #38bdf8;
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.2) 0%, rgba(30, 58, 138, 0.3) 100%);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.3);
+  flex-shrink: 0;
+  transform: translateZ(10px);
+}
+
+.exp-3d-icon-badge.badge-amber {
+  color: #fbbf24;
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.2) 0%, rgba(120, 53, 15, 0.3) 100%);
+  border-color: rgba(245, 158, 11, 0.4);
+}
+
+.exp-3d-icon-badge.badge-purple {
+  color: #c084fc;
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.2) 0%, rgba(88, 28, 135, 0.3) 100%);
+  border-color: rgba(168, 85, 247, 0.4);
+}
+
+.exp-3d-icon-badge.badge-rose {
+  color: #fb7185;
+  background: linear-gradient(135deg, rgba(244, 63, 94, 0.2) 0%, rgba(136, 19, 55, 0.3) 100%);
+  border-color: rgba(244, 63, 94, 0.4);
+}
+
+.exp-3d-meta {
+  flex: 1;
+}
+
+.exp-3d-title {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: #f8fafc;
+  margin-bottom: 0.25rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  transform: translateZ(14px);
+}
+
+.exp-3d-subtitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #93c5fd;
+  margin-bottom: 0.75rem;
+  transform: translateZ(10px);
+}
+
+.exp-3d-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  transform: translateZ(16px);
+}
+
+.exp-pill {
+  font-size: 0.78rem;
+  padding: 0.25rem 0.65rem;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  color: #cbd5e1;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.exp-pill-highlight {
+  background: rgba(245, 158, 11, 0.15);
+  border-color: rgba(245, 158, 11, 0.4);
+  color: #fbbf24;
+  font-weight: 700;
+}
+
+.exp-block-heading {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #94a3b8;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.85rem;
+  transform: translateZ(14px);
+}
+
+.exp-3d-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transform: translateZ(18px);
+}
+
+.exp-3d-list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.94rem;
+  color: #cbd5e1;
+  line-height: 1.6;
+}
+
+.exp-check-icon {
+  color: #38bdf8;
+  font-size: 1.1rem;
+  margin-top: 1px;
+  flex-shrink: 0;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+}
+
+.exp-check-icon.icon-amber {
+  color: #fbbf24;
+}
+
+.exp-check-icon.icon-rose {
+  color: #fb7185;
+}
+
+.exp-skills-tags-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  transform: translateZ(20px);
+}
+
+.exp-skill-tag-3d {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.82rem;
+  font-family: var(--font-mono, monospace);
+  padding: 0.35rem 0.75rem;
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.6);
+  border-radius: 8px;
+  color: #cbd5e1;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.35);
+  transition: all 0.2s ease;
+}
+
+.exp-skill-tag-3d:hover {
+  transform: translateY(-2px) translateZ(4px);
+  border-color: #38bdf8;
+  color: #38bdf8;
+  box-shadow: 0 5px 12px rgba(56, 189, 248, 0.25);
+}
+
+.exp-skill-tag-3d.tag-purple {
+  border-color: rgba(168, 85, 247, 0.3);
+  color: #d8b4fe;
+}
+
+.exp-skill-tag-3d.tag-purple:hover {
+  border-color: #c084fc;
+  color: #ffffff;
 }

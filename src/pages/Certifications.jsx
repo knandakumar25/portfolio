@@ -218,32 +218,35 @@ const Certifications = () => {
               {displayData.map((cert) => (
                 <motion.div
                   key={cert.id}
-                  className="bento-card-grid glass-card"
+                  className="bento-card-grid-wrap"
                   variants={itemAnim}
-                  whileHover={{ y: -6, transition: { duration: 0.2 } }}
                 >
-                  <div>
-                    <div className="bento-card-grid-header">
-                      <i className={`${getCertificationIcon(cert.title, cert.issuer)} bento-card-icon`}></i>
-                      <span className="bento-card-date">{cert.dateIssued}</span>
-                    </div>
-                    <h3 className="bento-card-title">{cert.title}</h3>
-                    <p className="bento-card-issuer">{cert.issuer}</p>
-                  </div>
-                  <div>
-                    {cert.credentialId && (
-                      <div className="bento-card-id-block mb-3">
-                        <span className="bento-meta-label">Credential ID</span>
-                        <span className="bento-meta-value-mono">{cert.credentialId}</span>
+                  <Card3DTilt className="h-100" maxTilt={6} scale={1.02}>
+                    <div className="bento-card-grid glass-card h-100">
+                      <div>
+                        <div className="bento-card-grid-header">
+                          <i className={`${getCertificationIcon(cert.title, cert.issuer)} bento-card-icon`}></i>
+                          <span className="bento-card-date">{cert.dateIssued}</span>
+                        </div>
+                        <h3 className="bento-card-title">{cert.title}</h3>
+                        <p className="bento-card-issuer">{cert.issuer}</p>
                       </div>
-                    )}
-                    <button
-                      className="verify-btn w-100"
-                      onClick={() => setSelectedCert(cert)}
-                    >
-                      Details <i className="bi bi-arrow-right"></i>
-                    </button>
-                  </div>
+                      <div>
+                        {cert.credentialId && (
+                          <div className="bento-card-id-block mb-3">
+                            <span className="bento-meta-label">Credential ID</span>
+                            <span className="bento-meta-value-mono">{cert.credentialId}</span>
+                          </div>
+                        )}
+                        <button
+                          className="verify-btn w-100"
+                          onClick={() => setSelectedCert(cert)}
+                        >
+                          Details <i className="bi bi-arrow-right"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </Card3DTilt>
                 </motion.div>
               ))}
             </motion.div>
@@ -317,32 +320,35 @@ const Certifications = () => {
               {displayData.slice(1, 4).map((cert) => (
                 <motion.div
                   key={cert.id}
-                  className="bento-card-grid glass-card"
+                  className="bento-card-grid-wrap"
                   variants={itemAnim}
-                  whileHover={{ y: -6, transition: { duration: 0.2 } }}
                 >
-                  <div>
-                    <div className="bento-card-grid-header">
-                      <i className={`${getCertificationIcon(cert.title, cert.issuer)} bento-card-icon`}></i>
-                      <span className="bento-card-date">{cert.dateIssued}</span>
-                    </div>
-                    <h3 className="bento-card-title">{cert.title}</h3>
-                    <p className="bento-card-issuer">{cert.issuer}</p>
-                  </div>
-                  <div>
-                    {cert.credentialId && (
-                      <div className="bento-card-id-block mb-3">
-                        <span className="bento-meta-label">Credential ID</span>
-                        <span className="bento-meta-value-mono">{cert.credentialId}</span>
+                  <Card3DTilt className="h-100" maxTilt={6} scale={1.02}>
+                    <div className="bento-card-grid glass-card h-100">
+                      <div>
+                        <div className="bento-card-grid-header">
+                          <i className={`${getCertificationIcon(cert.title, cert.issuer)} bento-card-icon`}></i>
+                          <span className="bento-card-date">{cert.dateIssued}</span>
+                        </div>
+                        <h3 className="bento-card-title">{cert.title}</h3>
+                        <p className="bento-card-issuer">{cert.issuer}</p>
                       </div>
-                    )}
-                    <button
-                      className="verify-btn w-100"
-                      onClick={() => setSelectedCert(cert)}
-                    >
-                      Details <i className="bi bi-arrow-right"></i>
-                    </button>
-                  </div>
+                      <div>
+                        {cert.credentialId && (
+                          <div className="bento-card-id-block mb-3">
+                            <span className="bento-meta-label">Credential ID</span>
+                            <span className="bento-meta-value-mono">{cert.credentialId}</span>
+                          </div>
+                        )}
+                        <button
+                          className="verify-btn w-100"
+                          onClick={() => setSelectedCert(cert)}
+                        >
+                          Details <i className="bi bi-arrow-right"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </Card3DTilt>
                 </motion.div>
               ))}
 
