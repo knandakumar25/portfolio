@@ -34,3 +34,8 @@ graphify-out/transcripts/
 graphify-out/graph.html
 graphify-out/20*/
 
+
+
+# Local Ollama models
+/models/
+/.ollama/
