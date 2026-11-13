@@ -1,132 +1,60 @@
-# Docker Setup for Portfolio
+# Docker Workspace
 
-This document describes how to build and run the portfolio application using Docker.
+This project runs **only** through Docker. The only host requirement is Docker Desktop (or Docker Engine + Compose v2). You don't need Node.js installed locally.
 
-## Quick Start
+The site is a static React + Vite app. Everything is defined in `Dockerfile` (one multi-stage file) and `docker-compose.yml` (one file with profiles).
 
-### Production (Nginx)
-```bash
-# Build and run production container
-docker compose up --build -d
-
-# Access at http://localhost:8080
-```
-
-### Development (Vite Dev Server with HMR)
-```bash
-# Build and run development container
-docker compose -f docker-compose.yml -f docker-compose.dev.yml up --build
-
-# Access at http://localhost:5173
-# Hot Module Replacement (HMR) enabled
-```
-
-## Docker Files
-
-| File | Purpose |
-|------|---------|
-| `Dockerfile` | Multi-stage production build (Node build → Nginx serve) |
-| `Dockerfile.dev` | Development build with Vite dev server |
-| `nginx.conf` | Nginx configuration for SPA routing and caching |
-| `docker-compose.yml` | Base compose file with both services |
-| `docker-compose.dev.yml` | Development override |
-| `.dockerignore` | Files excluded from Docker context |
-
-## Production Details
-
-The production build uses a **multi-stage Dockerfile**:
-
-1. **Builder Stage** (`node:24-alpine`):
-   - Installs all dependencies (including devDependencies)
-   - Runs `npm run build` to create optimized production bundle in `/app/dist`
-
-2. **Runner Stage** (`nginx:alpine`):
-   - Copies built assets from builder
-   - Uses custom `nginx.conf` for:
-     - SPA routing (fallback to `index.html`)
-     - Static asset caching (1 year for hashed assets)
-     - Security headers
-     - Gzip compression
-     - Health check endpoint (`/health`)
-
-## Development Details
-
-The development setup:
-- Uses `node:24-alpine` with Vite dev server
-- Mounts source code as volume for live editing
-- Excludes `node_modules` from volume mount (uses container's)
-- Enables polling for file watching (works in Docker/WSL)
-- Runs on port 5173 with `--host 0.0.0.0` for external access
-
-## Useful Commands
+## Quick start
 
 ```bash
-# View logs
-docker compose logs -f portfolio        # Production
-docker compose -f docker-compose.yml -f docker-compose.dev.yml logs -f portfolio-dev  # Dev
-
-# Stop containers
-docker compose down
-docker compose -f docker-compose.yml -f docker-compose.dev.yml down
-
-# Rebuild without cache
-docker compose build --no-cache
-
-# Shell into running container
-docker exec -it portfolio-prod sh
-docker exec -it portfolio-dev sh
-
-# Run build manually in container
-docker run --rm -v $(pwd):/app -w /app node:24-alpine npm run build
+docker compose --profile dev up --build      # http://localhost:5173 (hot reload)
 ```
 
-## Environment Variables
+## Profiles
 
-| Variable | Default | Description |
-|----------|---------|-------------|
-| `NODE_ENV` | `production` | Node environment |
-| `CHOKIDAR_USEPOLLING` | `true` (dev) | Enable file polling for HMR |
-| `WATCHPACK_POLLING` | `true` (dev) | Enable webpack polling |
+| Command | What runs | URL |
+|---|---|---|
+| `docker compose --profile dev up --build` | `web-dev`: Vite dev server with HMR; source is bind-mounted | http://localhost:5173 |
+| `docker compose --profile prod up --build -d` | `web`: nginx serving the built `dist` | http://localhost:8080 |
+| `docker compose --profile test run --rm --build e2e` | `web-dev` + Playwright smoke tests (`tests/e2e`) | results in `./test-results` |
 
-## Ports
+To stop everything: `docker compose --profile dev --profile prod --profile test down`
 
-| Service | Container Port | Host Port |
-|---------|---------------|-----------|
-| Production (nginx) | 80 | 8080 |
-| Development (Vite) | 5173 | 5173 |
+## Images (always latest official releases)
+
+| Dockerfile target | Base image | Used by |
+|---|---|---|
+| `deps` / `dev` / `build` | `node:current-alpine` (newest Node.js) | `web-dev`, production build |
+| `prod` | `nginx:mainline-alpine` (newest nginx) | `web` |
+| `e2e` | `node:current` (Debian, needed for Playwright browsers) | `e2e` |
+
+These tags float. To pick up new releases, rebuild with `--pull`:
+
+```bash
+docker compose --profile dev --profile prod --profile test build --pull
+```
+
+`package.json` sets `engines.node` to `>=24`, so newer Node versions are accepted.
+
+## Common tasks
+
+```bash
+# Logs / shell
+docker compose --profile dev logs -f web-dev
+docker compose --profile dev exec web-dev sh
+
+# Add or update an npm dependency (writes package.json + package-lock.json on the host)
+docker compose --profile dev run --rm web-dev npm install <pkg>
+docker compose --profile dev up --build -V   # -V recreates the node_modules volume
+
+# One-off production build into ./dist
+docker compose --profile dev run --rm web-dev npm run build
+```
+
+`express` is installed as a dependency for future use. No server uses it yet.
 
 ## Troubleshooting
 
-### Port already in use
-```bash
-# Change host port in docker-compose.yml
-ports:
-  - "3000:80"  # Use port 3000 instead of 8080
-```
-
-### Permission issues (Linux/macOS)
-```bash
-# Fix ownership of node_modules
-sudo chown -R $USER:$USER node_modules
-```
-
-### HMR not working in development
-- Ensure `CHOKIDAR_USEPOLLING=true` is set
-- Check that volumes are mounted correctly
-- Try: `docker compose -f docker-compose.yml -f docker-compose.dev.yml up --build --force-recreate`
-
-## Building for Production Deployment
-
-To create a standalone production image for deployment:
-
-```bash
-# Build the image
-docker build -t portfolio:latest .
-
-# Run locally to test
-docker run -d -p 8080:80 --name portfolio portfolio:latest
-
-# Push to registry
-docker tag portfolio:latest your-registry/portfolio:latest
-docker push your-registry/portfolio:latest
-```
+- **HMR doesn't pick up changes (Windows/macOS):** polling is turned on with `VITE_USE_POLLING=true` (see `vite.config.mjs`). Check that the project folder is shared with Docker Desktop.
+- **"Blocked request. This host is not allowed":** a new hostname needs to be added to `server.allowedHosts` in `vite.config.mjs`.
+- **Port already in use:** stop whatever on the host is using 5173 or 8080, or change the left side of the `ports:` mapping.

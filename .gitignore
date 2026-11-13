@@ -36,6 +36,13 @@ graphify-out/20*/
 
 
 
-# Local Ollama models
+
+# Playwright output
+/test-results/
+/playwright-report/
+
+# IDE
+/.idea/
+
+# Leftover local LLM model data (safe to delete)
 /models/
-/.ollama/

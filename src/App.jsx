@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -7,7 +7,6 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 
 import Header from './components/Header';
 import Contact from './components/Contact';
-import Chat from './components/Chat';
 import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
 import Experiences from './pages/Experiences';
@@ -43,8 +42,6 @@ function AnimatedRoutes() {
 }
 
 function App() {
-  const [chatState, setChatState] = useState({ messages: [] });
-
   return (
     <div className="App">
       <TranslationProvider>
@@ -55,7 +52,6 @@ function App() {
             <AnimatedRoutes />
           </main>
           <Contact />
-          <Chat chatState={chatState} setChatState={setChatState} />
         </Router>
       </TranslationProvider>
     </div>
