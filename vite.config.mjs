@@ -5,11 +5,12 @@ export default defineConfig({
   plugins: [react()],
   base: '/', // For deployment
   server: {
-    proxy: {
-      '/api': {
-        target: 'http://127.0.0.1:8000',
-        changeOrigin: true,
-      },
+    host: true,
+    // Allow the Playwright container to reach the dev server by service name
+    allowedHosts: ['web-dev'],
+    watch: {
+      // Bind mounts from Windows/macOS hosts don't emit fs events inside containers
+      usePolling: process.env.VITE_USE_POLLING === 'true',
     },
   },
 });

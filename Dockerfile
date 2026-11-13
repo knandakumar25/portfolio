@@ -1,37 +1,48 @@
 # =============================================================================
-# Production Dockerfile for React + Vite Portfolio
-# Multi-stage build: build stage -> nginx serve stage
+# Portfolio: one multi-stage Dockerfile (static React + Vite site)
+# Base images use floating official tags, so `docker compose build --pull`
+# always picks up the newest release:
+#   node:current-alpine   newest Node.js release
+#   nginx:mainline-alpine newest nginx release
+#
+# Targets (selected via docker-compose.yml):
+#   dev   Vite dev server with HMR
+#   prod  nginx serving the built SPA
+#   e2e   Playwright end-to-end test runner
 # =============================================================================
 
-# ---- Build Stage ----
-FROM node:24-alpine AS builder
-
-# Set working directory
+# ---- Shared dependency layer -------------------------------------------------
+FROM node:current-alpine AS deps
 WORKDIR /app
-
-# Copy package files first for better cache layering
 COPY package*.json ./
-
-# Install dependencies (including devDependencies for build)
 RUN npm ci
 
-# Copy source code
+# ---- Development (Vite + HMR) -----------------------------------------------
+FROM deps AS dev
 COPY . .
+EXPOSE 5173
+CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0", "--port", "5173"]
 
-# Build the application
+# ---- Production build --------------------------------------------------------
+FROM deps AS build
+COPY . .
 RUN npm run build
 
-# ---- Serve Stage ----
-FROM nginx:alpine AS runner
-
-# Copy custom nginx configuration
+# ---- Production serve --------------------------------------------------------
+FROM nginx:mainline-alpine AS prod
 COPY nginx.conf /etc/nginx/conf.d/default.conf
-
-# Copy built assets from builder stage
-COPY --from=builder /app/dist /usr/share/nginx/html
-
-# Expose port 80
+COPY --from=build /app/dist /usr/share/nginx/html
 EXPOSE 80
-
-# Start nginx
 CMD ["nginx", "-g", "daemon off;"]
+
+# ---- Playwright E2E ----------------------------------------------------------
+# Debian-based Node image (Playwright browsers need glibc). The browser is
+# installed by the @playwright/test version pinned in package-lock.json,
+# so the two always match.
+FROM node:current AS e2e
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci && npx playwright install --with-deps chromium
+COPY playwright.config.js ./
+COPY tests ./tests
+CMD ["npx", "playwright", "test"]
