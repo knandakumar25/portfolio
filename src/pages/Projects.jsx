@@ -266,6 +266,7 @@ const Projects = () => {
                         src={project.image}
                         alt={project.title}
                         className="project-card-image"
+                        style={{ objectFit: project.imageFit || 'cover' }}
                         onError={(e) => {
                           e.target.style.display = 'none';
                         }}
