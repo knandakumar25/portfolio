@@ -171,27 +171,18 @@ const GameDetails = () => {
                 ))}
                 
                 {/* External Links (open in new tab) */}
-                {game.links && game.links.filter(link => link.type === 'external').map((link, index) => {
-                  const url = getPublicUrl(link.url);
-                  console.log('Raw link URL:', link.url);
-                  console.log('Processed URL:', url);
-                  return (
-                    <button
-                      key={index}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        console.log('Navigating to:', url);
-                        // Force full page navigation to the external URL
-                        window.location.href = url;
-                      }}
-                      className={`btn ${getButtonClass(link.type)} me-2 mb-2`}
-                    >
-                      <i className={`${getButtonIcon(link.icon)} me-1`}></i>
-                      {link.title}
-                    </button>
-                  );
-                })}
+                {game.links && game.links.filter(link => link.type === 'external').map((link, index) => (
+                  <a
+                    key={index}
+                    href={getPublicUrl(link.url)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`btn ${getButtonClass(link.type)} me-2 mb-2`}
+                  >
+                    <i className={`${getButtonIcon(link.icon)} me-1`} aria-hidden="true"></i>
+                    {link.title}
+                  </a>
+                ))}
               </div>
             </div>
           </div>

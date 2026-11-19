@@ -180,5 +180,26 @@
       }
     ],
     "featured": true
+  },
+  {
+    "id": 8,
+    "title": "Axiom Force",
+    "category": "Personal Projects",
+    "duration": "March 2025 – Present",
+    "image": "/photos/axiom_force_title_2d.png",
+    "imageFit": "contain",
+    "shortDescription": "Ongoing 2D action game built with Godot and C#, featuring a twelve-mission campaign and a companion player website.",
+    "description": "Axiom Force is an ongoing personal 2D action game built with Godot and C#, featuring a twelve-mission campaign. The project includes a React.js player website and a Node.js/PostgreSQL accounts backend, with Docker supporting development and testing. Its AI-assisted development workflow supports implementation, iteration, and game testing while development continues.",
+    "skills": ["Godot", "C#", "Game Development", "React.js", "Node.js", "PostgreSQL", "Docker", "Game Testing"],
+    "contributors": [],
+    "links": [
+      {
+        "title": "Source Code",
+        "url": "https://github.com/knandakumar25/frog_jumper",
+        "type": "external",
+        "icon": "bi-github"
+      }
+    ],
+    "featured": true
   }
 ]

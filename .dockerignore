@@ -1,12 +1,19 @@
 # Dependencies
 node_modules
 
-# Build output
+# Build / test output
 dist
+coverage
+test-results
+playwright-report
 
-# IDE
+
+# IDE / tooling
 .vscode
 .idea
+.agents
+.claude
+graphify-out
 *.swp
 *.swo
 
@@ -19,9 +26,7 @@ Thumbs.db
 npm-debug.log*
 
 # Environment
-.env
-.env.local
-.env.*.local
+.env*
 
 # Git
 .git
@@ -32,9 +37,9 @@ Dockerfile*
 docker-compose*
 .dockerignore
 
-# Test coverage
-coverage
-
 # Misc
 *.tgz
 .cache
+
+# Leftover local LLM model data (safe to delete)
+models
