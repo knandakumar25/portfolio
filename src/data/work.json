@@ -5,7 +5,14 @@
     "position": "Software Development & Implementation Intern",
     "type": "Internship",
     "duration": "October 2026 - Present",
-    "responsibilities": [],
+    "responsibilities": [
+      "Triage bugs that users report in Leo, the company’s AI coding agent: reproduce each one in the development environment, document the steps, fix it with Claude Code, then test the fix and confirm nothing else broke.",
+      "Support Leo’s Python backend, a FastAPI service connected to large language model APIs: test endpoints, review how data moves through the service, and improve how the agent handles user requests.",
+      "Build and test small features in the Ruby on Rails web apps Leo creates for clients, check fixes in different browsers, help deploy updates, and document each technical change.",
+      "Review clients’ Excel spreadsheets, turn their logic and data into application requirements, and help build the database and screens for the web app version.",
+      "Wrote 40+ technical specifications for new features and fixes, drafted with Claude and Gemini, covering security and privacy (such as stopping users from seeing each other’s chat history), features large organizations require (user roles, activity logs, single sign-on, accessibility), and AI features (background agents, reading uploaded files, backup AI models).",
+      "Planned protections against lost work, including automatic saves and restorable versions of an app, and an upgrade to Rails 8.1 with a way to roll back if it fails."
+    ],
     "skills": []
   },
   {
