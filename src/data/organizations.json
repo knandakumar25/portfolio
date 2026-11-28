@@ -22,6 +22,7 @@
   {
     "id": 3,
     "name": "National Honor Society",
+    "logo": "/logos/national-honor-society.png",
     "school": "Neshaminy High School",
     "duration": "March 2020 - June 2022",
     "role": "Member",
@@ -33,6 +34,7 @@
   {
     "id": 4,
     "name": "Future Business Leaders of America",
+    "logo": "/logos/fbla.png",
     "school": "Neshaminy High School",
     "duration": "August 2018 - June 2019",
     "role": "Member",

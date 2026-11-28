@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import liquidGlass from '../assets/js/liquid-glass';
+import ExperienceLogo from './ExperienceLogo';
 
 const EducationCard = ({ education }) => {
   const glassRef = useRef(null);
@@ -15,9 +16,7 @@ const EducationCard = ({ education }) => {
   return (
     <div ref={glassRef} className="education-card glass">
       <div className="education-header">
-        <div className="education-icon">
-          <i className="bi bi-mortarboard-fill"></i>
-        </div>
+        <ExperienceLogo logo={education.logo} icon="bi-mortarboard-fill" className="education-icon" />
         <div className="education-meta">
           <h3 className="education-institution">{education.institution}</h3>
           <h4 className="education-degree">{education.degree}</h4>

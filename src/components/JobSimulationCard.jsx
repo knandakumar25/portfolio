@@ -1,13 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import ExperienceLogo from './ExperienceLogo';
 
 const JobSimulationCard = ({ simulations }) => {
   return (
     <div className="work-card">
       <div className="work-header">
-        <div className="work-icon">
-          <i className="bi bi-building"></i>
-        </div>
+        <ExperienceLogo logo={simulations.logo} icon="bi-building" className="work-icon" />
         <div className="work-meta">
           <h3 className="work-company">{simulations.company}</h3>
           <h4 className="work-position">{simulations.position}</h4>

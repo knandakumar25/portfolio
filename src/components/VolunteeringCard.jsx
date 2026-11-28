@@ -1,13 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import ExperienceLogo from './ExperienceLogo';
 
 const VolunteeringCard = ({ volunteering }) => {
   return (
     <div className="volunteering-card">
       <div className="volunteering-header">
-        <div className="volunteering-icon">
-          <i className="bi bi-heart-fill"></i>
-        </div>
+        <ExperienceLogo logo={volunteering.logo} icon="bi-heart-fill" className="volunteering-icon" />
         <div className="volunteering-meta">
           <h3 className="volunteering-organization" style={{textAlign: 'center'}}>{volunteering.organization}</h3>
           <h4 className="volunteering-position" style={{textAlign: 'center'}}>{volunteering.position}</h4>

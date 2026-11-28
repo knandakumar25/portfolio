@@ -2,6 +2,7 @@
   {
     "id": 1,
     "institution": "Ira A. Fulton Schools of Engineering at Arizona State University",
+    "logo": "/logos/asu.png",
     "degree": "Master of Science in Computer Science (Pursuing)",
     "duration": "January 2026 - ",
     "gpa": "4.00",
@@ -11,6 +12,7 @@
   {
     "id": 2,
     "institution": "North Carolina State University",
+    "logo": "/logos/nc-state.png",
     "degree": "Bachelor of Science in Computer Science (Summa Cum Laude)",
     "duration": "June 2022 - December 2025",
     "gpa": "3.769",
@@ -20,6 +22,7 @@
   {
     "id": 3,
     "institution": "Neshaminy High School",
+    "logo": "/logos/neshaminy.png",
     "degree": "High School Diploma",
     "duration": "August 2018 - June 2022",
     "gpa": "4.4615",

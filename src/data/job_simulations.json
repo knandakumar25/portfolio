@@ -2,6 +2,7 @@
   {
     "id": 20,
     "company": "Citi",
+    "logo": "/logos/citi.png",
     "position": "ICG Technology Software Development",
     "duration": "July 2026",
     "responsibilities": [
@@ -27,6 +28,7 @@
   {
     "id": 19,
     "company": "Wells Fargo",
+    "logo": "/logos/wells-fargo.png",
     "position": "Software Engineering",
     "duration": "June 2026",
     "responsibilities": [
@@ -47,6 +49,7 @@
   {
     "id": 18,
     "company": "Tata Consultancy Services",
+    "logo": "/logos/tcs.png",
     "position": "Cybersecurity Security Analyst",
     "duration": "June 2026",
     "responsibilities": [
@@ -71,6 +74,7 @@
   {
     "id": 17,
     "company": "Hewlett Packard Enterprise",
+    "logo": "/logos/hpe.png",
     "position": "Software Engineering",
     "duration": "May 2026",
     "responsibilities": [
@@ -92,6 +96,7 @@
   {
     "id": 16,
     "company": "Skyscanner",
+    "logo": "/logos/skyscanner.png",
     "position": "Software Engineering",
     "duration": "May 2026",
     "responsibilities": [
@@ -116,6 +121,7 @@
   {
     "id": 15,
     "company": "Quantium",
+    "logo": "/logos/quantium.png",
     "position": "Software Engineering",
     "duration": "May 2026",
     "responsibilities": [
@@ -137,6 +143,7 @@
   {
     "id": 14,
     "company": "Datacom",
+    "logo": "/logos/datacom.png",
     "position": "Software Development",
     "duration": "May 2026",
     "responsibilities": [
@@ -155,6 +162,7 @@
   {
     "id": 13,
     "company": "Lloyds Banking Group",
+    "logo": "/logos/lloyds-banking-group.png",
     "position": "Data Science",
     "duration": "May 2026",
     "responsibilities": [
@@ -177,6 +185,7 @@
   {
     "id": 12,
     "company": "EY",
+    "logo": "/logos/ey.png",
     "position": "Technology Risk",
     "duration": "May 2026",
     "responsibilities": [
@@ -204,6 +213,7 @@
   {
     "id": 11,
     "company": "Deloitte Australia",
+    "logo": "/logos/deloitte.png",
     "position": "Technology",
     "duration": "May 2026",
     "responsibilities": [
@@ -228,6 +238,7 @@
   {
     "id": 10,
     "company": "Commonwealth Bank",
+    "logo": "/logos/commbank.png",
     "position": "Software Engineering",
     "duration": "May 2026",
     "responsibilities": [
@@ -256,6 +267,7 @@
   {
     "id": 9,
     "company": "Blackbird Australia",
+    "logo": "/logos/blackbird.png",
     "position": "Software Engineering",
     "duration": "May 2026",
     "responsibilities": [
@@ -285,6 +297,7 @@
   {
     "id": 8,
     "company": "British Airways",
+    "logo": "/logos/british-airways.png",
     "position": "Data Science",
     "duration": "May 2026",
     "responsibilities": [
@@ -302,6 +315,7 @@
   {
     "id": 7,
     "company": "Tata Group",
+    "logo": "/logos/tata-group.png",
     "position": "Data Analytics",
     "duration": "May 2026",
     "responsibilities": [
@@ -322,6 +336,7 @@
   {
     "id": 6,
     "company": "Electronic Arts",
+    "logo": "/logos/ea.png",
     "position": "Software Engineering",
     "duration": "May 2026",
     "responsibilities": [
@@ -343,6 +358,7 @@
   {
     "id": 4,
     "company": "JPMorgan Chase",
+    "logo": "/logos/jpmorgan-chase.png",
     "position": "Software Engineering",
     "duration": "May 2026",
     "responsibilities": [
@@ -365,7 +381,8 @@
   },
   {
     "id": 5,
-    "company": "Walmart USA",
+    "company": "Walmart Global Tech",
+    "logo": "/logos/walmart-global-tech.png",
     "position": "Advanced Software Engineering",
     "duration": "May 2026",
     "responsibilities": [

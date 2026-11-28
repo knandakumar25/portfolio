@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import WorkCard from '../components/WorkCard';
 import JobSimulationCard from '../components/JobSimulationCard';
 import EducationCard from '../components/EducationCard';
+import ExperienceLogo from '../components/ExperienceLogo';
 import VolunteeringCard from '../components/VolunteeringCard';
 import OrganizationCard from '../components/OrganizationCard';
 
@@ -234,7 +235,7 @@ const Experiences = () => {
                 style={centerTextOnly}
               >
                 <div className="tab-icon" style={centerAlignStyle}>
-                  <i className={`bi ${tab.icon}`}></i>
+                  <i className={`bi ${tab.icon}`} aria-hidden="true"></i>
                 </div>
                 <span className="tab-label" style={centerTextOnly}>{tab.label}</span>
               </button>
@@ -341,9 +342,7 @@ const Experiences = () => {
                         <div className="timeline-card-col md:order-1">
                           <div className="timeline-card glass-card">
                             <div className="timeline-card-header">
-                              <div className="timeline-card-icon-wrap">
-                                <i className={`bi ${activeTabData.icon}`}></i>
-                              </div>
+                              <ExperienceLogo logo={item.logo} icon={activeTabData.icon} className="timeline-card-icon-wrap" />
                               <h3 className="timeline-org-name">{orgName}</h3>
                             </div>
                             {/* Bullets preview */}
@@ -372,7 +371,7 @@ const Experiences = () => {
                               className="timeline-details-btn"
                               onClick={() => setSelectedItem({ item, tab: activeTabData })}
                             >
-                              View Details <i className="bi bi-arrow-right"></i>
+                              View Details <i className="bi bi-arrow-right" aria-hidden="true"></i>
                             </button>
                           </div>
                         </div>
@@ -384,9 +383,7 @@ const Experiences = () => {
                         <div className="timeline-card-col md:order-2">
                           <div className="timeline-card glass-card">
                             <div className="timeline-card-header">
-                              <div className="timeline-card-icon-wrap">
-                                <i className={`bi ${activeTabData.icon}`}></i>
-                              </div>
+                              <ExperienceLogo logo={item.logo} icon={activeTabData.icon} className="timeline-card-icon-wrap" />
                               <h3 className="timeline-org-name">{orgName}</h3>
                             </div>
                             {/* Bullets preview */}
@@ -415,7 +412,7 @@ const Experiences = () => {
                               className="timeline-details-btn"
                               onClick={() => setSelectedItem({ item, tab: activeTabData })}
                             >
-                              View Details <i className="bi bi-arrow-right"></i>
+                              View Details <i className="bi bi-arrow-right" aria-hidden="true"></i>
                             </button>
                           </div>
                         </div>
@@ -455,7 +452,7 @@ const Experiences = () => {
               transition={{ duration: 0.28, ease: 'easeOut' }}
               onClick={e => e.stopPropagation()}
             >
-              <button className="exp-modal-close" onClick={() => setSelectedItem(null)}>
+              <button className="exp-modal-close" aria-label="Close details" onClick={() => setSelectedItem(null)}>
                 <i className="bi bi-x-lg"></i>
               </button>
               <selectedItem.tab.Component {...{ [selectedItem.tab.id]: selectedItem.item }} />

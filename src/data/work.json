@@ -2,6 +2,7 @@
   {
     "id": 4,
     "company": "LlamaPress AI",
+    "logo": "/logos/llamapress.png",
     "position": "Software Development & Implementation Intern",
     "type": "Internship",
     "duration": "October 2026 - Present",
@@ -18,6 +19,7 @@
   {
     "id": 1,
     "company": "SunTec Business Solutions",
+    "logo": "/logos/suntec.png",
     "position": "Project Intern",
     "type": "Internship",
     "duration": "May 2025 - August 2025",
@@ -36,6 +38,7 @@
   {
     "id": 2,
     "company": "Bucks County Board of Elections",
+    "logo": "/logos/bucks-county-board-of-elections.png",
     "position": "Assistant Clerk",
     "type": "Part-Time",
     "duration": "October 2021 - June 2022",
@@ -47,6 +50,7 @@
   {
     "id": 3,
     "company": "Kumon Education Center",
+    "logo": "/logos/kumon.png",
     "position": "Learning Center Assistant",
     "type": "Part-time",
     "duration": "June 2021 - April 2022",

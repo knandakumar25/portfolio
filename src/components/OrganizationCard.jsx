@@ -1,13 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import ExperienceLogo from './ExperienceLogo';
 
 const OrganizationCard = ({ organizations }) => {
   return (
     <div className="organization-card">
       <div className="organization-header">
-        <div className="organization-icon">
-          <i className="bi bi-diagram-3-fill"></i>
-        </div>
+        <ExperienceLogo logo={organizations.logo} icon="bi-diagram-3-fill" className="organization-icon" />
         <div className="organization-meta">
           <h3 className="organization-name" style={{textAlign: 'center'}}>{organizations.name}</h3>
           <h4 className="organization-school" style={{textAlign: 'center'}}>{organizations.school}</h4>
