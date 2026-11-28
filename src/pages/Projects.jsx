@@ -264,7 +264,7 @@ const Projects = () => {
                     {project.image ? (
                       <img
                         src={project.image}
-                        alt={project.title}
+                        alt={project.imageAlt || project.title}
                         className="project-card-image"
                         style={{ objectFit: project.imageFit || 'cover' }}
                         onError={(e) => {
@@ -281,7 +281,7 @@ const Projects = () => {
                     )}
                     <div className="project-image-overlay">
                       <span className="project-overlay-text">
-                        {project.type === 'Game' ? 'LAUNCH EXPERIENCE' : 'VIEW CASE STUDY'}
+                        {project.detailsLabel?.toUpperCase() || (project.type === 'Game' ? 'LAUNCH EXPERIENCE' : 'VIEW CASE STUDY')}
                       </span>
                     </div>
                   </div>
@@ -304,7 +304,7 @@ const Projects = () => {
 
                     {/* Title */}
                     <h3 className="project-card-title">
-                      {project.title}
+                      <span>{project.title}</span>
                       {project.category && (
                         <span className="project-cat-badge">{project.category}</span>
                       )}
@@ -321,8 +321,8 @@ const Projects = () => {
                         className="project-btn-details"
                         onClick={() => handleDetails(project)}
                       >
-                        {project.type === 'Game' ? 'Launch Game' : 'View Details'}{' '}
-                        <i className="bi bi-arrow-right"></i>
+                        {project.detailsLabel || (project.type === 'Game' ? 'Launch Game' : 'View Details')}{' '}
+                        <i className="bi bi-arrow-right" aria-hidden="true"></i>
                       </button>
                       <i className={`bi ${project.type === 'Game' ? 'bi-joystick' : 'bi-code-slash'} project-type-indicator-icon`}></i>
                     </div>

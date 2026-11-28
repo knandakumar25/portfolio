@@ -201,5 +201,28 @@
       }
     ],
     "featured": true
+  },
+  {
+    "id": 9,
+    "title": "Axiom Force: Drift Circuit",
+    "category": "Personal Projects",
+    "duration": "November 2026 – Present",
+    "image": "/photos/axiom-force-drift-circuit.png",
+    "imageAlt": "A teal race car rounding an elevated curve at Skyport Terminal",
+    "imageFit": "contain",
+    "detailsLabel": "View Details",
+    "shortDescription": "A 3D arcade kart racer set in Los Angeles in 2157, with drift boosts, shortcuts, and power-ups across eight circuits.",
+    "description": "Axiom Force: Drift Circuit is a 3D arcade kart racer built with Unity and C# and set in Los Angeles in 2157. Chain drift boosts, take shortcuts, and use power-ups across eight circuits. Race against ghosts in time trials, compete in local split-screen, or join an online room.",
+    "skills": ["Unity", "C#", "Game Development", "Node.js", "PostgreSQL", "WebSockets"],
+    "contributors": [],
+    "links": [
+      {
+        "title": "Source Code",
+        "url": "https://github.com/knandakumar25/axiom_force_racing",
+        "type": "external",
+        "icon": "bi-github"
+      }
+    ],
+    "featured": true
   }
 ]

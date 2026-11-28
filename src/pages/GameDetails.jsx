@@ -117,7 +117,7 @@ const GameDetails = () => {
               <div className="me-md-4 mb-3 mb-md-0">
                 <img
                   src={getPublicUrl(game.image)}
-                  alt={`${game.title} Title Card`}
+                  alt={game.imageAlt || `${game.title} Title Card`}
                   className="img-fluid rounded shadow"
                   style={{ maxWidth: '300px', height: 'auto' }}
                   onError={(e) => {
